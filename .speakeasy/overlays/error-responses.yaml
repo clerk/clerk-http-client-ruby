@@ -1,0 +1,61 @@
+# TODO: Add to main OAS
+overlay: 1.0.0
+info:
+  title: Adds error responses to the OpenAPI specification
+  description: Update enums in the OpenAPI specification to string for Speakeasy Ruby SDK
+  version: 0.0.1
+actions:
+  - target: $["paths"]["/domains"].get.responses
+    update:
+      "400":
+        $ref: "#/components/responses/ClerkErrors"
+      "401":
+        $ref: "#/components/responses/AuthenticationInvalid"
+      "422":
+        $ref: "#/components/responses/UnprocessableEntity"
+      "500":
+        $ref: "#/components/responses/ClerkErrors"
+
+  - target: $["paths"]["/invitations"].get.responses
+    update:
+      "400":
+        $ref: "#/components/responses/ClerkErrors"
+      "401":
+        $ref: "#/components/responses/AuthenticationInvalid"
+      "422":
+        $ref: "#/components/responses/UnprocessableEntity"
+      "500":
+        $ref: "#/components/responses/ClerkErrors"
+
+  - target: $["paths"]["/jwks"].get.responses
+    update:
+      "400":
+        $ref: "#/components/responses/ClerkErrors"
+      "401":
+        $ref: "#/components/responses/AuthenticationInvalid"
+      "422":
+        $ref: "#/components/responses/UnprocessableEntity"
+      "500":
+        $ref: "#/components/responses/ClerkErrors"
+
+  - target: $["paths"]["/jwt_templates"].get.responses
+    update:
+      "400":
+        $ref: "#/components/responses/ClerkErrors"
+      "401":
+        $ref: "#/components/responses/AuthenticationInvalid"
+      "422":
+        $ref: "#/components/responses/UnprocessableEntity"
+      "500":
+        $ref: "#/components/responses/ClerkErrors"
+
+  - target: $["paths"]["/redirect_urls"].get.responses
+    update:
+      "400":
+        $ref: "#/components/responses/ClerkErrors"
+      "401":
+        $ref: "#/components/responses/AuthenticationInvalid"
+      "422":
+        $ref: "#/components/responses/UnprocessableEntity"
+      "500":
+        $ref: "#/components/responses/ClerkErrors"

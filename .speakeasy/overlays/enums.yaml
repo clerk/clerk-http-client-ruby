@@ -1,0 +1,30 @@
+overlay: 1.0.0
+info:
+  title: Update Enums
+  description: Update enums in the OpenAPI specification to string for Speakeasy Ruby SDK
+  version: 0.0.1
+actions:
+  # Must remove the current enum values else those set below will be appended
+  - target: $.paths['/domains'].post.requestBody.content['application/json'].schema.properties['is_satellite'].enum
+    remove: true
+
+  - target: $.components.responses['Invitation.Revoked'].content['application/json'].schema.allOf[*].properties['revoked'].enum
+    remove: true
+
+  - target: $.paths['/domains'].post.requestBody.content['application/json'].schema.properties['is_satellite']
+    update:
+      x-speakeasy-enum-format: enum
+      type: string
+      enum:
+        - "true"
+      x-speakeasy-enums:
+        - true
+
+  - target: $.components.responses['Invitation.Revoked'].content['application/json'].schema.allOf[*].properties['revoked']
+    update:
+      x-speakeasy-enum-format: enum
+      type: string
+      enum:
+        - "true"
+      x-speakeasy-enums:
+        - true

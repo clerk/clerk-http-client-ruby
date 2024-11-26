@@ -1,0 +1,44 @@
+overlay: 1.0.0
+info:
+  title: Ignore/remove deprecated paths
+  version: 0.0.1
+actions:
+  - target: $.paths["/beta_features/domain"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/clients"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/organizations/{organization_id}/invitations/pending"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/sessions/{session_id}/verify"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/templates/{template_type}/{slug}/toggle_delivery"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/templates/{template_type}/{slug}"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/templates/{template_type}"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/templates/{template_type}/{slug}"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/templates/{template_type}/{slug}/preview"]
+    update:
+      x-speakeasy-ignore: true
+
+  - target: $.paths["/templates/{template_type}/{slug}/revert"]
+    update:
+      x-speakeasy-ignore: true

@@ -38,9 +38,9 @@ module ClerkSDKBackend
       @security = security
       @language = 'ruby'
       @openapi_doc_version = 'v1'
-      @sdk_version = '0.1.12'
-      @gen_version = '2.462.1'
-      @user_agent = 'speakeasy-sdk/ruby 0.1.12 2.462.1 v1 clerk-sdk-backend'
+      @sdk_version = '0.1.13'
+      @gen_version = '2.463.1'
+      @user_agent = 'speakeasy-sdk/ruby 0.1.13 2.463.1 v1 clerk_sdk_backend'
     end
 
     sig { returns([String, T::Hash[Symbol, String]]) }

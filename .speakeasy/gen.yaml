@@ -13,8 +13,8 @@ generation:
     oAuth2ClientCredentialsEnabled: true
     oAuth2PasswordEnabled: true
 ruby:
-  version: 0.1.12
-  author: Speakeasy
+  version: 0.1.13
+  author: Cler
   description: Clerk Backend Ruby Client SDK
   imports:
     option: openapi
@@ -28,4 +28,4 @@ ruby:
   maxMethodParams: 4
   module: ClerkSdkBackend
   outputModelSuffix: output
-  packageName: clerk-sdk-backend
+  packageName: clerk_sdk_backend

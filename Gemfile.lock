@@ -1,12 +1,12 @@
 PATH
   remote: .
   specs:
-    clerk-sdk-backend (0.1.12)
+    clerk_sdk_backend (0.1.13)
       faraday
       faraday-multipart
       rack
       rake
-      sorbet
+      sorbet-runtime
 
 GEM
   remote: https://rubygems.org/
@@ -94,10 +94,10 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  clerk-sdk-backend!
+  clerk_sdk_backend!
   minitest
   rubocop (~> 1.60.2)
-  sorbet-runtime
+  sorbet
   tapioca
 
 BUNDLED WITH

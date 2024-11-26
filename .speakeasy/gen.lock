@@ -3,13 +3,13 @@ id: 746eb616-3b5a-4bdf-ac84-8086cc6e1636
 management:
   docChecksum: 1a7b7fbb3d547a285cc1ac134fcc733c
   docVersion: v1
-  speakeasyVersion: 1.446.1
-  generationVersion: 2.462.1
-  releaseVersion: 0.1.12
-  configChecksum: d6b45333b2c18aece49ace0fdb5471cd
+  speakeasyVersion: 1.447.2
+  generationVersion: 2.463.1
+  releaseVersion: 0.1.13
+  configChecksum: 43116b3968e48376355b8b4402529ac7
 features:
   ruby:
-    core: 3.3.2
+    core: 3.3.3
     deprecations: 2.81.1
     enums: 2.81.1
     flattening: 2.81.1
@@ -25,7 +25,7 @@ generatedFiles:
   - Gemfile.lock
   - Rakefile
   - USAGE.md
-  - clerk-sdk-backend.gemspec
+  - clerk_sdk_backend.gemspec
   - docs/models/operations/actor.md
   - docs/models/operations/adddomainrequestbody.md
   - docs/models/operations/adddomainresponse.md
@@ -468,7 +468,7 @@ generatedFiles:
   - docs/sdks/testingtokens/README.md
   - docs/sdks/users/README.md
   - docs/sdks/webhooks/README.md
-  - lib/clerk-sdk-backend.rb
+  - lib/clerk_sdk_backend.rb
   - lib/clerk_sdk_backend/actortokens.rb
   - lib/clerk_sdk_backend/allowlistidentifiers.rb
   - lib/clerk_sdk_backend/betafeatures.rb

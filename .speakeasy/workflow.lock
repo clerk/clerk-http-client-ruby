@@ -1,8 +1,8 @@
-speakeasyVersion: 1.446.1
+speakeasyVersion: 1.447.2
 sources:
     clerk-openapi:
         sourceNamespace: clerk-openapi
-        sourceRevisionDigest: sha256:c2b60f596d78659a73cbf3193b2e243e882b17ec15325533fd0dc130e5c98bde
+        sourceRevisionDigest: sha256:18df48aea63b9c71ec635e5582d0ca004b334f8ab4ba78fde428218e3eb198c3
         sourceBlobDigest: sha256:33218fc6433551a174cb65e43c331b5f4287f3afd2dce5baa2e89d4df499638c
         tags:
             - latest
@@ -11,10 +11,10 @@ targets:
     clerk-ruby:
         source: clerk-openapi
         sourceNamespace: clerk-openapi
-        sourceRevisionDigest: sha256:c2b60f596d78659a73cbf3193b2e243e882b17ec15325533fd0dc130e5c98bde
+        sourceRevisionDigest: sha256:18df48aea63b9c71ec635e5582d0ca004b334f8ab4ba78fde428218e3eb198c3
         sourceBlobDigest: sha256:33218fc6433551a174cb65e43c331b5f4287f3afd2dce5baa2e89d4df499638c
         codeSamplesNamespace: clerk-ruby-code-samples
-        codeSamplesRevisionDigest: sha256:9cc8ab0f274437bc731e9ee67a843ccf9a35d74c1143090352cb136417b715ea
+        codeSamplesRevisionDigest: sha256:f2c0c50f5f42063dfee17072628c95d428e3440c9526021d5f3c6d8a9d4d8af0
     clerk-sdk:
         source: Clerk::SDK-OAS
         codeSamplesNamespace: clerk-code-samples

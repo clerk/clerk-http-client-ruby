@@ -5,7 +5,7 @@
   "skipFormModel": true,
   "apiTests": false,
   "modelTests": false,
-  "templateDir": "resources/templates",
+  "templateDir": "out/resources/templates",
   "generateAliasAsModel": true,
   "verbose": false,
   "additionalProperties": {

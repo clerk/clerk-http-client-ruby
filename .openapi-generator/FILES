@@ -311,6 +311,4 @@ lib/clerk-backend/models/web3_wallet_verification.rb
 lib/clerk-backend/models/well_known_jwks.rb
 lib/clerk-backend/models/well_known_jwks_keys_inner.rb
 lib/clerk-backend/version.rb
-spec/models/well_known_jwks_keys_inner_spec.rb
-spec/models/well_known_jwks_spec.rb
 spec/spec_helper.rb

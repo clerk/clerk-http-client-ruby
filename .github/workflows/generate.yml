@@ -22,10 +22,10 @@ jobs:
         with:
           generator: ruby
           command-args: -o out --api-name-suffix=' '
-          config-file: sdk-generator-config.json
-          openapi-file: resources/oas/bapi-2024-10-01.yml
+          config-file: out/sdk-generator-config.json
+          openapi-file: out/resources/oas/bapi-2024-10-01.yml
           # openapi-url: https://raw.githubusercontent.com/clerk/openapi-specs/refs/heads/main/bapi/2024-10-01.yml
-          template-dir: resources/templates
+          template-dir: out/resources/templates
 
       - name: Move generated files to root
         run: |

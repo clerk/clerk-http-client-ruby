@@ -9,21 +9,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Move root to ./out
+        run: |
+          rm -rf ./out
+          mkdir ./out
+          shopt -s extglob
+          shopt -s dotglob
+          mv !(out) ./out
+
       - name: Generate new client
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: ruby
-          command-args: --api-name-suffix=' '
+          command-args: -o out --api-name-suffix=' '
           config-file: sdk-generator-config.json
           openapi-file: resources/oas/bapi-2024-10-01.yml
           # openapi-url: https://raw.githubusercontent.com/clerk/openapi-specs/refs/heads/main/bapi/2024-10-01.yml
           template-dir: resources/templates
 
-      - name: List files
-        run: ls -la .
+      - name: Move generated files to root
+        run: |
+          shopt -s extglob
+          shopt -s dotglob
+          mv -fv ./out/* .
+          rm -rv ./out
+          ls -la .
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
+        # Skips local testing with `act`
+        if: ${{ github.actor != 'nektos/act' }}
         with:
           title: "Generate Ruby Backend SDK"
           body: "[Auto-generated]"

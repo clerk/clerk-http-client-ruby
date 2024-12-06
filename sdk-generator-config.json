@@ -1,0 +1,21 @@
+{
+  "input": "https://raw.githubusercontent.com/clerk/openapi-specs/refs/heads/main/bapi/2024-10-01.yml",
+  "remove-operation-id-prefix": true,
+  "model-package": "ClerkBackend",
+  "skipFormModel": true,
+  "apiTests": false,
+  "modelTests": false,
+  "templateDir": "resources/templates",
+  "generateAliasAsModel": true,
+  "verbose": false,
+  "additionalProperties": {
+    "debugOperations": true,
+    "library": "faraday",
+    "gemHomepage": "https://clerk.com/docs/references/ruby/overview",
+    "gemName": "clerk-backend",
+    "moduleName": "ClerkBackend"
+  }
+}
+
+
+

@@ -1,9 +1,0 @@
-# CreateOrganizationInvitationBulkRequest
-
-
-## Fields
-
-| Field                                                                                          | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `organization_id`                                                                              | *::String*                                                                                     | :heavy_check_mark:                                                                             | The organization ID.                                                                           |
-| `request_body`                                                                                 | T::Array<[::ClerkSDKBackend::Operations::RequestBody](../../models/operations/requestbody.md)> | :heavy_check_mark:                                                                             | N/A                                                                                            |

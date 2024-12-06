@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -eo pipefail
+IFS=$'\n\t'
+INSTALL=false
+
+export JAVA_OPTS="${JAVA_OPTS} -Dlog.level=warn"
+
+openapi-generator-cli generate -g ruby -o gems/clerk-backend --api-name-suffix=' ' -c sdk-generator-config.json -i resources/oas/bapi-2024-10-01.yml

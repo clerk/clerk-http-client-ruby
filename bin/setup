@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -euo pipefail
+IFS=$'\n\t'
+
+bundle install
+npm install @openapitools/openapi-generator-cli -g
+openapi-generator-cli version

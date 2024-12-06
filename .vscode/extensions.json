@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "rebornix.ruby",
+    "sanjulaganepola.github-local-actions",
+    "shopify.ruby-lsp",
+    "testdouble.vscode-standard-ruby"
+  ]
+}

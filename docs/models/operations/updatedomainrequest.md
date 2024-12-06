@@ -1,9 +1,0 @@
-# UpdateDomainRequest
-
-
-## Fields
-
-| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `domain_id`                                                                                                  | *::String*                                                                                                   | :heavy_check_mark:                                                                                           | The ID of the domain that will be updated.                                                                   |
-| `request_body`                                                                                               | [::ClerkSDKBackend::Operations::UpdateDomainRequestBody](../../models/operations/updatedomainrequestbody.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

@@ -1,0 +1,34 @@
+name: Generate Ruby Backend SDK
+on:
+  workflow_dispatch:
+jobs:
+  generate-sdk:
+    runs-on: ubuntu-latest
+    name: Generate
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate new client
+        uses: openapi-generators/openapitools-generator-action@v1
+        with:
+          generator: ruby
+          command-args: -o gems/clerk-backend --api-name-suffix=' '
+          config-file: sdk-generator-config.json
+          openapi-file: resources/oas/bapi-2024-10-01.yml
+          # openapi-url: https://raw.githubusercontent.com/clerk/openapi-specs/refs/heads/main/bapi/2024-10-01.yml
+          template-dir: resources/templates
+
+      - name: List files
+        run: ls -la .
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: "Generate Ruby Backend SDK"
+          body: "[Auto-generated]"
+          branch: "generate-ruby-backend-sdk"
+          commit-message: "Generate Ruby Backend SDK"
+          branch-suffix: "timestamp"
+          assignees: "tmilewski"
+          reviewers: "tmilewski"

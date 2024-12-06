@@ -21,7 +21,7 @@ Updates the settings of an instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -91,7 +91,7 @@ Updates the organization settings of the instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -162,7 +162,7 @@ Updates the restriction settings of an instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

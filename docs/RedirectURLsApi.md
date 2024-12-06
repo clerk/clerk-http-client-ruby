@@ -22,7 +22,7 @@ Create a redirect URL
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -93,7 +93,7 @@ Remove the selected redirect URL from the whitelist of the instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -162,7 +162,7 @@ Retrieve the details of the redirect URL with the given ID
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -231,7 +231,7 @@ Lists all whitelisted redirect_urls for the instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

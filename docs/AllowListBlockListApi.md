@@ -24,7 +24,7 @@ Create an identifier allowed to sign up to an instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -95,7 +95,7 @@ Create an identifier that is blocked from accessing an instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -166,7 +166,7 @@ Delete an identifier from the instance allow-list
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -235,7 +235,7 @@ Delete an identifier from the instance block-list
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -304,7 +304,7 @@ Get a list of all identifiers allowed to sign up to an instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -370,7 +370,7 @@ Get a list of all identifiers which are not allowed to access an instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

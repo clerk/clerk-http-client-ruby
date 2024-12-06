@@ -31,7 +31,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::CreateUserRequest.new(
   external_id: null,

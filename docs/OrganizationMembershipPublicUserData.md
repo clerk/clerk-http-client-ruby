@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::OrganizationMembershipPublicUserData.new(
   user_id: null,

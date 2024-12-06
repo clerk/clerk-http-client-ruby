@@ -14,7 +14,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::SAML.new(
   status: null,

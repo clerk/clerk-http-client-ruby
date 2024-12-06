@@ -23,7 +23,7 @@ Create a new JWT template
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -94,7 +94,7 @@ Delete a Template
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -163,7 +163,7 @@ Retrieve the details of a given JWT template
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -230,7 +230,7 @@ List all templates
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -296,7 +296,7 @@ Updates an existing JWT template
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

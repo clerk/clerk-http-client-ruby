@@ -21,7 +21,7 @@ Create a Svix app and associate it with the current instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -87,7 +87,7 @@ Delete a Svix app and disassociate it from the current instance
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -152,7 +152,7 @@ Generate a new url for accessing the Svix's management dashboard for that partic
 
 ```ruby
 require 'time'
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 # setup authorization
 ClerkBackend.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

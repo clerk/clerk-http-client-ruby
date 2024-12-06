@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::RevokeOrganizationInvitationRequest.new(
   requesting_user_id: null

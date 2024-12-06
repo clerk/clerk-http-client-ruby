@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::CreateSignInTokenRequest.new(
   user_id: null,

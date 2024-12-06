@@ -18,7 +18,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::RevokeInvitation200Response.new(
   object: null,

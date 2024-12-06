@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::CreateSessionTokenFromTemplate200Response.new(
   object: null,

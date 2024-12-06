@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::GetOAuthAccessToken200ResponseInner.new(
   object: null,

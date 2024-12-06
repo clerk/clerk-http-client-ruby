@@ -14,7 +14,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::UpdateInstanceAuthConfigRequest.new(
   restricted_to_allowlist: null,

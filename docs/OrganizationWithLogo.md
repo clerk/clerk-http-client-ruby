@@ -23,7 +23,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::OrganizationWithLogo.new(
   object: null,

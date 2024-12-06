@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'clerk-backend'
+require 'clerk-sdk-ruby-backend'
 
 instance = ClerkBackend::UpdateOrganizationMembershipMetadataRequest.new(
   public_metadata: null,

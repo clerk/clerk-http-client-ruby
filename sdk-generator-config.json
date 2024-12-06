@@ -12,7 +12,7 @@
     "debugOperations": true,
     "library": "faraday",
     "gemHomepage": "https://clerk.com/docs/references/ruby/overview",
-    "gemName": "clerk-backend",
+    "gemName": "clerk-sdk-ruby-backend",
     "moduleName": "ClerkBackend"
   }
 }

@@ -1,11 +1,14 @@
 name: Generate Ruby Backend SDK
+
 on:
+  repository_dispatch:
+    types: [generate-sdk]
+
   workflow_dispatch:
     inputs:
       actor:
         type: string
         description: "To username of the actor that triggered the workflow"
-        default: "tmilewski"
         required: false
       id:
         type: string
@@ -14,18 +17,21 @@ on:
       url:
         type: string
         description: "The URL of the pull request"
-        default: "https://github.com/clerk/openapi-specs"
         required: false
       title:
         type: string
         description: "The title of the pull request"
-        default: "Generate Ruby Backend SDK"
         required: false
       description:
         type: string
         description: "The description of the pull request"
-        default: "Generated independently of an OpenAPI spec change"
         required: false
+
+env:
+  DEFAULT_ACTOR: "tmilewski"
+  DEFAULT_TITLE: "Generate Ruby Backend SDK"
+  DEFAULT_DESCRIPTION: "Generated independently of an OpenAPI spec change"
+  DEFAULT_URL: "https://github.com/clerk/openapi-specs"
 
 jobs:
   generate-sdk:
@@ -64,12 +70,12 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7
         # Skips local testing with `act`
-        if: ${{ github.actor != 'nektos/act' }}
+        if: ${{ github.actor != 'nektos/act'  }}
         with:
-          title: ${{ inputs.title }}
-          body: "${{ inputs.description }}\n\n${{ inputs.url }}"
+          title: ${{ github.event.client_payload.title || inputs.title || env.DEFAULT_TITLE }}
+          body: "${{ github.event.client_payload.description || inputs.description || env.DEFAULT_DESCRIPTION }}\n\n${{ github.event.client_payload.url || inputs.url || env.DEFAULT_URL }}"
           branch: "generate-sdk"
           commit-message: "Generate Ruby Backend SDK"
           branch-suffix: "timestamp"
-          assignees: ${{ inputs.actor }}
-          reviewers: "tmilewski"
+          assignees: ${{ github.event.client_payload.actor || inputs.actor || github.actor || env.DEFAULT_ACTOR }}
+          reviewers: ${{ env.DEFAULT_ACTOR }}

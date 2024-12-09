@@ -1,6 +1,27 @@
 name: Generate Ruby Backend SDK
 on:
   workflow_dispatch:
+    inputs:
+      id:
+        type: string
+        description: "The ID of the pull request"
+        required: false
+      url:
+        type: string
+        description: "The URL of the pull request"
+        default: "https://github.com/clerk/openapi-specs"
+        required: false
+      title:
+        type: string
+        description: "The title of the pull request"
+        default: "Generate Ruby Backend SDK"
+        required: false
+      description:
+        type: string
+        description: "The description of the pull request"
+        default: "Generated independently of an OpenAPI spec change"
+        required: false
+
 jobs:
   generate-sdk:
     runs-on: ubuntu-latest
@@ -40,9 +61,9 @@ jobs:
         # Skips local testing with `act`
         if: ${{ github.actor != 'nektos/act' }}
         with:
-          title: "Generate Ruby Backend SDK"
-          body: "[Auto-generated]"
-          branch: "generate-ruby-backend-sdk"
+          title: ${{ inputs.title }}
+          body: "${{ inputs.description }}\n\n${{ inputs.url }}"
+          branch: "generate-sdk"
           commit-message: "Generate Ruby Backend SDK"
           branch-suffix: "timestamp"
           assignees: "tmilewski"

@@ -169,7 +169,7 @@ paths:
         - JWKS
       responses:
         "200":
-          $ref: '#/components/responses/WellKnown.JWKS'
+          $ref: "#/components/responses/WellKnown.JWKS"
   /clients:
     get:
       deprecated: true
@@ -795,7 +795,7 @@ paths:
           $ref: "#/components/responses/ResourceNotFound"
     put:
       deprecated: true
-      operationId: UpsertTemplate 
+      operationId: UpsertTemplate
       x-sdk-ruby-operationGroup: templates
       x-sdk-ruby-operationId: update
       summary: Update a template for a given type and slug
@@ -1774,7 +1774,7 @@ paths:
     patch:
       operationId: UpdateUserMetadata
       x-sdk-ruby-operationGroup: users
-      x-sdk-ruby-operationId: metadata
+      x-sdk-ruby-operationId: update_metadata
       summary: Merge and update a user's metadata
       description: |-
         Update a user's metadata attributes by merging existing values with the provided parameters.
@@ -2067,7 +2067,7 @@ paths:
     delete:
       operationId: DeleteBackupCode
       x-sdk-ruby-operationGroup: users
-      x-sdk-ruby-operationId: delete_backup_codes
+      x-sdk-ruby-operationId: delete_backup_code
       summary: Disable all user's Backup codes
       description: Disable all of a user's backup codes.
       tags:
@@ -3518,7 +3518,7 @@ paths:
     post:
       operationId: CreateOrganizationInvitation
       x-sdk-ruby-operationGroup: organization_invitations
-      x-sdk-ruby-operationId: invite
+      x-sdk-ruby-operationId: create
       summary: Create and send an organization invitation
       description: |-
         Creates a new organization invitation and sends an email to the provided `email_address` with a link to accept the invitation and join the organization.
@@ -3591,7 +3591,7 @@ paths:
     get:
       operationId: ListOrganizationInvitations
       x-sdk-ruby-operationGroup: organization_invitations
-      x-sdk-ruby-operationId: invitations
+      x-sdk-ruby-operationId: all
       summary: Get a list of organization invitations
       description: |-
         This request returns the list of organization invitations.
@@ -3706,7 +3706,7 @@ paths:
       deprecated: true
       operationId: ListPendingOrganizationInvitations
       x-sdk-ruby-operationGroup: organization_invitations
-      x-sdk-ruby-operationId: pending_invitations
+      x-sdk-ruby-operationId: pending
       summary: Get a list of pending organization invitations
       description: |-
         This request returns the list of organization invitations with "pending" status.
@@ -3818,7 +3818,7 @@ paths:
     post:
       operationId: CreateOrganizationMembership
       x-sdk-ruby-operationGroup: organization_memberships
-      x-sdk-ruby-operationId: create_membership
+      x-sdk-ruby-operationId: create
       summary: Create a new organization membership
       description: |-
         Adds a user as a member to the given organization.
@@ -3868,7 +3868,7 @@ paths:
     get:
       operationId: ListOrganizationMemberships
       x-sdk-ruby-operationGroup: organization_memberships
-      x-sdk-ruby-operationId: memberships
+      x-sdk-ruby-operationId: all_by_organization
       summary: Get a list of all members of an organization
       description: Retrieves all user memberships for the given organization
       tags:
@@ -3902,7 +3902,7 @@ paths:
     patch:
       operationId: UpdateOrganizationMembership
       x-sdk-ruby-operationGroup: organization_memberships
-      x-sdk-ruby-operationId: update_membership
+      x-sdk-ruby-operationId: update
       summary: Update an organization membership
       description: Updates the properties of an existing organization membership
       tags:
@@ -3944,7 +3944,7 @@ paths:
     delete:
       operationId: DeleteOrganizationMembership
       x-sdk-ruby-operationGroup: organization_memberships
-      x-sdk-ruby-operationId: delete_membership
+      x-sdk-ruby-operationId: delete
       summary: Remove a member from an organization
       description: Removes the given membership from the organization
       tags:
@@ -3975,7 +3975,7 @@ paths:
     patch:
       operationId: UpdateOrganizationMembershipMetadata
       x-sdk-ruby-operationGroup: organization_memberships
-      x-sdk-ruby-operationId: update_membership_metadata
+      x-sdk-ruby-operationId: update_metadata
       summary: Merge and update organization membership metadata
       description: |-
         Update an organization membership's metadata attributes by merging existing values with the provided parameters.
@@ -4027,7 +4027,7 @@ paths:
     post:
       operationId: CreateOrganizationDomain
       x-sdk-ruby-operationGroup: organization_domains
-      x-sdk-ruby-operationId: create_domain
+      x-sdk-ruby-operationId: create
       summary: Create a new organization domain.
       description: Creates a new organization domain. By default the domain is verified, but can be optionally set to unverified.
       tags:
@@ -4073,7 +4073,7 @@ paths:
     get:
       operationId: ListOrganizationDomains
       x-sdk-ruby-operationGroup: organization_domains
-      x-sdk-ruby-operationId: domains
+      x-sdk-ruby-operationId: all
       summary: Get a list of all domains of an organization.
       description: Get a list of all domains of an organization.
       tags:
@@ -4110,7 +4110,7 @@ paths:
     patch:
       operationId: UpdateOrganizationDomain
       x-sdk-ruby-operationGroup: organization_domains
-      x-sdk-ruby-operationId: update_domain
+      x-sdk-ruby-operationId: update
       summary: Update an organization domain.
       description: Updates the properties of an existing organization domain.
       tags:
@@ -4155,7 +4155,7 @@ paths:
     delete:
       operationId: DeleteOrganizationDomain
       x-sdk-ruby-operationGroup: organization_domains
-      x-sdk-ruby-operationId: delete_domain
+      x-sdk-ruby-operationId: delete
       summary: Remove a domain from an organization.
       description: Removes the given domain from the organization.
       tags:
@@ -4914,7 +4914,7 @@ components:
                 type: string
               alg:
                 type: string
-              'n':
+              "n":
                 type: string
               e:
                 type: string
@@ -6853,7 +6853,7 @@ components:
       content:
         application/json:
           schema:
-            $ref: '#/components/schemas/WellKnown.JWKS'
+            $ref: "#/components/schemas/WellKnown.JWKS"
 
     Client.List:
       description: Success

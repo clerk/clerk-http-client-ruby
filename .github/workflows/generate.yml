@@ -2,6 +2,11 @@ name: Generate Ruby Backend SDK
 on:
   workflow_dispatch:
     inputs:
+      actor:
+        type: string
+        description: "To username of the actor that triggered the workflow"
+        default: "tmilewski"
+        required: false
       id:
         type: string
         description: "The ID of the pull request"
@@ -66,5 +71,5 @@ jobs:
           branch: "generate-sdk"
           commit-message: "Generate Ruby Backend SDK"
           branch-suffix: "timestamp"
-          assignees: "tmilewski"
+          assignees: ${{ inputs.actor }}
           reviewers: "tmilewski"

@@ -13,8 +13,13 @@
     "debugOperations": true,
     "library": "faraday",
     "gemHomepage": "https://clerk.com/docs/references/ruby/overview",
+    "gemAuthor": "Clerk",
+    "gemAuthorEmail": "support@clerk.com",
     "gemName": "clerk-http-client",
+    "gemDescription": "A Ruby wrapper for the Clerk Backend API",
+    "gemSummary": "A Ruby wrapper for the Clerk Backend API",
     "gemRequiredRubyVersion": ">= 2.7",
+    "gemLicense": "MIT",
     "moduleName": "ClerkHttpClient"
   }
 }

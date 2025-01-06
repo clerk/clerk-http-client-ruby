@@ -24,7 +24,7 @@ Creates a new OAuth application with the given name and callback URL for an inst
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -93,7 +93,7 @@ Deletes the given OAuth application. This is not reversible.
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -162,7 +162,7 @@ Fetches the OAuth application whose ID matches the provided `id` in the path.
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -231,7 +231,7 @@ This request returns the list of OAuth applications for an instance. Results can
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -304,7 +304,7 @@ Rotates the OAuth application's client secret. When the client secret is rotated
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -373,7 +373,7 @@ Updates an existing OAuth application
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

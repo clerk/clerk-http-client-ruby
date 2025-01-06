@@ -21,7 +21,7 @@ Creates a new invitation for the given email address and sends the invitation em
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -90,7 +90,7 @@ Returns all non-revoked invitations for your application, sorted by creation dat
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -165,7 +165,7 @@ Revokes the given invitation. Revoking an invitation will prevent the user from 
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

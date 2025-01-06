@@ -11,7 +11,7 @@
 ## Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 instance = ClerkHttpClient::UpdateDomainRequest.new(
   name: null,

@@ -13,10 +13,10 @@ Generator version: 7.9.0
 =end
 
 $:.push File.expand_path("../lib", __FILE__)
-require "clerk-http-client-ruby/version"
+require "clerk-http-client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "clerk-http-client-ruby"
+  s.name        = "clerk-http-client"
   s.version     = ClerkHttpClient::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["OpenAPI-Generator"]

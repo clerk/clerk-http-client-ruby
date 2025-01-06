@@ -22,7 +22,7 @@ Add a new domain for your instance. Useful in the case of multi-domain instances
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -91,7 +91,7 @@ Deletes a satellite domain for the instance. It is currently not possible to del
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -160,7 +160,7 @@ Use this endpoint to get a list of all domains for an instance. The response wil
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -226,7 +226,7 @@ The `proxy_url` can be updated only for production instances. Update one of the 
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

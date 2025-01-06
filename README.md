@@ -1,4 +1,4 @@
-# clerk-http-client-ruby
+# clerk-http-client
 
 ClerkHttpClient - the Ruby gem for the Clerk Backend API
 
@@ -28,28 +28,28 @@ For more information, please visit [https://clerk.com/support](https://clerk.com
 To build the Ruby code into a gem:
 
 ```shell
-gem build clerk-http-client-ruby.gemspec
+gem build clerk-http-client.gemspec
 ```
 
 Then either install the gem locally:
 
 ```shell
-gem install ./clerk-http-client-ruby-1.0.0.gem
+gem install ./clerk-http-client-1.0.0.gem
 ```
 
-(for development, run `gem install --dev ./clerk-http-client-ruby-1.0.0.gem` to install the development dependencies)
+(for development, run `gem install --dev ./clerk-http-client-1.0.0.gem` to install the development dependencies)
 
 or publish the gem to a gem hosting service, e.g. [RubyGems](https://rubygems.org/).
 
 Finally add this to the Gemfile:
 
-    gem 'clerk-http-client-ruby', '~> 1.0.0'
+    gem 'clerk-http-client', '~> 1.0.0'
 
 ### Install from Git
 
 If the Ruby gem is hosted at a git repository: https://github.com/GIT_USER_ID/GIT_REPO_ID, then add the following in the Gemfile:
 
-    gem 'clerk-http-client-ruby', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
+    gem 'clerk-http-client', :git => 'https://github.com/GIT_USER_ID/GIT_REPO_ID.git'
 
 ### Include the Ruby code directly
 
@@ -65,7 +65,7 @@ Please follow the [installation](#installation) procedure and then run the follo
 
 ```ruby
 # Load the gem
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 # Setup authorization
 ClerkHttpClient.configure do |config|

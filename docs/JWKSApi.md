@@ -19,7 +19,7 @@ Retrieve the JSON Web Key Set of the instance
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

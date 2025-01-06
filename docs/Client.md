@@ -17,7 +17,7 @@
 ## Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 instance = ClerkHttpClient::Client.new(
   object: null,

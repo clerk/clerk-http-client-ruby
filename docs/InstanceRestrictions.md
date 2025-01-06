@@ -13,7 +13,7 @@
 ## Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 instance = ClerkHttpClient::InstanceRestrictions.new(
   object: null,

@@ -24,7 +24,7 @@ Adds a user as a member to the given organization. Only users in the same instan
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -95,7 +95,7 @@ Removes the given membership from the organization
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -166,7 +166,7 @@ Retrieves all organization user memberships for the given instance.
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -241,7 +241,7 @@ Retrieves all user memberships for the given organization
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -318,7 +318,7 @@ Updates the properties of an existing organization membership
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
@@ -391,7 +391,7 @@ Update an organization membership's metadata attributes by merging existing valu
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 # setup authorization
 ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth

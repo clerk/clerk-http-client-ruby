@@ -19,7 +19,7 @@ The Clerk interstitial endpoint serves an html page that loads clerk.js in order
 
 ```ruby
 require 'time'
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 api_instance = ClerkHttpClient::MiscellaneousApi.new
 opts = {

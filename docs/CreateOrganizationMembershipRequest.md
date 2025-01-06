@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 instance = ClerkHttpClient::CreateOrganizationMembershipRequest.new(
   user_id: null,

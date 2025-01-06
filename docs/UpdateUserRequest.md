@@ -33,7 +33,7 @@
 ## Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 instance = ClerkHttpClient::UpdateUserRequest.new(
   external_id: null,

@@ -15,7 +15,7 @@
 ## Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 instance = ClerkHttpClient::UpsertTemplateRequest.new(
   name: null,

@@ -12,7 +12,7 @@
     "debugOperations": true,
     "library": "faraday",
     "gemHomepage": "https://clerk.com/docs/references/ruby/overview",
-    "gemName": "clerk-http-client-ruby",
+    "gemName": "clerk-http-client",
     "moduleName": "ClerkHttpClient"
   }
 }

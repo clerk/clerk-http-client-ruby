@@ -10,7 +10,7 @@
 ## Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 instance = ClerkHttpClient::CreateSessionTokenFromTemplate200Response.new(
   object: null,

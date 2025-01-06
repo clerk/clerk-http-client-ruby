@@ -9,7 +9,7 @@ Returns the list of classes defined in oneOf.
 #### Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 ClerkHttpClient::SchemasPasskeyVerification.openapi_one_of
 # =>
@@ -25,7 +25,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 #### Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 ClerkHttpClient::SchemasPasskeyVerification.build(data)
 # => #<Passkey:0x00007fdd4aab02a0>

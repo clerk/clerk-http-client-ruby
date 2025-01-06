@@ -7,5 +7,5 @@ rvm:
 script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
-  - gem build clerk-http-client-ruby.gemspec
-  - gem install ./clerk-http-client-ruby-1.0.0.gem
+  - gem build clerk-http-client.gemspec
+  - gem install ./clerk-http-client-1.0.0.gem

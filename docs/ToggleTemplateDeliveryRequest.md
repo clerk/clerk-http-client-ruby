@@ -9,7 +9,7 @@
 ## Example
 
 ```ruby
-require 'clerk-http-client-ruby'
+require 'clerk-http-client'
 
 instance = ClerkHttpClient::ToggleTemplateDeliveryRequest.new(
   delivered_by_clerk: null

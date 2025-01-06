@@ -1,4 +1,4 @@
-# ClerkBackend::ActorTokensApi
+# ClerkHttpClient::ActorTokensApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -10,7 +10,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_actor_token
 
-> <ActorToken> create_actor_token(opts)
+> <ActorToken> create_actor_token(create_actor_token_request)
 
 Create actor token
 
@@ -20,23 +20,21 @@ Create an actor token that can be used to impersonate the given user. The `actor
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::ActorTokensApi.new
-opts = {
-  create_actor_token_request: ClerkBackend::CreateActorTokenRequest.new({user_id: 'user_id_example', actor: {"sub":"user_2OEpKhcCN1Lat9NQ0G6puh7q5Rb"}}) # CreateActorTokenRequest | 
-}
+api_instance = ClerkHttpClient::ActorTokensApi.new
+create_actor_token_request = ClerkHttpClient::CreateActorTokenRequest.new({user_id: 'user_id_example', actor: {"sub":"user_2OEpKhcCN1Lat9NQ0G6puh7q5Rb"}}) # CreateActorTokenRequest | 
 
 begin
   # Create actor token
-  result = api_instance.create_actor_token(opts)
+  result = api_instance.create_actor_token(create_actor_token_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ActorTokensApi->create_actor_token: #{e}"
 end
 ```
@@ -45,16 +43,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ActorToken>, Integer, Hash)> create_actor_token_with_http_info(opts)
+> <Array(<ActorToken>, Integer, Hash)> create_actor_token_with_http_info(create_actor_token_request)
 
 ```ruby
 begin
   # Create actor token
-  data, status_code, headers = api_instance.create_actor_token_with_http_info(opts)
+  data, status_code, headers = api_instance.create_actor_token_with_http_info(create_actor_token_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ActorToken>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ActorTokensApi->create_actor_token_with_http_info: #{e}"
 end
 ```
@@ -63,7 +61,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_actor_token_request** | [**CreateActorTokenRequest**](CreateActorTokenRequest.md) |  | [optional] |
+| **create_actor_token_request** | [**CreateActorTokenRequest**](CreateActorTokenRequest.md) |  |  |
 
 ### Return type
 
@@ -91,21 +89,21 @@ Revokes a pending actor token.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::ActorTokensApi.new
+api_instance = ClerkHttpClient::ActorTokensApi.new
 actor_token_id = 'actor_token_id_example' # String | The ID of the actor token to be revoked.
 
 begin
   # Revoke actor token
   result = api_instance.revoke_actor_token(actor_token_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ActorTokensApi->revoke_actor_token: #{e}"
 end
 ```
@@ -123,7 +121,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ActorToken>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ActorTokensApi->revoke_actor_token_with_http_info: #{e}"
 end
 ```

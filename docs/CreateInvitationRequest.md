@@ -1,4 +1,4 @@
-# ClerkBackend::CreateInvitationRequest
+# ClerkHttpClient::CreateInvitationRequest
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateInvitationRequest.new(
+instance = ClerkHttpClient::CreateInvitationRequest.new(
   email_address: null,
   public_metadata: null,
   redirect_url: null,

@@ -1,4 +1,4 @@
-# ClerkBackend::Web3Wallet
+# ClerkHttpClient::Web3Wallet
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::Web3Wallet.new(
+instance = ClerkHttpClient::Web3Wallet.new(
   id: null,
   object: null,
   web3_wallet: null,

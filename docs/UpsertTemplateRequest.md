@@ -1,4 +1,4 @@
-# ClerkBackend::UpsertTemplateRequest
+# ClerkHttpClient::UpsertTemplateRequest
 
 ## Properties
 
@@ -15,9 +15,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::UpsertTemplateRequest.new(
+instance = ClerkHttpClient::UpsertTemplateRequest.new(
   name: null,
   subject: null,
   markup: null,

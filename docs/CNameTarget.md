@@ -1,4 +1,4 @@
-# ClerkBackend::CNameTarget
+# ClerkHttpClient::CNameTarget
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CNameTarget.new(
+instance = ClerkHttpClient::CNameTarget.new(
   host: null,
   value: null,
   required: null

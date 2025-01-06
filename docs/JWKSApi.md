@@ -1,4 +1,4 @@
-# ClerkBackend::JWKSApi
+# ClerkHttpClient::JWKSApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -19,20 +19,20 @@ Retrieve the JSON Web Key Set of the instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::JWKSApi.new
+api_instance = ClerkHttpClient::JWKSApi.new
 
 begin
   # Retrieve the JSON Web Key Set of the instance
   result = api_instance.get_jwks
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWKSApi->get_jwks: #{e}"
 end
 ```
@@ -50,7 +50,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <WellKnownJWKS>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWKSApi->get_jwks_with_http_info: #{e}"
 end
 ```

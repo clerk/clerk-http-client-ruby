@@ -1,4 +1,4 @@
-# ClerkBackend::SchemasPasskeyVerification
+# ClerkHttpClient::SchemasPasskeyVerification
 
 ## Class instance methods
 
@@ -9,9 +9,9 @@ Returns the list of classes defined in oneOf.
 #### Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-ClerkBackend::SchemasPasskeyVerification.openapi_one_of
+ClerkHttpClient::SchemasPasskeyVerification.openapi_one_of
 # =>
 # [
 #   :'Passkey'
@@ -25,12 +25,12 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 #### Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-ClerkBackend::SchemasPasskeyVerification.build(data)
+ClerkHttpClient::SchemasPasskeyVerification.build(data)
 # => #<Passkey:0x00007fdd4aab02a0>
 
-ClerkBackend::SchemasPasskeyVerification.build(data_that_doesnt_match)
+ClerkHttpClient::SchemasPasskeyVerification.build(data_that_doesnt_match)
 # => nil
 ```
 

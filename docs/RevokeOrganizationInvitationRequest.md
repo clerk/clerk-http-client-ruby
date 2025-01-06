@@ -1,17 +1,17 @@
-# ClerkBackend::RevokeOrganizationInvitationRequest
+# ClerkHttpClient::RevokeOrganizationInvitationRequest
 
 ## Properties
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **requesting_user_id** | **String** | The ID of the user that revokes the invitation. Must be an administrator in the organization. |  |
+| **requesting_user_id** | **String** | The ID of the user that revokes the invitation. Must be an administrator in the organization. | [optional] |
 
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::RevokeOrganizationInvitationRequest.new(
+instance = ClerkHttpClient::RevokeOrganizationInvitationRequest.new(
   requesting_user_id: null
 )
 ```

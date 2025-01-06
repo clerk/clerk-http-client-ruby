@@ -1,4 +1,4 @@
-# ClerkBackend::ClerkErrors
+# ClerkHttpClient::ClerkErrors
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::ClerkErrors.new(
+instance = ClerkHttpClient::ClerkErrors.new(
   errors: null,
   meta: null
 )

@@ -1,4 +1,4 @@
-# ClerkBackend::CreateBlocklistIdentifierRequest
+# ClerkHttpClient::CreateBlocklistIdentifierRequest
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateBlocklistIdentifierRequest.new(
+instance = ClerkHttpClient::CreateBlocklistIdentifierRequest.new(
   identifier: null
 )
 ```

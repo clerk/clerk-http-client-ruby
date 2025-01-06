@@ -1,4 +1,4 @@
-# ClerkBackend::OrganizationDomainsApi
+# ClerkHttpClient::OrganizationDomainsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -21,22 +21,22 @@ Creates a new organization domain. By default the domain is verified, but can be
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationDomainsApi.new
+api_instance = ClerkHttpClient::OrganizationDomainsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization where the new domain will be created.
-create_organization_domain_request = ClerkBackend::CreateOrganizationDomainRequest.new # CreateOrganizationDomainRequest | 
+create_organization_domain_request = ClerkHttpClient::CreateOrganizationDomainRequest.new # CreateOrganizationDomainRequest | 
 
 begin
   # Create a new organization domain.
   result = api_instance.create_organization_domain(organization_id, create_organization_domain_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationDomainsApi->create_organization_domain: #{e}"
 end
 ```
@@ -54,7 +54,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationDomain>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationDomainsApi->create_organization_domain_with_http_info: #{e}"
 end
 ```
@@ -92,14 +92,14 @@ Removes the given domain from the organization.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationDomainsApi.new
+api_instance = ClerkHttpClient::OrganizationDomainsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization the domain belongs to
 domain_id = 'domain_id_example' # String | The ID of the domain
 
@@ -107,7 +107,7 @@ begin
   # Remove a domain from an organization.
   result = api_instance.delete_organization_domain(organization_id, domain_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationDomainsApi->delete_organization_domain: #{e}"
 end
 ```
@@ -125,7 +125,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationDomainsApi->delete_organization_domain_with_http_info: #{e}"
 end
 ```
@@ -163,14 +163,14 @@ Get a list of all domains of an organization.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationDomainsApi.new
+api_instance = ClerkHttpClient::OrganizationDomainsApi.new
 organization_id = 'organization_id_example' # String | The organization ID.
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
@@ -183,7 +183,7 @@ begin
   # Get a list of all domains of an organization.
   result = api_instance.list_organization_domains(organization_id, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationDomainsApi->list_organization_domains: #{e}"
 end
 ```
@@ -201,7 +201,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationDomains>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationDomainsApi->list_organization_domains_with_http_info: #{e}"
 end
 ```

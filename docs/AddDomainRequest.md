@@ -1,4 +1,4 @@
-# ClerkBackend::AddDomainRequest
+# ClerkHttpClient::AddDomainRequest
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::AddDomainRequest.new(
+instance = ClerkHttpClient::AddDomainRequest.new(
   name: null,
   is_satellite: null,
   proxy_url: null

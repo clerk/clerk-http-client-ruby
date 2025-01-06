@@ -1,4 +1,4 @@
-# ClerkBackend::OrganizationsApi
+# ClerkHttpClient::OrganizationsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -16,7 +16,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_organization
 
-> <Organization> create_organization(opts)
+> <Organization> create_organization(create_organization_request)
 
 Create an organization
 
@@ -26,23 +26,21 @@ Creates a new organization with the given name for an instance. In order to succ
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationsApi.new
-opts = {
-  create_organization_request: ClerkBackend::CreateOrganizationRequest.new({name: 'name_example', created_by: 'created_by_example'}) # CreateOrganizationRequest | 
-}
+api_instance = ClerkHttpClient::OrganizationsApi.new
+create_organization_request = ClerkHttpClient::CreateOrganizationRequest.new({name: 'name_example', created_by: 'created_by_example'}) # CreateOrganizationRequest | 
 
 begin
   # Create an organization
-  result = api_instance.create_organization(opts)
+  result = api_instance.create_organization(create_organization_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->create_organization: #{e}"
 end
 ```
@@ -51,16 +49,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Organization>, Integer, Hash)> create_organization_with_http_info(opts)
+> <Array(<Organization>, Integer, Hash)> create_organization_with_http_info(create_organization_request)
 
 ```ruby
 begin
   # Create an organization
-  data, status_code, headers = api_instance.create_organization_with_http_info(opts)
+  data, status_code, headers = api_instance.create_organization_with_http_info(create_organization_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->create_organization_with_http_info: #{e}"
 end
 ```
@@ -69,7 +67,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_organization_request** | [**CreateOrganizationRequest**](CreateOrganizationRequest.md) |  | [optional] |
+| **create_organization_request** | [**CreateOrganizationRequest**](CreateOrganizationRequest.md) |  |  |
 
 ### Return type
 
@@ -97,21 +95,21 @@ Deletes the given organization. Please note that deleting an organization will a
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationsApi.new
+api_instance = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization to delete
 
 begin
   # Delete an organization
   result = api_instance.delete_organization(organization_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->delete_organization: #{e}"
 end
 ```
@@ -129,7 +127,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->delete_organization_with_http_info: #{e}"
 end
 ```
@@ -166,21 +164,21 @@ Delete the organization's logo.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationsApi.new
+api_instance = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization for which the logo will be deleted.
 
 begin
   
   result = api_instance.delete_organization_logo(organization_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->delete_organization_logo: #{e}"
 end
 ```
@@ -198,7 +196,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->delete_organization_logo_with_http_info: #{e}"
 end
 ```
@@ -235,14 +233,14 @@ Fetches the organization whose ID or slug matches the provided `id_or_slug` URL 
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationsApi.new
+api_instance = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID or slug of the organization
 opts = {
   include_members_count: true # Boolean | Flag to denote whether or not the organization's members count should be included in the response.
@@ -252,7 +250,7 @@ begin
   # Retrieve an organization by ID or slug
   result = api_instance.get_organization(organization_id, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->get_organization: #{e}"
 end
 ```
@@ -270,7 +268,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->get_organization_with_http_info: #{e}"
 end
 ```
@@ -308,14 +306,14 @@ This request returns the list of organizations for an instance. Results can be p
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationsApi.new
+api_instance = ClerkHttpClient::OrganizationsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -328,7 +326,7 @@ begin
   # Get a list of organizations for an instance
   result = api_instance.list_organizations(opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->list_organizations: #{e}"
 end
 ```
@@ -346,7 +344,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organizations>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->list_organizations_with_http_info: #{e}"
 end
 ```
@@ -387,22 +385,22 @@ Update organization metadata attributes by merging existing values with the prov
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationsApi.new
+api_instance = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization for which metadata will be merged or updated
-merge_organization_metadata_request = ClerkBackend::MergeOrganizationMetadataRequest.new # MergeOrganizationMetadataRequest | 
+merge_organization_metadata_request = ClerkHttpClient::MergeOrganizationMetadataRequest.new # MergeOrganizationMetadataRequest | 
 
 begin
   # Merge and update metadata for an organization
   result = api_instance.merge_organization_metadata(organization_id, merge_organization_metadata_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->merge_organization_metadata: #{e}"
 end
 ```
@@ -420,7 +418,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->merge_organization_metadata_with_http_info: #{e}"
 end
 ```
@@ -458,22 +456,22 @@ Updates an existing organization
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationsApi.new
+api_instance = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization to update
-update_organization_request = ClerkBackend::UpdateOrganizationRequest.new # UpdateOrganizationRequest | 
+update_organization_request = ClerkHttpClient::UpdateOrganizationRequest.new # UpdateOrganizationRequest | 
 
 begin
   # Update an organization
   result = api_instance.update_organization(organization_id, update_organization_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->update_organization: #{e}"
 end
 ```
@@ -491,7 +489,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->update_organization_with_http_info: #{e}"
 end
 ```
@@ -529,14 +527,14 @@ Set or replace an organization's logo, by uploading an image file. This endpoint
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationsApi.new
+api_instance = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization for which to upload a logo
 file = File.new('/path/to/some/file') # File | 
 opts = {
@@ -547,7 +545,7 @@ begin
   # Upload a logo for the organization
   result = api_instance.upload_organization_logo(organization_id, file, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->upload_organization_logo: #{e}"
 end
 ```
@@ -565,7 +563,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationWithLogo>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationsApi->upload_organization_logo_with_http_info: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# ClerkBackend::CreateAllowlistIdentifierRequest
+# ClerkHttpClient::CreateAllowlistIdentifierRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateAllowlistIdentifierRequest.new(
+instance = ClerkHttpClient::CreateAllowlistIdentifierRequest.new(
   identifier: null,
   notify: null
 )

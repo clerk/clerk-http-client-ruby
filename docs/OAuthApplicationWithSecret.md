@@ -1,4 +1,4 @@
-# ClerkBackend::OAuthApplicationWithSecret
+# ClerkHttpClient::OAuthApplicationWithSecret
 
 ## Properties
 
@@ -22,9 +22,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::OAuthApplicationWithSecret.new(
+instance = ClerkHttpClient::OAuthApplicationWithSecret.new(
   object: null,
   id: null,
   instance_id: null,

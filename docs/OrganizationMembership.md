@@ -1,4 +1,4 @@
-# ClerkBackend::OrganizationMembership
+# ClerkHttpClient::OrganizationMembership
 
 ## Properties
 
@@ -7,6 +7,7 @@
 | **id** | **String** |  | [optional] |
 | **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value.  | [optional] |
 | **role** | **String** |  | [optional] |
+| **role_name** | **String** |  | [optional] |
 | **permissions** | **Array&lt;String&gt;** |  | [optional] |
 | **public_metadata** | **Object** | Metadata saved on the organization membership, accessible from both Frontend and Backend APIs | [optional] |
 | **private_metadata** | **Object** | Metadata saved on the organization membership, accessible only from the Backend API | [optional] |
@@ -18,12 +19,13 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::OrganizationMembership.new(
+instance = ClerkHttpClient::OrganizationMembership.new(
   id: null,
   object: null,
   role: null,
+  role_name: null,
   permissions: null,
   public_metadata: null,
   private_metadata: null,

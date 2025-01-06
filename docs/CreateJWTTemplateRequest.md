@@ -1,4 +1,4 @@
-# ClerkBackend::CreateJWTTemplateRequest
+# ClerkHttpClient::CreateJWTTemplateRequest
 
 ## Properties
 
@@ -15,9 +15,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateJWTTemplateRequest.new(
+instance = ClerkHttpClient::CreateJWTTemplateRequest.new(
   name: null,
   claims: null,
   lifetime: null,

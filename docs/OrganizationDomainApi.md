@@ -1,4 +1,4 @@
-# ClerkBackend::OrganizationDomainApi
+# ClerkHttpClient::OrganizationDomainApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -19,23 +19,23 @@ Updates the properties of an existing organization domain.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OrganizationDomainApi.new
+api_instance = ClerkHttpClient::OrganizationDomainApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization the domain belongs to
 domain_id = 'domain_id_example' # String | The ID of the domain
-update_organization_domain_request = ClerkBackend::UpdateOrganizationDomainRequest.new # UpdateOrganizationDomainRequest | 
+update_organization_domain_request = ClerkHttpClient::UpdateOrganizationDomainRequest.new # UpdateOrganizationDomainRequest | 
 
 begin
   # Update an organization domain.
   result = api_instance.update_organization_domain(organization_id, domain_id, update_organization_domain_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationDomainApi->update_organization_domain: #{e}"
 end
 ```
@@ -53,7 +53,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationDomain>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OrganizationDomainApi->update_organization_domain_with_http_info: #{e}"
 end
 ```

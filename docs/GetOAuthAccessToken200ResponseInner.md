@@ -1,4 +1,4 @@
-# ClerkBackend::GetOAuthAccessToken200ResponseInner
+# ClerkHttpClient::GetOAuthAccessToken200ResponseInner
 
 ## Properties
 
@@ -17,9 +17,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::GetOAuthAccessToken200ResponseInner.new(
+instance = ClerkHttpClient::GetOAuthAccessToken200ResponseInner.new(
   object: null,
   external_account_id: null,
   provider_user_id: null,

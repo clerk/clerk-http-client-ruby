@@ -1,4 +1,4 @@
-# ClerkBackend::AllowListBlockListApi
+# ClerkHttpClient::AllowListBlockListApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -14,7 +14,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_allowlist_identifier
 
-> <AllowlistIdentifier> create_allowlist_identifier(opts)
+> <AllowlistIdentifier> create_allowlist_identifier(create_allowlist_identifier_request)
 
 Add identifier to the allow-list
 
@@ -24,23 +24,21 @@ Create an identifier allowed to sign up to an instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::AllowListBlockListApi.new
-opts = {
-  create_allowlist_identifier_request: ClerkBackend::CreateAllowlistIdentifierRequest.new({identifier: 'identifier_example'}) # CreateAllowlistIdentifierRequest | 
-}
+api_instance = ClerkHttpClient::AllowListBlockListApi.new
+create_allowlist_identifier_request = ClerkHttpClient::CreateAllowlistIdentifierRequest.new({identifier: 'identifier_example'}) # CreateAllowlistIdentifierRequest | 
 
 begin
   # Add identifier to the allow-list
-  result = api_instance.create_allowlist_identifier(opts)
+  result = api_instance.create_allowlist_identifier(create_allowlist_identifier_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->create_allowlist_identifier: #{e}"
 end
 ```
@@ -49,16 +47,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<AllowlistIdentifier>, Integer, Hash)> create_allowlist_identifier_with_http_info(opts)
+> <Array(<AllowlistIdentifier>, Integer, Hash)> create_allowlist_identifier_with_http_info(create_allowlist_identifier_request)
 
 ```ruby
 begin
   # Add identifier to the allow-list
-  data, status_code, headers = api_instance.create_allowlist_identifier_with_http_info(opts)
+  data, status_code, headers = api_instance.create_allowlist_identifier_with_http_info(create_allowlist_identifier_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AllowlistIdentifier>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->create_allowlist_identifier_with_http_info: #{e}"
 end
 ```
@@ -67,7 +65,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_allowlist_identifier_request** | [**CreateAllowlistIdentifierRequest**](CreateAllowlistIdentifierRequest.md) |  | [optional] |
+| **create_allowlist_identifier_request** | [**CreateAllowlistIdentifierRequest**](CreateAllowlistIdentifierRequest.md) |  |  |
 
 ### Return type
 
@@ -85,7 +83,7 @@ end
 
 ## create_blocklist_identifier
 
-> <BlocklistIdentifier> create_blocklist_identifier(opts)
+> <BlocklistIdentifier> create_blocklist_identifier(create_blocklist_identifier_request)
 
 Add identifier to the block-list
 
@@ -95,23 +93,21 @@ Create an identifier that is blocked from accessing an instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::AllowListBlockListApi.new
-opts = {
-  create_blocklist_identifier_request: ClerkBackend::CreateBlocklistIdentifierRequest.new({identifier: 'identifier_example'}) # CreateBlocklistIdentifierRequest | 
-}
+api_instance = ClerkHttpClient::AllowListBlockListApi.new
+create_blocklist_identifier_request = ClerkHttpClient::CreateBlocklistIdentifierRequest.new({identifier: 'identifier_example'}) # CreateBlocklistIdentifierRequest | 
 
 begin
   # Add identifier to the block-list
-  result = api_instance.create_blocklist_identifier(opts)
+  result = api_instance.create_blocklist_identifier(create_blocklist_identifier_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->create_blocklist_identifier: #{e}"
 end
 ```
@@ -120,16 +116,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<BlocklistIdentifier>, Integer, Hash)> create_blocklist_identifier_with_http_info(opts)
+> <Array(<BlocklistIdentifier>, Integer, Hash)> create_blocklist_identifier_with_http_info(create_blocklist_identifier_request)
 
 ```ruby
 begin
   # Add identifier to the block-list
-  data, status_code, headers = api_instance.create_blocklist_identifier_with_http_info(opts)
+  data, status_code, headers = api_instance.create_blocklist_identifier_with_http_info(create_blocklist_identifier_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BlocklistIdentifier>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->create_blocklist_identifier_with_http_info: #{e}"
 end
 ```
@@ -138,7 +134,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_blocklist_identifier_request** | [**CreateBlocklistIdentifierRequest**](CreateBlocklistIdentifierRequest.md) |  | [optional] |
+| **create_blocklist_identifier_request** | [**CreateBlocklistIdentifierRequest**](CreateBlocklistIdentifierRequest.md) |  |  |
 
 ### Return type
 
@@ -166,21 +162,21 @@ Delete an identifier from the instance allow-list
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::AllowListBlockListApi.new
+api_instance = ClerkHttpClient::AllowListBlockListApi.new
 identifier_id = 'identifier_id_example' # String | The ID of the identifier to delete from the allow-list
 
 begin
   # Delete identifier from allow-list
   result = api_instance.delete_allowlist_identifier(identifier_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->delete_allowlist_identifier: #{e}"
 end
 ```
@@ -198,7 +194,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->delete_allowlist_identifier_with_http_info: #{e}"
 end
 ```
@@ -235,21 +231,21 @@ Delete an identifier from the instance block-list
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::AllowListBlockListApi.new
+api_instance = ClerkHttpClient::AllowListBlockListApi.new
 identifier_id = 'identifier_id_example' # String | The ID of the identifier to delete from the block-list
 
 begin
   # Delete identifier from block-list
   result = api_instance.delete_blocklist_identifier(identifier_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->delete_blocklist_identifier: #{e}"
 end
 ```
@@ -267,7 +263,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->delete_blocklist_identifier_with_http_info: #{e}"
 end
 ```
@@ -304,20 +300,20 @@ Get a list of all identifiers allowed to sign up to an instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::AllowListBlockListApi.new
+api_instance = ClerkHttpClient::AllowListBlockListApi.new
 
 begin
   # List all identifiers on the allow-list
   result = api_instance.list_allowlist_identifiers
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->list_allowlist_identifiers: #{e}"
 end
 ```
@@ -335,7 +331,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AllowlistIdentifier>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->list_allowlist_identifiers_with_http_info: #{e}"
 end
 ```
@@ -370,20 +366,20 @@ Get a list of all identifiers which are not allowed to access an instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::AllowListBlockListApi.new
+api_instance = ClerkHttpClient::AllowListBlockListApi.new
 
 begin
   # List all identifiers on the block-list
   result = api_instance.list_blocklist_identifiers
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->list_blocklist_identifiers: #{e}"
 end
 ```
@@ -401,7 +397,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BlocklistIdentifiers>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling AllowListBlockListApi->list_blocklist_identifiers_with_http_info: #{e}"
 end
 ```

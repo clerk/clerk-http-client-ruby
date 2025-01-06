@@ -1,4 +1,4 @@
-# ClerkBackend::UpdateUserMetadataRequest
+# ClerkHttpClient::UpdateUserMetadataRequest
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::UpdateUserMetadataRequest.new(
+instance = ClerkHttpClient::UpdateUserMetadataRequest.new(
   public_metadata: null,
   private_metadata: null,
   unsafe_metadata: null

@@ -1,4 +1,4 @@
-# ClerkBackend::SignInTokensApi
+# ClerkHttpClient::SignInTokensApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -10,7 +10,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_sign_in_token
 
-> <SignInToken> create_sign_in_token(opts)
+> <SignInToken> create_sign_in_token(create_sign_in_token_request)
 
 Create sign-in token
 
@@ -20,23 +20,21 @@ Creates a new sign-in token and associates it with the given user. By default, s
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SignInTokensApi.new
-opts = {
-  create_sign_in_token_request: ClerkBackend::CreateSignInTokenRequest.new # CreateSignInTokenRequest | 
-}
+api_instance = ClerkHttpClient::SignInTokensApi.new
+create_sign_in_token_request = ClerkHttpClient::CreateSignInTokenRequest.new # CreateSignInTokenRequest | 
 
 begin
   # Create sign-in token
-  result = api_instance.create_sign_in_token(opts)
+  result = api_instance.create_sign_in_token(create_sign_in_token_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SignInTokensApi->create_sign_in_token: #{e}"
 end
 ```
@@ -45,16 +43,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SignInToken>, Integer, Hash)> create_sign_in_token_with_http_info(opts)
+> <Array(<SignInToken>, Integer, Hash)> create_sign_in_token_with_http_info(create_sign_in_token_request)
 
 ```ruby
 begin
   # Create sign-in token
-  data, status_code, headers = api_instance.create_sign_in_token_with_http_info(opts)
+  data, status_code, headers = api_instance.create_sign_in_token_with_http_info(create_sign_in_token_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignInToken>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SignInTokensApi->create_sign_in_token_with_http_info: #{e}"
 end
 ```
@@ -63,7 +61,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_sign_in_token_request** | [**CreateSignInTokenRequest**](CreateSignInTokenRequest.md) |  | [optional] |
+| **create_sign_in_token_request** | [**CreateSignInTokenRequest**](CreateSignInTokenRequest.md) |  |  |
 
 ### Return type
 
@@ -91,21 +89,21 @@ Revokes a pending sign-in token
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SignInTokensApi.new
+api_instance = ClerkHttpClient::SignInTokensApi.new
 sign_in_token_id = 'sign_in_token_id_example' # String | The ID of the sign-in token to be revoked
 
 begin
   # Revoke the given sign-in token
   result = api_instance.revoke_sign_in_token(sign_in_token_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SignInTokensApi->revoke_sign_in_token: #{e}"
 end
 ```
@@ -123,7 +121,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignInToken>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SignInTokensApi->revoke_sign_in_token_with_http_info: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# ClerkBackend::CreateUserRequest
+# ClerkHttpClient::CreateUserRequest
 
 ## Properties
 
@@ -31,9 +31,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateUserRequest.new(
+instance = ClerkHttpClient::CreateUserRequest.new(
   external_id: null,
   first_name: null,
   last_name: null,

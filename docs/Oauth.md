@@ -1,4 +1,4 @@
-# ClerkBackend::Oauth
+# ClerkHttpClient::Oauth
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::Oauth.new(
+instance = ClerkHttpClient::Oauth.new(
   status: null,
   strategy: null,
   external_verification_redirect_url: null,

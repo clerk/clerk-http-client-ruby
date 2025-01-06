@@ -1,4 +1,4 @@
-# ClerkBackend::OauthError
+# ClerkHttpClient::OauthError
 
 ## Class instance methods
 
@@ -9,9 +9,9 @@ Returns the list of classes defined in oneOf.
 #### Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-ClerkBackend::OauthError.openapi_one_of
+ClerkHttpClient::OauthError.openapi_one_of
 # =>
 # [
 #   :'ClerkError'
@@ -25,12 +25,12 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 #### Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-ClerkBackend::OauthError.build(data)
+ClerkHttpClient::OauthError.build(data)
 # => #<ClerkError:0x00007fdd4aab02a0>
 
-ClerkBackend::OauthError.build(data_that_doesnt_match)
+ClerkHttpClient::OauthError.build(data_that_doesnt_match)
 # => nil
 ```
 

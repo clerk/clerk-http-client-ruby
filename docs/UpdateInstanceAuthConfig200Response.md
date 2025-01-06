@@ -1,4 +1,4 @@
-# ClerkBackend::UpdateInstanceAuthConfig200Response
+# ClerkHttpClient::UpdateInstanceAuthConfig200Response
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::UpdateInstanceAuthConfig200Response.new(
+instance = ClerkHttpClient::UpdateInstanceAuthConfig200Response.new(
   object: null,
   id: null,
   restricted_to_allowlist: null,

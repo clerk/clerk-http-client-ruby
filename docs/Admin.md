@@ -1,4 +1,4 @@
-# ClerkBackend::Admin
+# ClerkHttpClient::Admin
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::Admin.new(
+instance = ClerkHttpClient::Admin.new(
   status: null,
   strategy: null,
   attempts: null,

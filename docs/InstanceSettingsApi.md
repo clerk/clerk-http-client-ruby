@@ -1,4 +1,4 @@
-# ClerkBackend::InstanceSettingsApi
+# ClerkHttpClient::InstanceSettingsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -11,7 +11,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## update_instance
 
-> update_instance(opts)
+> update_instance(update_instance_request)
 
 Update instance settings
 
@@ -21,22 +21,20 @@ Updates the settings of an instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::InstanceSettingsApi.new
-opts = {
-  update_instance_request: ClerkBackend::UpdateInstanceRequest.new # UpdateInstanceRequest | 
-}
+api_instance = ClerkHttpClient::InstanceSettingsApi.new
+update_instance_request = ClerkHttpClient::UpdateInstanceRequest.new # UpdateInstanceRequest | 
 
 begin
   # Update instance settings
-  api_instance.update_instance(opts)
-rescue ClerkBackend::ApiError => e
+  api_instance.update_instance(update_instance_request)
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InstanceSettingsApi->update_instance: #{e}"
 end
 ```
@@ -45,16 +43,16 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> update_instance_with_http_info(opts)
+> <Array(nil, Integer, Hash)> update_instance_with_http_info(update_instance_request)
 
 ```ruby
 begin
   # Update instance settings
-  data, status_code, headers = api_instance.update_instance_with_http_info(opts)
+  data, status_code, headers = api_instance.update_instance_with_http_info(update_instance_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InstanceSettingsApi->update_instance_with_http_info: #{e}"
 end
 ```
@@ -63,7 +61,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **update_instance_request** | [**UpdateInstanceRequest**](UpdateInstanceRequest.md) |  | [optional] |
+| **update_instance_request** | [**UpdateInstanceRequest**](UpdateInstanceRequest.md) |  |  |
 
 ### Return type
 
@@ -81,7 +79,7 @@ nil (empty response body)
 
 ## update_instance_organization_settings
 
-> <OrganizationSettings> update_instance_organization_settings(opts)
+> <OrganizationSettings> update_instance_organization_settings(update_instance_organization_settings_request)
 
 Update instance organization settings
 
@@ -91,23 +89,21 @@ Updates the organization settings of the instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::InstanceSettingsApi.new
-opts = {
-  update_instance_organization_settings_request: ClerkBackend::UpdateInstanceOrganizationSettingsRequest.new # UpdateInstanceOrganizationSettingsRequest | 
-}
+api_instance = ClerkHttpClient::InstanceSettingsApi.new
+update_instance_organization_settings_request = ClerkHttpClient::UpdateInstanceOrganizationSettingsRequest.new # UpdateInstanceOrganizationSettingsRequest | 
 
 begin
   # Update instance organization settings
-  result = api_instance.update_instance_organization_settings(opts)
+  result = api_instance.update_instance_organization_settings(update_instance_organization_settings_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InstanceSettingsApi->update_instance_organization_settings: #{e}"
 end
 ```
@@ -116,16 +112,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OrganizationSettings>, Integer, Hash)> update_instance_organization_settings_with_http_info(opts)
+> <Array(<OrganizationSettings>, Integer, Hash)> update_instance_organization_settings_with_http_info(update_instance_organization_settings_request)
 
 ```ruby
 begin
   # Update instance organization settings
-  data, status_code, headers = api_instance.update_instance_organization_settings_with_http_info(opts)
+  data, status_code, headers = api_instance.update_instance_organization_settings_with_http_info(update_instance_organization_settings_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationSettings>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InstanceSettingsApi->update_instance_organization_settings_with_http_info: #{e}"
 end
 ```
@@ -134,7 +130,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **update_instance_organization_settings_request** | [**UpdateInstanceOrganizationSettingsRequest**](UpdateInstanceOrganizationSettingsRequest.md) |  | [optional] |
+| **update_instance_organization_settings_request** | [**UpdateInstanceOrganizationSettingsRequest**](UpdateInstanceOrganizationSettingsRequest.md) |  |  |
 
 ### Return type
 
@@ -152,7 +148,7 @@ end
 
 ## update_instance_restrictions
 
-> <InstanceRestrictions> update_instance_restrictions(opts)
+> <InstanceRestrictions> update_instance_restrictions(update_instance_restrictions_request)
 
 Update instance restrictions
 
@@ -162,23 +158,21 @@ Updates the restriction settings of an instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::InstanceSettingsApi.new
-opts = {
-  update_instance_restrictions_request: ClerkBackend::UpdateInstanceRestrictionsRequest.new # UpdateInstanceRestrictionsRequest | 
-}
+api_instance = ClerkHttpClient::InstanceSettingsApi.new
+update_instance_restrictions_request = ClerkHttpClient::UpdateInstanceRestrictionsRequest.new # UpdateInstanceRestrictionsRequest | 
 
 begin
   # Update instance restrictions
-  result = api_instance.update_instance_restrictions(opts)
+  result = api_instance.update_instance_restrictions(update_instance_restrictions_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InstanceSettingsApi->update_instance_restrictions: #{e}"
 end
 ```
@@ -187,16 +181,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<InstanceRestrictions>, Integer, Hash)> update_instance_restrictions_with_http_info(opts)
+> <Array(<InstanceRestrictions>, Integer, Hash)> update_instance_restrictions_with_http_info(update_instance_restrictions_request)
 
 ```ruby
 begin
   # Update instance restrictions
-  data, status_code, headers = api_instance.update_instance_restrictions_with_http_info(opts)
+  data, status_code, headers = api_instance.update_instance_restrictions_with_http_info(update_instance_restrictions_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <InstanceRestrictions>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InstanceSettingsApi->update_instance_restrictions_with_http_info: #{e}"
 end
 ```
@@ -205,7 +199,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **update_instance_restrictions_request** | [**UpdateInstanceRestrictionsRequest**](UpdateInstanceRestrictionsRequest.md) |  | [optional] |
+| **update_instance_restrictions_request** | [**UpdateInstanceRestrictionsRequest**](UpdateInstanceRestrictionsRequest.md) |  |  |
 
 ### Return type
 

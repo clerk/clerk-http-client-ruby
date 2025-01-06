@@ -1,4 +1,4 @@
-# ClerkBackend::OAuthApplicationsApi
+# ClerkHttpClient::OAuthApplicationsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -14,7 +14,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_o_auth_application
 
-> <OAuthApplicationWithSecret> create_o_auth_application(opts)
+> <OAuthApplicationWithSecret> create_o_auth_application(create_o_auth_application_request)
 
 Create an OAuth application
 
@@ -24,23 +24,21 @@ Creates a new OAuth application with the given name and callback URL for an inst
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OAuthApplicationsApi.new
-opts = {
-  create_o_auth_application_request: ClerkBackend::CreateOAuthApplicationRequest.new({name: 'name_example', callback_url: 'callback_url_example'}) # CreateOAuthApplicationRequest | 
-}
+api_instance = ClerkHttpClient::OAuthApplicationsApi.new
+create_o_auth_application_request = ClerkHttpClient::CreateOAuthApplicationRequest.new({name: 'name_example', callback_url: 'callback_url_example'}) # CreateOAuthApplicationRequest | 
 
 begin
   # Create an OAuth application
-  result = api_instance.create_o_auth_application(opts)
+  result = api_instance.create_o_auth_application(create_o_auth_application_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->create_o_auth_application: #{e}"
 end
 ```
@@ -49,16 +47,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OAuthApplicationWithSecret>, Integer, Hash)> create_o_auth_application_with_http_info(opts)
+> <Array(<OAuthApplicationWithSecret>, Integer, Hash)> create_o_auth_application_with_http_info(create_o_auth_application_request)
 
 ```ruby
 begin
   # Create an OAuth application
-  data, status_code, headers = api_instance.create_o_auth_application_with_http_info(opts)
+  data, status_code, headers = api_instance.create_o_auth_application_with_http_info(create_o_auth_application_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplicationWithSecret>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->create_o_auth_application_with_http_info: #{e}"
 end
 ```
@@ -67,7 +65,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_o_auth_application_request** | [**CreateOAuthApplicationRequest**](CreateOAuthApplicationRequest.md) |  | [optional] |
+| **create_o_auth_application_request** | [**CreateOAuthApplicationRequest**](CreateOAuthApplicationRequest.md) |  |  |
 
 ### Return type
 
@@ -95,21 +93,21 @@ Deletes the given OAuth application. This is not reversible.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OAuthApplicationsApi.new
+api_instance = ClerkHttpClient::OAuthApplicationsApi.new
 oauth_application_id = 'oauth_application_id_example' # String | The ID of the OAuth application to delete
 
 begin
   # Delete an OAuth application
   result = api_instance.delete_o_auth_application(oauth_application_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->delete_o_auth_application: #{e}"
 end
 ```
@@ -127,7 +125,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->delete_o_auth_application_with_http_info: #{e}"
 end
 ```
@@ -164,21 +162,21 @@ Fetches the OAuth application whose ID matches the provided `id` in the path.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OAuthApplicationsApi.new
+api_instance = ClerkHttpClient::OAuthApplicationsApi.new
 oauth_application_id = 'oauth_application_id_example' # String | The ID of the OAuth application
 
 begin
   # Retrieve an OAuth application by ID
   result = api_instance.get_o_auth_application(oauth_application_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->get_o_auth_application: #{e}"
 end
 ```
@@ -196,7 +194,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplication>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->get_o_auth_application_with_http_info: #{e}"
 end
 ```
@@ -233,14 +231,14 @@ This request returns the list of OAuth applications for an instance. Results can
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OAuthApplicationsApi.new
+api_instance = ClerkHttpClient::OAuthApplicationsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -250,7 +248,7 @@ begin
   # Get a list of OAuth applications for an instance
   result = api_instance.list_o_auth_applications(opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->list_o_auth_applications: #{e}"
 end
 ```
@@ -268,7 +266,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplications>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->list_o_auth_applications_with_http_info: #{e}"
 end
 ```
@@ -306,21 +304,21 @@ Rotates the OAuth application's client secret. When the client secret is rotated
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OAuthApplicationsApi.new
+api_instance = ClerkHttpClient::OAuthApplicationsApi.new
 oauth_application_id = 'oauth_application_id_example' # String | The ID of the OAuth application for which to rotate the client secret
 
 begin
   # Rotate the client secret of the given OAuth application
   result = api_instance.rotate_o_auth_application_secret(oauth_application_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->rotate_o_auth_application_secret: #{e}"
 end
 ```
@@ -338,7 +336,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplicationWithSecret>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->rotate_o_auth_application_secret_with_http_info: #{e}"
 end
 ```
@@ -375,22 +373,22 @@ Updates an existing OAuth application
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::OAuthApplicationsApi.new
+api_instance = ClerkHttpClient::OAuthApplicationsApi.new
 oauth_application_id = 'oauth_application_id_example' # String | The ID of the OAuth application to update
-update_o_auth_application_request = ClerkBackend::UpdateOAuthApplicationRequest.new # UpdateOAuthApplicationRequest | 
+update_o_auth_application_request = ClerkHttpClient::UpdateOAuthApplicationRequest.new # UpdateOAuthApplicationRequest | 
 
 begin
   # Update an OAuth application
   result = api_instance.update_o_auth_application(oauth_application_id, update_o_auth_application_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->update_o_auth_application: #{e}"
 end
 ```
@@ -408,7 +406,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplication>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling OAuthApplicationsApi->update_o_auth_application_with_http_info: #{e}"
 end
 ```

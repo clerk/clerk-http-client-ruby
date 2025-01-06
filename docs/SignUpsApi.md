@@ -1,4 +1,4 @@
-# ClerkBackend::SignUpsApi
+# ClerkHttpClient::SignUpsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -9,7 +9,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## update_sign_up
 
-> <SignUp> update_sign_up(id, opts)
+> <SignUp> update_sign_up(id, update_sign_up_request)
 
 Update a sign-up
 
@@ -19,24 +19,22 @@ Update the sign-up with the given ID
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SignUpsApi.new
+api_instance = ClerkHttpClient::SignUpsApi.new
 id = 'id_example' # String | The ID of the sign-up to update
-opts = {
-  update_sign_up_request: ClerkBackend::UpdateSignUpRequest.new # UpdateSignUpRequest | 
-}
+update_sign_up_request = ClerkHttpClient::UpdateSignUpRequest.new # UpdateSignUpRequest | 
 
 begin
   # Update a sign-up
-  result = api_instance.update_sign_up(id, opts)
+  result = api_instance.update_sign_up(id, update_sign_up_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SignUpsApi->update_sign_up: #{e}"
 end
 ```
@@ -45,16 +43,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SignUp>, Integer, Hash)> update_sign_up_with_http_info(id, opts)
+> <Array(<SignUp>, Integer, Hash)> update_sign_up_with_http_info(id, update_sign_up_request)
 
 ```ruby
 begin
   # Update a sign-up
-  data, status_code, headers = api_instance.update_sign_up_with_http_info(id, opts)
+  data, status_code, headers = api_instance.update_sign_up_with_http_info(id, update_sign_up_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignUp>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SignUpsApi->update_sign_up_with_http_info: #{e}"
 end
 ```
@@ -64,7 +62,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** | The ID of the sign-up to update |  |
-| **update_sign_up_request** | [**UpdateSignUpRequest**](UpdateSignUpRequest.md) |  | [optional] |
+| **update_sign_up_request** | [**UpdateSignUpRequest**](UpdateSignUpRequest.md) |  |  |
 
 ### Return type
 

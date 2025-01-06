@@ -1,4 +1,4 @@
-# ClerkBackend::CreateOrganizationDomainRequest
+# ClerkHttpClient::CreateOrganizationDomainRequest
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateOrganizationDomainRequest.new(
+instance = ClerkHttpClient::CreateOrganizationDomainRequest.new(
   name: null,
   enrollment_mode: null,
   verified: null

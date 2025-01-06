@@ -1,4 +1,4 @@
-# ClerkBackend::WellKnownJWKSKeysInner
+# ClerkHttpClient::WellKnownJWKSKeysInner
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::WellKnownJWKSKeysInner.new(
+instance = ClerkHttpClient::WellKnownJWKSKeysInner.new(
   use: null,
   kty: null,
   kid: null,

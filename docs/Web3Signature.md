@@ -1,4 +1,4 @@
-# ClerkBackend::Web3Signature
+# ClerkHttpClient::Web3Signature
 
 ## Properties
 
@@ -7,18 +7,20 @@
 | **status** | **String** |  |  |
 | **strategy** | **String** |  |  |
 | **nonce** | **String** |  | [optional] |
+| **message** | **String** |  | [optional] |
 | **attempts** | **Integer** |  | [optional] |
 | **expire_at** | **Integer** |  | [optional] |
 
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::Web3Signature.new(
+instance = ClerkHttpClient::Web3Signature.new(
   status: null,
   strategy: null,
   nonce: null,
+  message: null,
   attempts: null,
   expire_at: null
 )

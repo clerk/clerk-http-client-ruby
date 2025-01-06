@@ -1,4 +1,4 @@
-# ClerkBackend::CreateRedirectURLRequest
+# ClerkHttpClient::CreateRedirectURLRequest
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateRedirectURLRequest.new(
+instance = ClerkHttpClient::CreateRedirectURLRequest.new(
   url: null
 )
 ```

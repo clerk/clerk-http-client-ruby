@@ -1,4 +1,4 @@
-# ClerkBackend::InvitationsApi
+# ClerkHttpClient::InvitationsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -11,7 +11,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_invitation
 
-> <Invitation> create_invitation(opts)
+> <Invitation> create_invitation(create_invitation_request)
 
 Create an invitation
 
@@ -21,23 +21,21 @@ Creates a new invitation for the given email address and sends the invitation em
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::InvitationsApi.new
-opts = {
-  create_invitation_request: ClerkBackend::CreateInvitationRequest.new({email_address: 'email_address_example'}) # CreateInvitationRequest | Required parameters
-}
+api_instance = ClerkHttpClient::InvitationsApi.new
+create_invitation_request = ClerkHttpClient::CreateInvitationRequest.new({email_address: 'email_address_example'}) # CreateInvitationRequest | Required parameters
 
 begin
   # Create an invitation
-  result = api_instance.create_invitation(opts)
+  result = api_instance.create_invitation(create_invitation_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InvitationsApi->create_invitation: #{e}"
 end
 ```
@@ -46,16 +44,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Invitation>, Integer, Hash)> create_invitation_with_http_info(opts)
+> <Array(<Invitation>, Integer, Hash)> create_invitation_with_http_info(create_invitation_request)
 
 ```ruby
 begin
   # Create an invitation
-  data, status_code, headers = api_instance.create_invitation_with_http_info(opts)
+  data, status_code, headers = api_instance.create_invitation_with_http_info(create_invitation_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Invitation>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InvitationsApi->create_invitation_with_http_info: #{e}"
 end
 ```
@@ -64,7 +62,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_invitation_request** | [**CreateInvitationRequest**](CreateInvitationRequest.md) | Required parameters | [optional] |
+| **create_invitation_request** | [**CreateInvitationRequest**](CreateInvitationRequest.md) | Required parameters |  |
 
 ### Return type
 
@@ -92,14 +90,14 @@ Returns all non-revoked invitations for your application, sorted by creation dat
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::InvitationsApi.new
+api_instance = ClerkHttpClient::InvitationsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -110,7 +108,7 @@ begin
   # List all invitations
   result = api_instance.list_invitations(opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InvitationsApi->list_invitations: #{e}"
 end
 ```
@@ -128,7 +126,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Invitation>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InvitationsApi->list_invitations_with_http_info: #{e}"
 end
 ```
@@ -167,21 +165,21 @@ Revokes the given invitation. Revoking an invitation will prevent the user from 
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::InvitationsApi.new
+api_instance = ClerkHttpClient::InvitationsApi.new
 invitation_id = 'invitation_id_example' # String | The ID of the invitation to be revoked
 
 begin
   # Revokes an invitation
   result = api_instance.revoke_invitation(invitation_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InvitationsApi->revoke_invitation: #{e}"
 end
 ```
@@ -199,7 +197,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RevokeInvitation200Response>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling InvitationsApi->revoke_invitation_with_http_info: #{e}"
 end
 ```

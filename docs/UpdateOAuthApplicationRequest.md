@@ -1,4 +1,4 @@
-# ClerkBackend::UpdateOAuthApplicationRequest
+# ClerkHttpClient::UpdateOAuthApplicationRequest
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::UpdateOAuthApplicationRequest.new(
+instance = ClerkHttpClient::UpdateOAuthApplicationRequest.new(
   name: null,
   callback_url: null,
   scopes: profile email public_metadata private_metadata

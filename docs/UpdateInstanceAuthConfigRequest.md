@@ -1,4 +1,4 @@
-# ClerkBackend::UpdateInstanceAuthConfigRequest
+# ClerkHttpClient::UpdateInstanceAuthConfigRequest
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::UpdateInstanceAuthConfigRequest.new(
+instance = ClerkHttpClient::UpdateInstanceAuthConfigRequest.new(
   restricted_to_allowlist: null,
   from_email_address: null,
   progressive_sign_up: null,

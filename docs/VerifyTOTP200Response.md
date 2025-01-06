@@ -1,4 +1,4 @@
-# ClerkBackend::VerifyTOTP200Response
+# ClerkHttpClient::VerifyTOTP200Response
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::VerifyTOTP200Response.new(
+instance = ClerkHttpClient::VerifyTOTP200Response.new(
   verified: null,
   code_type: null
 )

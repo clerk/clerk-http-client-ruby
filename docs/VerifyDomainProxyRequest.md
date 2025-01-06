@@ -1,4 +1,4 @@
-# ClerkBackend::VerifyDomainProxyRequest
+# ClerkHttpClient::VerifyDomainProxyRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::VerifyDomainProxyRequest.new(
+instance = ClerkHttpClient::VerifyDomainProxyRequest.new(
   domain_id: null,
   proxy_url: null
 )

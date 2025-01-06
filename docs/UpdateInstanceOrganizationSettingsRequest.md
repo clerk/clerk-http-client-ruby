@@ -1,4 +1,4 @@
-# ClerkBackend::UpdateInstanceOrganizationSettingsRequest
+# ClerkHttpClient::UpdateInstanceOrganizationSettingsRequest
 
 ## Properties
 
@@ -15,9 +15,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::UpdateInstanceOrganizationSettingsRequest.new(
+instance = ClerkHttpClient::UpdateInstanceOrganizationSettingsRequest.new(
   enabled: null,
   max_allowed_memberships: null,
   admin_delete_enabled: null,

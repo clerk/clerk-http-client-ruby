@@ -1,4 +1,4 @@
-# ClerkBackend::SessionsApi
+# ClerkHttpClient::SessionsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -23,14 +23,14 @@ Creates a JSON Web Token(JWT) based on a session and a JWT Template name defined
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SessionsApi.new
+api_instance = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 template_name = 'template_name_example' # String | The name of the JWT Template defined in your instance (e.g. `custom_hasura`).
 
@@ -38,7 +38,7 @@ begin
   # Create a session token from a jwt template
   result = api_instance.create_session_token_from_template(session_id, template_name)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->create_session_token_from_template: #{e}"
 end
 ```
@@ -56,7 +56,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CreateSessionTokenFromTemplate200Response>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->create_session_token_from_template_with_http_info: #{e}"
 end
 ```
@@ -94,21 +94,21 @@ Retrieve the details of a session
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SessionsApi.new
+api_instance = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 
 begin
   # Retrieve a session
   result = api_instance.get_session(session_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->get_session: #{e}"
 end
 ```
@@ -126,7 +126,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Session>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->get_session_with_http_info: #{e}"
 end
 ```
@@ -163,14 +163,14 @@ Returns a list of all sessions. The sessions are returned sorted by creation dat
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SessionsApi.new
+api_instance = ClerkHttpClient::SessionsApi.new
 opts = {
   client_id: 'client_id_example', # String | List sessions for the given client
   user_id: 'user_id_example', # String | List sessions for the given user
@@ -183,7 +183,7 @@ begin
   # List all sessions
   result = api_instance.get_session_list(opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->get_session_list: #{e}"
 end
 ```
@@ -201,7 +201,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Session>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->get_session_list_with_http_info: #{e}"
 end
 ```
@@ -242,21 +242,21 @@ Sets the status of a session as \"revoked\", which is an unauthenticated state. 
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SessionsApi.new
+api_instance = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 
 begin
   # Revoke a session
   result = api_instance.revoke_session(session_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->revoke_session: #{e}"
 end
 ```
@@ -274,7 +274,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Session>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->revoke_session_with_http_info: #{e}"
 end
 ```
@@ -311,24 +311,24 @@ Returns the session if it is authenticated, otherwise returns an error. WARNING:
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SessionsApi.new
+api_instance = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 opts = {
-  verify_session_request: ClerkBackend::VerifySessionRequest.new # VerifySessionRequest | Parameters.
+  verify_session_request: ClerkHttpClient::VerifySessionRequest.new # VerifySessionRequest | Parameters.
 }
 
 begin
   # Verify a session
   result = api_instance.verify_session(session_id, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->verify_session: #{e}"
 end
 ```
@@ -346,7 +346,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Session>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SessionsApi->verify_session_with_http_info: #{e}"
 end
 ```

@@ -1,4 +1,4 @@
-# ClerkBackend::PreviewTemplateRequest
+# ClerkHttpClient::PreviewTemplateRequest
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::PreviewTemplateRequest.new(
+instance = ClerkHttpClient::PreviewTemplateRequest.new(
   subject: null,
   body: null,
   from_email_name: null,

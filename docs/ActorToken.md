@@ -1,4 +1,4 @@
-# ClerkBackend::ActorToken
+# ClerkHttpClient::ActorToken
 
 ## Properties
 
@@ -17,9 +17,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::ActorToken.new(
+instance = ClerkHttpClient::ActorToken.new(
   object: null,
   id: null,
   status: null,

@@ -1,4 +1,4 @@
-# ClerkBackend::IdentificationLink
+# ClerkHttpClient::IdentificationLink
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::IdentificationLink.new(
+instance = ClerkHttpClient::IdentificationLink.new(
   type: null,
   id: null
 )

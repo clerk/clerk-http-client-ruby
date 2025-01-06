@@ -1,4 +1,4 @@
-# ClerkBackend::MiscellaneousApi
+# ClerkHttpClient::MiscellaneousApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -19,9 +19,9 @@ The Clerk interstitial endpoint serves an html page that loads clerk.js in order
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-api_instance = ClerkBackend::MiscellaneousApi.new
+api_instance = ClerkHttpClient::MiscellaneousApi.new
 opts = {
   frontend_api: 'frontend_api_example', # String | The Frontend API key of your instance
   publishable_key: 'publishable_key_example' # String | The publishable key of your instance
@@ -30,7 +30,7 @@ opts = {
 begin
   # Returns the markup for the interstitial page
   api_instance.get_public_interstitial(opts)
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling MiscellaneousApi->get_public_interstitial: #{e}"
 end
 ```
@@ -48,7 +48,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling MiscellaneousApi->get_public_interstitial_with_http_info: #{e}"
 end
 ```

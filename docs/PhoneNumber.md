@@ -1,4 +1,4 @@
-# ClerkBackend::PhoneNumber
+# ClerkHttpClient::PhoneNumber
 
 ## Properties
 
@@ -19,9 +19,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::PhoneNumber.new(
+instance = ClerkHttpClient::PhoneNumber.new(
   id: null,
   object: null,
   phone_number: null,

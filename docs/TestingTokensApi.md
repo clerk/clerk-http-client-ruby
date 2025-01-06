@@ -1,4 +1,4 @@
-# ClerkBackend::TestingTokensApi
+# ClerkHttpClient::TestingTokensApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -19,20 +19,20 @@ Retrieve a new testing token. Only available for development instances.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::TestingTokensApi.new
+api_instance = ClerkHttpClient::TestingTokensApi.new
 
 begin
   # Retrieve a new testing token
   result = api_instance.create_testing_token
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling TestingTokensApi->create_testing_token: #{e}"
 end
 ```
@@ -50,7 +50,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TestingToken>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling TestingTokensApi->create_testing_token_with_http_info: #{e}"
 end
 ```

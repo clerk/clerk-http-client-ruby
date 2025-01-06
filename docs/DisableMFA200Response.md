@@ -1,4 +1,4 @@
-# ClerkBackend::DisableMFA200Response
+# ClerkHttpClient::DisableMFA200Response
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::DisableMFA200Response.new(
+instance = ClerkHttpClient::DisableMFA200Response.new(
   user_id: null
 )
 ```

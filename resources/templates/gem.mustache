@@ -80,7 +80,7 @@ module {{moduleName}}
     {{#apiInfo}}
     {{#apis}}
     def {{ #lambda.lowercase }}{{ classname }}{{ /lambda.lowercase }}
-      ClerkBackend::{{classname}}.new
+      ClerkHttpClient::{{classname}}.new
     end
 
     {{/apis}}

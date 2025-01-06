@@ -1,4 +1,4 @@
-# ClerkBackend::OrganizationInvitation
+# ClerkHttpClient::OrganizationInvitation
 
 ## Properties
 
@@ -8,6 +8,7 @@
 | **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value.  | [optional] |
 | **email_address** | **String** |  | [optional] |
 | **role** | **String** |  | [optional] |
+| **role_name** | **String** |  | [optional] |
 | **organization_id** | **String** |  | [optional] |
 | **status** | **String** |  | [optional] |
 | **public_metadata** | **Object** |  | [optional] |
@@ -18,13 +19,14 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::OrganizationInvitation.new(
+instance = ClerkHttpClient::OrganizationInvitation.new(
   id: null,
   object: null,
   email_address: null,
   role: null,
+  role_name: null,
   organization_id: null,
   status: null,
   public_metadata: null,

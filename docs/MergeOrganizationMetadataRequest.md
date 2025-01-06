@@ -1,4 +1,4 @@
-# ClerkBackend::MergeOrganizationMetadataRequest
+# ClerkHttpClient::MergeOrganizationMetadataRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::MergeOrganizationMetadataRequest.new(
+instance = ClerkHttpClient::MergeOrganizationMetadataRequest.new(
   public_metadata: null,
   private_metadata: null
 )

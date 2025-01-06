@@ -1,4 +1,4 @@
-# ClerkBackend::RevokeInvitation200Response
+# ClerkHttpClient::RevokeInvitation200Response
 
 ## Properties
 
@@ -18,9 +18,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::RevokeInvitation200Response.new(
+instance = ClerkHttpClient::RevokeInvitation200Response.new(
   object: null,
   id: null,
   email_address: null,

@@ -1,4 +1,4 @@
-# ClerkBackend::ProxyChecksApi
+# ClerkHttpClient::ProxyChecksApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -9,7 +9,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## verify_domain_proxy
 
-> <ProxyCheck> verify_domain_proxy(opts)
+> <ProxyCheck> verify_domain_proxy(verify_domain_proxy_request)
 
 Verify the proxy configuration for your domain
 
@@ -19,23 +19,21 @@ This endpoint can be used to validate that a proxy-enabled domain is operational
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::ProxyChecksApi.new
-opts = {
-  verify_domain_proxy_request: ClerkBackend::VerifyDomainProxyRequest.new # VerifyDomainProxyRequest | 
-}
+api_instance = ClerkHttpClient::ProxyChecksApi.new
+verify_domain_proxy_request = ClerkHttpClient::VerifyDomainProxyRequest.new # VerifyDomainProxyRequest | 
 
 begin
   # Verify the proxy configuration for your domain
-  result = api_instance.verify_domain_proxy(opts)
+  result = api_instance.verify_domain_proxy(verify_domain_proxy_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ProxyChecksApi->verify_domain_proxy: #{e}"
 end
 ```
@@ -44,16 +42,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<ProxyCheck>, Integer, Hash)> verify_domain_proxy_with_http_info(opts)
+> <Array(<ProxyCheck>, Integer, Hash)> verify_domain_proxy_with_http_info(verify_domain_proxy_request)
 
 ```ruby
 begin
   # Verify the proxy configuration for your domain
-  data, status_code, headers = api_instance.verify_domain_proxy_with_http_info(opts)
+  data, status_code, headers = api_instance.verify_domain_proxy_with_http_info(verify_domain_proxy_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ProxyCheck>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ProxyChecksApi->verify_domain_proxy_with_http_info: #{e}"
 end
 ```
@@ -62,7 +60,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **verify_domain_proxy_request** | [**VerifyDomainProxyRequest**](VerifyDomainProxyRequest.md) |  | [optional] |
+| **verify_domain_proxy_request** | [**VerifyDomainProxyRequest**](VerifyDomainProxyRequest.md) |  |  |
 
 ### Return type
 

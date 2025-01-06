@@ -1,4 +1,4 @@
-# ClerkBackend::VerifyPasswordRequest
+# ClerkHttpClient::VerifyPasswordRequest
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::VerifyPasswordRequest.new(
+instance = ClerkHttpClient::VerifyPasswordRequest.new(
   password: null
 )
 ```

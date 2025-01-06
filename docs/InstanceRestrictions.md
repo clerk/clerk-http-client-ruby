@@ -1,4 +1,4 @@
-# ClerkBackend::InstanceRestrictions
+# ClerkHttpClient::InstanceRestrictions
 
 ## Properties
 
@@ -13,9 +13,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::InstanceRestrictions.new(
+instance = ClerkHttpClient::InstanceRestrictions.new(
   object: null,
   allowlist: null,
   blocklist: null,

@@ -1,4 +1,4 @@
-# ClerkBackend::AllowlistIdentifier
+# ClerkHttpClient::AllowlistIdentifier
 
 ## Properties
 
@@ -16,9 +16,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::AllowlistIdentifier.new(
+instance = ClerkHttpClient::AllowlistIdentifier.new(
   object: null,
   id: null,
   invitation_id: null,

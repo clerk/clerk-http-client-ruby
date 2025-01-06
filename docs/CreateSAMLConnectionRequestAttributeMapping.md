@@ -1,4 +1,4 @@
-# ClerkBackend::CreateSAMLConnectionRequestAttributeMapping
+# ClerkHttpClient::CreateSAMLConnectionRequestAttributeMapping
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateSAMLConnectionRequestAttributeMapping.new(
+instance = ClerkHttpClient::CreateSAMLConnectionRequestAttributeMapping.new(
   user_id: null,
   email_address: null,
   first_name: null,

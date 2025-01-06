@@ -1,4 +1,4 @@
-# ClerkBackend::RedirectURLsApi
+# ClerkHttpClient::RedirectURLsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -12,7 +12,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_redirect_url
 
-> <RedirectURL> create_redirect_url(opts)
+> <RedirectURL> create_redirect_url(create_redirect_url_request)
 
 Create a redirect URL
 
@@ -22,23 +22,21 @@ Create a redirect URL
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::RedirectURLsApi.new
-opts = {
-  create_redirect_url_request: ClerkBackend::CreateRedirectURLRequest.new # CreateRedirectURLRequest | 
-}
+api_instance = ClerkHttpClient::RedirectURLsApi.new
+create_redirect_url_request = ClerkHttpClient::CreateRedirectURLRequest.new # CreateRedirectURLRequest | 
 
 begin
   # Create a redirect URL
-  result = api_instance.create_redirect_url(opts)
+  result = api_instance.create_redirect_url(create_redirect_url_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling RedirectURLsApi->create_redirect_url: #{e}"
 end
 ```
@@ -47,16 +45,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<RedirectURL>, Integer, Hash)> create_redirect_url_with_http_info(opts)
+> <Array(<RedirectURL>, Integer, Hash)> create_redirect_url_with_http_info(create_redirect_url_request)
 
 ```ruby
 begin
   # Create a redirect URL
-  data, status_code, headers = api_instance.create_redirect_url_with_http_info(opts)
+  data, status_code, headers = api_instance.create_redirect_url_with_http_info(create_redirect_url_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RedirectURL>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling RedirectURLsApi->create_redirect_url_with_http_info: #{e}"
 end
 ```
@@ -65,7 +63,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_redirect_url_request** | [**CreateRedirectURLRequest**](CreateRedirectURLRequest.md) |  | [optional] |
+| **create_redirect_url_request** | [**CreateRedirectURLRequest**](CreateRedirectURLRequest.md) |  |  |
 
 ### Return type
 
@@ -93,21 +91,21 @@ Remove the selected redirect URL from the whitelist of the instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::RedirectURLsApi.new
+api_instance = ClerkHttpClient::RedirectURLsApi.new
 id = 'id_example' # String | The ID of the redirect URL
 
 begin
   # Delete a redirect URL
   result = api_instance.delete_redirect_url(id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling RedirectURLsApi->delete_redirect_url: #{e}"
 end
 ```
@@ -125,7 +123,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling RedirectURLsApi->delete_redirect_url_with_http_info: #{e}"
 end
 ```
@@ -162,21 +160,21 @@ Retrieve the details of the redirect URL with the given ID
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::RedirectURLsApi.new
+api_instance = ClerkHttpClient::RedirectURLsApi.new
 id = 'id_example' # String | The ID of the redirect URL
 
 begin
   # Retrieve a redirect URL
   result = api_instance.get_redirect_url(id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling RedirectURLsApi->get_redirect_url: #{e}"
 end
 ```
@@ -194,7 +192,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RedirectURL>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling RedirectURLsApi->get_redirect_url_with_http_info: #{e}"
 end
 ```
@@ -231,20 +229,20 @@ Lists all whitelisted redirect_urls for the instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::RedirectURLsApi.new
+api_instance = ClerkHttpClient::RedirectURLsApi.new
 
 begin
   # List all redirect URLs
   result = api_instance.list_redirect_urls
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling RedirectURLsApi->list_redirect_urls: #{e}"
 end
 ```
@@ -262,7 +260,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<RedirectURL>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling RedirectURLsApi->list_redirect_urls_with_http_info: #{e}"
 end
 ```

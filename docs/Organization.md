@@ -1,4 +1,4 @@
-# ClerkBackend::Organization
+# ClerkHttpClient::Organization
 
 ## Properties
 
@@ -20,9 +20,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::Organization.new(
+instance = ClerkHttpClient::Organization.new(
   object: null,
   id: null,
   name: null,

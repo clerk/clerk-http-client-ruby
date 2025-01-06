@@ -1,4 +1,4 @@
-# ClerkBackend::ClientsApi
+# ClerkHttpClient::ClientsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -21,21 +21,21 @@ Returns the details of a client.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::ClientsApi.new
+api_instance = ClerkHttpClient::ClientsApi.new
 client_id = 'client_id_example' # String | Client ID.
 
 begin
   # Get a client
   result = api_instance.get_client(client_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ClientsApi->get_client: #{e}"
 end
 ```
@@ -53,7 +53,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Client>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ClientsApi->get_client_with_http_info: #{e}"
 end
 ```
@@ -90,14 +90,14 @@ Returns a list of all clients. The clients are returned sorted by creation date,
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::ClientsApi.new
+api_instance = ClerkHttpClient::ClientsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -107,7 +107,7 @@ begin
   # List all clients
   result = api_instance.get_client_list(opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ClientsApi->get_client_list: #{e}"
 end
 ```
@@ -125,7 +125,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Client>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ClientsApi->get_client_list_with_http_info: #{e}"
 end
 ```
@@ -153,7 +153,7 @@ end
 
 ## verify_client
 
-> <Client> verify_client(opts)
+> <Client> verify_client(verify_client_request)
 
 Verify a client
 
@@ -163,23 +163,21 @@ Verifies the client in the provided token
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::ClientsApi.new
-opts = {
-  verify_client_request: ClerkBackend::VerifyClientRequest.new # VerifyClientRequest | Parameters.
-}
+api_instance = ClerkHttpClient::ClientsApi.new
+verify_client_request = ClerkHttpClient::VerifyClientRequest.new # VerifyClientRequest | 
 
 begin
   # Verify a client
-  result = api_instance.verify_client(opts)
+  result = api_instance.verify_client(verify_client_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ClientsApi->verify_client: #{e}"
 end
 ```
@@ -188,16 +186,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Client>, Integer, Hash)> verify_client_with_http_info(opts)
+> <Array(<Client>, Integer, Hash)> verify_client_with_http_info(verify_client_request)
 
 ```ruby
 begin
   # Verify a client
-  data, status_code, headers = api_instance.verify_client_with_http_info(opts)
+  data, status_code, headers = api_instance.verify_client_with_http_info(verify_client_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Client>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling ClientsApi->verify_client_with_http_info: #{e}"
 end
 ```
@@ -206,7 +204,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **verify_client_request** | [**VerifyClientRequest**](VerifyClientRequest.md) | Parameters. | [optional] |
+| **verify_client_request** | [**VerifyClientRequest**](VerifyClientRequest.md) |  |  |
 
 ### Return type
 

@@ -1,4 +1,4 @@
-# ClerkBackend::ToggleTemplateDeliveryRequest
+# ClerkHttpClient::ToggleTemplateDeliveryRequest
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::ToggleTemplateDeliveryRequest.new(
+instance = ClerkHttpClient::ToggleTemplateDeliveryRequest.new(
   delivered_by_clerk: null
 )
 ```

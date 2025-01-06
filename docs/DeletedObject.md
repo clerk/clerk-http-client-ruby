@@ -1,4 +1,4 @@
-# ClerkBackend::DeletedObject
+# ClerkHttpClient::DeletedObject
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::DeletedObject.new(
+instance = ClerkHttpClient::DeletedObject.new(
   object: null,
   id: null,
   slug: null,

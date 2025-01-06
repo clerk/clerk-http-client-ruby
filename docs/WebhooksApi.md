@@ -1,4 +1,4 @@
-# ClerkBackend::WebhooksApi
+# ClerkHttpClient::WebhooksApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -21,20 +21,20 @@ Create a Svix app and associate it with the current instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::WebhooksApi.new
+api_instance = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Create a Svix app
   result = api_instance.create_svix_app
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling WebhooksApi->create_svix_app: #{e}"
 end
 ```
@@ -52,7 +52,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SvixURL>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling WebhooksApi->create_svix_app_with_http_info: #{e}"
 end
 ```
@@ -87,19 +87,19 @@ Delete a Svix app and disassociate it from the current instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::WebhooksApi.new
+api_instance = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Delete a Svix app
   api_instance.delete_svix_app
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling WebhooksApi->delete_svix_app: #{e}"
 end
 ```
@@ -117,7 +117,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling WebhooksApi->delete_svix_app_with_http_info: #{e}"
 end
 ```
@@ -152,20 +152,20 @@ Generate a new url for accessing the Svix's management dashboard for that partic
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::WebhooksApi.new
+api_instance = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Create a Svix Dashboard URL
   result = api_instance.generate_svix_auth_url
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling WebhooksApi->generate_svix_auth_url: #{e}"
 end
 ```
@@ -183,7 +183,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SvixURL>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling WebhooksApi->generate_svix_auth_url_with_http_info: #{e}"
 end
 ```

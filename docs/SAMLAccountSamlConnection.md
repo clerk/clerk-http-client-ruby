@@ -1,4 +1,4 @@
-# ClerkBackend::SAMLAccountSamlConnection
+# ClerkHttpClient::SAMLAccountSamlConnection
 
 ## Class instance methods
 
@@ -9,9 +9,9 @@ Returns the list of classes defined in oneOf.
 #### Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-ClerkBackend::SAMLAccountSamlConnection.openapi_one_of
+ClerkHttpClient::SAMLAccountSamlConnection.openapi_one_of
 # =>
 # [
 #   :'SAMLConnection'
@@ -25,12 +25,12 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 #### Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-ClerkBackend::SAMLAccountSamlConnection.build(data)
+ClerkHttpClient::SAMLAccountSamlConnection.build(data)
 # => #<SAMLConnection:0x00007fdd4aab02a0>
 
-ClerkBackend::SAMLAccountSamlConnection.build(data_that_doesnt_match)
+ClerkHttpClient::SAMLAccountSamlConnection.build(data_that_doesnt_match)
 # => nil
 ```
 

@@ -1,4 +1,4 @@
-# ClerkBackend::TOTP
+# ClerkHttpClient::TOTP
 
 ## Properties
 
@@ -14,9 +14,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::TOTP.new(
+instance = ClerkHttpClient::TOTP.new(
   object: null,
   id: null,
   secret: null,

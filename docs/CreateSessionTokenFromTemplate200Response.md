@@ -1,4 +1,4 @@
-# ClerkBackend::CreateSessionTokenFromTemplate200Response
+# ClerkHttpClient::CreateSessionTokenFromTemplate200Response
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateSessionTokenFromTemplate200Response.new(
+instance = ClerkHttpClient::CreateSessionTokenFromTemplate200Response.new(
   object: null,
   jwt: null
 )

@@ -1,4 +1,4 @@
-# ClerkBackend::SAMLConnectionsApi
+# ClerkHttpClient::SAMLConnectionsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_saml_connection
 
-> <SchemasSAMLConnection> create_saml_connection(opts)
+> <SchemasSAMLConnection> create_saml_connection(create_saml_connection_request)
 
 Create a SAML Connection
 
@@ -23,23 +23,21 @@ Create a new SAML Connection.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SAMLConnectionsApi.new
-opts = {
-  create_saml_connection_request: ClerkBackend::CreateSAMLConnectionRequest.new({name: 'name_example', domain: 'domain_example', provider: 'saml_custom'}) # CreateSAMLConnectionRequest | 
-}
+api_instance = ClerkHttpClient::SAMLConnectionsApi.new
+create_saml_connection_request = ClerkHttpClient::CreateSAMLConnectionRequest.new({name: 'name_example', domain: 'domain_example', provider: 'saml_custom'}) # CreateSAMLConnectionRequest | 
 
 begin
   # Create a SAML Connection
-  result = api_instance.create_saml_connection(opts)
+  result = api_instance.create_saml_connection(create_saml_connection_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->create_saml_connection: #{e}"
 end
 ```
@@ -48,16 +46,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<SchemasSAMLConnection>, Integer, Hash)> create_saml_connection_with_http_info(opts)
+> <Array(<SchemasSAMLConnection>, Integer, Hash)> create_saml_connection_with_http_info(create_saml_connection_request)
 
 ```ruby
 begin
   # Create a SAML Connection
-  data, status_code, headers = api_instance.create_saml_connection_with_http_info(opts)
+  data, status_code, headers = api_instance.create_saml_connection_with_http_info(create_saml_connection_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->create_saml_connection_with_http_info: #{e}"
 end
 ```
@@ -66,7 +64,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_saml_connection_request** | [**CreateSAMLConnectionRequest**](CreateSAMLConnectionRequest.md) |  | [optional] |
+| **create_saml_connection_request** | [**CreateSAMLConnectionRequest**](CreateSAMLConnectionRequest.md) |  |  |
 
 ### Return type
 
@@ -94,21 +92,21 @@ Deletes the SAML Connection whose ID matches the provided `id` in the path.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SAMLConnectionsApi.new
+api_instance = ClerkHttpClient::SAMLConnectionsApi.new
 saml_connection_id = 'saml_connection_id_example' # String | The ID of the SAML Connection to delete
 
 begin
   # Delete a SAML Connection
   result = api_instance.delete_saml_connection(saml_connection_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->delete_saml_connection: #{e}"
 end
 ```
@@ -126,7 +124,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->delete_saml_connection_with_http_info: #{e}"
 end
 ```
@@ -163,21 +161,21 @@ Fetches the SAML Connection whose ID matches the provided `saml_connection_id` i
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SAMLConnectionsApi.new
+api_instance = ClerkHttpClient::SAMLConnectionsApi.new
 saml_connection_id = 'saml_connection_id_example' # String | The ID of the SAML Connection
 
 begin
   # Retrieve a SAML Connection by ID
   result = api_instance.get_saml_connection(saml_connection_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->get_saml_connection: #{e}"
 end
 ```
@@ -195,7 +193,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->get_saml_connection_with_http_info: #{e}"
 end
 ```
@@ -232,14 +230,14 @@ Returns the list of SAML Connections for an instance. Results can be paginated u
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SAMLConnectionsApi.new
+api_instance = ClerkHttpClient::SAMLConnectionsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -249,7 +247,7 @@ begin
   # Get a list of SAML Connections for an instance
   result = api_instance.list_saml_connections(opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->list_saml_connections: #{e}"
 end
 ```
@@ -267,7 +265,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SAMLConnections>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->list_saml_connections_with_http_info: #{e}"
 end
 ```
@@ -305,22 +303,22 @@ Updates the SAML Connection whose ID matches the provided `id` in the path.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::SAMLConnectionsApi.new
+api_instance = ClerkHttpClient::SAMLConnectionsApi.new
 saml_connection_id = 'saml_connection_id_example' # String | The ID of the SAML Connection to update
-update_saml_connection_request = ClerkBackend::UpdateSAMLConnectionRequest.new # UpdateSAMLConnectionRequest | 
+update_saml_connection_request = ClerkHttpClient::UpdateSAMLConnectionRequest.new # UpdateSAMLConnectionRequest | 
 
 begin
   # Update a SAML Connection
   result = api_instance.update_saml_connection(saml_connection_id, update_saml_connection_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->update_saml_connection: #{e}"
 end
 ```
@@ -338,7 +336,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling SAMLConnectionsApi->update_saml_connection_with_http_info: #{e}"
 end
 ```

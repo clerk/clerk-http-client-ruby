@@ -1,4 +1,4 @@
-# ClerkBackend::BetaFeaturesApi
+# ClerkHttpClient::BetaFeaturesApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -11,7 +11,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## change_production_instance_domain
 
-> change_production_instance_domain(opts)
+> change_production_instance_domain(change_production_instance_domain_request)
 
 Update production instance domain
 
@@ -21,22 +21,20 @@ Change the domain of a production instance.  Changing the domain requires updati
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::BetaFeaturesApi.new
-opts = {
-  change_production_instance_domain_request: ClerkBackend::ChangeProductionInstanceDomainRequest.new # ChangeProductionInstanceDomainRequest | 
-}
+api_instance = ClerkHttpClient::BetaFeaturesApi.new
+change_production_instance_domain_request = ClerkHttpClient::ChangeProductionInstanceDomainRequest.new # ChangeProductionInstanceDomainRequest | 
 
 begin
   # Update production instance domain
-  api_instance.change_production_instance_domain(opts)
-rescue ClerkBackend::ApiError => e
+  api_instance.change_production_instance_domain(change_production_instance_domain_request)
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling BetaFeaturesApi->change_production_instance_domain: #{e}"
 end
 ```
@@ -45,16 +43,16 @@ end
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
-> <Array(nil, Integer, Hash)> change_production_instance_domain_with_http_info(opts)
+> <Array(nil, Integer, Hash)> change_production_instance_domain_with_http_info(change_production_instance_domain_request)
 
 ```ruby
 begin
   # Update production instance domain
-  data, status_code, headers = api_instance.change_production_instance_domain_with_http_info(opts)
+  data, status_code, headers = api_instance.change_production_instance_domain_with_http_info(change_production_instance_domain_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling BetaFeaturesApi->change_production_instance_domain_with_http_info: #{e}"
 end
 ```
@@ -63,7 +61,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **change_production_instance_domain_request** | [**ChangeProductionInstanceDomainRequest**](ChangeProductionInstanceDomainRequest.md) |  | [optional] |
+| **change_production_instance_domain_request** | [**ChangeProductionInstanceDomainRequest**](ChangeProductionInstanceDomainRequest.md) |  |  |
 
 ### Return type
 
@@ -81,7 +79,7 @@ nil (empty response body)
 
 ## update_instance_auth_config
 
-> <UpdateInstanceAuthConfig200Response> update_instance_auth_config(opts)
+> <UpdateInstanceAuthConfig200Response> update_instance_auth_config(update_instance_auth_config_request)
 
 Update instance settings
 
@@ -91,23 +89,21 @@ Updates the settings of an instance
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::BetaFeaturesApi.new
-opts = {
-  update_instance_auth_config_request: ClerkBackend::UpdateInstanceAuthConfigRequest.new # UpdateInstanceAuthConfigRequest | 
-}
+api_instance = ClerkHttpClient::BetaFeaturesApi.new
+update_instance_auth_config_request = ClerkHttpClient::UpdateInstanceAuthConfigRequest.new # UpdateInstanceAuthConfigRequest | 
 
 begin
   # Update instance settings
-  result = api_instance.update_instance_auth_config(opts)
+  result = api_instance.update_instance_auth_config(update_instance_auth_config_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling BetaFeaturesApi->update_instance_auth_config: #{e}"
 end
 ```
@@ -116,16 +112,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<UpdateInstanceAuthConfig200Response>, Integer, Hash)> update_instance_auth_config_with_http_info(opts)
+> <Array(<UpdateInstanceAuthConfig200Response>, Integer, Hash)> update_instance_auth_config_with_http_info(update_instance_auth_config_request)
 
 ```ruby
 begin
   # Update instance settings
-  data, status_code, headers = api_instance.update_instance_auth_config_with_http_info(opts)
+  data, status_code, headers = api_instance.update_instance_auth_config_with_http_info(update_instance_auth_config_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UpdateInstanceAuthConfig200Response>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling BetaFeaturesApi->update_instance_auth_config_with_http_info: #{e}"
 end
 ```
@@ -134,7 +130,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **update_instance_auth_config_request** | [**UpdateInstanceAuthConfigRequest**](UpdateInstanceAuthConfigRequest.md) |  | [optional] |
+| **update_instance_auth_config_request** | [**UpdateInstanceAuthConfigRequest**](UpdateInstanceAuthConfigRequest.md) |  |  |
 
 ### Return type
 
@@ -162,22 +158,22 @@ Change the domain of a production instance.  Changing the domain requires updati
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::BetaFeaturesApi.new
+api_instance = ClerkHttpClient::BetaFeaturesApi.new
 opts = {
-  update_production_instance_domain_request: ClerkBackend::UpdateProductionInstanceDomainRequest.new # UpdateProductionInstanceDomainRequest | 
+  update_production_instance_domain_request: ClerkHttpClient::UpdateProductionInstanceDomainRequest.new # UpdateProductionInstanceDomainRequest | 
 }
 
 begin
   # Update production instance domain
   api_instance.update_production_instance_domain(opts)
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling BetaFeaturesApi->update_production_instance_domain: #{e}"
 end
 ```
@@ -195,7 +191,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling BetaFeaturesApi->update_production_instance_domain_with_http_info: #{e}"
 end
 ```

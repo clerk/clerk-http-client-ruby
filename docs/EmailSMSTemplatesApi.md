@@ -1,4 +1,4 @@
-# ClerkBackend::EmailSMSTemplatesApi
+# ClerkHttpClient::EmailSMSTemplatesApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -24,14 +24,14 @@ Returns the details of a template
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailSMSTemplatesApi.new
+api_instance = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of templates to retrieve (email or SMS)
 slug = 'slug_example' # String | The slug (i.e. machine-friendly name) of the template to retrieve
 
@@ -39,7 +39,7 @@ begin
   # Retrieve a template
   result = api_instance.get_template(template_type, slug)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->get_template: #{e}"
 end
 ```
@@ -57,7 +57,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->get_template_with_http_info: #{e}"
 end
 ```
@@ -95,21 +95,21 @@ Returns a list of all templates. The templates are returned sorted by position.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailSMSTemplatesApi.new
+api_instance = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of templates to list (email or SMS)
 
 begin
   # List all templates
   result = api_instance.get_template_list(template_type)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->get_template_list: #{e}"
 end
 ```
@@ -127,7 +127,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Template>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->get_template_list_with_http_info: #{e}"
 end
 ```
@@ -164,25 +164,25 @@ Returns a preview of a template for a given template_type, slug and body
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailSMSTemplatesApi.new
+api_instance = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'template_type_example' # String | The type of template to preview
 slug = 'slug_example' # String | The slug of the template to preview
 opts = {
-  preview_template_request: ClerkBackend::PreviewTemplateRequest.new # PreviewTemplateRequest | Required parameters
+  preview_template_request: ClerkHttpClient::PreviewTemplateRequest.new # PreviewTemplateRequest | Required parameters
 }
 
 begin
   # Preview changes to a template
   result = api_instance.preview_template(template_type, slug, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->preview_template: #{e}"
 end
 ```
@@ -200,7 +200,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->preview_template_with_http_info: #{e}"
 end
 ```
@@ -239,14 +239,14 @@ Reverts an updated template to its default state
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailSMSTemplatesApi.new
+api_instance = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of template to revert
 slug = 'slug_example' # String | The slug of the template to revert
 
@@ -254,7 +254,7 @@ begin
   # Revert a template
   result = api_instance.revert_template(template_type, slug)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->revert_template: #{e}"
 end
 ```
@@ -272,7 +272,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->revert_template_with_http_info: #{e}"
 end
 ```
@@ -310,25 +310,25 @@ Toggles the delivery by Clerk for a template of a given type and slug. If disabl
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailSMSTemplatesApi.new
+api_instance = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of template to toggle delivery for
 slug = 'slug_example' # String | The slug of the template for which to toggle delivery
 opts = {
-  toggle_template_delivery_request: ClerkBackend::ToggleTemplateDeliveryRequest.new # ToggleTemplateDeliveryRequest | 
+  toggle_template_delivery_request: ClerkHttpClient::ToggleTemplateDeliveryRequest.new # ToggleTemplateDeliveryRequest | 
 }
 
 begin
   # Toggle the delivery by Clerk for a template of a given type and slug
   result = api_instance.toggle_template_delivery(template_type, slug, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->toggle_template_delivery: #{e}"
 end
 ```
@@ -346,7 +346,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->toggle_template_delivery_with_http_info: #{e}"
 end
 ```
@@ -385,25 +385,25 @@ Updates the existing template of the given type and slug
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailSMSTemplatesApi.new
+api_instance = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of template to update
 slug = 'slug_example' # String | The slug of the template to update
 opts = {
-  upsert_template_request: ClerkBackend::UpsertTemplateRequest.new # UpsertTemplateRequest | 
+  upsert_template_request: ClerkHttpClient::UpsertTemplateRequest.new # UpsertTemplateRequest | 
 }
 
 begin
   # Update a template for a given type and slug
   result = api_instance.upsert_template(template_type, slug, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->upsert_template: #{e}"
 end
 ```
@@ -421,7 +421,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailSMSTemplatesApi->upsert_template_with_http_info: #{e}"
 end
 ```

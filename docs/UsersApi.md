@@ -1,4 +1,4 @@
-# ClerkBackend::UsersApi
+# ClerkHttpClient::UsersApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -8,6 +8,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | [**create_user**](UsersApi.md#create_user) | **POST** /users | Create a new user |
 | [**create_user_totp**](UsersApi.md#create_user_totp) | **POST** /users/{user_id}/totp | Create a TOTP for a user |
 | [**delete_backup_code**](UsersApi.md#delete_backup_code) | **DELETE** /users/{user_id}/backup_code | Disable all user&#39;s Backup codes |
+| [**delete_external_account**](UsersApi.md#delete_external_account) | **DELETE** /users/{user_id}/external_accounts/{external_account_id} | Delete External Account |
 | [**delete_totp**](UsersApi.md#delete_totp) | **DELETE** /users/{user_id}/totp | Delete all the user&#39;s TOTPs |
 | [**delete_user**](UsersApi.md#delete_user) | **DELETE** /users/{user_id} | Delete a user |
 | [**delete_user_profile_image**](UsersApi.md#delete_user_profile_image) | **DELETE** /users/{user_id}/profile_image | Delete user profile image |
@@ -24,6 +25,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | [**update_user_metadata**](UsersApi.md#update_user_metadata) | **PATCH** /users/{user_id}/metadata | Merge and update a user&#39;s metadata |
 | [**user_passkey_delete**](UsersApi.md#user_passkey_delete) | **DELETE** /users/{user_id}/passkeys/{passkey_identification_id} | Delete a user passkey |
 | [**user_web3_wallet_delete**](UsersApi.md#user_web3_wallet_delete) | **DELETE** /users/{user_id}/web3_wallets/{web3_wallet_identification_id} | Delete a user web3 wallet |
+| [**users_get_organization_invitations**](UsersApi.md#users_get_organization_invitations) | **GET** /users/{user_id}/organization_invitations | Retrieve all invitations for a user |
 | [**users_get_organization_memberships**](UsersApi.md#users_get_organization_memberships) | **GET** /users/{user_id}/organization_memberships | Retrieve all memberships for a user |
 | [**verify_password**](UsersApi.md#verify_password) | **POST** /users/{user_id}/verify_password | Verify the password of a user |
 | [**verify_totp**](UsersApi.md#verify_totp) | **POST** /users/{user_id}/verify_totp | Verify a TOTP or backup code for a user |
@@ -41,21 +43,21 @@ Marks the given user as banned, which means that all their sessions are revoked 
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to ban
 
 begin
   # Ban a user
   result = api_instance.ban_user(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->ban_user: #{e}"
 end
 ```
@@ -73,7 +75,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->ban_user_with_http_info: #{e}"
 end
 ```
@@ -110,21 +112,21 @@ Creates a new user. Your user management settings determine how you should setup
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
-create_user_request = ClerkBackend::CreateUserRequest.new # CreateUserRequest | 
+api_instance = ClerkHttpClient::UsersApi.new
+create_user_request = ClerkHttpClient::CreateUserRequest.new # CreateUserRequest | 
 
 begin
   # Create a new user
   result = api_instance.create_user(create_user_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->create_user: #{e}"
 end
 ```
@@ -142,7 +144,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->create_user_with_http_info: #{e}"
 end
 ```
@@ -179,21 +181,21 @@ Creates a TOTP (Time-based One-Time Password) for a given user, returning both t
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user for whom the TOTP is being created.
 
 begin
   # Create a TOTP for a user
   result = api_instance.create_user_totp(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->create_user_totp: #{e}"
 end
 ```
@@ -211,7 +213,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TOTP>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->create_user_totp_with_http_info: #{e}"
 end
 ```
@@ -248,21 +250,21 @@ Disable all of a user's backup codes.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose backup codes are to be deleted.
 
 begin
   # Disable all user's Backup codes
   result = api_instance.delete_backup_code(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->delete_backup_code: #{e}"
 end
 ```
@@ -280,7 +282,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DisableMFA200Response>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->delete_backup_code_with_http_info: #{e}"
 end
 ```
@@ -305,6 +307,77 @@ end
 - **Accept**: application/json
 
 
+## delete_external_account
+
+> <DeletedObject> delete_external_account(user_id, external_account_id)
+
+Delete External Account
+
+Delete an external account by ID.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk-http-client-ruby'
+# setup authorization
+ClerkHttpClient.configure do |config|
+  # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = ClerkHttpClient::UsersApi.new
+user_id = 'user_id_example' # String | The ID of the user's external account
+external_account_id = 'external_account_id_example' # String | The ID of the external account to delete
+
+begin
+  # Delete External Account
+  result = api_instance.delete_external_account(user_id, external_account_id)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling UsersApi->delete_external_account: #{e}"
+end
+```
+
+#### Using the delete_external_account_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeletedObject>, Integer, Hash)> delete_external_account_with_http_info(user_id, external_account_id)
+
+```ruby
+begin
+  # Delete External Account
+  data, status_code, headers = api_instance.delete_external_account_with_http_info(user_id, external_account_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeletedObject>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling UsersApi->delete_external_account_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_id** | **String** | The ID of the user&#39;s external account |  |
+| **external_account_id** | **String** | The ID of the external account to delete |  |
+
+### Return type
+
+[**DeletedObject**](DeletedObject.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## delete_totp
 
 > <DisableMFA200Response> delete_totp(user_id)
@@ -317,21 +390,21 @@ Deletes all of the user's TOTPs.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose TOTPs are to be deleted
 
 begin
   # Delete all the user's TOTPs
   result = api_instance.delete_totp(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->delete_totp: #{e}"
 end
 ```
@@ -349,7 +422,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DisableMFA200Response>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->delete_totp_with_http_info: #{e}"
 end
 ```
@@ -386,21 +459,21 @@ Delete the specified user
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to delete
 
 begin
   # Delete a user
   result = api_instance.delete_user(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->delete_user: #{e}"
 end
 ```
@@ -418,7 +491,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->delete_user_with_http_info: #{e}"
 end
 ```
@@ -455,21 +528,21 @@ Delete a user's profile image
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to delete the profile image for
 
 begin
   # Delete user profile image
   result = api_instance.delete_user_profile_image(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->delete_user_profile_image: #{e}"
 end
 ```
@@ -487,7 +560,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->delete_user_profile_image_with_http_info: #{e}"
 end
 ```
@@ -524,21 +597,21 @@ Disable all of a user's MFA methods (e.g. OTP sent via SMS, TOTP on their authen
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose MFA methods are to be disabled
 
 begin
   # Disable a user's MFA methods
   result = api_instance.disable_mfa(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->disable_mfa: #{e}"
 end
 ```
@@ -556,7 +629,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DisableMFA200Response>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->disable_mfa_with_http_info: #{e}"
 end
 ```
@@ -593,14 +666,14 @@ Fetch the corresponding OAuth access token for a user that has previously authen
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user for which to retrieve the OAuth access token
 provider = 'provider_example' # String | The ID of the OAuth provider (e.g. `oauth_google`)
 
@@ -608,7 +681,7 @@ begin
   # Retrieve the OAuth access token of a user
   result = api_instance.get_o_auth_access_token(user_id, provider)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->get_o_auth_access_token: #{e}"
 end
 ```
@@ -626,7 +699,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<GetOAuthAccessToken200ResponseInner>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->get_o_auth_access_token_with_http_info: #{e}"
 end
 ```
@@ -664,21 +737,21 @@ Retrieve the details of a user
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to retrieve
 
 begin
   # Retrieve a user
   result = api_instance.get_user(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->get_user: #{e}"
 end
 ```
@@ -696,7 +769,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->get_user_with_http_info: #{e}"
 end
 ```
@@ -733,14 +806,14 @@ Returns a list of all users. The users are returned sorted by creation date, wit
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 opts = {
   email_address: ['inner_example'], # Array<String> | Returns users with the specified email addresses. Accepts up to 100 email addresses. Any email addresses not found are ignored.
   phone_number: ['inner_example'], # Array<String> | Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
@@ -760,7 +833,7 @@ begin
   # List all users
   result = api_instance.get_user_list(opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->get_user_list: #{e}"
 end
 ```
@@ -778,7 +851,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<User>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->get_user_list_with_http_info: #{e}"
 end
 ```
@@ -826,14 +899,14 @@ Returns a total count of all users that match the given filtering criteria.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 opts = {
   email_address: ['inner_example'], # Array<String> | Counts users with the specified email addresses. Accepts up to 100 email addresses. Any email addresses not found are ignored.
   phone_number: ['inner_example'], # Array<String> | Counts users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
@@ -848,7 +921,7 @@ begin
   # Count users
   result = api_instance.get_users_count(opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->get_users_count: #{e}"
 end
 ```
@@ -866,7 +939,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TotalCount>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->get_users_count_with_http_info: #{e}"
 end
 ```
@@ -909,21 +982,21 @@ Marks the given user as locked, which means they are not allowed to sign in agai
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to lock
 
 begin
   # Lock a user
   result = api_instance.lock_user(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->lock_user: #{e}"
 end
 ```
@@ -941,7 +1014,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->lock_user_with_http_info: #{e}"
 end
 ```
@@ -978,14 +1051,14 @@ Update a user's profile image
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to update the profile image for
 opts = {
   file: File.new('/path/to/some/file') # File | 
@@ -995,7 +1068,7 @@ begin
   # Set user profile image
   result = api_instance.set_user_profile_image(user_id, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->set_user_profile_image: #{e}"
 end
 ```
@@ -1013,7 +1086,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->set_user_profile_image_with_http_info: #{e}"
 end
 ```
@@ -1051,21 +1124,21 @@ Removes the ban mark from the given user.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to unban
 
 begin
   # Unban a user
   result = api_instance.unban_user(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->unban_user: #{e}"
 end
 ```
@@ -1083,7 +1156,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->unban_user_with_http_info: #{e}"
 end
 ```
@@ -1120,21 +1193,21 @@ Removes the lock from the given user.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to unlock
 
 begin
   # Unlock a user
   result = api_instance.unlock_user(user_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->unlock_user: #{e}"
 end
 ```
@@ -1152,7 +1225,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->unlock_user_with_http_info: #{e}"
 end
 ```
@@ -1189,22 +1262,22 @@ Update a user's attributes.  You can set the user's primary contact identifiers 
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to update
-update_user_request = ClerkBackend::UpdateUserRequest.new # UpdateUserRequest | 
+update_user_request = ClerkHttpClient::UpdateUserRequest.new # UpdateUserRequest | 
 
 begin
   # Update a user
   result = api_instance.update_user(user_id, update_user_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->update_user: #{e}"
 end
 ```
@@ -1222,7 +1295,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->update_user_with_http_info: #{e}"
 end
 ```
@@ -1250,7 +1323,7 @@ end
 
 ## update_user_metadata
 
-> <User> update_user_metadata(user_id, opts)
+> <User> update_user_metadata(user_id, update_user_metadata_request)
 
 Merge and update a user's metadata
 
@@ -1260,24 +1333,22 @@ Update a user's metadata attributes by merging existing values with the provided
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose metadata will be updated and merged
-opts = {
-  update_user_metadata_request: ClerkBackend::UpdateUserMetadataRequest.new # UpdateUserMetadataRequest | 
-}
+update_user_metadata_request = ClerkHttpClient::UpdateUserMetadataRequest.new # UpdateUserMetadataRequest | 
 
 begin
   # Merge and update a user's metadata
-  result = api_instance.update_user_metadata(user_id, opts)
+  result = api_instance.update_user_metadata(user_id, update_user_metadata_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->update_user_metadata: #{e}"
 end
 ```
@@ -1286,16 +1357,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<User>, Integer, Hash)> update_user_metadata_with_http_info(user_id, opts)
+> <Array(<User>, Integer, Hash)> update_user_metadata_with_http_info(user_id, update_user_metadata_request)
 
 ```ruby
 begin
   # Merge and update a user's metadata
-  data, status_code, headers = api_instance.update_user_metadata_with_http_info(user_id, opts)
+  data, status_code, headers = api_instance.update_user_metadata_with_http_info(user_id, update_user_metadata_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->update_user_metadata_with_http_info: #{e}"
 end
 ```
@@ -1305,7 +1376,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The ID of the user whose metadata will be updated and merged |  |
-| **update_user_metadata_request** | [**UpdateUserMetadataRequest**](UpdateUserMetadataRequest.md) |  | [optional] |
+| **update_user_metadata_request** | [**UpdateUserMetadataRequest**](UpdateUserMetadataRequest.md) |  |  |
 
 ### Return type
 
@@ -1333,14 +1404,14 @@ Delete the passkey identification for a given user and notify them through email
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user that owns the passkey identity
 passkey_identification_id = 'passkey_identification_id_example' # String | The ID of the passkey identity to be deleted
 
@@ -1348,7 +1419,7 @@ begin
   # Delete a user passkey
   result = api_instance.user_passkey_delete(user_id, passkey_identification_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->user_passkey_delete: #{e}"
 end
 ```
@@ -1366,7 +1437,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->user_passkey_delete_with_http_info: #{e}"
 end
 ```
@@ -1404,14 +1475,14 @@ Delete the web3 wallet identification for a given user.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user that owns the web3 wallet
 web3_wallet_identification_id = 'web3_wallet_identification_id_example' # String | The ID of the web3 wallet identity to be deleted
 
@@ -1419,7 +1490,7 @@ begin
   # Delete a user web3 wallet
   result = api_instance.user_web3_wallet_delete(user_id, web3_wallet_identification_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->user_web3_wallet_delete: #{e}"
 end
 ```
@@ -1437,7 +1508,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->user_web3_wallet_delete_with_http_info: #{e}"
 end
 ```
@@ -1463,6 +1534,83 @@ end
 - **Accept**: application/json
 
 
+## users_get_organization_invitations
+
+> <OrganizationInvitationsWithPublicOrganizationData> users_get_organization_invitations(user_id, opts)
+
+Retrieve all invitations for a user
+
+Retrieve a paginated list of the user's organization invitations
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk-http-client-ruby'
+# setup authorization
+ClerkHttpClient.configure do |config|
+  # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
+  config.access_token = 'YOUR_BEARER_TOKEN'
+end
+
+api_instance = ClerkHttpClient::UsersApi.new
+user_id = 'user_id_example' # String | The ID of the user whose organization invitations we want to retrieve
+opts = {
+  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  status: 'pending' # String | Filter organization invitations based on their status
+}
+
+begin
+  # Retrieve all invitations for a user
+  result = api_instance.users_get_organization_invitations(user_id, opts)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling UsersApi->users_get_organization_invitations: #{e}"
+end
+```
+
+#### Using the users_get_organization_invitations_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<OrganizationInvitationsWithPublicOrganizationData>, Integer, Hash)> users_get_organization_invitations_with_http_info(user_id, opts)
+
+```ruby
+begin
+  # Retrieve all invitations for a user
+  data, status_code, headers = api_instance.users_get_organization_invitations_with_http_info(user_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <OrganizationInvitationsWithPublicOrganizationData>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling UsersApi->users_get_organization_invitations_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **user_id** | **String** | The ID of the user whose organization invitations we want to retrieve |  |
+| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **status** | **String** | Filter organization invitations based on their status | [optional] |
+
+### Return type
+
+[**OrganizationInvitationsWithPublicOrganizationData**](OrganizationInvitationsWithPublicOrganizationData.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
 ## users_get_organization_memberships
 
 > <OrganizationMemberships> users_get_organization_memberships(user_id, opts)
@@ -1475,14 +1623,14 @@ Retrieve a paginated list of the user's organization memberships
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose organization memberships we want to retrieve
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
@@ -1493,7 +1641,7 @@ begin
   # Retrieve all memberships for a user
   result = api_instance.users_get_organization_memberships(user_id, opts)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->users_get_organization_memberships: #{e}"
 end
 ```
@@ -1511,7 +1659,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMemberships>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->users_get_organization_memberships_with_http_info: #{e}"
 end
 ```
@@ -1540,7 +1688,7 @@ end
 
 ## verify_password
 
-> <VerifyPassword200Response> verify_password(user_id, opts)
+> <VerifyPassword200Response> verify_password(user_id, verify_password_request)
 
 Verify the password of a user
 
@@ -1550,24 +1698,22 @@ Check that the user's password matches the supplied input. Useful for custom aut
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user for whom to verify the password
-opts = {
-  verify_password_request: ClerkBackend::VerifyPasswordRequest.new({password: 'password_example'}) # VerifyPasswordRequest | 
-}
+verify_password_request = ClerkHttpClient::VerifyPasswordRequest.new({password: 'password_example'}) # VerifyPasswordRequest | 
 
 begin
   # Verify the password of a user
-  result = api_instance.verify_password(user_id, opts)
+  result = api_instance.verify_password(user_id, verify_password_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->verify_password: #{e}"
 end
 ```
@@ -1576,16 +1722,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<VerifyPassword200Response>, Integer, Hash)> verify_password_with_http_info(user_id, opts)
+> <Array(<VerifyPassword200Response>, Integer, Hash)> verify_password_with_http_info(user_id, verify_password_request)
 
 ```ruby
 begin
   # Verify the password of a user
-  data, status_code, headers = api_instance.verify_password_with_http_info(user_id, opts)
+  data, status_code, headers = api_instance.verify_password_with_http_info(user_id, verify_password_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <VerifyPassword200Response>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->verify_password_with_http_info: #{e}"
 end
 ```
@@ -1595,7 +1741,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The ID of the user for whom to verify the password |  |
-| **verify_password_request** | [**VerifyPasswordRequest**](VerifyPasswordRequest.md) |  | [optional] |
+| **verify_password_request** | [**VerifyPasswordRequest**](VerifyPasswordRequest.md) |  |  |
 
 ### Return type
 
@@ -1613,7 +1759,7 @@ end
 
 ## verify_totp
 
-> <VerifyTOTP200Response> verify_totp(user_id, opts)
+> <VerifyTOTP200Response> verify_totp(user_id, verify_totp_request)
 
 Verify a TOTP or backup code for a user
 
@@ -1623,24 +1769,22 @@ Verify that the provided TOTP or backup code is valid for the user. Verifying a 
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::UsersApi.new
+api_instance = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user for whom to verify the TOTP
-opts = {
-  verify_totp_request: ClerkBackend::VerifyTOTPRequest.new({code: 'code_example'}) # VerifyTOTPRequest | 
-}
+verify_totp_request = ClerkHttpClient::VerifyTOTPRequest.new({code: 'code_example'}) # VerifyTOTPRequest | 
 
 begin
   # Verify a TOTP or backup code for a user
-  result = api_instance.verify_totp(user_id, opts)
+  result = api_instance.verify_totp(user_id, verify_totp_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->verify_totp: #{e}"
 end
 ```
@@ -1649,16 +1793,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<VerifyTOTP200Response>, Integer, Hash)> verify_totp_with_http_info(user_id, opts)
+> <Array(<VerifyTOTP200Response>, Integer, Hash)> verify_totp_with_http_info(user_id, verify_totp_request)
 
 ```ruby
 begin
   # Verify a TOTP or backup code for a user
-  data, status_code, headers = api_instance.verify_totp_with_http_info(user_id, opts)
+  data, status_code, headers = api_instance.verify_totp_with_http_info(user_id, verify_totp_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <VerifyTOTP200Response>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling UsersApi->verify_totp_with_http_info: #{e}"
 end
 ```
@@ -1668,7 +1812,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The ID of the user for whom to verify the TOTP |  |
-| **verify_totp_request** | [**VerifyTOTPRequest**](VerifyTOTPRequest.md) |  | [optional] |
+| **verify_totp_request** | [**VerifyTOTPRequest**](VerifyTOTPRequest.md) |  |  |
 
 ### Return type
 

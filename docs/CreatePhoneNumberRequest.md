@@ -1,4 +1,4 @@
-# ClerkBackend::CreatePhoneNumberRequest
+# ClerkHttpClient::CreatePhoneNumberRequest
 
 ## Properties
 
@@ -13,9 +13,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreatePhoneNumberRequest.new(
+instance = ClerkHttpClient::CreatePhoneNumberRequest.new(
   user_id: null,
   phone_number: null,
   verified: null,

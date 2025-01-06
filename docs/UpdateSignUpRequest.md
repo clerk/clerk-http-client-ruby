@@ -1,4 +1,4 @@
-# ClerkBackend::UpdateSignUpRequest
+# ClerkHttpClient::UpdateSignUpRequest
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::UpdateSignUpRequest.new(
+instance = ClerkHttpClient::UpdateSignUpRequest.new(
   external_id: null
 )
 ```

@@ -1,4 +1,4 @@
-# ClerkBackend::JWTTemplatesApi
+# ClerkHttpClient::JWTTemplatesApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -13,7 +13,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_jwt_template
 
-> <JWTTemplate> create_jwt_template(opts)
+> <JWTTemplate> create_jwt_template(create_jwt_template_request)
 
 Create a JWT template
 
@@ -23,23 +23,21 @@ Create a new JWT template
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::JWTTemplatesApi.new
-opts = {
-  create_jwt_template_request: ClerkBackend::CreateJWTTemplateRequest.new # CreateJWTTemplateRequest | 
-}
+api_instance = ClerkHttpClient::JWTTemplatesApi.new
+create_jwt_template_request = ClerkHttpClient::CreateJWTTemplateRequest.new # CreateJWTTemplateRequest | 
 
 begin
   # Create a JWT template
-  result = api_instance.create_jwt_template(opts)
+  result = api_instance.create_jwt_template(create_jwt_template_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->create_jwt_template: #{e}"
 end
 ```
@@ -48,16 +46,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<JWTTemplate>, Integer, Hash)> create_jwt_template_with_http_info(opts)
+> <Array(<JWTTemplate>, Integer, Hash)> create_jwt_template_with_http_info(create_jwt_template_request)
 
 ```ruby
 begin
   # Create a JWT template
-  data, status_code, headers = api_instance.create_jwt_template_with_http_info(opts)
+  data, status_code, headers = api_instance.create_jwt_template_with_http_info(create_jwt_template_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->create_jwt_template_with_http_info: #{e}"
 end
 ```
@@ -66,7 +64,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_jwt_template_request** | [**CreateJWTTemplateRequest**](CreateJWTTemplateRequest.md) |  | [optional] |
+| **create_jwt_template_request** | [**CreateJWTTemplateRequest**](CreateJWTTemplateRequest.md) |  |  |
 
 ### Return type
 
@@ -94,21 +92,21 @@ Delete a Template
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::JWTTemplatesApi.new
+api_instance = ClerkHttpClient::JWTTemplatesApi.new
 template_id = 'template_id_example' # String | JWT Template ID
 
 begin
   # Delete a Template
   result = api_instance.delete_jwt_template(template_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->delete_jwt_template: #{e}"
 end
 ```
@@ -126,7 +124,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->delete_jwt_template_with_http_info: #{e}"
 end
 ```
@@ -163,21 +161,21 @@ Retrieve the details of a given JWT template
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::JWTTemplatesApi.new
+api_instance = ClerkHttpClient::JWTTemplatesApi.new
 template_id = 'template_id_example' # String | JWT Template ID
 
 begin
   # Retrieve a template
   result = api_instance.get_jwt_template(template_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->get_jwt_template: #{e}"
 end
 ```
@@ -195,7 +193,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->get_jwt_template_with_http_info: #{e}"
 end
 ```
@@ -230,20 +228,20 @@ List all templates
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::JWTTemplatesApi.new
+api_instance = ClerkHttpClient::JWTTemplatesApi.new
 
 begin
   # List all templates
   result = api_instance.list_jwt_templates
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->list_jwt_templates: #{e}"
 end
 ```
@@ -261,7 +259,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<JWTTemplate>>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->list_jwt_templates_with_http_info: #{e}"
 end
 ```
@@ -286,7 +284,7 @@ This endpoint does not need any parameter.
 
 ## update_jwt_template
 
-> <JWTTemplate> update_jwt_template(template_id, opts)
+> <JWTTemplate> update_jwt_template(template_id, create_jwt_template_request)
 
 Update a JWT template
 
@@ -296,24 +294,22 @@ Updates an existing JWT template
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::JWTTemplatesApi.new
+api_instance = ClerkHttpClient::JWTTemplatesApi.new
 template_id = 'template_id_example' # String | The ID of the JWT template to update
-opts = {
-  create_jwt_template_request: ClerkBackend::CreateJWTTemplateRequest.new # CreateJWTTemplateRequest | 
-}
+create_jwt_template_request = ClerkHttpClient::CreateJWTTemplateRequest.new # CreateJWTTemplateRequest | 
 
 begin
   # Update a JWT template
-  result = api_instance.update_jwt_template(template_id, opts)
+  result = api_instance.update_jwt_template(template_id, create_jwt_template_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->update_jwt_template: #{e}"
 end
 ```
@@ -322,16 +318,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<JWTTemplate>, Integer, Hash)> update_jwt_template_with_http_info(template_id, opts)
+> <Array(<JWTTemplate>, Integer, Hash)> update_jwt_template_with_http_info(template_id, create_jwt_template_request)
 
 ```ruby
 begin
   # Update a JWT template
-  data, status_code, headers = api_instance.update_jwt_template_with_http_info(template_id, opts)
+  data, status_code, headers = api_instance.update_jwt_template_with_http_info(template_id, create_jwt_template_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling JWTTemplatesApi->update_jwt_template_with_http_info: #{e}"
 end
 ```
@@ -341,7 +337,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **template_id** | **String** | The ID of the JWT template to update |  |
-| **create_jwt_template_request** | [**CreateJWTTemplateRequest**](CreateJWTTemplateRequest.md) |  | [optional] |
+| **create_jwt_template_request** | [**CreateJWTTemplateRequest**](CreateJWTTemplateRequest.md) |  |  |
 
 ### Return type
 

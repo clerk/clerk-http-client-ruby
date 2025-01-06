@@ -1,4 +1,4 @@
-# ClerkBackend::ChangeProductionInstanceDomainRequest
+# ClerkHttpClient::ChangeProductionInstanceDomainRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::ChangeProductionInstanceDomainRequest.new(
+instance = ClerkHttpClient::ChangeProductionInstanceDomainRequest.new(
   home_url: null,
   is_secondary: null
 )

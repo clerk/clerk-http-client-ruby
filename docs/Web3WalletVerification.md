@@ -1,4 +1,4 @@
-# ClerkBackend::Web3WalletVerification
+# ClerkHttpClient::Web3WalletVerification
 
 ## Class instance methods
 
@@ -9,9 +9,9 @@ Returns the list of classes defined in oneOf.
 #### Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-ClerkBackend::Web3WalletVerification.openapi_one_of
+ClerkHttpClient::Web3WalletVerification.openapi_one_of
 # =>
 # [
 #   :'Admin',
@@ -26,12 +26,12 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 #### Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-ClerkBackend::Web3WalletVerification.build(data)
+ClerkHttpClient::Web3WalletVerification.build(data)
 # => #<Admin:0x00007fdd4aab02a0>
 
-ClerkBackend::Web3WalletVerification.build(data_that_doesnt_match)
+ClerkHttpClient::Web3WalletVerification.build(data_that_doesnt_match)
 # => nil
 ```
 

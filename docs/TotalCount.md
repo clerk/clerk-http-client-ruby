@@ -1,4 +1,4 @@
-# ClerkBackend::TotalCount
+# ClerkHttpClient::TotalCount
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::TotalCount.new(
+instance = ClerkHttpClient::TotalCount.new(
   object: null,
   total_count: null
 )

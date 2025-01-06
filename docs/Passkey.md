@@ -1,4 +1,4 @@
-# ClerkBackend::Passkey
+# ClerkHttpClient::Passkey
 
 ## Properties
 
@@ -13,9 +13,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::Passkey.new(
+instance = ClerkHttpClient::Passkey.new(
   status: null,
   strategy: null,
   nonce: null,

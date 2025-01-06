@@ -1,4 +1,4 @@
-# ClerkBackend::CreateSignInTokenRequest
+# ClerkHttpClient::CreateSignInTokenRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::CreateSignInTokenRequest.new(
+instance = ClerkHttpClient::CreateSignInTokenRequest.new(
   user_id: null,
   expires_in_seconds: null
 )

@@ -1,4 +1,4 @@
-# ClerkBackend::Template
+# ClerkHttpClient::Template
 
 ## Properties
 
@@ -30,9 +30,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::Template.new(
+instance = ClerkHttpClient::Template.new(
   id: null,
   object: null,
   instance_id: null,

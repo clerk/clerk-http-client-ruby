@@ -1,4 +1,4 @@
-# ClerkBackend::SAMLConnections
+# ClerkHttpClient::SAMLConnections
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::SAMLConnections.new(
+instance = ClerkHttpClient::SAMLConnections.new(
   data: null,
   total_count: null
 )

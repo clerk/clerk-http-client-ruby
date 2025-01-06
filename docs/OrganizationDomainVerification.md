@@ -1,4 +1,4 @@
-# ClerkBackend::OrganizationDomainVerification
+# ClerkHttpClient::OrganizationDomainVerification
 
 ## Properties
 
@@ -12,9 +12,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::OrganizationDomainVerification.new(
+instance = ClerkHttpClient::OrganizationDomainVerification.new(
   status: null,
   strategy: null,
   attempts: null,

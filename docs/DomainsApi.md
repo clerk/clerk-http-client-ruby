@@ -1,4 +1,4 @@
-# ClerkBackend::DomainsApi
+# ClerkHttpClient::DomainsApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -12,7 +12,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## add_domain
 
-> <Domain> add_domain(opts)
+> <Domain> add_domain(add_domain_request)
 
 Add a domain
 
@@ -22,23 +22,21 @@ Add a new domain for your instance. Useful in the case of multi-domain instances
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::DomainsApi.new
-opts = {
-  add_domain_request: ClerkBackend::AddDomainRequest.new({name: 'name_example', is_satellite: false}) # AddDomainRequest | 
-}
+api_instance = ClerkHttpClient::DomainsApi.new
+add_domain_request = ClerkHttpClient::AddDomainRequest.new({name: 'name_example', is_satellite: false}) # AddDomainRequest | 
 
 begin
   # Add a domain
-  result = api_instance.add_domain(opts)
+  result = api_instance.add_domain(add_domain_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling DomainsApi->add_domain: #{e}"
 end
 ```
@@ -47,16 +45,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Domain>, Integer, Hash)> add_domain_with_http_info(opts)
+> <Array(<Domain>, Integer, Hash)> add_domain_with_http_info(add_domain_request)
 
 ```ruby
 begin
   # Add a domain
-  data, status_code, headers = api_instance.add_domain_with_http_info(opts)
+  data, status_code, headers = api_instance.add_domain_with_http_info(add_domain_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domain>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling DomainsApi->add_domain_with_http_info: #{e}"
 end
 ```
@@ -65,7 +63,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **add_domain_request** | [**AddDomainRequest**](AddDomainRequest.md) |  | [optional] |
+| **add_domain_request** | [**AddDomainRequest**](AddDomainRequest.md) |  |  |
 
 ### Return type
 
@@ -93,21 +91,21 @@ Deletes a satellite domain for the instance. It is currently not possible to del
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::DomainsApi.new
+api_instance = ClerkHttpClient::DomainsApi.new
 domain_id = 'domain_id_example' # String | The ID of the domain that will be deleted. Must be a satellite domain.
 
 begin
   # Delete a satellite domain
   result = api_instance.delete_domain(domain_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling DomainsApi->delete_domain: #{e}"
 end
 ```
@@ -125,7 +123,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling DomainsApi->delete_domain_with_http_info: #{e}"
 end
 ```
@@ -162,20 +160,20 @@ Use this endpoint to get a list of all domains for an instance. The response wil
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::DomainsApi.new
+api_instance = ClerkHttpClient::DomainsApi.new
 
 begin
   # List all instance domains
   result = api_instance.list_domains
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling DomainsApi->list_domains: #{e}"
 end
 ```
@@ -193,7 +191,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domains>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling DomainsApi->list_domains_with_http_info: #{e}"
 end
 ```
@@ -228,22 +226,22 @@ The `proxy_url` can be updated only for production instances. Update one of the 
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::DomainsApi.new
+api_instance = ClerkHttpClient::DomainsApi.new
 domain_id = 'domain_id_example' # String | The ID of the domain that will be updated.
-update_domain_request = ClerkBackend::UpdateDomainRequest.new # UpdateDomainRequest | 
+update_domain_request = ClerkHttpClient::UpdateDomainRequest.new # UpdateDomainRequest | 
 
 begin
   # Update a domain
   result = api_instance.update_domain(domain_id, update_domain_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling DomainsApi->update_domain: #{e}"
 end
 ```
@@ -261,7 +259,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domain>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling DomainsApi->update_domain_with_http_info: #{e}"
 end
 ```

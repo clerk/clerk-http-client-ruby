@@ -1,4 +1,4 @@
-# ClerkBackend::PhoneNumbersApi
+# ClerkHttpClient::PhoneNumbersApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -12,7 +12,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_phone_number
 
-> <PhoneNumber> create_phone_number(opts)
+> <PhoneNumber> create_phone_number(create_phone_number_request)
 
 Create a phone number
 
@@ -22,23 +22,21 @@ Create a new phone number
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::PhoneNumbersApi.new
-opts = {
-  create_phone_number_request: ClerkBackend::CreatePhoneNumberRequest.new # CreatePhoneNumberRequest | 
-}
+api_instance = ClerkHttpClient::PhoneNumbersApi.new
+create_phone_number_request = ClerkHttpClient::CreatePhoneNumberRequest.new # CreatePhoneNumberRequest | 
 
 begin
   # Create a phone number
-  result = api_instance.create_phone_number(opts)
+  result = api_instance.create_phone_number(create_phone_number_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling PhoneNumbersApi->create_phone_number: #{e}"
 end
 ```
@@ -47,16 +45,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PhoneNumber>, Integer, Hash)> create_phone_number_with_http_info(opts)
+> <Array(<PhoneNumber>, Integer, Hash)> create_phone_number_with_http_info(create_phone_number_request)
 
 ```ruby
 begin
   # Create a phone number
-  data, status_code, headers = api_instance.create_phone_number_with_http_info(opts)
+  data, status_code, headers = api_instance.create_phone_number_with_http_info(create_phone_number_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PhoneNumber>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling PhoneNumbersApi->create_phone_number_with_http_info: #{e}"
 end
 ```
@@ -65,7 +63,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_phone_number_request** | [**CreatePhoneNumberRequest**](CreatePhoneNumberRequest.md) |  | [optional] |
+| **create_phone_number_request** | [**CreatePhoneNumberRequest**](CreatePhoneNumberRequest.md) |  |  |
 
 ### Return type
 
@@ -93,21 +91,21 @@ Delete the phone number with the given ID
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::PhoneNumbersApi.new
+api_instance = ClerkHttpClient::PhoneNumbersApi.new
 phone_number_id = 'phone_number_id_example' # String | The ID of the phone number to delete
 
 begin
   # Delete a phone number
   result = api_instance.delete_phone_number(phone_number_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling PhoneNumbersApi->delete_phone_number: #{e}"
 end
 ```
@@ -125,7 +123,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling PhoneNumbersApi->delete_phone_number_with_http_info: #{e}"
 end
 ```
@@ -162,21 +160,21 @@ Returns the details of a phone number
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::PhoneNumbersApi.new
+api_instance = ClerkHttpClient::PhoneNumbersApi.new
 phone_number_id = 'phone_number_id_example' # String | The ID of the phone number to retrieve
 
 begin
   # Retrieve a phone number
   result = api_instance.get_phone_number(phone_number_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling PhoneNumbersApi->get_phone_number: #{e}"
 end
 ```
@@ -194,7 +192,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PhoneNumber>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling PhoneNumbersApi->get_phone_number_with_http_info: #{e}"
 end
 ```
@@ -221,7 +219,7 @@ end
 
 ## update_phone_number
 
-> <PhoneNumber> update_phone_number(phone_number_id, opts)
+> <PhoneNumber> update_phone_number(phone_number_id, update_phone_number_request)
 
 Update a phone number
 
@@ -231,24 +229,22 @@ Updates a phone number
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::PhoneNumbersApi.new
+api_instance = ClerkHttpClient::PhoneNumbersApi.new
 phone_number_id = 'phone_number_id_example' # String | The ID of the phone number to update
-opts = {
-  update_phone_number_request: ClerkBackend::UpdatePhoneNumberRequest.new # UpdatePhoneNumberRequest | 
-}
+update_phone_number_request = ClerkHttpClient::UpdatePhoneNumberRequest.new # UpdatePhoneNumberRequest | 
 
 begin
   # Update a phone number
-  result = api_instance.update_phone_number(phone_number_id, opts)
+  result = api_instance.update_phone_number(phone_number_id, update_phone_number_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling PhoneNumbersApi->update_phone_number: #{e}"
 end
 ```
@@ -257,16 +253,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<PhoneNumber>, Integer, Hash)> update_phone_number_with_http_info(phone_number_id, opts)
+> <Array(<PhoneNumber>, Integer, Hash)> update_phone_number_with_http_info(phone_number_id, update_phone_number_request)
 
 ```ruby
 begin
   # Update a phone number
-  data, status_code, headers = api_instance.update_phone_number_with_http_info(phone_number_id, opts)
+  data, status_code, headers = api_instance.update_phone_number_with_http_info(phone_number_id, update_phone_number_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PhoneNumber>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling PhoneNumbersApi->update_phone_number_with_http_info: #{e}"
 end
 ```
@@ -276,7 +272,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **phone_number_id** | **String** | The ID of the phone number to update |  |
-| **update_phone_number_request** | [**UpdatePhoneNumberRequest**](UpdatePhoneNumberRequest.md) |  | [optional] |
+| **update_phone_number_request** | [**UpdatePhoneNumberRequest**](UpdatePhoneNumberRequest.md) |  |  |
 
 ### Return type
 

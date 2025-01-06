@@ -1,4 +1,4 @@
-# ClerkBackend::EmailAddressesApi
+# ClerkHttpClient::EmailAddressesApi
 
 All URIs are relative to *https://api.clerk.com/v1*
 
@@ -12,7 +12,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 ## create_email_address
 
-> <EmailAddress> create_email_address(opts)
+> <EmailAddress> create_email_address(create_email_address_request)
 
 Create an email address
 
@@ -22,23 +22,21 @@ Create a new email address
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailAddressesApi.new
-opts = {
-  create_email_address_request: ClerkBackend::CreateEmailAddressRequest.new # CreateEmailAddressRequest | 
-}
+api_instance = ClerkHttpClient::EmailAddressesApi.new
+create_email_address_request = ClerkHttpClient::CreateEmailAddressRequest.new # CreateEmailAddressRequest | 
 
 begin
   # Create an email address
-  result = api_instance.create_email_address(opts)
+  result = api_instance.create_email_address(create_email_address_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailAddressesApi->create_email_address: #{e}"
 end
 ```
@@ -47,16 +45,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EmailAddress>, Integer, Hash)> create_email_address_with_http_info(opts)
+> <Array(<EmailAddress>, Integer, Hash)> create_email_address_with_http_info(create_email_address_request)
 
 ```ruby
 begin
   # Create an email address
-  data, status_code, headers = api_instance.create_email_address_with_http_info(opts)
+  data, status_code, headers = api_instance.create_email_address_with_http_info(create_email_address_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailAddressesApi->create_email_address_with_http_info: #{e}"
 end
 ```
@@ -65,7 +63,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_email_address_request** | [**CreateEmailAddressRequest**](CreateEmailAddressRequest.md) |  | [optional] |
+| **create_email_address_request** | [**CreateEmailAddressRequest**](CreateEmailAddressRequest.md) |  |  |
 
 ### Return type
 
@@ -93,21 +91,21 @@ Delete the email address with the given ID
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailAddressesApi.new
+api_instance = ClerkHttpClient::EmailAddressesApi.new
 email_address_id = 'email_address_id_example' # String | The ID of the email address to delete
 
 begin
   # Delete an email address
   result = api_instance.delete_email_address(email_address_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailAddressesApi->delete_email_address: #{e}"
 end
 ```
@@ -125,7 +123,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailAddressesApi->delete_email_address_with_http_info: #{e}"
 end
 ```
@@ -162,21 +160,21 @@ Returns the details of an email address.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailAddressesApi.new
+api_instance = ClerkHttpClient::EmailAddressesApi.new
 email_address_id = 'email_address_id_example' # String | The ID of the email address to retrieve
 
 begin
   # Retrieve an email address
   result = api_instance.get_email_address(email_address_id)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailAddressesApi->get_email_address: #{e}"
 end
 ```
@@ -194,7 +192,7 @@ begin
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailAddressesApi->get_email_address_with_http_info: #{e}"
 end
 ```
@@ -221,7 +219,7 @@ end
 
 ## update_email_address
 
-> <EmailAddress> update_email_address(email_address_id, opts)
+> <EmailAddress> update_email_address(email_address_id, update_email_address_request)
 
 Update an email address
 
@@ -231,24 +229,22 @@ Updates an email address.
 
 ```ruby
 require 'time'
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 # setup authorization
-ClerkBackend.configure do |config|
+ClerkHttpClient.configure do |config|
   # Configure Bearer authorization (sk_<environment>_<secret value>): bearerAuth
   config.access_token = 'YOUR_BEARER_TOKEN'
 end
 
-api_instance = ClerkBackend::EmailAddressesApi.new
+api_instance = ClerkHttpClient::EmailAddressesApi.new
 email_address_id = 'email_address_id_example' # String | The ID of the email address to update
-opts = {
-  update_email_address_request: ClerkBackend::UpdateEmailAddressRequest.new # UpdateEmailAddressRequest | 
-}
+update_email_address_request = ClerkHttpClient::UpdateEmailAddressRequest.new # UpdateEmailAddressRequest | 
 
 begin
   # Update an email address
-  result = api_instance.update_email_address(email_address_id, opts)
+  result = api_instance.update_email_address(email_address_id, update_email_address_request)
   p result
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailAddressesApi->update_email_address: #{e}"
 end
 ```
@@ -257,16 +253,16 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<EmailAddress>, Integer, Hash)> update_email_address_with_http_info(email_address_id, opts)
+> <Array(<EmailAddress>, Integer, Hash)> update_email_address_with_http_info(email_address_id, update_email_address_request)
 
 ```ruby
 begin
   # Update an email address
-  data, status_code, headers = api_instance.update_email_address_with_http_info(email_address_id, opts)
+  data, status_code, headers = api_instance.update_email_address_with_http_info(email_address_id, update_email_address_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
-rescue ClerkBackend::ApiError => e
+rescue ClerkHttpClient::ApiError => e
   puts "Error when calling EmailAddressesApi->update_email_address_with_http_info: #{e}"
 end
 ```
@@ -276,7 +272,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **email_address_id** | **String** | The ID of the email address to update |  |
-| **update_email_address_request** | [**UpdateEmailAddressRequest**](UpdateEmailAddressRequest.md) |  | [optional] |
+| **update_email_address_request** | [**UpdateEmailAddressRequest**](UpdateEmailAddressRequest.md) |  |  |
 
 ### Return type
 

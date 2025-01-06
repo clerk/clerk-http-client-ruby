@@ -1,4 +1,4 @@
-# ClerkBackend::Session
+# ClerkHttpClient::Session
 
 ## Properties
 
@@ -12,6 +12,7 @@
 | **status** | **String** |  |  |
 | **last_active_organization_id** | **String** |  | [optional] |
 | **last_active_at** | **Integer** |  |  |
+| **latest_activity** | [**SessionLatestActivity**](SessionLatestActivity.md) |  | [optional] |
 | **expire_at** | **Integer** |  |  |
 | **abandon_at** | **Integer** |  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
@@ -20,9 +21,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::Session.new(
+instance = ClerkHttpClient::Session.new(
   object: null,
   id: null,
   user_id: null,
@@ -31,6 +32,7 @@ instance = ClerkBackend::Session.new(
   status: null,
   last_active_organization_id: null,
   last_active_at: null,
+  latest_activity: null,
   expire_at: null,
   abandon_at: null,
   updated_at: null,

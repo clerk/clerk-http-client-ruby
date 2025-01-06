@@ -1,4 +1,4 @@
-# ClerkBackend::SvixURL
+# ClerkHttpClient::SvixURL
 
 ## Properties
 
@@ -9,9 +9,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::SvixURL.new(
+instance = ClerkHttpClient::SvixURL.new(
   svix_url: null
 )
 ```

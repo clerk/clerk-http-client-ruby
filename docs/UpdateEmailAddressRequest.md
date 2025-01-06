@@ -1,4 +1,4 @@
-# ClerkBackend::UpdateEmailAddressRequest
+# ClerkHttpClient::UpdateEmailAddressRequest
 
 ## Properties
 
@@ -10,9 +10,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::UpdateEmailAddressRequest.new(
+instance = ClerkHttpClient::UpdateEmailAddressRequest.new(
   verified: null,
   primary: null
 )

@@ -1,4 +1,4 @@
-# ClerkBackend::TestingToken
+# ClerkHttpClient::TestingToken
 
 ## Properties
 
@@ -11,9 +11,9 @@
 ## Example
 
 ```ruby
-require 'clerk-sdk-ruby-backend'
+require 'clerk-http-client-ruby'
 
-instance = ClerkBackend::TestingToken.new(
+instance = ClerkHttpClient::TestingToken.new(
   object: null,
   token: 1713877200-c_2J2MvPu9PnXcuhbPZNao0LOXqK9A7YrnBn0HmIWxy,
   expires_at: 1713880800

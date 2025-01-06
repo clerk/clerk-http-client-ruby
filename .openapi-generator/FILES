@@ -318,5 +318,4 @@ lib/clerk-http-client/models/web3_wallet.rb
 lib/clerk-http-client/models/web3_wallet_verification.rb
 lib/clerk-http-client/models/well_known_jwks.rb
 lib/clerk-http-client/models/well_known_jwks_keys_inner.rb
-lib/clerk-http-client/version.rb
 spec/spec_helper.rb

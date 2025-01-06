@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.authors     = ["OpenAPI-Generator"]
   s.email       = ["support@clerk.com"]
   s.homepage    = "https://clerk.com/docs/references/ruby/overview"
-  s.summary     = "Clerk HTTP Client Ruby Gem"
+  s.summary     = "Clerk Backend API Ruby Gem"
   s.description = "The Clerk REST Backend API, meant to be accessed by backend servers.  ### Versions  When the API changes in a way that isn't compatible with older versions, a new version is released. Each version is identified by its release date, e.g. `2021-02-05`. For more information, please see [Clerk API Versions](https://clerk.com/docs/backend-requests/versioning/overview).   Please see https://clerk.com/docs for more information."
   s.license     = "Unlicense"
   s.required_ruby_version = ">= 2.7"

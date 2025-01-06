@@ -5,6 +5,7 @@
   "skipFormModel": true,
   "apiTests": false,
   "modelTests": false,
+  "useAutoload": true,
   "templateDir": "resources/templates",
   "generateAliasAsModel": true,
   "verbose": false,
@@ -13,6 +14,7 @@
     "library": "faraday",
     "gemHomepage": "https://clerk.com/docs/references/ruby/overview",
     "gemName": "clerk-http-client",
+    "gemRequiredRubyVersion": ">= 2.7",
     "moduleName": "ClerkHttpClient"
   }
 }

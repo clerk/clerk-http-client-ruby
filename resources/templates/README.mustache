@@ -44,7 +44,7 @@ All URIs are relative to *{{basePath}}*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{moduleName}}::{{classname}}* | [**{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}**]({{apiDocPath}}{{classname}}.md#{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}) | **{{httpMethod}}** {{path}} | {{{summary}}}
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{sdk_module_prefix}}.{{#snakecase}}{{#remove_api_suffix}}{{classname}}{{/remove_api_suffix}}{{/snakecase}}* | [**{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}**]({{apiDocPath}}{{classname}}.md#{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}) | **{{httpMethod}}** {{path}} | {{{summary}}}
 {{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
 
 ## Documentation for Models

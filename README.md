@@ -7,6 +7,7 @@ This project provides a custom OpenAPI Generator that extends the default Ruby g
 To build the project, run:
 
 ```bash
+mvn clean install
 mvn clean package
 ```
 

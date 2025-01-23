@@ -4,14 +4,14 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](SAMLConnectionsApi.md#create) | **POST** /saml_connections | Create a SAML Connection |
-| [**delete**](SAMLConnectionsApi.md#delete) | **DELETE** /saml_connections/{saml_connection_id} | Delete a SAML Connection |
-| [**find**](SAMLConnectionsApi.md#find) | **GET** /saml_connections/{saml_connection_id} | Retrieve a SAML Connection by ID |
-| [**all**](SAMLConnectionsApi.md#all) | **GET** /saml_connections | Get a list of SAML Connections for an instance |
-| [**update**](SAMLConnectionsApi.md#update) | **PATCH** /saml_connections/{saml_connection_id} | Update a SAML Connection |
+| [**create_saml_connection**](SAMLConnectionsApi.md#create_saml_connection) | **POST** /saml_connections | Create a SAML Connection |
+| [**delete_saml_connection**](SAMLConnectionsApi.md#delete_saml_connection) | **DELETE** /saml_connections/{saml_connection_id} | Delete a SAML Connection |
+| [**get_saml_connection**](SAMLConnectionsApi.md#get_saml_connection) | **GET** /saml_connections/{saml_connection_id} | Retrieve a SAML Connection by ID |
+| [**list_saml_connections**](SAMLConnectionsApi.md#list_saml_connections) | **GET** /saml_connections | Get a list of SAML Connections for an instance |
+| [**update_saml_connection**](SAMLConnectionsApi.md#update_saml_connection) | **PATCH** /saml_connections/{saml_connection_id} | Update a SAML Connection |
 
 
-## create
+## create_saml_connection
 
 > <SchemasSAMLConnection> create_saml_connection(opts)
 
@@ -20,8 +20,6 @@ Create a SAML Connection
 Create a new SAML Connection.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -39,14 +37,14 @@ opts = {
 
 begin
   # Create a SAML Connection
-  result = sdk.create(opts)
+  result = sdk.create_saml_connection(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->create: #{e}"
+  puts "Error when calling SAMLConnectionsApi->create_saml_connection: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_saml_connection_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -55,12 +53,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a SAML Connection
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.create_saml_connection_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->create_with_http_info: #{e}"
+  puts "Error when calling SAMLConnectionsApi->create_saml_connection_with_http_info: #{e}"
 end
 ```
 
@@ -84,7 +82,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_saml_connection
 
 > <DeletedObject> delete_saml_connection(saml_connection_id)
 
@@ -93,8 +91,6 @@ Delete a SAML Connection
 Deletes the SAML Connection whose ID matches the provided `id` in the path.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -110,14 +106,14 @@ saml_connection_id = 'saml_connection_id_example' # String | The ID of the SAML 
 
 begin
   # Delete a SAML Connection
-  result = sdk.delete(saml_connection_id)
+  result = sdk.delete_saml_connection(saml_connection_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->delete: #{e}"
+  puts "Error when calling SAMLConnectionsApi->delete_saml_connection: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_saml_connection_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -126,12 +122,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a SAML Connection
-  data, status_code, headers = sdk.delete_with_http_info(saml_connection_id)
+  data, status_code, headers = sdk.delete_saml_connection_with_http_info(saml_connection_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->delete_with_http_info: #{e}"
+  puts "Error when calling SAMLConnectionsApi->delete_saml_connection_with_http_info: #{e}"
 end
 ```
 
@@ -155,7 +151,7 @@ end
 - **Accept**: application/json
 
 
-## find
+## get_saml_connection
 
 > <SchemasSAMLConnection> get_saml_connection(saml_connection_id)
 
@@ -164,8 +160,6 @@ Retrieve a SAML Connection by ID
 Fetches the SAML Connection whose ID matches the provided `saml_connection_id` in the path.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -181,14 +175,14 @@ saml_connection_id = 'saml_connection_id_example' # String | The ID of the SAML 
 
 begin
   # Retrieve a SAML Connection by ID
-  result = sdk.find(saml_connection_id)
+  result = sdk.get_saml_connection(saml_connection_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->find: #{e}"
+  puts "Error when calling SAMLConnectionsApi->get_saml_connection: #{e}"
 end
 ```
 
-#### Using the `find_with_http_info variant
+#### Using the `get_saml_connection_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -197,12 +191,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a SAML Connection by ID
-  data, status_code, headers = sdk.find_with_http_info(saml_connection_id)
+  data, status_code, headers = sdk.get_saml_connection_with_http_info(saml_connection_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->find_with_http_info: #{e}"
+  puts "Error when calling SAMLConnectionsApi->get_saml_connection_with_http_info: #{e}"
 end
 ```
 
@@ -226,7 +220,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## list_saml_connections
 
 > <SAMLConnections> list_saml_connections(opts)
 
@@ -235,8 +229,6 @@ Get a list of SAML Connections for an instance
 Returns the list of SAML Connections for an instance. Results can be paginated using the optional `limit` and `offset` query parameters. The SAML Connections are ordered by descending creation date and the most recent will be returned first.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -250,19 +242,20 @@ end
 sdk = ClerkHttpClient::SAMLConnectionsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  organization_id: ['inner_example'] # Array<String> | Returns SAML connections that have an associated organization ID to the given organizations. For each organization id, the `+` and `-` can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids.
 }
 
 begin
   # Get a list of SAML Connections for an instance
-  result = sdk.all(opts)
+  result = sdk.list_saml_connections(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->all: #{e}"
+  puts "Error when calling SAMLConnectionsApi->list_saml_connections: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `list_saml_connections_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -271,12 +264,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of SAML Connections for an instance
-  data, status_code, headers = sdk.all_with_http_info(opts)
+  data, status_code, headers = sdk.list_saml_connections_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SAMLConnections>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->all_with_http_info: #{e}"
+  puts "Error when calling SAMLConnectionsApi->list_saml_connections_with_http_info: #{e}"
 end
 ```
 
@@ -286,6 +279,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
 | **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **organization_id** | [**Array&lt;String&gt;**](String.md) | Returns SAML connections that have an associated organization ID to the given organizations. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids. | [optional] |
 
 ### Return type
 
@@ -301,7 +295,7 @@ end
 - **Accept**: application/json
 
 
-## update
+## update_saml_connection
 
 > <SchemasSAMLConnection> update_saml_connection(saml_connection_id, update_saml_connection_request)
 
@@ -310,8 +304,6 @@ Update a SAML Connection
 Updates the SAML Connection whose ID matches the provided `id` in the path.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -328,14 +320,14 @@ update_saml_connection_request = ClerkHttpClient::UpdateSAMLConnectionRequest.ne
 
 begin
   # Update a SAML Connection
-  result = sdk.update(saml_connection_id, update_saml_connection_request)
+  result = sdk.update_saml_connection(saml_connection_id, update_saml_connection_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->update: #{e}"
+  puts "Error when calling SAMLConnectionsApi->update_saml_connection: #{e}"
 end
 ```
 
-#### Using the `update_with_http_info variant
+#### Using the `update_saml_connection_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -344,12 +336,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a SAML Connection
-  data, status_code, headers = sdk.update_with_http_info(saml_connection_id, update_saml_connection_request)
+  data, status_code, headers = sdk.update_saml_connection_with_http_info(saml_connection_id, update_saml_connection_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->update_with_http_info: #{e}"
+  puts "Error when calling SAMLConnectionsApi->update_saml_connection_with_http_info: #{e}"
 end
 ```
 

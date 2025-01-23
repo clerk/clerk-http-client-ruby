@@ -19,13 +19,14 @@
 | **password_enabled** | **Boolean** |  |  |
 | **first_name** | **String** |  | [optional] |
 | **last_name** | **String** |  | [optional] |
-| **unsafe_metadata** | **Object** |  | [optional] |
-| **public_metadata** | **Object** |  | [optional] |
+| **unsafe_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **custom_action** | **Boolean** |  |  |
 | **external_id** | **String** |  | [optional] |
 | **created_session_id** | **String** |  | [optional] |
 | **created_user_id** | **String** |  | [optional] |
 | **abandon_at** | **Integer** |  |  |
+| **legal_accepted_at** | **Integer** | Unix timestamp at which the user accepted the legal requirements.  | [optional] |
 | **external_account** | **Object** |  | [optional] |
 
 ## Example
@@ -56,6 +57,7 @@ instance = ClerkHttpClient::SignUp.new(
   created_session_id: null,
   created_user_id: null,
   abandon_at: null,
+  legal_accepted_at: 1700690400000,
   external_account: null
 )
 ```

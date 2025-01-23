@@ -11,6 +11,7 @@
 | **idp_certificate** | **String** | The x509 certificated as provided by the IdP | [optional] |
 | **idp_metadata_url** | **String** | The URL which serves the IdP metadata. If present, it takes priority over the corresponding individual properties and replaces them | [optional] |
 | **idp_metadata** | **String** | The XML content of the IdP metadata file. If present, it takes priority over the corresponding individual properties | [optional] |
+| **organization_id** | **String** | The ID of the organization to which users of this SAML Connection will be added | [optional] |
 | **attribute_mapping** | [**UpdateSAMLConnectionRequestAttributeMapping**](UpdateSAMLConnectionRequestAttributeMapping.md) |  | [optional] |
 | **active** | **Boolean** | Activate or de-activate the SAML Connection | [optional] |
 | **sync_user_attributes** | **Boolean** | Controls whether to update the user&#39;s attributes in each sign-in | [optional] |
@@ -31,6 +32,7 @@ instance = ClerkHttpClient::UpdateSAMLConnectionRequest.new(
   idp_certificate: null,
   idp_metadata_url: null,
   idp_metadata: null,
+  organization_id: null,
   attribute_mapping: null,
   active: null,
   sync_user_attributes: null,

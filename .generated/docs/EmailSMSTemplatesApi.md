@@ -4,15 +4,15 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**find**](EmailSMSTemplatesApi.md#find) | **GET** /templates/{template_type}/{slug} | Retrieve a template |
-| [**all**](EmailSMSTemplatesApi.md#all) | **GET** /templates/{template_type} | List all templates |
-| [**preview**](EmailSMSTemplatesApi.md#preview) | **POST** /templates/{template_type}/{slug}/preview | Preview changes to a template |
-| [**revert**](EmailSMSTemplatesApi.md#revert) | **POST** /templates/{template_type}/{slug}/revert | Revert a template |
-| [**toggle_delivery**](EmailSMSTemplatesApi.md#toggle_delivery) | **POST** /templates/{template_type}/{slug}/toggle_delivery | Toggle the delivery by Clerk for a template of a given type and slug |
-| [**update**](EmailSMSTemplatesApi.md#update) | **PUT** /templates/{template_type}/{slug} | Update a template for a given type and slug |
+| [**get_template**](EmailSMSTemplatesApi.md#get_template) | **GET** /templates/{template_type}/{slug} | Retrieve a template |
+| [**get_template_list**](EmailSMSTemplatesApi.md#get_template_list) | **GET** /templates/{template_type} | List all templates |
+| [**preview_template**](EmailSMSTemplatesApi.md#preview_template) | **POST** /templates/{template_type}/{slug}/preview | Preview changes to a template |
+| [**revert_template**](EmailSMSTemplatesApi.md#revert_template) | **POST** /templates/{template_type}/{slug}/revert | Revert a template |
+| [**toggle_template_delivery**](EmailSMSTemplatesApi.md#toggle_template_delivery) | **POST** /templates/{template_type}/{slug}/toggle_delivery | Toggle the delivery by Clerk for a template of a given type and slug |
+| [**upsert_template**](EmailSMSTemplatesApi.md#upsert_template) | **PUT** /templates/{template_type}/{slug} | Update a template for a given type and slug |
 
 
-## find
+## get_template
 
 > <Template> get_template(template_type, slug)
 
@@ -21,8 +21,6 @@ Retrieve a template
 Returns the details of a template
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -39,14 +37,14 @@ slug = 'slug_example' # String | The slug (i.e. machine-friendly name) of the te
 
 begin
   # Retrieve a template
-  result = sdk.find(template_type, slug)
+  result = sdk.get_template(template_type, slug)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->find: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->get_template: #{e}"
 end
 ```
 
-#### Using the `find_with_http_info variant
+#### Using the `get_template_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -55,12 +53,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a template
-  data, status_code, headers = sdk.find_with_http_info(template_type, slug)
+  data, status_code, headers = sdk.get_template_with_http_info(template_type, slug)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->find_with_http_info: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->get_template_with_http_info: #{e}"
 end
 ```
 
@@ -85,7 +83,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## get_template_list
 
 > <Array<Template>> get_template_list(template_type)
 
@@ -94,8 +92,6 @@ List all templates
 Returns a list of all templates. The templates are returned sorted by position.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -111,14 +107,14 @@ template_type = 'email' # String | The type of templates to list (email or SMS)
 
 begin
   # List all templates
-  result = sdk.all(template_type)
+  result = sdk.get_template_list(template_type)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->all: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->get_template_list: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `get_template_list_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -127,12 +123,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all templates
-  data, status_code, headers = sdk.all_with_http_info(template_type)
+  data, status_code, headers = sdk.get_template_list_with_http_info(template_type)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Template>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->all_with_http_info: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->get_template_list_with_http_info: #{e}"
 end
 ```
 
@@ -156,7 +152,7 @@ end
 - **Accept**: application/json
 
 
-## preview
+## preview_template
 
 > Object preview_template(template_type, slug, opts)
 
@@ -165,8 +161,6 @@ Preview changes to a template
 Returns a preview of a template for a given template_type, slug and body
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -186,14 +180,14 @@ opts = {
 
 begin
   # Preview changes to a template
-  result = sdk.preview(template_type, slug, opts)
+  result = sdk.preview_template(template_type, slug, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->preview: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->preview_template: #{e}"
 end
 ```
 
-#### Using the `preview_with_http_info variant
+#### Using the `preview_template_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -202,12 +196,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Preview changes to a template
-  data, status_code, headers = sdk.preview_with_http_info(template_type, slug, opts)
+  data, status_code, headers = sdk.preview_template_with_http_info(template_type, slug, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->preview_with_http_info: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->preview_template_with_http_info: #{e}"
 end
 ```
 
@@ -233,7 +227,7 @@ end
 - **Accept**: application/json
 
 
-## revert
+## revert_template
 
 > <Template> revert_template(template_type, slug)
 
@@ -242,8 +236,6 @@ Revert a template
 Reverts an updated template to its default state
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -260,14 +252,14 @@ slug = 'slug_example' # String | The slug of the template to revert
 
 begin
   # Revert a template
-  result = sdk.revert(template_type, slug)
+  result = sdk.revert_template(template_type, slug)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->revert: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->revert_template: #{e}"
 end
 ```
 
-#### Using the `revert_with_http_info variant
+#### Using the `revert_template_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -276,12 +268,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revert a template
-  data, status_code, headers = sdk.revert_with_http_info(template_type, slug)
+  data, status_code, headers = sdk.revert_template_with_http_info(template_type, slug)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->revert_with_http_info: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->revert_template_with_http_info: #{e}"
 end
 ```
 
@@ -306,7 +298,7 @@ end
 - **Accept**: application/json
 
 
-## toggle_delivery
+## toggle_template_delivery
 
 > <Template> toggle_template_delivery(template_type, slug, opts)
 
@@ -315,8 +307,6 @@ Toggle the delivery by Clerk for a template of a given type and slug
 Toggles the delivery by Clerk for a template of a given type and slug. If disabled, Clerk will not deliver the resulting email or SMS. The app developer will need to listen to the `email.created` or `sms.created` webhooks in order to handle delivery themselves.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -336,14 +326,14 @@ opts = {
 
 begin
   # Toggle the delivery by Clerk for a template of a given type and slug
-  result = sdk.toggle_delivery(template_type, slug, opts)
+  result = sdk.toggle_template_delivery(template_type, slug, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->toggle_delivery: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->toggle_template_delivery: #{e}"
 end
 ```
 
-#### Using the `toggle_delivery_with_http_info variant
+#### Using the `toggle_template_delivery_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -352,12 +342,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Toggle the delivery by Clerk for a template of a given type and slug
-  data, status_code, headers = sdk.toggle_delivery_with_http_info(template_type, slug, opts)
+  data, status_code, headers = sdk.toggle_template_delivery_with_http_info(template_type, slug, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->toggle_delivery_with_http_info: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->toggle_template_delivery_with_http_info: #{e}"
 end
 ```
 
@@ -383,7 +373,7 @@ end
 - **Accept**: application/json
 
 
-## update
+## upsert_template
 
 > <Template> upsert_template(template_type, slug, opts)
 
@@ -392,8 +382,6 @@ Update a template for a given type and slug
 Updates the existing template of the given type and slug
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -413,14 +401,14 @@ opts = {
 
 begin
   # Update a template for a given type and slug
-  result = sdk.update(template_type, slug, opts)
+  result = sdk.upsert_template(template_type, slug, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->update: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->upsert_template: #{e}"
 end
 ```
 
-#### Using the `update_with_http_info variant
+#### Using the `upsert_template_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -429,12 +417,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a template for a given type and slug
-  data, status_code, headers = sdk.update_with_http_info(template_type, slug, opts)
+  data, status_code, headers = sdk.upsert_template_with_http_info(template_type, slug, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->update_with_http_info: #{e}"
+  puts "Error when calling EmailSMSTemplatesApi->upsert_template_with_http_info: #{e}"
 end
 ```
 

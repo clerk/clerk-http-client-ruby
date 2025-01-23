@@ -4,12 +4,13 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](OrganizationDomainsApi.md#create) | **POST** /organizations/{organization_id}/domains | Create a new organization domain. |
-| [**delete**](OrganizationDomainsApi.md#delete) | **DELETE** /organizations/{organization_id}/domains/{domain_id} | Remove a domain from an organization. |
-| [**all**](OrganizationDomainsApi.md#all) | **GET** /organizations/{organization_id}/domains | Get a list of all domains of an organization. |
+| [**create_organization_domain**](OrganizationDomainsApi.md#create_organization_domain) | **POST** /organizations/{organization_id}/domains | Create a new organization domain. |
+| [**delete_organization_domain**](OrganizationDomainsApi.md#delete_organization_domain) | **DELETE** /organizations/{organization_id}/domains/{domain_id} | Remove a domain from an organization. |
+| [**list_organization_domains**](OrganizationDomainsApi.md#list_organization_domains) | **GET** /organizations/{organization_id}/domains | Get a list of all domains of an organization. |
+| [**update_organization_domain**](OrganizationDomainsApi.md#update_organization_domain) | **PATCH** /organizations/{organization_id}/domains/{domain_id} | Update an organization domain. |
 
 
-## create
+## create_organization_domain
 
 > <OrganizationDomain> create_organization_domain(organization_id, create_organization_domain_request)
 
@@ -18,8 +19,6 @@ Create a new organization domain.
 Creates a new organization domain. By default the domain is verified, but can be optionally set to unverified.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -36,14 +35,14 @@ create_organization_domain_request = ClerkHttpClient::CreateOrganizationDomainRe
 
 begin
   # Create a new organization domain.
-  result = sdk.create(organization_id, create_organization_domain_request)
+  result = sdk.create_organization_domain(organization_id, create_organization_domain_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->create: #{e}"
+  puts "Error when calling OrganizationDomainsApi->create_organization_domain: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_organization_domain_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -52,12 +51,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a new organization domain.
-  data, status_code, headers = sdk.create_with_http_info(organization_id, create_organization_domain_request)
+  data, status_code, headers = sdk.create_organization_domain_with_http_info(organization_id, create_organization_domain_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationDomain>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->create_with_http_info: #{e}"
+  puts "Error when calling OrganizationDomainsApi->create_organization_domain_with_http_info: #{e}"
 end
 ```
 
@@ -82,7 +81,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_organization_domain
 
 > <DeletedObject> delete_organization_domain(organization_id, domain_id)
 
@@ -91,8 +90,6 @@ Remove a domain from an organization.
 Removes the given domain from the organization.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -109,14 +106,14 @@ domain_id = 'domain_id_example' # String | The ID of the domain
 
 begin
   # Remove a domain from an organization.
-  result = sdk.delete(organization_id, domain_id)
+  result = sdk.delete_organization_domain(organization_id, domain_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->delete: #{e}"
+  puts "Error when calling OrganizationDomainsApi->delete_organization_domain: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_organization_domain_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -125,12 +122,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Remove a domain from an organization.
-  data, status_code, headers = sdk.delete_with_http_info(organization_id, domain_id)
+  data, status_code, headers = sdk.delete_organization_domain_with_http_info(organization_id, domain_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->delete_with_http_info: #{e}"
+  puts "Error when calling OrganizationDomainsApi->delete_organization_domain_with_http_info: #{e}"
 end
 ```
 
@@ -155,7 +152,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## list_organization_domains
 
 > <OrganizationDomains> list_organization_domains(organization_id, opts)
 
@@ -164,8 +161,6 @@ Get a list of all domains of an organization.
 Get a list of all domains of an organization.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -187,14 +182,14 @@ opts = {
 
 begin
   # Get a list of all domains of an organization.
-  result = sdk.all(organization_id, opts)
+  result = sdk.list_organization_domains(organization_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->all: #{e}"
+  puts "Error when calling OrganizationDomainsApi->list_organization_domains: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `list_organization_domains_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -203,12 +198,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of all domains of an organization.
-  data, status_code, headers = sdk.all_with_http_info(organization_id, opts)
+  data, status_code, headers = sdk.list_organization_domains_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationDomains>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->all_with_http_info: #{e}"
+  puts "Error when calling OrganizationDomainsApi->list_organization_domains_with_http_info: #{e}"
 end
 ```
 
@@ -233,5 +228,78 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## update_organization_domain
+
+> <OrganizationDomain> update_organization_domain(organization_id, domain_id, update_organization_domain_request)
+
+Update an organization domain.
+
+Updates the properties of an existing organization domain.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+sdk = ClerkHttpClient::OrganizationDomainsApi.new
+organization_id = 'organization_id_example' # String | The ID of the organization the domain belongs to
+domain_id = 'domain_id_example' # String | The ID of the domain
+update_organization_domain_request = ClerkHttpClient::UpdateOrganizationDomainRequest.new # UpdateOrganizationDomainRequest | 
+
+begin
+  # Update an organization domain.
+  result = sdk.update_organization_domain(organization_id, domain_id, update_organization_domain_request)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling OrganizationDomainsApi->update_organization_domain: #{e}"
+end
+```
+
+#### Using the `update_organization_domain_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<OrganizationDomain>, Integer, Hash)> update_organization_domain_with_http_info(organization_id, domain_id, update_organization_domain_request)
+
+```ruby
+begin
+  # Update an organization domain.
+  data, status_code, headers = sdk.update_organization_domain_with_http_info(organization_id, domain_id, update_organization_domain_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <OrganizationDomain>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling OrganizationDomainsApi->update_organization_domain_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **organization_id** | **String** | The ID of the organization the domain belongs to |  |
+| **domain_id** | **String** | The ID of the domain |  |
+| **update_organization_domain_request** | [**UpdateOrganizationDomainRequest**](UpdateOrganizationDomainRequest.md) |  |  |
+
+### Return type
+
+[**OrganizationDomain**](OrganizationDomain.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 

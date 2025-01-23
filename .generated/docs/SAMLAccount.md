@@ -12,7 +12,7 @@
 | **first_name** | **String** |  | [optional] |
 | **last_name** | **String** |  | [optional] |
 | **provider_user_id** | **String** |  | [optional] |
-| **public_metadata** | **Object** |  | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **verification** | [**SAMLAccountVerification**](SAMLAccountVerification.md) |  |  |
 | **saml_connection** | [**SAMLAccountSamlConnection**](SAMLAccountSamlConnection.md) |  | [optional] |
 

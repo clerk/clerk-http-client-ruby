@@ -4,15 +4,15 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](AllowListBlockListApi.md#create) | **POST** /allowlist_identifiers | Add identifier to the allow-list |
-| [**create**](AllowListBlockListApi.md#create) | **POST** /blocklist_identifiers | Add identifier to the block-list |
-| [**delete**](AllowListBlockListApi.md#delete) | **DELETE** /allowlist_identifiers/{identifier_id} | Delete identifier from allow-list |
-| [**delete**](AllowListBlockListApi.md#delete) | **DELETE** /blocklist_identifiers/{identifier_id} | Delete identifier from block-list |
-| [**all**](AllowListBlockListApi.md#all) | **GET** /allowlist_identifiers | List all identifiers on the allow-list |
-| [**all**](AllowListBlockListApi.md#all) | **GET** /blocklist_identifiers | List all identifiers on the block-list |
+| [**create_allowlist_identifier**](AllowListBlockListApi.md#create_allowlist_identifier) | **POST** /allowlist_identifiers | Add identifier to the allow-list |
+| [**create_blocklist_identifier**](AllowListBlockListApi.md#create_blocklist_identifier) | **POST** /blocklist_identifiers | Add identifier to the block-list |
+| [**delete_allowlist_identifier**](AllowListBlockListApi.md#delete_allowlist_identifier) | **DELETE** /allowlist_identifiers/{identifier_id} | Delete identifier from allow-list |
+| [**delete_blocklist_identifier**](AllowListBlockListApi.md#delete_blocklist_identifier) | **DELETE** /blocklist_identifiers/{identifier_id} | Delete identifier from block-list |
+| [**list_allowlist_identifiers**](AllowListBlockListApi.md#list_allowlist_identifiers) | **GET** /allowlist_identifiers | List all identifiers on the allow-list |
+| [**list_blocklist_identifiers**](AllowListBlockListApi.md#list_blocklist_identifiers) | **GET** /blocklist_identifiers | List all identifiers on the block-list |
 
 
-## create
+## create_allowlist_identifier
 
 > <AllowlistIdentifier> create_allowlist_identifier(opts)
 
@@ -21,8 +21,6 @@ Add identifier to the allow-list
 Create an identifier allowed to sign up to an instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -40,14 +38,14 @@ opts = {
 
 begin
   # Add identifier to the allow-list
-  result = sdk.create(opts)
+  result = sdk.create_allowlist_identifier(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->create: #{e}"
+  puts "Error when calling AllowListBlockListApi->create_allowlist_identifier: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_allowlist_identifier_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -56,12 +54,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Add identifier to the allow-list
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.create_allowlist_identifier_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AllowlistIdentifier>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->create_with_http_info: #{e}"
+  puts "Error when calling AllowListBlockListApi->create_allowlist_identifier_with_http_info: #{e}"
 end
 ```
 
@@ -85,7 +83,7 @@ end
 - **Accept**: application/json
 
 
-## create
+## create_blocklist_identifier
 
 > <BlocklistIdentifier> create_blocklist_identifier(opts)
 
@@ -94,8 +92,6 @@ Add identifier to the block-list
 Create an identifier that is blocked from accessing an instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -113,14 +109,14 @@ opts = {
 
 begin
   # Add identifier to the block-list
-  result = sdk.create(opts)
+  result = sdk.create_blocklist_identifier(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->create: #{e}"
+  puts "Error when calling AllowListBlockListApi->create_blocklist_identifier: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_blocklist_identifier_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -129,12 +125,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Add identifier to the block-list
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.create_blocklist_identifier_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BlocklistIdentifier>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->create_with_http_info: #{e}"
+  puts "Error when calling AllowListBlockListApi->create_blocklist_identifier_with_http_info: #{e}"
 end
 ```
 
@@ -158,7 +154,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_allowlist_identifier
 
 > <DeletedObject> delete_allowlist_identifier(identifier_id)
 
@@ -167,8 +163,6 @@ Delete identifier from allow-list
 Delete an identifier from the instance allow-list
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -184,14 +178,14 @@ identifier_id = 'identifier_id_example' # String | The ID of the identifier to d
 
 begin
   # Delete identifier from allow-list
-  result = sdk.delete(identifier_id)
+  result = sdk.delete_allowlist_identifier(identifier_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->delete: #{e}"
+  puts "Error when calling AllowListBlockListApi->delete_allowlist_identifier: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_allowlist_identifier_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -200,12 +194,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete identifier from allow-list
-  data, status_code, headers = sdk.delete_with_http_info(identifier_id)
+  data, status_code, headers = sdk.delete_allowlist_identifier_with_http_info(identifier_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->delete_with_http_info: #{e}"
+  puts "Error when calling AllowListBlockListApi->delete_allowlist_identifier_with_http_info: #{e}"
 end
 ```
 
@@ -229,7 +223,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_blocklist_identifier
 
 > <DeletedObject> delete_blocklist_identifier(identifier_id)
 
@@ -238,8 +232,6 @@ Delete identifier from block-list
 Delete an identifier from the instance block-list
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -255,14 +247,14 @@ identifier_id = 'identifier_id_example' # String | The ID of the identifier to d
 
 begin
   # Delete identifier from block-list
-  result = sdk.delete(identifier_id)
+  result = sdk.delete_blocklist_identifier(identifier_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->delete: #{e}"
+  puts "Error when calling AllowListBlockListApi->delete_blocklist_identifier: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_blocklist_identifier_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -271,12 +263,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete identifier from block-list
-  data, status_code, headers = sdk.delete_with_http_info(identifier_id)
+  data, status_code, headers = sdk.delete_blocklist_identifier_with_http_info(identifier_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->delete_with_http_info: #{e}"
+  puts "Error when calling AllowListBlockListApi->delete_blocklist_identifier_with_http_info: #{e}"
 end
 ```
 
@@ -300,7 +292,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## list_allowlist_identifiers
 
 > <Array<AllowlistIdentifier>> list_allowlist_identifiers
 
@@ -309,8 +301,6 @@ List all identifiers on the allow-list
 Get a list of all identifiers allowed to sign up to an instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -325,14 +315,14 @@ sdk = ClerkHttpClient::AllowListBlockListApi.new
 
 begin
   # List all identifiers on the allow-list
-  result = sdk.all
+  result = sdk.list_allowlist_identifiers
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->all: #{e}"
+  puts "Error when calling AllowListBlockListApi->list_allowlist_identifiers: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `list_allowlist_identifiers_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -341,12 +331,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all identifiers on the allow-list
-  data, status_code, headers = sdk.all_with_http_info
+  data, status_code, headers = sdk.list_allowlist_identifiers_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AllowlistIdentifier>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->all_with_http_info: #{e}"
+  puts "Error when calling AllowListBlockListApi->list_allowlist_identifiers_with_http_info: #{e}"
 end
 ```
 
@@ -368,7 +358,7 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## all
+## list_blocklist_identifiers
 
 > <BlocklistIdentifiers> list_blocklist_identifiers
 
@@ -377,8 +367,6 @@ List all identifiers on the block-list
 Get a list of all identifiers which are not allowed to access an instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -393,14 +381,14 @@ sdk = ClerkHttpClient::AllowListBlockListApi.new
 
 begin
   # List all identifiers on the block-list
-  result = sdk.all
+  result = sdk.list_blocklist_identifiers
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->all: #{e}"
+  puts "Error when calling AllowListBlockListApi->list_blocklist_identifiers: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `list_blocklist_identifiers_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -409,12 +397,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all identifiers on the block-list
-  data, status_code, headers = sdk.all_with_http_info
+  data, status_code, headers = sdk.list_blocklist_identifiers_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BlocklistIdentifiers>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->all_with_http_info: #{e}"
+  puts "Error when calling AllowListBlockListApi->list_blocklist_identifiers_with_http_info: #{e}"
 end
 ```
 

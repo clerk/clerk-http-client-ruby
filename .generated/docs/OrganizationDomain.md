@@ -10,7 +10,7 @@
 | **name** | **String** | Name of the organization domain | [optional] |
 | **enrollment_mode** | **String** | Mode of enrollment for the domain | [optional] |
 | **affiliation_email_address** | **String** | Affiliation email address for the domain, if available. | [optional] |
-| **verification** | [**OrganizationDomainVerification**](OrganizationDomainVerification.md) | Verification details for the domain | [optional] |
+| **verification** | [**OrganizationDomainVerification**](OrganizationDomainVerification.md) |  | [optional] |
 | **total_pending_invitations** | **Integer** | Total number of pending invitations associated with this domain | [optional] |
 | **total_pending_suggestions** | **Integer** | Total number of pending suggestions associated with this domain | [optional] |
 | **created_at** | **Integer** | Unix timestamp when the domain was created | [optional] |

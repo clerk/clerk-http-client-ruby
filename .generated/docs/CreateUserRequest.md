@@ -18,9 +18,9 @@
 | **skip_password_requirement** | **Boolean** | When set to &#x60;true&#x60;, &#x60;password&#x60; is not required anymore when creating the user and can be omitted. This is useful when you are trying to create a user that doesn&#39;t have a password, in an instance that is using passwords. Please note that you cannot use this flag if password is the only way for a user to sign into your instance. | [optional] |
 | **totp_secret** | **String** | In case TOTP is configured on the instance, you can provide the secret to enable it on the newly created user without the need to reset it. Please note that currently the supported options are: * Period: 30 seconds * Code length: 6 digits * Algorithm: SHA1 | [optional] |
 | **backup_codes** | **Array&lt;String&gt;** | If Backup Codes are configured on the instance, you can provide them to enable it on the newly created user without the need to reset them. You must provide the backup codes in plain format or the corresponding bcrypt digest. | [optional] |
-| **public_metadata** | **Object** | Metadata saved on the user, that is visible to both your Frontend and Backend APIs | [optional] |
-| **private_metadata** | **Object** | Metadata saved on the user, that is only visible to your Backend API | [optional] |
-| **unsafe_metadata** | **Object** | Metadata saved on the user, that can be updated from both the Frontend and Backend APIs. Note: Since this data can be modified from the frontend, it is not guaranteed to be safe. | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the user, that is visible to both your Frontend and Backend APIs | [optional] |
+| **private_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the user, that is only visible to your Backend API | [optional] |
+| **unsafe_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the user, that can be updated from both the Frontend and Backend APIs. Note: Since this data can be modified from the frontend, it is not guaranteed to be safe. | [optional] |
 | **delete_self_enabled** | **Boolean** | If enabled, user can delete themselves via FAPI.  | [optional] |
 | **legal_accepted_at** | **String** | A custom timestamp denoting _when_ the user accepted legal requirements, specified in RFC3339 format (e.g. &#x60;2012-10-20T07:15:20.902Z&#x60;). | [optional] |
 | **skip_legal_checks** | **Boolean** | When set to &#x60;true&#x60; all legal checks are skipped. It is not recommended to skip legal checks unless you are migrating a user to Clerk. | [optional] |

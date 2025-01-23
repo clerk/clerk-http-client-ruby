@@ -10,6 +10,7 @@
 | **reserved** | **Boolean** |  |  |
 | **verification** | [**EmailAddressVerification**](EmailAddressVerification.md) |  |  |
 | **linked_to** | [**Array&lt;IdentificationLink&gt;**](IdentificationLink.md) |  |  |
+| **matches_sso_connection** | **Boolean** | Indicates whether this email address domain matches an active enterprise connection.  | [optional] |
 | **created_at** | **Integer** | Unix timestamp of creation  |  |
 | **updated_at** | **Integer** | Unix timestamp of creation  |  |
 
@@ -25,6 +26,7 @@ instance = ClerkHttpClient::EmailAddress.new(
   reserved: null,
   verification: null,
   linked_to: null,
+  matches_sso_connection: null,
   created_at: null,
   updated_at: null
 )

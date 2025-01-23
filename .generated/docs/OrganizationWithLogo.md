@@ -11,8 +11,8 @@
 | **members_count** | **Integer** |  | [optional] |
 | **max_allowed_memberships** | **Integer** |  |  |
 | **admin_delete_enabled** | **Boolean** |  | [optional] |
-| **public_metadata** | **Object** |  |  |
-| **private_metadata** | **Object** |  |  |
+| **public_metadata** | **Hash&lt;String, Object&gt;** |  |  |
+| **private_metadata** | **Hash&lt;String, Object&gt;** |  |  |
 | **created_by** | **String** |  | [optional] |
 | **created_at** | **Integer** | Unix timestamp of creation.  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |

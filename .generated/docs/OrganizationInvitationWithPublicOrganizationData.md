@@ -11,8 +11,9 @@
 | **role_name** | **String** |  | [optional] |
 | **organization_id** | **String** |  | [optional] |
 | **status** | **String** |  | [optional] |
-| **public_metadata** | **Object** |  | [optional] |
-| **private_metadata** | **Object** |  | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **private_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **url** | **String** |  | [optional] |
 | **public_organization_data** | [**OrganizationInvitationWithPublicOrganizationDataPublicOrganizationData**](OrganizationInvitationWithPublicOrganizationDataPublicOrganizationData.md) |  | [optional] |
 | **created_at** | **Integer** | Unix timestamp of creation. | [optional] |
 | **updated_at** | **Integer** | Unix timestamp of last update. | [optional] |
@@ -32,6 +33,7 @@ instance = ClerkHttpClient::OrganizationInvitationWithPublicOrganizationData.new
   status: null,
   public_metadata: null,
   private_metadata: null,
+  url: null,
   public_organization_data: null,
   created_at: null,
   updated_at: null

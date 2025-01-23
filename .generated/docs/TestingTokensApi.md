@@ -4,20 +4,18 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](TestingTokensApi.md#create) | **POST** /testing_tokens | Retrieve a new testing token |
+| [**create_testing_token**](TestingTokensApi.md#create_testing_token) | **POST** /testing_tokens | Retrieve a new testing token |
 
 
-## create
+## create_testing_token
 
 > <TestingToken> create_testing_token
 
 Retrieve a new testing token
 
-Retrieve a new testing token. Only available for development instances.
+Retrieve a new testing token.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -32,14 +30,14 @@ sdk = ClerkHttpClient::TestingTokensApi.new
 
 begin
   # Retrieve a new testing token
-  result = sdk.create
+  result = sdk.create_testing_token
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling TestingTokensApi->create: #{e}"
+  puts "Error when calling TestingTokensApi->create_testing_token: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_testing_token_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -48,12 +46,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a new testing token
-  data, status_code, headers = sdk.create_with_http_info
+  data, status_code, headers = sdk.create_testing_token_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TestingToken>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling TestingTokensApi->create_with_http_info: #{e}"
+  puts "Error when calling TestingTokensApi->create_testing_token_with_http_info: #{e}"
 end
 ```
 

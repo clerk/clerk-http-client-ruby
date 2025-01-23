@@ -4,13 +4,13 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](DomainsApi.md#create) | **POST** /domains | Add a domain |
-| [**delete**](DomainsApi.md#delete) | **DELETE** /domains/{domain_id} | Delete a satellite domain |
-| [**all**](DomainsApi.md#all) | **GET** /domains | List all instance domains |
-| [**update**](DomainsApi.md#update) | **PATCH** /domains/{domain_id} | Update a domain |
+| [**add_domain**](DomainsApi.md#add_domain) | **POST** /domains | Add a domain |
+| [**delete_domain**](DomainsApi.md#delete_domain) | **DELETE** /domains/{domain_id} | Delete a satellite domain |
+| [**list_domains**](DomainsApi.md#list_domains) | **GET** /domains | List all instance domains |
+| [**update_domain**](DomainsApi.md#update_domain) | **PATCH** /domains/{domain_id} | Update a domain |
 
 
-## create
+## add_domain
 
 > <Domain> add_domain(opts)
 
@@ -19,8 +19,6 @@ Add a domain
 Add a new domain for your instance. Useful in the case of multi-domain instances, allows adding satellite domains to an instance. The new domain must have a `name`. The domain name can contain the port for development instances, like `localhost:3000`. At the moment, instances can have only one primary domain, so the `is_satellite` parameter must be set to `true`. If you're planning to configure the new satellite domain to run behind a proxy, pass the `proxy_url` parameter accordingly.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -38,14 +36,14 @@ opts = {
 
 begin
   # Add a domain
-  result = sdk.create(opts)
+  result = sdk.add_domain(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->create: #{e}"
+  puts "Error when calling DomainsApi->add_domain: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `add_domain_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -54,12 +52,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Add a domain
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.add_domain_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domain>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->create_with_http_info: #{e}"
+  puts "Error when calling DomainsApi->add_domain_with_http_info: #{e}"
 end
 ```
 
@@ -83,7 +81,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_domain
 
 > <DeletedObject> delete_domain(domain_id)
 
@@ -92,8 +90,6 @@ Delete a satellite domain
 Deletes a satellite domain for the instance. It is currently not possible to delete the instance's primary domain.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -109,14 +105,14 @@ domain_id = 'domain_id_example' # String | The ID of the domain that will be del
 
 begin
   # Delete a satellite domain
-  result = sdk.delete(domain_id)
+  result = sdk.delete_domain(domain_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->delete: #{e}"
+  puts "Error when calling DomainsApi->delete_domain: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_domain_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -125,12 +121,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a satellite domain
-  data, status_code, headers = sdk.delete_with_http_info(domain_id)
+  data, status_code, headers = sdk.delete_domain_with_http_info(domain_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->delete_with_http_info: #{e}"
+  puts "Error when calling DomainsApi->delete_domain_with_http_info: #{e}"
 end
 ```
 
@@ -154,7 +150,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## list_domains
 
 > <Domains> list_domains
 
@@ -163,8 +159,6 @@ List all instance domains
 Use this endpoint to get a list of all domains for an instance. The response will contain the primary domain for the instance and any satellite domains. Each domain in the response contains information about the URLs where Clerk operates and the required CNAME targets.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -179,14 +173,14 @@ sdk = ClerkHttpClient::DomainsApi.new
 
 begin
   # List all instance domains
-  result = sdk.all
+  result = sdk.list_domains
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->all: #{e}"
+  puts "Error when calling DomainsApi->list_domains: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `list_domains_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -195,12 +189,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all instance domains
-  data, status_code, headers = sdk.all_with_http_info
+  data, status_code, headers = sdk.list_domains_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domains>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->all_with_http_info: #{e}"
+  puts "Error when calling DomainsApi->list_domains_with_http_info: #{e}"
 end
 ```
 
@@ -222,7 +216,7 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## update
+## update_domain
 
 > <Domain> update_domain(domain_id, update_domain_request)
 
@@ -231,8 +225,6 @@ Update a domain
 The `proxy_url` can be updated only for production instances. Update one of the instance's domains. Both primary and satellite domains can be updated. If you choose to use Clerk via proxy, use this endpoint to specify the `proxy_url`. Whenever you decide you'd rather switch to DNS setup for Clerk, simply set `proxy_url` to `null` for the domain. When you update a production instance's primary domain name, you have to make sure that you've completed all the necessary setup steps for DNS and emails to work. Expect downtime otherwise. Updating a primary domain's name will also update the instance's home origin, affecting the default application paths.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -249,14 +241,14 @@ update_domain_request = ClerkHttpClient::UpdateDomainRequest.new # UpdateDomainR
 
 begin
   # Update a domain
-  result = sdk.update(domain_id, update_domain_request)
+  result = sdk.update_domain(domain_id, update_domain_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->update: #{e}"
+  puts "Error when calling DomainsApi->update_domain: #{e}"
 end
 ```
 
-#### Using the `update_with_http_info variant
+#### Using the `update_domain_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -265,12 +257,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a domain
-  data, status_code, headers = sdk.update_with_http_info(domain_id, update_domain_request)
+  data, status_code, headers = sdk.update_domain_with_http_info(domain_id, update_domain_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domain>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->update_with_http_info: #{e}"
+  puts "Error when calling DomainsApi->update_domain_with_http_info: #{e}"
 end
 ```
 

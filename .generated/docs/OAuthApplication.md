@@ -15,6 +15,8 @@
 | **authorize_url** | **String** |  |  |
 | **token_fetch_url** | **String** |  |  |
 | **user_info_url** | **String** |  |  |
+| **discovery_url** | **String** |  |  |
+| **token_introspection_url** | **String** |  |  |
 | **created_at** | **Integer** | Unix timestamp of creation.  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
 
@@ -35,6 +37,8 @@ instance = ClerkHttpClient::OAuthApplication.new(
   authorize_url: null,
   token_fetch_url: null,
   user_info_url: null,
+  discovery_url: null,
+  token_introspection_url: null,
   created_at: null,
   updated_at: null
 )

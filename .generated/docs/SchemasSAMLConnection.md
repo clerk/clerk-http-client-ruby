@@ -16,6 +16,7 @@
 | **acs_url** | **String** |  |  |
 | **sp_entity_id** | **String** |  |  |
 | **sp_metadata_url** | **String** |  |  |
+| **organization_id** | **String** |  | [optional] |
 | **attribute_mapping** | [**SchemasSAMLConnectionAttributeMapping**](SchemasSAMLConnectionAttributeMapping.md) |  | [optional] |
 | **active** | **Boolean** |  |  |
 | **provider** | **String** |  |  |
@@ -45,6 +46,7 @@ instance = ClerkHttpClient::SchemasSAMLConnection.new(
   acs_url: null,
   sp_entity_id: null,
   sp_metadata_url: null,
+  organization_id: null,
   attribute_mapping: null,
   active: null,
   provider: null,

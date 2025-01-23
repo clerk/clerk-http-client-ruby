@@ -9,10 +9,11 @@
 | **provider_user_id** | **String** | The unique ID of the user in the external provider&#39;s system | [optional] |
 | **token** | **String** | The access token | [optional] |
 | **provider** | **String** | The ID of the provider | [optional] |
-| **public_metadata** | **Object** |  | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **label** | **String** |  | [optional] |
 | **scopes** | **Array&lt;String&gt;** | The list of scopes that the token is valid for. Only present for OAuth 2.0 tokens. | [optional] |
 | **token_secret** | **String** | The token secret. Only present for OAuth 1.0 tokens. | [optional] |
+| **expires_at** | **Integer** | Unix timestamp of the access token expiration. | [optional] |
 
 ## Example
 
@@ -28,7 +29,8 @@ instance = ClerkHttpClient::GetOAuthAccessToken200ResponseInner.new(
   public_metadata: null,
   label: null,
   scopes: null,
-  token_secret: null
+  token_secret: null,
+  expires_at: null
 )
 ```
 

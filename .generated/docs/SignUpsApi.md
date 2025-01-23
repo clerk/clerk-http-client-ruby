@@ -4,10 +4,10 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**update**](SignUpsApi.md#update) | **PATCH** /sign_ups/{id} | Update a sign-up |
+| [**update_sign_up**](SignUpsApi.md#update_sign_up) | **PATCH** /sign_ups/{id} | Update a sign-up |
 
 
-## update
+## update_sign_up
 
 > <SignUp> update_sign_up(id, opts)
 
@@ -16,8 +16,6 @@ Update a sign-up
 Update the sign-up with the given ID
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -36,14 +34,14 @@ opts = {
 
 begin
   # Update a sign-up
-  result = sdk.update(id, opts)
+  result = sdk.update_sign_up(id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SignUpsApi->update: #{e}"
+  puts "Error when calling SignUpsApi->update_sign_up: #{e}"
 end
 ```
 
-#### Using the `update_with_http_info variant
+#### Using the `update_sign_up_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -52,12 +50,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a sign-up
-  data, status_code, headers = sdk.update_with_http_info(id, opts)
+  data, status_code, headers = sdk.update_sign_up_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignUp>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SignUpsApi->update_with_http_info: #{e}"
+  puts "Error when calling SignUpsApi->update_sign_up_with_http_info: #{e}"
 end
 ```
 

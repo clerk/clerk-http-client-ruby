@@ -4,20 +4,18 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**get**](JWKSApi.md#get) | **GET** /jwks | Retrieve the JSON Web Key Set of the instance |
+| [**get_jwks**](JWKSApi.md#get_jwks) | **GET** /jwks | Retrieve the JSON Web Key Set of the instance |
 
 
-## get
+## get_jwks
 
-> <WellKnownJWKS> get_jwks
+> <JWKS> get_jwks
 
 Retrieve the JSON Web Key Set of the instance
 
 Retrieve the JSON Web Key Set of the instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -32,28 +30,28 @@ sdk = ClerkHttpClient::JWKSApi.new
 
 begin
   # Retrieve the JSON Web Key Set of the instance
-  result = sdk.get
+  result = sdk.get_jwks
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWKSApi->get: #{e}"
+  puts "Error when calling JWKSApi->get_jwks: #{e}"
 end
 ```
 
-#### Using the `get_with_http_info variant
+#### Using the `get_jwks_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<WellKnownJWKS>, Integer, Hash)> get_jwks_with_http_info
+> <Array(<JWKS>, Integer, Hash)> get_jwks_with_http_info
 
 ```ruby
 begin
   # Retrieve the JSON Web Key Set of the instance
-  data, status_code, headers = sdk.get_with_http_info
+  data, status_code, headers = sdk.get_jwks_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <WellKnownJWKS>
+  p data # => <JWKS>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWKSApi->get_with_http_info: #{e}"
+  puts "Error when calling JWKSApi->get_jwks_with_http_info: #{e}"
 end
 ```
 
@@ -63,7 +61,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**WellKnownJWKS**](WellKnownJWKS.md)
+[**JWKS**](JWKS.md)
 
 ### Authorization
 

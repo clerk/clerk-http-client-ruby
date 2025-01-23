@@ -20,9 +20,9 @@
 | **sign_out_of_other_sessions** | **Boolean** | Set to &#x60;true&#x60; to sign out the user from all their active sessions once their password is updated. This parameter can only be used when providing a &#x60;password&#x60;. | [optional] |
 | **totp_secret** | **String** | In case TOTP is configured on the instance, you can provide the secret to enable it on the specific user without the need to reset it. Please note that currently the supported options are: * Period: 30 seconds * Code length: 6 digits * Algorithm: SHA1 | [optional] |
 | **backup_codes** | **Array&lt;String&gt;** | If Backup Codes are configured on the instance, you can provide them to enable it on the specific user without the need to reset them. You must provide the backup codes in plain format or the corresponding bcrypt digest. | [optional] |
-| **public_metadata** | **Object** | Metadata saved on the user, that is visible to both your Frontend and Backend APIs | [optional] |
-| **private_metadata** | **Object** | Metadata saved on the user, that is only visible to your Backend API | [optional] |
-| **unsafe_metadata** | **Object** | Metadata saved on the user, that can be updated from both the Frontend and Backend APIs. Note: Since this data can be modified from the frontend, it is not guaranteed to be safe. | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the user, that is visible to both your Frontend and Backend APIs | [optional] |
+| **private_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the user, that is only visible to your Backend API | [optional] |
+| **unsafe_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the user, that can be updated from both the Frontend and Backend APIs. Note: Since this data can be modified from the frontend, it is not guaranteed to be safe. | [optional] |
 | **delete_self_enabled** | **Boolean** | If true, the user can delete themselves with the Frontend API. | [optional] |
 | **create_organization_enabled** | **Boolean** | If true, the user can create organizations with the Frontend API. | [optional] |
 | **legal_accepted_at** | **String** | A custom timestamps denoting _when_ the user accepted legal requirements, specified in RFC3339 format (e.g. &#x60;2012-10-20T07:15:20.902Z&#x60;). | [optional] |

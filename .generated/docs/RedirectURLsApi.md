@@ -4,13 +4,13 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](RedirectURLsApi.md#create) | **POST** /redirect_urls | Create a redirect URL |
-| [**delete**](RedirectURLsApi.md#delete) | **DELETE** /redirect_urls/{id} | Delete a redirect URL |
-| [**find**](RedirectURLsApi.md#find) | **GET** /redirect_urls/{id} | Retrieve a redirect URL |
-| [**all**](RedirectURLsApi.md#all) | **GET** /redirect_urls | List all redirect URLs |
+| [**create_redirect_url**](RedirectURLsApi.md#create_redirect_url) | **POST** /redirect_urls | Create a redirect URL |
+| [**delete_redirect_url**](RedirectURLsApi.md#delete_redirect_url) | **DELETE** /redirect_urls/{id} | Delete a redirect URL |
+| [**get_redirect_url**](RedirectURLsApi.md#get_redirect_url) | **GET** /redirect_urls/{id} | Retrieve a redirect URL |
+| [**list_redirect_urls**](RedirectURLsApi.md#list_redirect_urls) | **GET** /redirect_urls | List all redirect URLs |
 
 
-## create
+## create_redirect_url
 
 > <RedirectURL> create_redirect_url(opts)
 
@@ -19,8 +19,6 @@ Create a redirect URL
 Create a redirect URL
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -38,14 +36,14 @@ opts = {
 
 begin
   # Create a redirect URL
-  result = sdk.create(opts)
+  result = sdk.create_redirect_url(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling RedirectURLsApi->create: #{e}"
+  puts "Error when calling RedirectURLsApi->create_redirect_url: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_redirect_url_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -54,12 +52,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a redirect URL
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.create_redirect_url_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RedirectURL>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling RedirectURLsApi->create_with_http_info: #{e}"
+  puts "Error when calling RedirectURLsApi->create_redirect_url_with_http_info: #{e}"
 end
 ```
 
@@ -83,7 +81,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_redirect_url
 
 > <DeletedObject> delete_redirect_url(id)
 
@@ -92,8 +90,6 @@ Delete a redirect URL
 Remove the selected redirect URL from the whitelist of the instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -109,14 +105,14 @@ id = 'id_example' # String | The ID of the redirect URL
 
 begin
   # Delete a redirect URL
-  result = sdk.delete(id)
+  result = sdk.delete_redirect_url(id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling RedirectURLsApi->delete: #{e}"
+  puts "Error when calling RedirectURLsApi->delete_redirect_url: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_redirect_url_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -125,12 +121,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a redirect URL
-  data, status_code, headers = sdk.delete_with_http_info(id)
+  data, status_code, headers = sdk.delete_redirect_url_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling RedirectURLsApi->delete_with_http_info: #{e}"
+  puts "Error when calling RedirectURLsApi->delete_redirect_url_with_http_info: #{e}"
 end
 ```
 
@@ -154,7 +150,7 @@ end
 - **Accept**: application/json
 
 
-## find
+## get_redirect_url
 
 > <RedirectURL> get_redirect_url(id)
 
@@ -163,8 +159,6 @@ Retrieve a redirect URL
 Retrieve the details of the redirect URL with the given ID
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -180,14 +174,14 @@ id = 'id_example' # String | The ID of the redirect URL
 
 begin
   # Retrieve a redirect URL
-  result = sdk.find(id)
+  result = sdk.get_redirect_url(id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling RedirectURLsApi->find: #{e}"
+  puts "Error when calling RedirectURLsApi->get_redirect_url: #{e}"
 end
 ```
 
-#### Using the `find_with_http_info variant
+#### Using the `get_redirect_url_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -196,12 +190,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a redirect URL
-  data, status_code, headers = sdk.find_with_http_info(id)
+  data, status_code, headers = sdk.get_redirect_url_with_http_info(id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RedirectURL>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling RedirectURLsApi->find_with_http_info: #{e}"
+  puts "Error when calling RedirectURLsApi->get_redirect_url_with_http_info: #{e}"
 end
 ```
 
@@ -225,7 +219,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## list_redirect_urls
 
 > <Array<RedirectURL>> list_redirect_urls
 
@@ -234,8 +228,6 @@ List all redirect URLs
 Lists all whitelisted redirect_urls for the instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -250,14 +242,14 @@ sdk = ClerkHttpClient::RedirectURLsApi.new
 
 begin
   # List all redirect URLs
-  result = sdk.all
+  result = sdk.list_redirect_urls
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling RedirectURLsApi->all: #{e}"
+  puts "Error when calling RedirectURLsApi->list_redirect_urls: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `list_redirect_urls_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -266,12 +258,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all redirect URLs
-  data, status_code, headers = sdk.all_with_http_info
+  data, status_code, headers = sdk.list_redirect_urls_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<RedirectURL>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling RedirectURLsApi->all_with_http_info: #{e}"
+  puts "Error when calling RedirectURLsApi->list_redirect_urls_with_http_info: #{e}"
 end
 ```
 

@@ -4,11 +4,11 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](ActorTokensApi.md#create) | **POST** /actor_tokens | Create actor token |
-| [**revoke**](ActorTokensApi.md#revoke) | **POST** /actor_tokens/{actor_token_id}/revoke | Revoke actor token |
+| [**create_actor_token**](ActorTokensApi.md#create_actor_token) | **POST** /actor_tokens | Create actor token |
+| [**revoke_actor_token**](ActorTokensApi.md#revoke_actor_token) | **POST** /actor_tokens/{actor_token_id}/revoke | Revoke actor token |
 
 
-## create
+## create_actor_token
 
 > <ActorToken> create_actor_token(opts)
 
@@ -17,8 +17,6 @@ Create actor token
 Create an actor token that can be used to impersonate the given user. The `actor` parameter needs to include at least a \"sub\" key whose value is the ID of the actor (impersonating) user.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -36,14 +34,14 @@ opts = {
 
 begin
   # Create actor token
-  result = sdk.create(opts)
+  result = sdk.create_actor_token(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ActorTokensApi->create: #{e}"
+  puts "Error when calling ActorTokensApi->create_actor_token: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_actor_token_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -52,12 +50,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create actor token
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.create_actor_token_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ActorToken>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ActorTokensApi->create_with_http_info: #{e}"
+  puts "Error when calling ActorTokensApi->create_actor_token_with_http_info: #{e}"
 end
 ```
 
@@ -81,7 +79,7 @@ end
 - **Accept**: application/json
 
 
-## revoke
+## revoke_actor_token
 
 > <ActorToken> revoke_actor_token(actor_token_id)
 
@@ -90,8 +88,6 @@ Revoke actor token
 Revokes a pending actor token.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -107,14 +103,14 @@ actor_token_id = 'actor_token_id_example' # String | The ID of the actor token t
 
 begin
   # Revoke actor token
-  result = sdk.revoke(actor_token_id)
+  result = sdk.revoke_actor_token(actor_token_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ActorTokensApi->revoke: #{e}"
+  puts "Error when calling ActorTokensApi->revoke_actor_token: #{e}"
 end
 ```
 
-#### Using the `revoke_with_http_info variant
+#### Using the `revoke_actor_token_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -123,12 +119,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revoke actor token
-  data, status_code, headers = sdk.revoke_with_http_info(actor_token_id)
+  data, status_code, headers = sdk.revoke_actor_token_with_http_info(actor_token_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ActorToken>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ActorTokensApi->revoke_with_http_info: #{e}"
+  puts "Error when calling ActorTokensApi->revoke_actor_token_with_http_info: #{e}"
 end
 ```
 

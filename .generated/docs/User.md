@@ -16,9 +16,9 @@
 | **profile_image_url** | **String** |  | [optional] |
 | **image_url** | **String** |  | [optional] |
 | **has_image** | **Boolean** |  | [optional] |
-| **public_metadata** | **Object** |  | [optional] |
-| **private_metadata** | **Object** |  | [optional] |
-| **unsafe_metadata** | **Object** |  | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **private_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **unsafe_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **email_addresses** | [**Array&lt;EmailAddress&gt;**](EmailAddress.md) |  | [optional] |
 | **phone_numbers** | [**Array&lt;PhoneNumber&gt;**](PhoneNumber.md) |  | [optional] |
 | **web3_wallets** | [**Array&lt;Web3Wallet&gt;**](Web3Wallet.md) |  | [optional] |

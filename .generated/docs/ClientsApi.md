@@ -4,12 +4,12 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**find**](ClientsApi.md#find) | **GET** /clients/{client_id} | Get a client |
-| [**all**](ClientsApi.md#all) | **GET** /clients | List all clients |
-| [**verify**](ClientsApi.md#verify) | **POST** /clients/verify | Verify a client |
+| [**get_client**](ClientsApi.md#get_client) | **GET** /clients/{client_id} | Get a client |
+| [**get_client_list**](ClientsApi.md#get_client_list) | **GET** /clients | List all clients |
+| [**verify_client**](ClientsApi.md#verify_client) | **POST** /clients/verify | Verify a client |
 
 
-## find
+## get_client
 
 > <Client> get_client(client_id)
 
@@ -18,8 +18,6 @@ Get a client
 Returns the details of a client.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -35,14 +33,14 @@ client_id = 'client_id_example' # String | Client ID.
 
 begin
   # Get a client
-  result = sdk.find(client_id)
+  result = sdk.get_client(client_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->find: #{e}"
+  puts "Error when calling ClientsApi->get_client: #{e}"
 end
 ```
 
-#### Using the `find_with_http_info variant
+#### Using the `get_client_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -51,12 +49,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a client
-  data, status_code, headers = sdk.find_with_http_info(client_id)
+  data, status_code, headers = sdk.get_client_with_http_info(client_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Client>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->find_with_http_info: #{e}"
+  puts "Error when calling ClientsApi->get_client_with_http_info: #{e}"
 end
 ```
 
@@ -80,7 +78,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## get_client_list
 
 > <Array<Client>> get_client_list(opts)
 
@@ -89,8 +87,6 @@ List all clients
 Returns a list of all clients. The clients are returned sorted by creation date, with the newest clients appearing first. Warning: the endpoint is being deprecated and will be removed in future versions.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -109,14 +105,14 @@ opts = {
 
 begin
   # List all clients
-  result = sdk.all(opts)
+  result = sdk.get_client_list(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->all: #{e}"
+  puts "Error when calling ClientsApi->get_client_list: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `get_client_list_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -125,12 +121,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all clients
-  data, status_code, headers = sdk.all_with_http_info(opts)
+  data, status_code, headers = sdk.get_client_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Client>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->all_with_http_info: #{e}"
+  puts "Error when calling ClientsApi->get_client_list_with_http_info: #{e}"
 end
 ```
 
@@ -155,7 +151,7 @@ end
 - **Accept**: application/json
 
 
-## verify
+## verify_client
 
 > <Client> verify_client(opts)
 
@@ -164,8 +160,6 @@ Verify a client
 Verifies the client in the provided token
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -183,14 +177,14 @@ opts = {
 
 begin
   # Verify a client
-  result = sdk.verify(opts)
+  result = sdk.verify_client(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->verify: #{e}"
+  puts "Error when calling ClientsApi->verify_client: #{e}"
 end
 ```
 
-#### Using the `verify_with_http_info variant
+#### Using the `verify_client_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -199,12 +193,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Verify a client
-  data, status_code, headers = sdk.verify_with_http_info(opts)
+  data, status_code, headers = sdk.verify_client_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Client>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->verify_with_http_info: #{e}"
+  puts "Error when calling ClientsApi->verify_client_with_http_info: #{e}"
 end
 ```
 

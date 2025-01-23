@@ -4,14 +4,14 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](JWTTemplatesApi.md#create) | **POST** /jwt_templates | Create a JWT template |
-| [**delete**](JWTTemplatesApi.md#delete) | **DELETE** /jwt_templates/{template_id} | Delete a Template |
-| [**find**](JWTTemplatesApi.md#find) | **GET** /jwt_templates/{template_id} | Retrieve a template |
-| [**all**](JWTTemplatesApi.md#all) | **GET** /jwt_templates | List all templates |
-| [**update**](JWTTemplatesApi.md#update) | **PATCH** /jwt_templates/{template_id} | Update a JWT template |
+| [**create_jwt_template**](JWTTemplatesApi.md#create_jwt_template) | **POST** /jwt_templates | Create a JWT template |
+| [**delete_jwt_template**](JWTTemplatesApi.md#delete_jwt_template) | **DELETE** /jwt_templates/{template_id} | Delete a Template |
+| [**get_jwt_template**](JWTTemplatesApi.md#get_jwt_template) | **GET** /jwt_templates/{template_id} | Retrieve a template |
+| [**list_jwt_templates**](JWTTemplatesApi.md#list_jwt_templates) | **GET** /jwt_templates | List all templates |
+| [**update_jwt_template**](JWTTemplatesApi.md#update_jwt_template) | **PATCH** /jwt_templates/{template_id} | Update a JWT template |
 
 
-## create
+## create_jwt_template
 
 > <JWTTemplate> create_jwt_template(opts)
 
@@ -20,8 +20,6 @@ Create a JWT template
 Create a new JWT template
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -39,14 +37,14 @@ opts = {
 
 begin
   # Create a JWT template
-  result = sdk.create(opts)
+  result = sdk.create_jwt_template(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->create: #{e}"
+  puts "Error when calling JWTTemplatesApi->create_jwt_template: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_jwt_template_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -55,12 +53,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a JWT template
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.create_jwt_template_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->create_with_http_info: #{e}"
+  puts "Error when calling JWTTemplatesApi->create_jwt_template_with_http_info: #{e}"
 end
 ```
 
@@ -84,7 +82,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_jwt_template
 
 > <DeletedObject> delete_jwt_template(template_id)
 
@@ -93,8 +91,6 @@ Delete a Template
 
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -110,14 +106,14 @@ template_id = 'template_id_example' # String | JWT Template ID
 
 begin
   # Delete a Template
-  result = sdk.delete(template_id)
+  result = sdk.delete_jwt_template(template_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->delete: #{e}"
+  puts "Error when calling JWTTemplatesApi->delete_jwt_template: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_jwt_template_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -126,12 +122,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a Template
-  data, status_code, headers = sdk.delete_with_http_info(template_id)
+  data, status_code, headers = sdk.delete_jwt_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->delete_with_http_info: #{e}"
+  puts "Error when calling JWTTemplatesApi->delete_jwt_template_with_http_info: #{e}"
 end
 ```
 
@@ -155,7 +151,7 @@ end
 - **Accept**: application/json
 
 
-## find
+## get_jwt_template
 
 > <JWTTemplate> get_jwt_template(template_id)
 
@@ -164,8 +160,6 @@ Retrieve a template
 Retrieve the details of a given JWT template
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -181,14 +175,14 @@ template_id = 'template_id_example' # String | JWT Template ID
 
 begin
   # Retrieve a template
-  result = sdk.find(template_id)
+  result = sdk.get_jwt_template(template_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->find: #{e}"
+  puts "Error when calling JWTTemplatesApi->get_jwt_template: #{e}"
 end
 ```
 
-#### Using the `find_with_http_info variant
+#### Using the `get_jwt_template_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -197,12 +191,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a template
-  data, status_code, headers = sdk.find_with_http_info(template_id)
+  data, status_code, headers = sdk.get_jwt_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->find_with_http_info: #{e}"
+  puts "Error when calling JWTTemplatesApi->get_jwt_template_with_http_info: #{e}"
 end
 ```
 
@@ -226,15 +220,13 @@ end
 - **Accept**: application/json
 
 
-## all
+## list_jwt_templates
 
 > <Array<JWTTemplate>> list_jwt_templates
 
 List all templates
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -249,14 +241,14 @@ sdk = ClerkHttpClient::JWTTemplatesApi.new
 
 begin
   # List all templates
-  result = sdk.all
+  result = sdk.list_jwt_templates
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->all: #{e}"
+  puts "Error when calling JWTTemplatesApi->list_jwt_templates: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `list_jwt_templates_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -265,12 +257,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all templates
-  data, status_code, headers = sdk.all_with_http_info
+  data, status_code, headers = sdk.list_jwt_templates_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<JWTTemplate>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->all_with_http_info: #{e}"
+  puts "Error when calling JWTTemplatesApi->list_jwt_templates_with_http_info: #{e}"
 end
 ```
 
@@ -292,7 +284,7 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## update
+## update_jwt_template
 
 > <JWTTemplate> update_jwt_template(template_id, opts)
 
@@ -301,8 +293,6 @@ Update a JWT template
 Updates an existing JWT template
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -321,14 +311,14 @@ opts = {
 
 begin
   # Update a JWT template
-  result = sdk.update(template_id, opts)
+  result = sdk.update_jwt_template(template_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->update: #{e}"
+  puts "Error when calling JWTTemplatesApi->update_jwt_template: #{e}"
 end
 ```
 
-#### Using the `update_with_http_info variant
+#### Using the `update_jwt_template_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -337,12 +327,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a JWT template
-  data, status_code, headers = sdk.update_with_http_info(template_id, opts)
+  data, status_code, headers = sdk.update_jwt_template_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->update_with_http_info: #{e}"
+  puts "Error when calling JWTTemplatesApi->update_jwt_template_with_http_info: #{e}"
 end
 ```
 

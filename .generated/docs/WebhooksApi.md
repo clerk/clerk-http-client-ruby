@@ -4,12 +4,12 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](WebhooksApi.md#create) | **POST** /webhooks/svix | Create a Svix app |
-| [**delete**](WebhooksApi.md#delete) | **DELETE** /webhooks/svix | Delete a Svix app |
-| [**generate_auth_url**](WebhooksApi.md#generate_auth_url) | **POST** /webhooks/svix_url | Create a Svix Dashboard URL |
+| [**create_svix_app**](WebhooksApi.md#create_svix_app) | **POST** /webhooks/svix | Create a Svix app |
+| [**delete_svix_app**](WebhooksApi.md#delete_svix_app) | **DELETE** /webhooks/svix | Delete a Svix app |
+| [**generate_svix_auth_url**](WebhooksApi.md#generate_svix_auth_url) | **POST** /webhooks/svix_url | Create a Svix Dashboard URL |
 
 
-## create
+## create_svix_app
 
 > <SvixURL> create_svix_app
 
@@ -18,8 +18,6 @@ Create a Svix app
 Create a Svix app and associate it with the current instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -34,14 +32,14 @@ sdk = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Create a Svix app
-  result = sdk.create
+  result = sdk.create_svix_app
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->create: #{e}"
+  puts "Error when calling WebhooksApi->create_svix_app: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_svix_app_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -50,12 +48,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a Svix app
-  data, status_code, headers = sdk.create_with_http_info
+  data, status_code, headers = sdk.create_svix_app_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SvixURL>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->create_with_http_info: #{e}"
+  puts "Error when calling WebhooksApi->create_svix_app_with_http_info: #{e}"
 end
 ```
 
@@ -77,7 +75,7 @@ This endpoint does not need any parameter.
 - **Accept**: application/json
 
 
-## delete
+## delete_svix_app
 
 > delete_svix_app
 
@@ -86,8 +84,6 @@ Delete a Svix app
 Delete a Svix app and disassociate it from the current instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -102,13 +98,13 @@ sdk = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Delete a Svix app
-  sdk.delete
+  sdk.delete_svix_app
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->delete: #{e}"
+  puts "Error when calling WebhooksApi->delete_svix_app: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_svix_app_with_http_info variant
 
 This returns an Array which contains the response data (`nil` in this case), status code and headers.
 
@@ -117,12 +113,12 @@ This returns an Array which contains the response data (`nil` in this case), sta
 ```ruby
 begin
   # Delete a Svix app
-  data, status_code, headers = sdk.delete_with_http_info
+  data, status_code, headers = sdk.delete_svix_app_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->delete_with_http_info: #{e}"
+  puts "Error when calling WebhooksApi->delete_svix_app_with_http_info: #{e}"
 end
 ```
 
@@ -144,7 +140,7 @@ nil (empty response body)
 - **Accept**: application/json
 
 
-## generate_auth_url
+## generate_svix_auth_url
 
 > <SvixURL> generate_svix_auth_url
 
@@ -153,8 +149,6 @@ Create a Svix Dashboard URL
 Generate a new url for accessing the Svix's management dashboard for that particular instance
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -169,14 +163,14 @@ sdk = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Create a Svix Dashboard URL
-  result = sdk.generate_auth_url
+  result = sdk.generate_svix_auth_url
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->generate_auth_url: #{e}"
+  puts "Error when calling WebhooksApi->generate_svix_auth_url: #{e}"
 end
 ```
 
-#### Using the `generate_auth_url_with_http_info variant
+#### Using the `generate_svix_auth_url_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -185,12 +179,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a Svix Dashboard URL
-  data, status_code, headers = sdk.generate_auth_url_with_http_info
+  data, status_code, headers = sdk.generate_svix_auth_url_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SvixURL>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->generate_auth_url_with_http_info: #{e}"
+  puts "Error when calling WebhooksApi->generate_svix_auth_url_with_http_info: #{e}"
 end
 ```
 

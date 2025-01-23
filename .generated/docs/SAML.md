@@ -7,7 +7,7 @@
 | **status** | **String** |  |  |
 | **strategy** | **String** |  |  |
 | **external_verification_redirect_url** | **String** |  |  |
-| **error** | [**OauthError**](OauthError.md) |  | [optional] |
+| **error** | [**FromOAuthError**](FromOAuthError.md) |  | [optional] |
 | **expire_at** | **Integer** |  |  |
 | **attempts** | **Integer** |  | [optional] |
 

@@ -4,8 +4,8 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **public_metadata** | **Object** | Metadata saved on the organization membership, that is visible to both your frontend and backend. The new object will be merged with the existing value. | [optional] |
-| **private_metadata** | **Object** | Metadata saved on the organization membership that is only visible to your backend. The new object will be merged with the existing value. | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization membership, that is visible to both your frontend and backend. The new object will be merged with the existing value. | [optional] |
+| **private_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization membership that is only visible to your backend. The new object will be merged with the existing value. | [optional] |
 
 ## Example
 

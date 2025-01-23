@@ -4,13 +4,13 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](EmailAddressesApi.md#create) | **POST** /email_addresses | Create an email address |
-| [**delete**](EmailAddressesApi.md#delete) | **DELETE** /email_addresses/{email_address_id} | Delete an email address |
-| [**find**](EmailAddressesApi.md#find) | **GET** /email_addresses/{email_address_id} | Retrieve an email address |
-| [**update**](EmailAddressesApi.md#update) | **PATCH** /email_addresses/{email_address_id} | Update an email address |
+| [**create_email_address**](EmailAddressesApi.md#create_email_address) | **POST** /email_addresses | Create an email address |
+| [**delete_email_address**](EmailAddressesApi.md#delete_email_address) | **DELETE** /email_addresses/{email_address_id} | Delete an email address |
+| [**get_email_address**](EmailAddressesApi.md#get_email_address) | **GET** /email_addresses/{email_address_id} | Retrieve an email address |
+| [**update_email_address**](EmailAddressesApi.md#update_email_address) | **PATCH** /email_addresses/{email_address_id} | Update an email address |
 
 
-## create
+## create_email_address
 
 > <EmailAddress> create_email_address(opts)
 
@@ -19,8 +19,6 @@ Create an email address
 Create a new email address
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -38,14 +36,14 @@ opts = {
 
 begin
   # Create an email address
-  result = sdk.create(opts)
+  result = sdk.create_email_address(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->create: #{e}"
+  puts "Error when calling EmailAddressesApi->create_email_address: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_email_address_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -54,12 +52,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create an email address
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.create_email_address_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->create_with_http_info: #{e}"
+  puts "Error when calling EmailAddressesApi->create_email_address_with_http_info: #{e}"
 end
 ```
 
@@ -83,7 +81,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_email_address
 
 > <DeletedObject> delete_email_address(email_address_id)
 
@@ -92,8 +90,6 @@ Delete an email address
 Delete the email address with the given ID
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -109,14 +105,14 @@ email_address_id = 'email_address_id_example' # String | The ID of the email add
 
 begin
   # Delete an email address
-  result = sdk.delete(email_address_id)
+  result = sdk.delete_email_address(email_address_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->delete: #{e}"
+  puts "Error when calling EmailAddressesApi->delete_email_address: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_email_address_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -125,12 +121,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete an email address
-  data, status_code, headers = sdk.delete_with_http_info(email_address_id)
+  data, status_code, headers = sdk.delete_email_address_with_http_info(email_address_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->delete_with_http_info: #{e}"
+  puts "Error when calling EmailAddressesApi->delete_email_address_with_http_info: #{e}"
 end
 ```
 
@@ -154,7 +150,7 @@ end
 - **Accept**: application/json
 
 
-## find
+## get_email_address
 
 > <EmailAddress> get_email_address(email_address_id)
 
@@ -163,8 +159,6 @@ Retrieve an email address
 Returns the details of an email address.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -180,14 +174,14 @@ email_address_id = 'email_address_id_example' # String | The ID of the email add
 
 begin
   # Retrieve an email address
-  result = sdk.find(email_address_id)
+  result = sdk.get_email_address(email_address_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->find: #{e}"
+  puts "Error when calling EmailAddressesApi->get_email_address: #{e}"
 end
 ```
 
-#### Using the `find_with_http_info variant
+#### Using the `get_email_address_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -196,12 +190,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve an email address
-  data, status_code, headers = sdk.find_with_http_info(email_address_id)
+  data, status_code, headers = sdk.get_email_address_with_http_info(email_address_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->find_with_http_info: #{e}"
+  puts "Error when calling EmailAddressesApi->get_email_address_with_http_info: #{e}"
 end
 ```
 
@@ -225,7 +219,7 @@ end
 - **Accept**: application/json
 
 
-## update
+## update_email_address
 
 > <EmailAddress> update_email_address(email_address_id, opts)
 
@@ -234,8 +228,6 @@ Update an email address
 Updates an email address.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -254,14 +246,14 @@ opts = {
 
 begin
   # Update an email address
-  result = sdk.update(email_address_id, opts)
+  result = sdk.update_email_address(email_address_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->update: #{e}"
+  puts "Error when calling EmailAddressesApi->update_email_address: #{e}"
 end
 ```
 
-#### Using the `update_with_http_info variant
+#### Using the `update_email_address_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -270,12 +262,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update an email address
-  data, status_code, headers = sdk.update_with_http_info(email_address_id, opts)
+  data, status_code, headers = sdk.update_email_address_with_http_info(email_address_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->update_with_http_info: #{e}"
+  puts "Error when calling EmailAddressesApi->update_email_address_with_http_info: #{e}"
 end
 ```
 

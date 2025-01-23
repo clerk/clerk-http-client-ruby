@@ -4,12 +4,84 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](InvitationsApi.md#create) | **POST** /invitations | Create an invitation |
-| [**all**](InvitationsApi.md#all) | **GET** /invitations | List all invitations |
-| [**revoke**](InvitationsApi.md#revoke) | **POST** /invitations/{invitation_id}/revoke | Revokes an invitation |
+| [**create_bulk_invitations**](InvitationsApi.md#create_bulk_invitations) | **POST** /invitations/bulk | Create multiple invitations |
+| [**create_invitation**](InvitationsApi.md#create_invitation) | **POST** /invitations | Create an invitation |
+| [**list_invitations**](InvitationsApi.md#list_invitations) | **GET** /invitations | List all invitations |
+| [**revoke_invitation**](InvitationsApi.md#revoke_invitation) | **POST** /invitations/{invitation_id}/revoke | Revokes an invitation |
 
 
-## create
+## create_bulk_invitations
+
+> <Array<Invitation>> create_bulk_invitations(opts)
+
+Create multiple invitations
+
+Use this API operation to create multiple invitations for the provided email addresses. You can choose to send the invitations as emails by setting the `notify` parameter to `true`. There cannot be an existing invitation for any of the email addresses you provide unless you set `ignore_existing` to `true` for specific email addresses. Please note that there must be no existing user for any of the email addresses you provide, and this rule cannot be bypassed.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+sdk = ClerkHttpClient::InvitationsApi.new
+opts = {
+  create_bulk_invitations_request_inner: [ClerkHttpClient::CreateBulkInvitationsRequestInner.new({email_address: 'email_address_example'})] # Array<CreateBulkInvitationsRequestInner> | Required parameters
+}
+
+begin
+  # Create multiple invitations
+  result = sdk.create_bulk_invitations(opts)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling InvitationsApi->create_bulk_invitations: #{e}"
+end
+```
+
+#### Using the `create_bulk_invitations_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<Invitation>>, Integer, Hash)> create_bulk_invitations_with_http_info(opts)
+
+```ruby
+begin
+  # Create multiple invitations
+  data, status_code, headers = sdk.create_bulk_invitations_with_http_info(opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<Invitation>>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling InvitationsApi->create_bulk_invitations_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **create_bulk_invitations_request_inner** | [**Array&lt;CreateBulkInvitationsRequestInner&gt;**](CreateBulkInvitationsRequestInner.md) | Required parameters | [optional] |
+
+### Return type
+
+[**Array&lt;Invitation&gt;**](Invitation.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## create_invitation
 
 > <Invitation> create_invitation(opts)
 
@@ -18,8 +90,6 @@ Create an invitation
 Creates a new invitation for the given email address and sends the invitation email. Keep in mind that you cannot create an invitation if there is already one for the given email address. Also, trying to create an invitation for an email address that already exists in your application will result to an error.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -37,14 +107,14 @@ opts = {
 
 begin
   # Create an invitation
-  result = sdk.create(opts)
+  result = sdk.create_invitation(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->create: #{e}"
+  puts "Error when calling InvitationsApi->create_invitation: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_invitation_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -53,12 +123,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create an invitation
-  data, status_code, headers = sdk.create_with_http_info(opts)
+  data, status_code, headers = sdk.create_invitation_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Invitation>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->create_with_http_info: #{e}"
+  puts "Error when calling InvitationsApi->create_invitation_with_http_info: #{e}"
 end
 ```
 
@@ -82,7 +152,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## list_invitations
 
 > <Array<Invitation>> list_invitations(opts)
 
@@ -91,8 +161,6 @@ List all invitations
 Returns all non-revoked invitations for your application, sorted by creation date
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -107,19 +175,20 @@ sdk = ClerkHttpClient::InvitationsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
-  status: 'pending' # String | Filter invitations based on their status
+  status: 'pending', # String | Filter invitations based on their status
+  query: 'query_example' # String | Filter invitations based on their `email_address` or `id`
 }
 
 begin
   # List all invitations
-  result = sdk.all(opts)
+  result = sdk.list_invitations(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->all: #{e}"
+  puts "Error when calling InvitationsApi->list_invitations: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `list_invitations_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -128,12 +197,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all invitations
-  data, status_code, headers = sdk.all_with_http_info(opts)
+  data, status_code, headers = sdk.list_invitations_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Invitation>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->all_with_http_info: #{e}"
+  puts "Error when calling InvitationsApi->list_invitations_with_http_info: #{e}"
 end
 ```
 
@@ -144,6 +213,7 @@ end
 | **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
 | **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **status** | **String** | Filter invitations based on their status | [optional] |
+| **query** | **String** | Filter invitations based on their &#x60;email_address&#x60; or &#x60;id&#x60; | [optional] |
 
 ### Return type
 
@@ -159,7 +229,7 @@ end
 - **Accept**: application/json
 
 
-## revoke
+## revoke_invitation
 
 > <RevokeInvitation200Response> revoke_invitation(invitation_id)
 
@@ -168,8 +238,6 @@ Revokes an invitation
 Revokes the given invitation. Revoking an invitation will prevent the user from using the invitation link that was sent to them. However, it doesn't prevent the user from signing up if they follow the sign up flow. Only active (i.e. non-revoked) invitations can be revoked.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -185,14 +253,14 @@ invitation_id = 'invitation_id_example' # String | The ID of the invitation to b
 
 begin
   # Revokes an invitation
-  result = sdk.revoke(invitation_id)
+  result = sdk.revoke_invitation(invitation_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->revoke: #{e}"
+  puts "Error when calling InvitationsApi->revoke_invitation: #{e}"
 end
 ```
 
-#### Using the `revoke_with_http_info variant
+#### Using the `revoke_invitation_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -201,12 +269,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revokes an invitation
-  data, status_code, headers = sdk.revoke_with_http_info(invitation_id)
+  data, status_code, headers = sdk.revoke_invitation_with_http_info(invitation_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RevokeInvitation200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->revoke_with_http_info: #{e}"
+  puts "Error when calling InvitationsApi->revoke_invitation_with_http_info: #{e}"
 end
 ```
 

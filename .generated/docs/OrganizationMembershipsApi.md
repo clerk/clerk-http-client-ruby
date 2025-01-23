@@ -4,15 +4,15 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create**](OrganizationMembershipsApi.md#create) | **POST** /organizations/{organization_id}/memberships | Create a new organization membership |
-| [**delete**](OrganizationMembershipsApi.md#delete) | **DELETE** /organizations/{organization_id}/memberships/{user_id} | Remove a member from an organization |
-| [**all**](OrganizationMembershipsApi.md#all) | **GET** /organization_memberships | Get a list of all organization memberships within an instance. |
-| [**all_by_organization**](OrganizationMembershipsApi.md#all_by_organization) | **GET** /organizations/{organization_id}/memberships | Get a list of all members of an organization |
-| [**update**](OrganizationMembershipsApi.md#update) | **PATCH** /organizations/{organization_id}/memberships/{user_id} | Update an organization membership |
-| [**update_metadata**](OrganizationMembershipsApi.md#update_metadata) | **PATCH** /organizations/{organization_id}/memberships/{user_id}/metadata | Merge and update organization membership metadata |
+| [**create_organization_membership**](OrganizationMembershipsApi.md#create_organization_membership) | **POST** /organizations/{organization_id}/memberships | Create a new organization membership |
+| [**delete_organization_membership**](OrganizationMembershipsApi.md#delete_organization_membership) | **DELETE** /organizations/{organization_id}/memberships/{user_id} | Remove a member from an organization |
+| [**instance_get_organization_memberships**](OrganizationMembershipsApi.md#instance_get_organization_memberships) | **GET** /organization_memberships | Get a list of all organization memberships within an instance. |
+| [**list_organization_memberships**](OrganizationMembershipsApi.md#list_organization_memberships) | **GET** /organizations/{organization_id}/memberships | Get a list of all members of an organization |
+| [**update_organization_membership**](OrganizationMembershipsApi.md#update_organization_membership) | **PATCH** /organizations/{organization_id}/memberships/{user_id} | Update an organization membership |
+| [**update_organization_membership_metadata**](OrganizationMembershipsApi.md#update_organization_membership_metadata) | **PATCH** /organizations/{organization_id}/memberships/{user_id}/metadata | Merge and update organization membership metadata |
 
 
-## create
+## create_organization_membership
 
 > <OrganizationMembership> create_organization_membership(organization_id, create_organization_membership_request)
 
@@ -21,8 +21,6 @@ Create a new organization membership
 Adds a user as a member to the given organization. Only users in the same instance as the organization can be added as members.  This organization will be the user's [active organization] (https://clerk.com/docs/organizations/overview#active-organization) the next time they create a session, presuming they don't explicitly set a different organization as active before then.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -39,14 +37,14 @@ create_organization_membership_request = ClerkHttpClient::CreateOrganizationMemb
 
 begin
   # Create a new organization membership
-  result = sdk.create(organization_id, create_organization_membership_request)
+  result = sdk.create_organization_membership(organization_id, create_organization_membership_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->create: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->create_organization_membership: #{e}"
 end
 ```
 
-#### Using the `create_with_http_info variant
+#### Using the `create_organization_membership_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -55,12 +53,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a new organization membership
-  data, status_code, headers = sdk.create_with_http_info(organization_id, create_organization_membership_request)
+  data, status_code, headers = sdk.create_organization_membership_with_http_info(organization_id, create_organization_membership_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMembership>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->create_with_http_info: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->create_organization_membership_with_http_info: #{e}"
 end
 ```
 
@@ -85,7 +83,7 @@ end
 - **Accept**: application/json
 
 
-## delete
+## delete_organization_membership
 
 > <OrganizationMembership> delete_organization_membership(organization_id, user_id)
 
@@ -94,8 +92,6 @@ Remove a member from an organization
 Removes the given membership from the organization
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -112,14 +108,14 @@ user_id = 'user_id_example' # String | The ID of the user that this membership b
 
 begin
   # Remove a member from an organization
-  result = sdk.delete(organization_id, user_id)
+  result = sdk.delete_organization_membership(organization_id, user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->delete: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->delete_organization_membership: #{e}"
 end
 ```
 
-#### Using the `delete_with_http_info variant
+#### Using the `delete_organization_membership_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -128,12 +124,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Remove a member from an organization
-  data, status_code, headers = sdk.delete_with_http_info(organization_id, user_id)
+  data, status_code, headers = sdk.delete_organization_membership_with_http_info(organization_id, user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMembership>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->delete_with_http_info: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->delete_organization_membership_with_http_info: #{e}"
 end
 ```
 
@@ -158,7 +154,7 @@ end
 - **Accept**: application/json
 
 
-## all
+## instance_get_organization_memberships
 
 > <OrganizationMemberships> instance_get_organization_memberships(opts)
 
@@ -167,8 +163,6 @@ Get a list of all organization memberships within an instance.
 Retrieves all organization user memberships for the given instance.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -188,14 +182,14 @@ opts = {
 
 begin
   # Get a list of all organization memberships within an instance.
-  result = sdk.all(opts)
+  result = sdk.instance_get_organization_memberships(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->all: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->instance_get_organization_memberships: #{e}"
 end
 ```
 
-#### Using the `all_with_http_info variant
+#### Using the `instance_get_organization_memberships_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -204,12 +198,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of all organization memberships within an instance.
-  data, status_code, headers = sdk.all_with_http_info(opts)
+  data, status_code, headers = sdk.instance_get_organization_memberships_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMemberships>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->all_with_http_info: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->instance_get_organization_memberships_with_http_info: #{e}"
 end
 ```
 
@@ -235,7 +229,7 @@ end
 - **Accept**: application/json
 
 
-## all_by_organization
+## list_organization_memberships
 
 > <OrganizationMemberships> list_organization_memberships(organization_id, opts)
 
@@ -244,8 +238,6 @@ Get a list of all members of an organization
 Retrieves all user memberships for the given organization
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -266,14 +258,14 @@ opts = {
 
 begin
   # Get a list of all members of an organization
-  result = sdk.all_by_organization(organization_id, opts)
+  result = sdk.list_organization_memberships(organization_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->all_by_organization: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->list_organization_memberships: #{e}"
 end
 ```
 
-#### Using the `all_by_organization_with_http_info variant
+#### Using the `list_organization_memberships_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -282,12 +274,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of all members of an organization
-  data, status_code, headers = sdk.all_by_organization_with_http_info(organization_id, opts)
+  data, status_code, headers = sdk.list_organization_memberships_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMemberships>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->all_by_organization_with_http_info: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->list_organization_memberships_with_http_info: #{e}"
 end
 ```
 
@@ -314,7 +306,7 @@ end
 - **Accept**: application/json
 
 
-## update
+## update_organization_membership
 
 > <OrganizationMembership> update_organization_membership(organization_id, user_id, update_organization_membership_request)
 
@@ -323,8 +315,6 @@ Update an organization membership
 Updates the properties of an existing organization membership
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -342,14 +332,14 @@ update_organization_membership_request = ClerkHttpClient::UpdateOrganizationMemb
 
 begin
   # Update an organization membership
-  result = sdk.update(organization_id, user_id, update_organization_membership_request)
+  result = sdk.update_organization_membership(organization_id, user_id, update_organization_membership_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->update: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->update_organization_membership: #{e}"
 end
 ```
 
-#### Using the `update_with_http_info variant
+#### Using the `update_organization_membership_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
@@ -358,12 +348,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update an organization membership
-  data, status_code, headers = sdk.update_with_http_info(organization_id, user_id, update_organization_membership_request)
+  data, status_code, headers = sdk.update_organization_membership_with_http_info(organization_id, user_id, update_organization_membership_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMembership>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->update_with_http_info: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->update_organization_membership_with_http_info: #{e}"
 end
 ```
 
@@ -389,17 +379,15 @@ end
 - **Accept**: application/json
 
 
-## update_metadata
+## update_organization_membership_metadata
 
-> <OrganizationMembership> update_organization_membership_metadata(organization_id, user_id, update_organization_membership_metadata_request)
+> <OrganizationMembership> update_organization_membership_metadata(organization_id, user_id, opts)
 
 Merge and update organization membership metadata
 
 Update an organization membership's metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
 
 ### Examples
-
-#### 
 
 ```ruby
 require 'time'
@@ -413,32 +401,34 @@ end
 sdk = ClerkHttpClient::OrganizationMembershipsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization the membership belongs to
 user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
-update_organization_membership_metadata_request = ClerkHttpClient::UpdateOrganizationMembershipMetadataRequest.new # UpdateOrganizationMembershipMetadataRequest | 
+opts = {
+  update_organization_membership_metadata_request: ClerkHttpClient::UpdateOrganizationMembershipMetadataRequest.new # UpdateOrganizationMembershipMetadataRequest | 
+}
 
 begin
   # Merge and update organization membership metadata
-  result = sdk.update_metadata(organization_id, user_id, update_organization_membership_metadata_request)
+  result = sdk.update_organization_membership_metadata(organization_id, user_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->update_metadata: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->update_organization_membership_metadata: #{e}"
 end
 ```
 
-#### Using the `update_metadata_with_http_info variant
+#### Using the `update_organization_membership_metadata_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OrganizationMembership>, Integer, Hash)> update_organization_membership_metadata_with_http_info(organization_id, user_id, update_organization_membership_metadata_request)
+> <Array(<OrganizationMembership>, Integer, Hash)> update_organization_membership_metadata_with_http_info(organization_id, user_id, opts)
 
 ```ruby
 begin
   # Merge and update organization membership metadata
-  data, status_code, headers = sdk.update_metadata_with_http_info(organization_id, user_id, update_organization_membership_metadata_request)
+  data, status_code, headers = sdk.update_organization_membership_metadata_with_http_info(organization_id, user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMembership>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->update_metadata_with_http_info: #{e}"
+  puts "Error when calling OrganizationMembershipsApi->update_organization_membership_metadata_with_http_info: #{e}"
 end
 ```
 
@@ -448,7 +438,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **organization_id** | **String** | The ID of the organization the membership belongs to |  |
 | **user_id** | **String** | The ID of the user that this membership belongs to |  |
-| **update_organization_membership_metadata_request** | [**UpdateOrganizationMembershipMetadataRequest**](UpdateOrganizationMembershipMetadataRequest.md) |  |  |
+| **update_organization_membership_metadata_request** | [**UpdateOrganizationMembershipMetadataRequest**](UpdateOrganizationMembershipMetadataRequest.md) |  | [optional] |
 
 ### Return type
 

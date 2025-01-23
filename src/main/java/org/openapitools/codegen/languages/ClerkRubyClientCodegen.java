@@ -50,6 +50,60 @@ public class ClerkRubyClientCodegen extends RubyClientCodegen implements Codegen
         return "Generates a Ruby client library based on the Clerk requirements.";
     }
 
+    @Override
+    public String toOperationId(String operationId) {
+        String newOperationId = normalizeCommonAcronyms(operationId);
+        return super.toOperationId(newOperationId);
+    }
+
+    @Override
+    public String toVarName(final String name) {
+        String newName = normalizeCommonAcronyms(name);
+        return super.toVarName(newName);
+    }
+
+    @Override
+    public String toParamName(String name) {
+        String newName = normalizeCommonAcronyms(name);
+        return super.toParamName(newName);
+    }
+
+    @Override
+    public String toModelFilename(String name) {
+        String newName = normalizeCommonAcronyms(name);
+        return super.toModelFilename(newName);
+    }
+
+    @Override
+    public String toModelDocFilename(String name) {
+        String newName = normalizeCommonAcronyms(name);
+        return super.toModelDocFilename(newName);
+    }
+
+    @Override
+    public String toApiFilename(final String name) {
+        String newName = normalizeCommonAcronyms(name);
+        return super.toApiFilename(newName);
+    }
+
+    @Override
+    public String toApiDocFilename(String name) {
+        String newName = normalizeCommonAcronyms(name);
+        return super.toApiDocFilename(newName);
+    }
+
+    @Override
+    public String toApiTestFilename(String name) {
+        String newName = normalizeCommonAcronyms(name);
+        return super.toApiTestFilename(newName);
+    }
+
+    @Override
+    public String toModelTestFilename(String name) {
+        String newName = normalizeCommonAcronyms(name);
+        return super.toModelTestFilename(newName);
+    }
+
     private String removeApiSuffix(String name) {
         return name.replaceAll("Api$", "");
     }

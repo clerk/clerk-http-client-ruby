@@ -34,7 +34,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = {{{moduleName}}}::{{{classname}}}.new
 {{^vendorExtensions.x-group-parameters}}
 {{#requiredParams}}
 {{{paramName}}} = {{{vendorExtensions.x-ruby-example}}} # {{{dataType}}} | {{{description}}}
@@ -64,12 +63,12 @@ opts = {
 
 begin
   {{#summary}}# {{{.}}}{{/summary}}
-  {{#returnType}}result = {{/returnType}}sdk.{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}{{#hasParams}}({{^vendorExtensions.x-group-parameters}}{{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-last}}{{#hasRequiredParams}}, {{/hasRequiredParams}}opts{{/-last}}{{/optionalParams}}{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}opts{{/vendorExtensions.x-group-parameters}}){{/hasParams}}
+  {{#returnType}}result = {{/returnType}}{{{sdk_module_prefix}}}.{{#snakecase}}{{#remove_api_suffix}}{{classname}}{{/remove_api_suffix}}{{/snakecase}}.{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}{{#hasParams}}({{^vendorExtensions.x-group-parameters}}{{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-last}}{{#hasRequiredParams}}, {{/hasRequiredParams}}opts{{/-last}}{{/optionalParams}}{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}opts{{/vendorExtensions.x-group-parameters}}){{/hasParams}}
   {{#returnType}}
   p result
   {{/returnType}}
 rescue {{{moduleName}}}::ApiError => e
-  puts "Error when calling {{classname}}->{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}: #{e}"
+  puts "Error when calling {{{sdk_module_prefix}}}.{{#snakecase}}{{#remove_api_suffix}}{{classname}}{{/remove_api_suffix}}{{/snakecase}}->{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}: #{e}"
 end
 ```
 
@@ -82,12 +81,12 @@ This returns an Array which contains the response data{{^returnType}} (`nil` in 
 ```ruby
 begin
   {{#summary}}# {{{.}}}{{/summary}}
-  data, status_code, headers = sdk.{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}_with_http_info{{#hasParams}}({{^vendorExtensions.x-group-parameters}}{{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-last}}{{#hasRequiredParams}}, {{/hasRequiredParams}}opts{{/-last}}{{/optionalParams}}{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}opts{{/vendorExtensions.x-group-parameters}}){{/hasParams}}
+  data, status_code, headers = {{{sdk_module_prefix}}}.{{#snakecase}}{{#remove_api_suffix}}{{classname}}{{/remove_api_suffix}}{{/snakecase}}.{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}_with_http_info{{#hasParams}}({{^vendorExtensions.x-group-parameters}}{{#requiredParams}}{{{paramName}}}{{^-last}}, {{/-last}}{{/requiredParams}}{{#optionalParams}}{{#-last}}{{#hasRequiredParams}}, {{/hasRequiredParams}}opts{{/-last}}{{/optionalParams}}{{/vendorExtensions.x-group-parameters}}{{#vendorExtensions.x-group-parameters}}opts{{/vendorExtensions.x-group-parameters}}){{/hasParams}}
   p status_code # => 2xx
   p headers # => { ... }
   p data # => {{#returnType}}{{#returnTypeIsPrimitive}}{{returnType}}{{/returnTypeIsPrimitive}}{{^returnTypeIsPrimitive}}<{{{returnType}}}>{{/returnTypeIsPrimitive}}{{/returnType}}{{^returnType}}nil{{/returnType}}
 rescue {{{moduleName}}}::ApiError => e
-  puts "Error when calling {{classname}}->{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}_with_http_info: #{e}"
+  puts "Error when calling {{{sdk_module_prefix}}}.{{#snakecase}}{{#remove_api_suffix}}{{classname}}{{/remove_api_suffix}}{{/snakecase}}->{{ vendorExtensions.x-sdk-ruby-operationId }}{{ ^vendorExtensions.x-sdk-ruby-operationId }}{{operationId}}{{ /vendorExtensions.x-sdk-ruby-operationId }}_with_http_info: #{e}"
 end
 ```
 

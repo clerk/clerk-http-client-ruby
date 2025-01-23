@@ -47,11 +47,6 @@ require '{{importPath}}'
 
 module {{moduleName}}
   class << self
-    # Customize default settings for the SDK using block.
-    #   {{moduleName}}.configure do |config|
-    #     config.username = "xxx"
-    #     config.password = "xxx"
-    #   end
     # If no block given, return the default Configuration object.
     def configure
       if block_given?
@@ -67,19 +62,11 @@ module {{moduleName}}
 
     def initialize(config = Configuration.default)
       @config = config
-      api_suffix = 'api'
-
-      methods.each do |m|
-        next unless m.end_with?(api_suffix)
-
-        alias_name = m.to_s.delete_suffix(api_suffix)
-        self.class.send(:alias_method, alias_name.to_sym, m)
-      end
     end
 
     {{#apiInfo}}
     {{#apis}}
-    def {{ #lambda.lowercase }}{{ classname }}{{ /lambda.lowercase }}
+    def {{#snakecase}}{{#remove_api_suffix}}{{classname}}{{/remove_api_suffix}}{{/snakecase}}
       ClerkHttpClient::{{classname}}.new
     end
 

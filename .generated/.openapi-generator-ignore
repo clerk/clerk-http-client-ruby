@@ -23,3 +23,5 @@
 #!docs/README.md
 
 lib/clerk-http-client/version.rb
+.gitlab-ci.yml
+.travis.yml

@@ -85,7 +85,7 @@ module ClerkHttpClient
         :'is_locked' => :'Boolean',
         :'created_at' => :'Integer',
         :'updated_at' => :'Integer',
-        :'invitation' => :'WaitlistEntryInvitation'
+        :'invitation' => :'Invitation'
       }
     end
 

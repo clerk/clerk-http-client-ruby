@@ -34,6 +34,7 @@ module ClerkHttpClient
     # Affiliation email address for the domain, if available.
     attr_accessor :affiliation_email_address
 
+    # Verification details for the domain
     attr_accessor :verification
 
     # Total number of pending invitations associated with this domain

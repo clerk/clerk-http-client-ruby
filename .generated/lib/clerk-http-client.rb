@@ -147,7 +147,6 @@ ClerkHttpClient.autoload :VerifySessionRequest, 'clerk-http-client/models/verify
 ClerkHttpClient.autoload :VerifyTOTP200Response, 'clerk-http-client/models/verify_totp200_response'
 ClerkHttpClient.autoload :VerifyTOTPRequest, 'clerk-http-client/models/verify_totp_request'
 ClerkHttpClient.autoload :WaitlistEntry, 'clerk-http-client/models/waitlist_entry'
-ClerkHttpClient.autoload :WaitlistEntryInvitation, 'clerk-http-client/models/waitlist_entry_invitation'
 ClerkHttpClient.autoload :Web3Signature, 'clerk-http-client/models/web3_signature'
 ClerkHttpClient.autoload :Web3Wallet, 'clerk-http-client/models/web3_wallet'
 ClerkHttpClient.autoload :Web3WalletVerification, 'clerk-http-client/models/web3_wallet_verification'

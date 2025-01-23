@@ -309,7 +309,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::VerifyTOTP200Response](docs/VerifyTOTP200Response.md)
  - [ClerkHttpClient::VerifyTOTPRequest](docs/VerifyTOTPRequest.md)
  - [ClerkHttpClient::WaitlistEntry](docs/WaitlistEntry.md)
- - [ClerkHttpClient::WaitlistEntryInvitation](docs/WaitlistEntryInvitation.md)
  - [ClerkHttpClient::Web3Signature](docs/Web3Signature.md)
  - [ClerkHttpClient::Web3Wallet](docs/Web3Wallet.md)
  - [ClerkHttpClient::Web3WalletVerification](docs/Web3WalletVerification.md)

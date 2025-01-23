@@ -14,7 +14,7 @@ require 'date'
 require 'time'
 
 module ClerkHttpClient
-  # Verification details for the domain
+  # The verification object from an organization domain
   class OrganizationDomainVerification
     # Status of the verification. It can be `unverified` or `verified`
     attr_accessor :status
@@ -80,13 +80,6 @@ module ClerkHttpClient
       Set.new([
         :'expire_at'
       ])
-    end
-
-    # List of class defined in allOf (OpenAPI v3)
-    def self.openapi_all_of
-      [
-      :'OrganizationDomainVerification'
-      ]
     end
 
     # Initializes the object

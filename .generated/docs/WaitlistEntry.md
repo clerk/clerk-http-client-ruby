@@ -11,7 +11,7 @@
 | **is_locked** | **Boolean** | Indicates if the waitlist entry is locked. Locked entries are being processed in a batch action and are unavailable for other actions.  | [optional] |
 | **created_at** | **Integer** | Unix timestamp of creation.  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
-| **invitation** | [**WaitlistEntryInvitation**](WaitlistEntryInvitation.md) |  | [optional] |
+| **invitation** | [**Invitation**](Invitation.md) |  | [optional] |
 
 ## Example
 

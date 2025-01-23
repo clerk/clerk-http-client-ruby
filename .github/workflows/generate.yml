@@ -32,6 +32,9 @@ env:
   DEFAULT_TITLE: "Generate Ruby Backend SDK"
   DEFAULT_DESCRIPTION: "Generated independently of an OpenAPI spec change"
   DEFAULT_URL: "https://github.com/clerk/openapi-specs"
+  JAVA_DISTRIBUTION: "temurin"
+  JAVA_VERSION: "21"
+  MAVEN_VERSION: "3.9.9"
 
 jobs:
   generate-sdk:
@@ -41,31 +44,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Move root to ./out
-        run: |
-          rm -rf ./out
-          mkdir ./out
-          shopt -s extglob
-          shopt -s dotglob
-          mv !(out) ./out
+      - uses: actions/setup-java@v4
+        with:
+          cache: maven
+          distribution: ${{ env.JAVA_DISTRIBUTION }}
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: Install Maven
+        uses: stCarolas/setup-maven@v5
+        with:
+          maven-version: ${{ env.MAVEN_VERSION }}
+
+      - name: Setup Maven Settings
+        uses: s4u/maven-settings-action@v3.1.0
 
       - name: Generate new client
-        uses: openapi-generators/openapitools-generator-action@v1
-        with:
-          generator: ruby
-          command-args: -o out --api-name-suffix=' '
-          config-file: out/sdk-generator-config.json
-          # openapi-file: out/resources/oas/bapi-2024-10-01.yml
-          openapi-url: https://raw.githubusercontent.com/clerk/openapi-specs/refs/heads/main/bapi/2024-10-01.yml
-          template-dir: out/resources/templates
-
-      - name: Move generated files to root
-        run: |
-          shopt -s extglob
-          shopt -s dotglob
-          mv -fv ./out/* .
-          rm -rv ./out
-          ls -la .
+        run: ./bin/generate
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v7

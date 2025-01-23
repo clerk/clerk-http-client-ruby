@@ -1,8 +1,6 @@
 .gitignore
-.gitlab-ci.yml
 .rspec
 .rubocop.yml
-.travis.yml
 Gemfile
 README.md
 Rakefile
@@ -334,14 +332,4 @@ lib/clerk-http-client/models/waitlist_entry.rb
 lib/clerk-http-client/models/web3_signature.rb
 lib/clerk-http-client/models/web3_wallet.rb
 lib/clerk-http-client/models/web3_wallet_verification.rb
-spec/api/oauth_applications_api_spec.rb
-spec/models/cname_target_spec.rb
-spec/models/create_oauth_application_request_spec.rb
-spec/models/from_oauth_error_spec.rb
-spec/models/from_oauth_spec.rb
-spec/models/get_oauth_access_token200_response_inner_spec.rb
-spec/models/oauth_application_spec.rb
-spec/models/oauth_application_with_secret_spec.rb
-spec/models/oauth_applications_spec.rb
-spec/models/update_oauth_application_request_spec.rb
 spec/spec_helper.rb

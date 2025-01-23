@@ -26,7 +26,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SignUpsApi.new
 id = 'id_example' # String | The ID of the sign-up to update
 opts = {
   update_sign_up_request: ClerkHttpClient::UpdateSignUpRequest.new # UpdateSignUpRequest | 
@@ -34,10 +33,10 @@ opts = {
 
 begin
   # Update a sign-up
-  result = sdk.update_sign_up(id, opts)
+  result = Clerk::SDK.sign_ups.update_sign_up(id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SignUpsApi->update_sign_up: #{e}"
+  puts "Error when calling Clerk::SDK.sign_ups->update_sign_up: #{e}"
 end
 ```
 
@@ -50,12 +49,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a sign-up
-  data, status_code, headers = sdk.update_sign_up_with_http_info(id, opts)
+  data, status_code, headers = Clerk::SDK.sign_ups.update_sign_up_with_http_info(id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignUp>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SignUpsApi->update_sign_up_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sign_ups->update_sign_up_with_http_info: #{e}"
 end
 ```
 

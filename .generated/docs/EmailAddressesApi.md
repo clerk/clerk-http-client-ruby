@@ -29,17 +29,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailAddressesApi.new
 opts = {
   create_email_address_request: ClerkHttpClient::CreateEmailAddressRequest.new # CreateEmailAddressRequest | 
 }
 
 begin
   # Create an email address
-  result = sdk.create_email_address(opts)
+  result = Clerk::SDK.email_addresses.create_email_address(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->create_email_address: #{e}"
+  puts "Error when calling Clerk::SDK.email_addresses->create_email_address: #{e}"
 end
 ```
 
@@ -52,12 +51,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create an email address
-  data, status_code, headers = sdk.create_email_address_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.email_addresses.create_email_address_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->create_email_address_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_addresses->create_email_address_with_http_info: #{e}"
 end
 ```
 
@@ -100,15 +99,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailAddressesApi.new
 email_address_id = 'email_address_id_example' # String | The ID of the email address to delete
 
 begin
   # Delete an email address
-  result = sdk.delete_email_address(email_address_id)
+  result = Clerk::SDK.email_addresses.delete_email_address(email_address_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->delete_email_address: #{e}"
+  puts "Error when calling Clerk::SDK.email_addresses->delete_email_address: #{e}"
 end
 ```
 
@@ -121,12 +119,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete an email address
-  data, status_code, headers = sdk.delete_email_address_with_http_info(email_address_id)
+  data, status_code, headers = Clerk::SDK.email_addresses.delete_email_address_with_http_info(email_address_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->delete_email_address_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_addresses->delete_email_address_with_http_info: #{e}"
 end
 ```
 
@@ -169,15 +167,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailAddressesApi.new
 email_address_id = 'email_address_id_example' # String | The ID of the email address to retrieve
 
 begin
   # Retrieve an email address
-  result = sdk.get_email_address(email_address_id)
+  result = Clerk::SDK.email_addresses.get_email_address(email_address_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->get_email_address: #{e}"
+  puts "Error when calling Clerk::SDK.email_addresses->get_email_address: #{e}"
 end
 ```
 
@@ -190,12 +187,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve an email address
-  data, status_code, headers = sdk.get_email_address_with_http_info(email_address_id)
+  data, status_code, headers = Clerk::SDK.email_addresses.get_email_address_with_http_info(email_address_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->get_email_address_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_addresses->get_email_address_with_http_info: #{e}"
 end
 ```
 
@@ -238,7 +235,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailAddressesApi.new
 email_address_id = 'email_address_id_example' # String | The ID of the email address to update
 opts = {
   update_email_address_request: ClerkHttpClient::UpdateEmailAddressRequest.new # UpdateEmailAddressRequest | 
@@ -246,10 +242,10 @@ opts = {
 
 begin
   # Update an email address
-  result = sdk.update_email_address(email_address_id, opts)
+  result = Clerk::SDK.email_addresses.update_email_address(email_address_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->update_email_address: #{e}"
+  puts "Error when calling Clerk::SDK.email_addresses->update_email_address: #{e}"
 end
 ```
 
@@ -262,12 +258,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update an email address
-  data, status_code, headers = sdk.update_email_address_with_http_info(email_address_id, opts)
+  data, status_code, headers = Clerk::SDK.email_addresses.update_email_address_with_http_info(email_address_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <EmailAddress>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailAddressesApi->update_email_address_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_addresses->update_email_address_with_http_info: #{e}"
 end
 ```
 

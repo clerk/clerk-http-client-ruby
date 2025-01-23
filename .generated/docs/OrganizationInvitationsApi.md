@@ -32,7 +32,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationInvitationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization for which to send the invitation
 opts = {
   create_organization_invitation_request: ClerkHttpClient::CreateOrganizationInvitationRequest.new({email_address: 'email_address_example', role: 'role_example'}) # CreateOrganizationInvitationRequest | 
@@ -40,10 +39,10 @@ opts = {
 
 begin
   # Create and send an organization invitation
-  result = sdk.create_organization_invitation(organization_id, opts)
+  result = Clerk::SDK.organization_invitations.create_organization_invitation(organization_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->create_organization_invitation: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->create_organization_invitation: #{e}"
 end
 ```
 
@@ -56,12 +55,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create and send an organization invitation
-  data, status_code, headers = sdk.create_organization_invitation_with_http_info(organization_id, opts)
+  data, status_code, headers = Clerk::SDK.organization_invitations.create_organization_invitation_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitation>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->create_organization_invitation_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->create_organization_invitation_with_http_info: #{e}"
 end
 ```
 
@@ -105,16 +104,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationInvitationsApi.new
 organization_id = 'organization_id_example' # String | The organization ID.
 create_organization_invitation_bulk_request_inner = [ClerkHttpClient::CreateOrganizationInvitationBulkRequestInner.new({email_address: 'email_address_example', role: 'role_example'})] # Array<CreateOrganizationInvitationBulkRequestInner> | 
 
 begin
   # Bulk create and send organization invitations
-  result = sdk.create_organization_invitation_bulk(organization_id, create_organization_invitation_bulk_request_inner)
+  result = Clerk::SDK.organization_invitations.create_organization_invitation_bulk(organization_id, create_organization_invitation_bulk_request_inner)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->create_organization_invitation_bulk: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->create_organization_invitation_bulk: #{e}"
 end
 ```
 
@@ -127,12 +125,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Bulk create and send organization invitations
-  data, status_code, headers = sdk.create_organization_invitation_bulk_with_http_info(organization_id, create_organization_invitation_bulk_request_inner)
+  data, status_code, headers = Clerk::SDK.organization_invitations.create_organization_invitation_bulk_with_http_info(organization_id, create_organization_invitation_bulk_request_inner)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitations>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->create_organization_invitation_bulk_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->create_organization_invitation_bulk_with_http_info: #{e}"
 end
 ```
 
@@ -176,16 +174,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationInvitationsApi.new
 organization_id = 'organization_id_example' # String | The organization ID.
 invitation_id = 'invitation_id_example' # String | The organization invitation ID.
 
 begin
   # Retrieve an organization invitation by ID
-  result = sdk.get_organization_invitation(organization_id, invitation_id)
+  result = Clerk::SDK.organization_invitations.get_organization_invitation(organization_id, invitation_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->get_organization_invitation: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->get_organization_invitation: #{e}"
 end
 ```
 
@@ -198,12 +195,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve an organization invitation by ID
-  data, status_code, headers = sdk.get_organization_invitation_with_http_info(organization_id, invitation_id)
+  data, status_code, headers = Clerk::SDK.organization_invitations.get_organization_invitation_with_http_info(organization_id, invitation_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitation>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->get_organization_invitation_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->get_organization_invitation_with_http_info: #{e}"
 end
 ```
 
@@ -247,7 +244,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationInvitationsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -258,10 +254,10 @@ opts = {
 
 begin
   # Get a list of organization invitations for the current instance
-  result = sdk.list_instance_organization_invitations(opts)
+  result = Clerk::SDK.organization_invitations.list_instance_organization_invitations(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->list_instance_organization_invitations: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->list_instance_organization_invitations: #{e}"
 end
 ```
 
@@ -274,12 +270,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of organization invitations for the current instance
-  data, status_code, headers = sdk.list_instance_organization_invitations_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.organization_invitations.list_instance_organization_invitations_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitationsWithPublicOrganizationData>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->list_instance_organization_invitations_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->list_instance_organization_invitations_with_http_info: #{e}"
 end
 ```
 
@@ -326,7 +322,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationInvitationsApi.new
 organization_id = 'organization_id_example' # String | The organization ID.
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
@@ -336,10 +331,10 @@ opts = {
 
 begin
   # Get a list of organization invitations
-  result = sdk.list_organization_invitations(organization_id, opts)
+  result = Clerk::SDK.organization_invitations.list_organization_invitations(organization_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->list_organization_invitations: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->list_organization_invitations: #{e}"
 end
 ```
 
@@ -352,12 +347,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of organization invitations
-  data, status_code, headers = sdk.list_organization_invitations_with_http_info(organization_id, opts)
+  data, status_code, headers = Clerk::SDK.organization_invitations.list_organization_invitations_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitations>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->list_organization_invitations_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->list_organization_invitations_with_http_info: #{e}"
 end
 ```
 
@@ -403,7 +398,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationInvitationsApi.new
 organization_id = 'organization_id_example' # String | The organization ID.
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
@@ -412,10 +406,10 @@ opts = {
 
 begin
   # Get a list of pending organization invitations
-  result = sdk.list_pending_organization_invitations(organization_id, opts)
+  result = Clerk::SDK.organization_invitations.list_pending_organization_invitations(organization_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->list_pending_organization_invitations: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->list_pending_organization_invitations: #{e}"
 end
 ```
 
@@ -428,12 +422,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of pending organization invitations
-  data, status_code, headers = sdk.list_pending_organization_invitations_with_http_info(organization_id, opts)
+  data, status_code, headers = Clerk::SDK.organization_invitations.list_pending_organization_invitations_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitations>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->list_pending_organization_invitations_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->list_pending_organization_invitations_with_http_info: #{e}"
 end
 ```
 
@@ -478,7 +472,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationInvitationsApi.new
 organization_id = 'organization_id_example' # String | The organization ID.
 invitation_id = 'invitation_id_example' # String | The organization invitation ID.
 opts = {
@@ -487,10 +480,10 @@ opts = {
 
 begin
   # Revoke a pending organization invitation
-  result = sdk.revoke_organization_invitation(organization_id, invitation_id, opts)
+  result = Clerk::SDK.organization_invitations.revoke_organization_invitation(organization_id, invitation_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->revoke_organization_invitation: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->revoke_organization_invitation: #{e}"
 end
 ```
 
@@ -503,12 +496,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revoke a pending organization invitation
-  data, status_code, headers = sdk.revoke_organization_invitation_with_http_info(organization_id, invitation_id, opts)
+  data, status_code, headers = Clerk::SDK.organization_invitations.revoke_organization_invitation_with_http_info(organization_id, invitation_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitation>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationInvitationsApi->revoke_organization_invitation_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_invitations->revoke_organization_invitation_with_http_info: #{e}"
 end
 ```
 

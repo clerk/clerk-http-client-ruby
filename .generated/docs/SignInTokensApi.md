@@ -27,17 +27,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SignInTokensApi.new
 opts = {
   create_sign_in_token_request: ClerkHttpClient::CreateSignInTokenRequest.new # CreateSignInTokenRequest | 
 }
 
 begin
   # Create sign-in token
-  result = sdk.create_sign_in_token(opts)
+  result = Clerk::SDK.sign_in_tokens.create_sign_in_token(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SignInTokensApi->create_sign_in_token: #{e}"
+  puts "Error when calling Clerk::SDK.sign_in_tokens->create_sign_in_token: #{e}"
 end
 ```
 
@@ -50,12 +49,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create sign-in token
-  data, status_code, headers = sdk.create_sign_in_token_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.sign_in_tokens.create_sign_in_token_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignInToken>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SignInTokensApi->create_sign_in_token_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sign_in_tokens->create_sign_in_token_with_http_info: #{e}"
 end
 ```
 
@@ -98,15 +97,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SignInTokensApi.new
 sign_in_token_id = 'sign_in_token_id_example' # String | The ID of the sign-in token to be revoked
 
 begin
   # Revoke the given sign-in token
-  result = sdk.revoke_sign_in_token(sign_in_token_id)
+  result = Clerk::SDK.sign_in_tokens.revoke_sign_in_token(sign_in_token_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SignInTokensApi->revoke_sign_in_token: #{e}"
+  puts "Error when calling Clerk::SDK.sign_in_tokens->revoke_sign_in_token: #{e}"
 end
 ```
 
@@ -119,12 +117,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revoke the given sign-in token
-  data, status_code, headers = sdk.revoke_sign_in_token_with_http_info(sign_in_token_id)
+  data, status_code, headers = Clerk::SDK.sign_in_tokens.revoke_sign_in_token_with_http_info(sign_in_token_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SignInToken>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SignInTokensApi->revoke_sign_in_token_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sign_in_tokens->revoke_sign_in_token_with_http_info: #{e}"
 end
 ```
 

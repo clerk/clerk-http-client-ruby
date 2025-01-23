@@ -29,16 +29,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationDomainsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization where the new domain will be created.
 create_organization_domain_request = ClerkHttpClient::CreateOrganizationDomainRequest.new # CreateOrganizationDomainRequest | 
 
 begin
   # Create a new organization domain.
-  result = sdk.create_organization_domain(organization_id, create_organization_domain_request)
+  result = Clerk::SDK.organization_domains.create_organization_domain(organization_id, create_organization_domain_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->create_organization_domain: #{e}"
+  puts "Error when calling Clerk::SDK.organization_domains->create_organization_domain: #{e}"
 end
 ```
 
@@ -51,12 +50,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a new organization domain.
-  data, status_code, headers = sdk.create_organization_domain_with_http_info(organization_id, create_organization_domain_request)
+  data, status_code, headers = Clerk::SDK.organization_domains.create_organization_domain_with_http_info(organization_id, create_organization_domain_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationDomain>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->create_organization_domain_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_domains->create_organization_domain_with_http_info: #{e}"
 end
 ```
 
@@ -100,16 +99,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationDomainsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization the domain belongs to
 domain_id = 'domain_id_example' # String | The ID of the domain
 
 begin
   # Remove a domain from an organization.
-  result = sdk.delete_organization_domain(organization_id, domain_id)
+  result = Clerk::SDK.organization_domains.delete_organization_domain(organization_id, domain_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->delete_organization_domain: #{e}"
+  puts "Error when calling Clerk::SDK.organization_domains->delete_organization_domain: #{e}"
 end
 ```
 
@@ -122,12 +120,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Remove a domain from an organization.
-  data, status_code, headers = sdk.delete_organization_domain_with_http_info(organization_id, domain_id)
+  data, status_code, headers = Clerk::SDK.organization_domains.delete_organization_domain_with_http_info(organization_id, domain_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->delete_organization_domain_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_domains->delete_organization_domain_with_http_info: #{e}"
 end
 ```
 
@@ -171,7 +169,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationDomainsApi.new
 organization_id = 'organization_id_example' # String | The organization ID.
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
@@ -182,10 +179,10 @@ opts = {
 
 begin
   # Get a list of all domains of an organization.
-  result = sdk.list_organization_domains(organization_id, opts)
+  result = Clerk::SDK.organization_domains.list_organization_domains(organization_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->list_organization_domains: #{e}"
+  puts "Error when calling Clerk::SDK.organization_domains->list_organization_domains: #{e}"
 end
 ```
 
@@ -198,12 +195,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of all domains of an organization.
-  data, status_code, headers = sdk.list_organization_domains_with_http_info(organization_id, opts)
+  data, status_code, headers = Clerk::SDK.organization_domains.list_organization_domains_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationDomains>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->list_organization_domains_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_domains->list_organization_domains_with_http_info: #{e}"
 end
 ```
 
@@ -250,17 +247,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationDomainsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization the domain belongs to
 domain_id = 'domain_id_example' # String | The ID of the domain
 update_organization_domain_request = ClerkHttpClient::UpdateOrganizationDomainRequest.new # UpdateOrganizationDomainRequest | 
 
 begin
   # Update an organization domain.
-  result = sdk.update_organization_domain(organization_id, domain_id, update_organization_domain_request)
+  result = Clerk::SDK.organization_domains.update_organization_domain(organization_id, domain_id, update_organization_domain_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->update_organization_domain: #{e}"
+  puts "Error when calling Clerk::SDK.organization_domains->update_organization_domain: #{e}"
 end
 ```
 
@@ -273,12 +269,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update an organization domain.
-  data, status_code, headers = sdk.update_organization_domain_with_http_info(organization_id, domain_id, update_organization_domain_request)
+  data, status_code, headers = Clerk::SDK.organization_domains.update_organization_domain_with_http_info(organization_id, domain_id, update_organization_domain_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationDomain>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationDomainsApi->update_organization_domain_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_domains->update_organization_domain_with_http_info: #{e}"
 end
 ```
 

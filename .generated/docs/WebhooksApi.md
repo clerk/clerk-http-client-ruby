@@ -28,14 +28,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Create a Svix app
-  result = sdk.create_svix_app
+  result = Clerk::SDK.webhooks.create_svix_app
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->create_svix_app: #{e}"
+  puts "Error when calling Clerk::SDK.webhooks->create_svix_app: #{e}"
 end
 ```
 
@@ -48,12 +47,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a Svix app
-  data, status_code, headers = sdk.create_svix_app_with_http_info
+  data, status_code, headers = Clerk::SDK.webhooks.create_svix_app_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SvixURL>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->create_svix_app_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.webhooks->create_svix_app_with_http_info: #{e}"
 end
 ```
 
@@ -94,13 +93,12 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Delete a Svix app
-  sdk.delete_svix_app
+  Clerk::SDK.webhooks.delete_svix_app
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->delete_svix_app: #{e}"
+  puts "Error when calling Clerk::SDK.webhooks->delete_svix_app: #{e}"
 end
 ```
 
@@ -113,12 +111,12 @@ This returns an Array which contains the response data (`nil` in this case), sta
 ```ruby
 begin
   # Delete a Svix app
-  data, status_code, headers = sdk.delete_svix_app_with_http_info
+  data, status_code, headers = Clerk::SDK.webhooks.delete_svix_app_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->delete_svix_app_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.webhooks->delete_svix_app_with_http_info: #{e}"
 end
 ```
 
@@ -159,14 +157,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::WebhooksApi.new
 
 begin
   # Create a Svix Dashboard URL
-  result = sdk.generate_svix_auth_url
+  result = Clerk::SDK.webhooks.generate_svix_auth_url
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->generate_svix_auth_url: #{e}"
+  puts "Error when calling Clerk::SDK.webhooks->generate_svix_auth_url: #{e}"
 end
 ```
 
@@ -179,12 +176,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a Svix Dashboard URL
-  data, status_code, headers = sdk.generate_svix_auth_url_with_http_info
+  data, status_code, headers = Clerk::SDK.webhooks.generate_svix_auth_url_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SvixURL>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WebhooksApi->generate_svix_auth_url_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.webhooks->generate_svix_auth_url_with_http_info: #{e}"
 end
 ```
 

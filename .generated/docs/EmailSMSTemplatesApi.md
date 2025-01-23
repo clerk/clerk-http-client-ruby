@@ -31,16 +31,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of templates to retrieve (email or SMS)
 slug = 'slug_example' # String | The slug (i.e. machine-friendly name) of the template to retrieve
 
 begin
   # Retrieve a template
-  result = sdk.get_template(template_type, slug)
+  result = Clerk::SDK.email_sms_templates.get_template(template_type, slug)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->get_template: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->get_template: #{e}"
 end
 ```
 
@@ -53,12 +52,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a template
-  data, status_code, headers = sdk.get_template_with_http_info(template_type, slug)
+  data, status_code, headers = Clerk::SDK.email_sms_templates.get_template_with_http_info(template_type, slug)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->get_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->get_template_with_http_info: #{e}"
 end
 ```
 
@@ -102,15 +101,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of templates to list (email or SMS)
 
 begin
   # List all templates
-  result = sdk.get_template_list(template_type)
+  result = Clerk::SDK.email_sms_templates.get_template_list(template_type)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->get_template_list: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->get_template_list: #{e}"
 end
 ```
 
@@ -123,12 +121,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all templates
-  data, status_code, headers = sdk.get_template_list_with_http_info(template_type)
+  data, status_code, headers = Clerk::SDK.email_sms_templates.get_template_list_with_http_info(template_type)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Template>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->get_template_list_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->get_template_list_with_http_info: #{e}"
 end
 ```
 
@@ -171,7 +169,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'template_type_example' # String | The type of template to preview
 slug = 'slug_example' # String | The slug of the template to preview
 opts = {
@@ -180,10 +177,10 @@ opts = {
 
 begin
   # Preview changes to a template
-  result = sdk.preview_template(template_type, slug, opts)
+  result = Clerk::SDK.email_sms_templates.preview_template(template_type, slug, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->preview_template: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->preview_template: #{e}"
 end
 ```
 
@@ -196,12 +193,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Preview changes to a template
-  data, status_code, headers = sdk.preview_template_with_http_info(template_type, slug, opts)
+  data, status_code, headers = Clerk::SDK.email_sms_templates.preview_template_with_http_info(template_type, slug, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => Object
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->preview_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->preview_template_with_http_info: #{e}"
 end
 ```
 
@@ -246,16 +243,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of template to revert
 slug = 'slug_example' # String | The slug of the template to revert
 
 begin
   # Revert a template
-  result = sdk.revert_template(template_type, slug)
+  result = Clerk::SDK.email_sms_templates.revert_template(template_type, slug)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->revert_template: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->revert_template: #{e}"
 end
 ```
 
@@ -268,12 +264,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revert a template
-  data, status_code, headers = sdk.revert_template_with_http_info(template_type, slug)
+  data, status_code, headers = Clerk::SDK.email_sms_templates.revert_template_with_http_info(template_type, slug)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->revert_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->revert_template_with_http_info: #{e}"
 end
 ```
 
@@ -317,7 +313,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of template to toggle delivery for
 slug = 'slug_example' # String | The slug of the template for which to toggle delivery
 opts = {
@@ -326,10 +321,10 @@ opts = {
 
 begin
   # Toggle the delivery by Clerk for a template of a given type and slug
-  result = sdk.toggle_template_delivery(template_type, slug, opts)
+  result = Clerk::SDK.email_sms_templates.toggle_template_delivery(template_type, slug, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->toggle_template_delivery: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->toggle_template_delivery: #{e}"
 end
 ```
 
@@ -342,12 +337,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Toggle the delivery by Clerk for a template of a given type and slug
-  data, status_code, headers = sdk.toggle_template_delivery_with_http_info(template_type, slug, opts)
+  data, status_code, headers = Clerk::SDK.email_sms_templates.toggle_template_delivery_with_http_info(template_type, slug, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->toggle_template_delivery_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->toggle_template_delivery_with_http_info: #{e}"
 end
 ```
 
@@ -392,7 +387,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::EmailSMSTemplatesApi.new
 template_type = 'email' # String | The type of template to update
 slug = 'slug_example' # String | The slug of the template to update
 opts = {
@@ -401,10 +395,10 @@ opts = {
 
 begin
   # Update a template for a given type and slug
-  result = sdk.upsert_template(template_type, slug, opts)
+  result = Clerk::SDK.email_sms_templates.upsert_template(template_type, slug, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->upsert_template: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->upsert_template: #{e}"
 end
 ```
 
@@ -417,12 +411,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a template for a given type and slug
-  data, status_code, headers = sdk.upsert_template_with_http_info(template_type, slug, opts)
+  data, status_code, headers = Clerk::SDK.email_sms_templates.upsert_template_with_http_info(template_type, slug, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Template>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling EmailSMSTemplatesApi->upsert_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.email_sms_templates->upsert_template_with_http_info: #{e}"
 end
 ```
 

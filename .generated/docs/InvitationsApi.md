@@ -29,17 +29,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::InvitationsApi.new
 opts = {
   create_bulk_invitations_request_inner: [ClerkHttpClient::CreateBulkInvitationsRequestInner.new({email_address: 'email_address_example'})] # Array<CreateBulkInvitationsRequestInner> | Required parameters
 }
 
 begin
   # Create multiple invitations
-  result = sdk.create_bulk_invitations(opts)
+  result = Clerk::SDK.invitations.create_bulk_invitations(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->create_bulk_invitations: #{e}"
+  puts "Error when calling Clerk::SDK.invitations->create_bulk_invitations: #{e}"
 end
 ```
 
@@ -52,12 +51,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create multiple invitations
-  data, status_code, headers = sdk.create_bulk_invitations_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.invitations.create_bulk_invitations_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Invitation>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->create_bulk_invitations_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.invitations->create_bulk_invitations_with_http_info: #{e}"
 end
 ```
 
@@ -100,17 +99,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::InvitationsApi.new
 opts = {
   create_invitation_request: ClerkHttpClient::CreateInvitationRequest.new({email_address: 'email_address_example'}) # CreateInvitationRequest | Required parameters
 }
 
 begin
   # Create an invitation
-  result = sdk.create_invitation(opts)
+  result = Clerk::SDK.invitations.create_invitation(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->create_invitation: #{e}"
+  puts "Error when calling Clerk::SDK.invitations->create_invitation: #{e}"
 end
 ```
 
@@ -123,12 +121,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create an invitation
-  data, status_code, headers = sdk.create_invitation_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.invitations.create_invitation_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Invitation>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->create_invitation_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.invitations->create_invitation_with_http_info: #{e}"
 end
 ```
 
@@ -171,7 +169,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::InvitationsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -181,10 +178,10 @@ opts = {
 
 begin
   # List all invitations
-  result = sdk.list_invitations(opts)
+  result = Clerk::SDK.invitations.list_invitations(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->list_invitations: #{e}"
+  puts "Error when calling Clerk::SDK.invitations->list_invitations: #{e}"
 end
 ```
 
@@ -197,12 +194,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all invitations
-  data, status_code, headers = sdk.list_invitations_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.invitations.list_invitations_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Invitation>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->list_invitations_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.invitations->list_invitations_with_http_info: #{e}"
 end
 ```
 
@@ -248,15 +245,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::InvitationsApi.new
 invitation_id = 'invitation_id_example' # String | The ID of the invitation to be revoked
 
 begin
   # Revokes an invitation
-  result = sdk.revoke_invitation(invitation_id)
+  result = Clerk::SDK.invitations.revoke_invitation(invitation_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->revoke_invitation: #{e}"
+  puts "Error when calling Clerk::SDK.invitations->revoke_invitation: #{e}"
 end
 ```
 
@@ -269,12 +265,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revokes an invitation
-  data, status_code, headers = sdk.revoke_invitation_with_http_info(invitation_id)
+  data, status_code, headers = Clerk::SDK.invitations.revoke_invitation_with_http_info(invitation_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <RevokeInvitation200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InvitationsApi->revoke_invitation_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.invitations->revoke_invitation_with_http_info: #{e}"
 end
 ```
 

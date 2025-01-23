@@ -26,17 +26,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::ProxyChecksApi.new
 opts = {
   verify_domain_proxy_request: ClerkHttpClient::VerifyDomainProxyRequest.new # VerifyDomainProxyRequest | 
 }
 
 begin
   # Verify the proxy configuration for your domain
-  result = sdk.verify_domain_proxy(opts)
+  result = Clerk::SDK.proxy_checks.verify_domain_proxy(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ProxyChecksApi->verify_domain_proxy: #{e}"
+  puts "Error when calling Clerk::SDK.proxy_checks->verify_domain_proxy: #{e}"
 end
 ```
 
@@ -49,12 +48,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Verify the proxy configuration for your domain
-  data, status_code, headers = sdk.verify_domain_proxy_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.proxy_checks.verify_domain_proxy_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ProxyCheck>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ProxyChecksApi->verify_domain_proxy_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.proxy_checks->verify_domain_proxy_with_http_info: #{e}"
 end
 ```
 

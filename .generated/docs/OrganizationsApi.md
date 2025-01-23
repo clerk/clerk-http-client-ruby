@@ -33,17 +33,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationsApi.new
 opts = {
   create_organization_request: ClerkHttpClient::CreateOrganizationRequest.new({name: 'name_example'}) # CreateOrganizationRequest | 
 }
 
 begin
   # Create an organization
-  result = sdk.create_organization(opts)
+  result = Clerk::SDK.organizations.create_organization(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->create_organization: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->create_organization: #{e}"
 end
 ```
 
@@ -56,12 +55,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create an organization
-  data, status_code, headers = sdk.create_organization_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.organizations.create_organization_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->create_organization_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->create_organization_with_http_info: #{e}"
 end
 ```
 
@@ -104,15 +103,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization to delete
 
 begin
   # Delete an organization
-  result = sdk.delete_organization(organization_id)
+  result = Clerk::SDK.organizations.delete_organization(organization_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->delete_organization: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->delete_organization: #{e}"
 end
 ```
 
@@ -125,12 +123,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete an organization
-  data, status_code, headers = sdk.delete_organization_with_http_info(organization_id)
+  data, status_code, headers = Clerk::SDK.organizations.delete_organization_with_http_info(organization_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->delete_organization_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->delete_organization_with_http_info: #{e}"
 end
 ```
 
@@ -173,15 +171,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization for which the logo will be deleted.
 
 begin
   
-  result = sdk.delete_organization_logo(organization_id)
+  result = Clerk::SDK.organizations.delete_organization_logo(organization_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->delete_organization_logo: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->delete_organization_logo: #{e}"
 end
 ```
 
@@ -194,12 +191,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   
-  data, status_code, headers = sdk.delete_organization_logo_with_http_info(organization_id)
+  data, status_code, headers = Clerk::SDK.organizations.delete_organization_logo_with_http_info(organization_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->delete_organization_logo_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->delete_organization_logo_with_http_info: #{e}"
 end
 ```
 
@@ -242,7 +239,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID or slug of the organization
 opts = {
   include_members_count: true # Boolean | Flag to denote whether or not the organization's members count should be included in the response.
@@ -250,10 +246,10 @@ opts = {
 
 begin
   # Retrieve an organization by ID or slug
-  result = sdk.get_organization(organization_id, opts)
+  result = Clerk::SDK.organizations.get_organization(organization_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->get_organization: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->get_organization: #{e}"
 end
 ```
 
@@ -266,12 +262,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve an organization by ID or slug
-  data, status_code, headers = sdk.get_organization_with_http_info(organization_id, opts)
+  data, status_code, headers = Clerk::SDK.organizations.get_organization_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->get_organization_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->get_organization_with_http_info: #{e}"
 end
 ```
 
@@ -315,7 +311,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -326,10 +321,10 @@ opts = {
 
 begin
   # Get a list of organizations for an instance
-  result = sdk.list_organizations(opts)
+  result = Clerk::SDK.organizations.list_organizations(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->list_organizations: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->list_organizations: #{e}"
 end
 ```
 
@@ -342,12 +337,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of organizations for an instance
-  data, status_code, headers = sdk.list_organizations_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.organizations.list_organizations_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organizations>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->list_organizations_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->list_organizations_with_http_info: #{e}"
 end
 ```
 
@@ -394,16 +389,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization for which metadata will be merged or updated
 merge_organization_metadata_request = ClerkHttpClient::MergeOrganizationMetadataRequest.new # MergeOrganizationMetadataRequest | 
 
 begin
   # Merge and update metadata for an organization
-  result = sdk.merge_organization_metadata(organization_id, merge_organization_metadata_request)
+  result = Clerk::SDK.organizations.merge_organization_metadata(organization_id, merge_organization_metadata_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->merge_organization_metadata: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->merge_organization_metadata: #{e}"
 end
 ```
 
@@ -416,12 +410,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Merge and update metadata for an organization
-  data, status_code, headers = sdk.merge_organization_metadata_with_http_info(organization_id, merge_organization_metadata_request)
+  data, status_code, headers = Clerk::SDK.organizations.merge_organization_metadata_with_http_info(organization_id, merge_organization_metadata_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->merge_organization_metadata_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->merge_organization_metadata_with_http_info: #{e}"
 end
 ```
 
@@ -465,16 +459,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization to update
 update_organization_request = ClerkHttpClient::UpdateOrganizationRequest.new # UpdateOrganizationRequest | 
 
 begin
   # Update an organization
-  result = sdk.update_organization(organization_id, update_organization_request)
+  result = Clerk::SDK.organizations.update_organization(organization_id, update_organization_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->update_organization: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->update_organization: #{e}"
 end
 ```
 
@@ -487,12 +480,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update an organization
-  data, status_code, headers = sdk.update_organization_with_http_info(organization_id, update_organization_request)
+  data, status_code, headers = Clerk::SDK.organizations.update_organization_with_http_info(organization_id, update_organization_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Organization>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->update_organization_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->update_organization_with_http_info: #{e}"
 end
 ```
 
@@ -536,7 +529,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization for which to upload a logo
 file = File.new('/path/to/some/file') # File | 
 opts = {
@@ -545,10 +537,10 @@ opts = {
 
 begin
   # Upload a logo for the organization
-  result = sdk.upload_organization_logo(organization_id, file, opts)
+  result = Clerk::SDK.organizations.upload_organization_logo(organization_id, file, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->upload_organization_logo: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->upload_organization_logo: #{e}"
 end
 ```
 
@@ -561,12 +553,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Upload a logo for the organization
-  data, status_code, headers = sdk.upload_organization_logo_with_http_info(organization_id, file, opts)
+  data, status_code, headers = Clerk::SDK.organizations.upload_organization_logo_with_http_info(organization_id, file, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationWithLogo>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationsApi->upload_organization_logo_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organizations->upload_organization_logo_with_http_info: #{e}"
 end
 ```
 

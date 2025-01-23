@@ -22,23 +22,23 @@ module ClerkHttpClient
     # Create an OAuth application
     # Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid url. All URL schemes are allowed such as `http://`, `https://`, `myapp://`, etc...
     # @param [Hash] opts the optional parameters
-    # @option opts [CreateOAuthApplicationRequest] :create_o_auth_application_request 
+    # @option opts [CreateOAuthApplicationRequest] :create_oauth_application_request 
     # @return [OAuthApplicationWithSecret]
 
-    def create_o_auth_application(opts = {})
-      data, _status_code, _headers = create_o_auth_application_with_http_info(opts)
+    def create_oauth_application(opts = {})
+      data, _status_code, _headers = create_oauth_application_with_http_info(opts)
       data
     end
 
     # Create an OAuth application
     # Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid url. All URL schemes are allowed such as &#x60;http://&#x60;, &#x60;https://&#x60;, &#x60;myapp://&#x60;, etc...
     # @param [Hash] opts the optional parameters
-    # @option opts [CreateOAuthApplicationRequest] :create_o_auth_application_request 
+    # @option opts [CreateOAuthApplicationRequest] :create_oauth_application_request 
     # @return [Array<(OAuthApplicationWithSecret, Integer, Hash)>] OAuthApplicationWithSecret data, response status code and response headers
     # POST 
-    def create_o_auth_application_with_http_info(opts = {})
+    def create_oauth_application_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.create_o_auth_application ...'
+        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.create_oauth_application ...'
       end
       # resource path
       local_var_path = '/oauth_applications'
@@ -60,7 +60,7 @@ module ClerkHttpClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'create_o_auth_application_request'])
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'create_oauth_application_request'])
 
       # return_type
       return_type = opts[:debug_return_type] || 'OAuthApplicationWithSecret'
@@ -69,7 +69,7 @@ module ClerkHttpClient
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
 
       new_options = opts.merge(
-        :operation => :"OAuthApplicationsApi.create_o_auth_application",
+        :operation => :"OAuthApplicationsApi.create_oauth_application",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -80,7 +80,7 @@ module ClerkHttpClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OAuthApplicationsApi#create_o_auth_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OAuthApplicationsApi#create_oauth_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -91,8 +91,8 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @return [DeletedObject]
 
-    def delete_o_auth_application(oauth_application_id, opts = {})
-      data, _status_code, _headers = delete_o_auth_application_with_http_info(oauth_application_id, opts)
+    def delete_oauth_application(oauth_application_id, opts = {})
+      data, _status_code, _headers = delete_oauth_application_with_http_info(oauth_application_id, opts)
       data
     end
 
@@ -102,13 +102,13 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeletedObject, Integer, Hash)>] DeletedObject data, response status code and response headers
     # DELETE 
-    def delete_o_auth_application_with_http_info(oauth_application_id, opts = {})
+    def delete_oauth_application_with_http_info(oauth_application_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.delete_o_auth_application ...'
+        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.delete_oauth_application ...'
       end
       # verify the required parameter 'oauth_application_id' is set
       if @api_client.config.client_side_validation && oauth_application_id.nil?
-        fail ArgumentError, "Missing the required parameter 'oauth_application_id' when calling OAuthApplicationsApi.delete_o_auth_application"
+        fail ArgumentError, "Missing the required parameter 'oauth_application_id' when calling OAuthApplicationsApi.delete_oauth_application"
       end
       # resource path
       local_var_path = '/oauth_applications/{oauth_application_id}'.sub('{' + 'oauth_application_id' + '}', CGI.escape(oauth_application_id.to_s))
@@ -134,7 +134,7 @@ module ClerkHttpClient
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
 
       new_options = opts.merge(
-        :operation => :"OAuthApplicationsApi.delete_o_auth_application",
+        :operation => :"OAuthApplicationsApi.delete_oauth_application",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -145,7 +145,7 @@ module ClerkHttpClient
 
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OAuthApplicationsApi#delete_o_auth_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OAuthApplicationsApi#delete_oauth_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -156,8 +156,8 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @return [OAuthApplication]
 
-    def get_o_auth_application(oauth_application_id, opts = {})
-      data, _status_code, _headers = get_o_auth_application_with_http_info(oauth_application_id, opts)
+    def get_oauth_application(oauth_application_id, opts = {})
+      data, _status_code, _headers = get_oauth_application_with_http_info(oauth_application_id, opts)
       data
     end
 
@@ -167,13 +167,13 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @return [Array<(OAuthApplication, Integer, Hash)>] OAuthApplication data, response status code and response headers
     # GET 
-    def get_o_auth_application_with_http_info(oauth_application_id, opts = {})
+    def get_oauth_application_with_http_info(oauth_application_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.get_o_auth_application ...'
+        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.get_oauth_application ...'
       end
       # verify the required parameter 'oauth_application_id' is set
       if @api_client.config.client_side_validation && oauth_application_id.nil?
-        fail ArgumentError, "Missing the required parameter 'oauth_application_id' when calling OAuthApplicationsApi.get_o_auth_application"
+        fail ArgumentError, "Missing the required parameter 'oauth_application_id' when calling OAuthApplicationsApi.get_oauth_application"
       end
       # resource path
       local_var_path = '/oauth_applications/{oauth_application_id}'.sub('{' + 'oauth_application_id' + '}', CGI.escape(oauth_application_id.to_s))
@@ -199,7 +199,7 @@ module ClerkHttpClient
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
 
       new_options = opts.merge(
-        :operation => :"OAuthApplicationsApi.get_o_auth_application",
+        :operation => :"OAuthApplicationsApi.get_oauth_application",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -210,7 +210,7 @@ module ClerkHttpClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OAuthApplicationsApi#get_o_auth_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OAuthApplicationsApi#get_oauth_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -222,8 +222,8 @@ module ClerkHttpClient
     # @option opts [Float] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
     # @return [OAuthApplications]
 
-    def list_o_auth_applications(opts = {})
-      data, _status_code, _headers = list_o_auth_applications_with_http_info(opts)
+    def list_oauth_applications(opts = {})
+      data, _status_code, _headers = list_oauth_applications_with_http_info(opts)
       data
     end
 
@@ -234,20 +234,20 @@ module ClerkHttpClient
     # @option opts [Float] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
     # @return [Array<(OAuthApplications, Integer, Hash)>] OAuthApplications data, response status code and response headers
     # GET 
-    def list_o_auth_applications_with_http_info(opts = {})
+    def list_oauth_applications_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.list_o_auth_applications ...'
+        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.list_oauth_applications ...'
       end
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling OAuthApplicationsApi.list_o_auth_applications, must be smaller than or equal to 500.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling OAuthApplicationsApi.list_oauth_applications, must be smaller than or equal to 500.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
-        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling OAuthApplicationsApi.list_o_auth_applications, must be greater than or equal to 1.'
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling OAuthApplicationsApi.list_oauth_applications, must be greater than or equal to 1.'
       end
 
       if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
-        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling OAuthApplicationsApi.list_o_auth_applications, must be greater than or equal to 0.'
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling OAuthApplicationsApi.list_oauth_applications, must be greater than or equal to 0.'
       end
 
       # resource path
@@ -276,7 +276,7 @@ module ClerkHttpClient
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
 
       new_options = opts.merge(
-        :operation => :"OAuthApplicationsApi.list_o_auth_applications",
+        :operation => :"OAuthApplicationsApi.list_oauth_applications",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -287,7 +287,7 @@ module ClerkHttpClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OAuthApplicationsApi#list_o_auth_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OAuthApplicationsApi#list_oauth_applications\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -298,8 +298,8 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @return [OAuthApplicationWithSecret]
 
-    def rotate_o_auth_application_secret(oauth_application_id, opts = {})
-      data, _status_code, _headers = rotate_o_auth_application_secret_with_http_info(oauth_application_id, opts)
+    def rotate_oauth_application_secret(oauth_application_id, opts = {})
+      data, _status_code, _headers = rotate_oauth_application_secret_with_http_info(oauth_application_id, opts)
       data
     end
 
@@ -309,13 +309,13 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @return [Array<(OAuthApplicationWithSecret, Integer, Hash)>] OAuthApplicationWithSecret data, response status code and response headers
     # POST 
-    def rotate_o_auth_application_secret_with_http_info(oauth_application_id, opts = {})
+    def rotate_oauth_application_secret_with_http_info(oauth_application_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.rotate_o_auth_application_secret ...'
+        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.rotate_oauth_application_secret ...'
       end
       # verify the required parameter 'oauth_application_id' is set
       if @api_client.config.client_side_validation && oauth_application_id.nil?
-        fail ArgumentError, "Missing the required parameter 'oauth_application_id' when calling OAuthApplicationsApi.rotate_o_auth_application_secret"
+        fail ArgumentError, "Missing the required parameter 'oauth_application_id' when calling OAuthApplicationsApi.rotate_oauth_application_secret"
       end
       # resource path
       local_var_path = '/oauth_applications/{oauth_application_id}/rotate_secret'.sub('{' + 'oauth_application_id' + '}', CGI.escape(oauth_application_id.to_s))
@@ -341,7 +341,7 @@ module ClerkHttpClient
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
 
       new_options = opts.merge(
-        :operation => :"OAuthApplicationsApi.rotate_o_auth_application_secret",
+        :operation => :"OAuthApplicationsApi.rotate_oauth_application_secret",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -352,7 +352,7 @@ module ClerkHttpClient
 
       data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OAuthApplicationsApi#rotate_o_auth_application_secret\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OAuthApplicationsApi#rotate_oauth_application_secret\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -360,33 +360,33 @@ module ClerkHttpClient
     # Update an OAuth application
     # Updates an existing OAuth application
     # @param oauth_application_id [String] The ID of the OAuth application to update
-    # @param update_o_auth_application_request [UpdateOAuthApplicationRequest] 
+    # @param update_oauth_application_request [UpdateOAuthApplicationRequest] 
     # @param [Hash] opts the optional parameters
     # @return [OAuthApplication]
 
-    def update_o_auth_application(oauth_application_id, update_o_auth_application_request, opts = {})
-      data, _status_code, _headers = update_o_auth_application_with_http_info(oauth_application_id, update_o_auth_application_request, opts)
+    def update_oauth_application(oauth_application_id, update_oauth_application_request, opts = {})
+      data, _status_code, _headers = update_oauth_application_with_http_info(oauth_application_id, update_oauth_application_request, opts)
       data
     end
 
     # Update an OAuth application
     # Updates an existing OAuth application
     # @param oauth_application_id [String] The ID of the OAuth application to update
-    # @param update_o_auth_application_request [UpdateOAuthApplicationRequest] 
+    # @param update_oauth_application_request [UpdateOAuthApplicationRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OAuthApplication, Integer, Hash)>] OAuthApplication data, response status code and response headers
     # PATCH 
-    def update_o_auth_application_with_http_info(oauth_application_id, update_o_auth_application_request, opts = {})
+    def update_oauth_application_with_http_info(oauth_application_id, update_oauth_application_request, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.update_o_auth_application ...'
+        @api_client.config.logger.debug 'Calling API: OAuthApplicationsApi.update_oauth_application ...'
       end
       # verify the required parameter 'oauth_application_id' is set
       if @api_client.config.client_side_validation && oauth_application_id.nil?
-        fail ArgumentError, "Missing the required parameter 'oauth_application_id' when calling OAuthApplicationsApi.update_o_auth_application"
+        fail ArgumentError, "Missing the required parameter 'oauth_application_id' when calling OAuthApplicationsApi.update_oauth_application"
       end
-      # verify the required parameter 'update_o_auth_application_request' is set
-      if @api_client.config.client_side_validation && update_o_auth_application_request.nil?
-        fail ArgumentError, "Missing the required parameter 'update_o_auth_application_request' when calling OAuthApplicationsApi.update_o_auth_application"
+      # verify the required parameter 'update_oauth_application_request' is set
+      if @api_client.config.client_side_validation && update_oauth_application_request.nil?
+        fail ArgumentError, "Missing the required parameter 'update_oauth_application_request' when calling OAuthApplicationsApi.update_oauth_application"
       end
       # resource path
       local_var_path = '/oauth_applications/{oauth_application_id}'.sub('{' + 'oauth_application_id' + '}', CGI.escape(oauth_application_id.to_s))
@@ -408,7 +408,7 @@ module ClerkHttpClient
       form_params = opts[:form_params] || {}
 
       # http body (model)
-      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_o_auth_application_request)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(update_oauth_application_request)
 
       # return_type
       return_type = opts[:debug_return_type] || 'OAuthApplication'
@@ -417,7 +417,7 @@ module ClerkHttpClient
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
 
       new_options = opts.merge(
-        :operation => :"OAuthApplicationsApi.update_o_auth_application",
+        :operation => :"OAuthApplicationsApi.update_oauth_application",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -428,7 +428,7 @@ module ClerkHttpClient
 
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: OAuthApplicationsApi#update_o_auth_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: OAuthApplicationsApi#update_oauth_application\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

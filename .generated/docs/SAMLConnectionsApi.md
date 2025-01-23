@@ -30,17 +30,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SAMLConnectionsApi.new
 opts = {
   create_saml_connection_request: ClerkHttpClient::CreateSAMLConnectionRequest.new({name: 'name_example', domain: 'domain_example', provider: 'saml_custom'}) # CreateSAMLConnectionRequest | 
 }
 
 begin
   # Create a SAML Connection
-  result = sdk.create_saml_connection(opts)
+  result = Clerk::SDK.saml_connections.create_saml_connection(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->create_saml_connection: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->create_saml_connection: #{e}"
 end
 ```
 
@@ -53,12 +52,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a SAML Connection
-  data, status_code, headers = sdk.create_saml_connection_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.saml_connections.create_saml_connection_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->create_saml_connection_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->create_saml_connection_with_http_info: #{e}"
 end
 ```
 
@@ -101,15 +100,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SAMLConnectionsApi.new
 saml_connection_id = 'saml_connection_id_example' # String | The ID of the SAML Connection to delete
 
 begin
   # Delete a SAML Connection
-  result = sdk.delete_saml_connection(saml_connection_id)
+  result = Clerk::SDK.saml_connections.delete_saml_connection(saml_connection_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->delete_saml_connection: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->delete_saml_connection: #{e}"
 end
 ```
 
@@ -122,12 +120,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a SAML Connection
-  data, status_code, headers = sdk.delete_saml_connection_with_http_info(saml_connection_id)
+  data, status_code, headers = Clerk::SDK.saml_connections.delete_saml_connection_with_http_info(saml_connection_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->delete_saml_connection_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->delete_saml_connection_with_http_info: #{e}"
 end
 ```
 
@@ -170,15 +168,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SAMLConnectionsApi.new
 saml_connection_id = 'saml_connection_id_example' # String | The ID of the SAML Connection
 
 begin
   # Retrieve a SAML Connection by ID
-  result = sdk.get_saml_connection(saml_connection_id)
+  result = Clerk::SDK.saml_connections.get_saml_connection(saml_connection_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->get_saml_connection: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->get_saml_connection: #{e}"
 end
 ```
 
@@ -191,12 +188,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a SAML Connection by ID
-  data, status_code, headers = sdk.get_saml_connection_with_http_info(saml_connection_id)
+  data, status_code, headers = Clerk::SDK.saml_connections.get_saml_connection_with_http_info(saml_connection_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->get_saml_connection_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->get_saml_connection_with_http_info: #{e}"
 end
 ```
 
@@ -239,7 +236,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SAMLConnectionsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -248,10 +244,10 @@ opts = {
 
 begin
   # Get a list of SAML Connections for an instance
-  result = sdk.list_saml_connections(opts)
+  result = Clerk::SDK.saml_connections.list_saml_connections(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->list_saml_connections: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->list_saml_connections: #{e}"
 end
 ```
 
@@ -264,12 +260,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of SAML Connections for an instance
-  data, status_code, headers = sdk.list_saml_connections_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.saml_connections.list_saml_connections_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SAMLConnections>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->list_saml_connections_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->list_saml_connections_with_http_info: #{e}"
 end
 ```
 
@@ -314,16 +310,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SAMLConnectionsApi.new
 saml_connection_id = 'saml_connection_id_example' # String | The ID of the SAML Connection to update
 update_saml_connection_request = ClerkHttpClient::UpdateSAMLConnectionRequest.new # UpdateSAMLConnectionRequest | 
 
 begin
   # Update a SAML Connection
-  result = sdk.update_saml_connection(saml_connection_id, update_saml_connection_request)
+  result = Clerk::SDK.saml_connections.update_saml_connection(saml_connection_id, update_saml_connection_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->update_saml_connection: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->update_saml_connection: #{e}"
 end
 ```
 
@@ -336,12 +331,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a SAML Connection
-  data, status_code, headers = sdk.update_saml_connection_with_http_info(saml_connection_id, update_saml_connection_request)
+  data, status_code, headers = Clerk::SDK.saml_connections.update_saml_connection_with_http_info(saml_connection_id, update_saml_connection_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <SchemasSAMLConnection>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SAMLConnectionsApi->update_saml_connection_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.saml_connections->update_saml_connection_with_http_info: #{e}"
 end
 ```
 

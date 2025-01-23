@@ -26,7 +26,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::MiscellaneousApi.new
 opts = {
   frontend_api: 'frontend_api_example', # String | The Frontend API key of your instance
   publishable_key: 'publishable_key_example' # String | The publishable key of your instance
@@ -34,9 +33,9 @@ opts = {
 
 begin
   # Returns the markup for the interstitial page
-  sdk.get_public_interstitial(opts)
+  Clerk::SDK.miscellaneous.get_public_interstitial(opts)
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling MiscellaneousApi->get_public_interstitial: #{e}"
+  puts "Error when calling Clerk::SDK.miscellaneous->get_public_interstitial: #{e}"
 end
 ```
 
@@ -49,12 +48,12 @@ This returns an Array which contains the response data (`nil` in this case), sta
 ```ruby
 begin
   # Returns the markup for the interstitial page
-  data, status_code, headers = sdk.get_public_interstitial_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.miscellaneous.get_public_interstitial_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling MiscellaneousApi->get_public_interstitial_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.miscellaneous->get_public_interstitial_with_http_info: #{e}"
 end
 ```
 

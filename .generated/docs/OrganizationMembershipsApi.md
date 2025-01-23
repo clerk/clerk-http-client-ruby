@@ -31,16 +31,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationMembershipsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization where the new membership will be created
 create_organization_membership_request = ClerkHttpClient::CreateOrganizationMembershipRequest.new({user_id: 'user_id_example', role: 'role_example'}) # CreateOrganizationMembershipRequest | 
 
 begin
   # Create a new organization membership
-  result = sdk.create_organization_membership(organization_id, create_organization_membership_request)
+  result = Clerk::SDK.organization_memberships.create_organization_membership(organization_id, create_organization_membership_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->create_organization_membership: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->create_organization_membership: #{e}"
 end
 ```
 
@@ -53,12 +52,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a new organization membership
-  data, status_code, headers = sdk.create_organization_membership_with_http_info(organization_id, create_organization_membership_request)
+  data, status_code, headers = Clerk::SDK.organization_memberships.create_organization_membership_with_http_info(organization_id, create_organization_membership_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMembership>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->create_organization_membership_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->create_organization_membership_with_http_info: #{e}"
 end
 ```
 
@@ -102,16 +101,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationMembershipsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization the membership belongs to
 user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
 
 begin
   # Remove a member from an organization
-  result = sdk.delete_organization_membership(organization_id, user_id)
+  result = Clerk::SDK.organization_memberships.delete_organization_membership(organization_id, user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->delete_organization_membership: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->delete_organization_membership: #{e}"
 end
 ```
 
@@ -124,12 +122,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Remove a member from an organization
-  data, status_code, headers = sdk.delete_organization_membership_with_http_info(organization_id, user_id)
+  data, status_code, headers = Clerk::SDK.organization_memberships.delete_organization_membership_with_http_info(organization_id, user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMembership>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->delete_organization_membership_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->delete_organization_membership_with_http_info: #{e}"
 end
 ```
 
@@ -173,7 +171,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationMembershipsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -182,10 +179,10 @@ opts = {
 
 begin
   # Get a list of all organization memberships within an instance.
-  result = sdk.instance_get_organization_memberships(opts)
+  result = Clerk::SDK.organization_memberships.instance_get_organization_memberships(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->instance_get_organization_memberships: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->instance_get_organization_memberships: #{e}"
 end
 ```
 
@@ -198,12 +195,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of all organization memberships within an instance.
-  data, status_code, headers = sdk.instance_get_organization_memberships_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.organization_memberships.instance_get_organization_memberships_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMemberships>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->instance_get_organization_memberships_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->instance_get_organization_memberships_with_http_info: #{e}"
 end
 ```
 
@@ -248,7 +245,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationMembershipsApi.new
 organization_id = 'organization_id_example' # String | The organization ID.
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
@@ -258,10 +254,10 @@ opts = {
 
 begin
   # Get a list of all members of an organization
-  result = sdk.list_organization_memberships(organization_id, opts)
+  result = Clerk::SDK.organization_memberships.list_organization_memberships(organization_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->list_organization_memberships: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->list_organization_memberships: #{e}"
 end
 ```
 
@@ -274,12 +270,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a list of all members of an organization
-  data, status_code, headers = sdk.list_organization_memberships_with_http_info(organization_id, opts)
+  data, status_code, headers = Clerk::SDK.organization_memberships.list_organization_memberships_with_http_info(organization_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMemberships>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->list_organization_memberships_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->list_organization_memberships_with_http_info: #{e}"
 end
 ```
 
@@ -325,17 +321,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationMembershipsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization the membership belongs to
 user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
 update_organization_membership_request = ClerkHttpClient::UpdateOrganizationMembershipRequest.new({role: 'role_example'}) # UpdateOrganizationMembershipRequest | 
 
 begin
   # Update an organization membership
-  result = sdk.update_organization_membership(organization_id, user_id, update_organization_membership_request)
+  result = Clerk::SDK.organization_memberships.update_organization_membership(organization_id, user_id, update_organization_membership_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->update_organization_membership: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->update_organization_membership: #{e}"
 end
 ```
 
@@ -348,12 +343,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update an organization membership
-  data, status_code, headers = sdk.update_organization_membership_with_http_info(organization_id, user_id, update_organization_membership_request)
+  data, status_code, headers = Clerk::SDK.organization_memberships.update_organization_membership_with_http_info(organization_id, user_id, update_organization_membership_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMembership>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->update_organization_membership_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->update_organization_membership_with_http_info: #{e}"
 end
 ```
 
@@ -398,7 +393,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OrganizationMembershipsApi.new
 organization_id = 'organization_id_example' # String | The ID of the organization the membership belongs to
 user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
 opts = {
@@ -407,10 +401,10 @@ opts = {
 
 begin
   # Merge and update organization membership metadata
-  result = sdk.update_organization_membership_metadata(organization_id, user_id, opts)
+  result = Clerk::SDK.organization_memberships.update_organization_membership_metadata(organization_id, user_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->update_organization_membership_metadata: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->update_organization_membership_metadata: #{e}"
 end
 ```
 
@@ -423,12 +417,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Merge and update organization membership metadata
-  data, status_code, headers = sdk.update_organization_membership_metadata_with_http_info(organization_id, user_id, opts)
+  data, status_code, headers = Clerk::SDK.organization_memberships.update_organization_membership_metadata_with_http_info(organization_id, user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMembership>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OrganizationMembershipsApi->update_organization_membership_metadata_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.organization_memberships->update_organization_membership_metadata_with_http_info: #{e}"
 end
 ```
 

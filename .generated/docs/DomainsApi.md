@@ -29,17 +29,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::DomainsApi.new
 opts = {
   add_domain_request: ClerkHttpClient::AddDomainRequest.new({name: 'name_example', is_satellite: false}) # AddDomainRequest | 
 }
 
 begin
   # Add a domain
-  result = sdk.add_domain(opts)
+  result = Clerk::SDK.domains.add_domain(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->add_domain: #{e}"
+  puts "Error when calling Clerk::SDK.domains->add_domain: #{e}"
 end
 ```
 
@@ -52,12 +51,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Add a domain
-  data, status_code, headers = sdk.add_domain_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.domains.add_domain_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domain>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->add_domain_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.domains->add_domain_with_http_info: #{e}"
 end
 ```
 
@@ -100,15 +99,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::DomainsApi.new
 domain_id = 'domain_id_example' # String | The ID of the domain that will be deleted. Must be a satellite domain.
 
 begin
   # Delete a satellite domain
-  result = sdk.delete_domain(domain_id)
+  result = Clerk::SDK.domains.delete_domain(domain_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->delete_domain: #{e}"
+  puts "Error when calling Clerk::SDK.domains->delete_domain: #{e}"
 end
 ```
 
@@ -121,12 +119,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a satellite domain
-  data, status_code, headers = sdk.delete_domain_with_http_info(domain_id)
+  data, status_code, headers = Clerk::SDK.domains.delete_domain_with_http_info(domain_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->delete_domain_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.domains->delete_domain_with_http_info: #{e}"
 end
 ```
 
@@ -169,14 +167,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::DomainsApi.new
 
 begin
   # List all instance domains
-  result = sdk.list_domains
+  result = Clerk::SDK.domains.list_domains
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->list_domains: #{e}"
+  puts "Error when calling Clerk::SDK.domains->list_domains: #{e}"
 end
 ```
 
@@ -189,12 +186,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all instance domains
-  data, status_code, headers = sdk.list_domains_with_http_info
+  data, status_code, headers = Clerk::SDK.domains.list_domains_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domains>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->list_domains_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.domains->list_domains_with_http_info: #{e}"
 end
 ```
 
@@ -235,16 +232,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::DomainsApi.new
 domain_id = 'domain_id_example' # String | The ID of the domain that will be updated.
 update_domain_request = ClerkHttpClient::UpdateDomainRequest.new # UpdateDomainRequest | 
 
 begin
   # Update a domain
-  result = sdk.update_domain(domain_id, update_domain_request)
+  result = Clerk::SDK.domains.update_domain(domain_id, update_domain_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->update_domain: #{e}"
+  puts "Error when calling Clerk::SDK.domains->update_domain: #{e}"
 end
 ```
 
@@ -257,12 +253,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a domain
-  data, status_code, headers = sdk.update_domain_with_http_info(domain_id, update_domain_request)
+  data, status_code, headers = Clerk::SDK.domains.update_domain_with_http_info(domain_id, update_domain_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Domain>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling DomainsApi->update_domain_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.domains->update_domain_with_http_info: #{e}"
 end
 ```
 

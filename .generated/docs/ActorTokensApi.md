@@ -27,17 +27,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::ActorTokensApi.new
 opts = {
   create_actor_token_request: ClerkHttpClient::CreateActorTokenRequest.new({user_id: 'user_id_example', actor: {"sub":"user_2OEpKhcCN1Lat9NQ0G6puh7q5Rb"}}) # CreateActorTokenRequest | 
 }
 
 begin
   # Create actor token
-  result = sdk.create_actor_token(opts)
+  result = Clerk::SDK.actor_tokens.create_actor_token(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ActorTokensApi->create_actor_token: #{e}"
+  puts "Error when calling Clerk::SDK.actor_tokens->create_actor_token: #{e}"
 end
 ```
 
@@ -50,12 +49,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create actor token
-  data, status_code, headers = sdk.create_actor_token_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.actor_tokens.create_actor_token_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ActorToken>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ActorTokensApi->create_actor_token_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.actor_tokens->create_actor_token_with_http_info: #{e}"
 end
 ```
 
@@ -98,15 +97,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::ActorTokensApi.new
 actor_token_id = 'actor_token_id_example' # String | The ID of the actor token to be revoked.
 
 begin
   # Revoke actor token
-  result = sdk.revoke_actor_token(actor_token_id)
+  result = Clerk::SDK.actor_tokens.revoke_actor_token(actor_token_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ActorTokensApi->revoke_actor_token: #{e}"
+  puts "Error when calling Clerk::SDK.actor_tokens->revoke_actor_token: #{e}"
 end
 ```
 
@@ -119,12 +117,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revoke actor token
-  data, status_code, headers = sdk.revoke_actor_token_with_http_info(actor_token_id)
+  data, status_code, headers = Clerk::SDK.actor_tokens.revoke_actor_token_with_http_info(actor_token_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ActorToken>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ActorTokensApi->revoke_actor_token_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.actor_tokens->revoke_actor_token_with_http_info: #{e}"
 end
 ```
 

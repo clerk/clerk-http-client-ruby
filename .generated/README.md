@@ -89,12 +89,12 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.jwt_templates* | [**list_jwt_templates**](docs/JWTTemplatesApi.md#list_jwt_templates) | **GET** /jwt_templates | List all templates
 *Clerk::SDK.jwt_templates* | [**update_jwt_template**](docs/JWTTemplatesApi.md#update_jwt_template) | **PATCH** /jwt_templates/{template_id} | Update a JWT template
 *Clerk::SDK.miscellaneous* | [**get_public_interstitial**](docs/MiscellaneousApi.md#get_public_interstitial) | **GET** /public/interstitial | Returns the markup for the interstitial page
-*Clerk::SDK.oauth_applications* | [**create_o_auth_application**](docs/OAuthApplicationsApi.md#create_o_auth_application) | **POST** /oauth_applications | Create an OAuth application
-*Clerk::SDK.oauth_applications* | [**delete_o_auth_application**](docs/OAuthApplicationsApi.md#delete_o_auth_application) | **DELETE** /oauth_applications/{oauth_application_id} | Delete an OAuth application
-*Clerk::SDK.oauth_applications* | [**get_o_auth_application**](docs/OAuthApplicationsApi.md#get_o_auth_application) | **GET** /oauth_applications/{oauth_application_id} | Retrieve an OAuth application by ID
-*Clerk::SDK.oauth_applications* | [**list_o_auth_applications**](docs/OAuthApplicationsApi.md#list_o_auth_applications) | **GET** /oauth_applications | Get a list of OAuth applications for an instance
-*Clerk::SDK.oauth_applications* | [**rotate_o_auth_application_secret**](docs/OAuthApplicationsApi.md#rotate_o_auth_application_secret) | **POST** /oauth_applications/{oauth_application_id}/rotate_secret | Rotate the client secret of the given OAuth application
-*Clerk::SDK.oauth_applications* | [**update_o_auth_application**](docs/OAuthApplicationsApi.md#update_o_auth_application) | **PATCH** /oauth_applications/{oauth_application_id} | Update an OAuth application
+*Clerk::SDK.oauth_applications* | [**create_oauth_application**](docs/OAuthApplicationsApi.md#create_oauth_application) | **POST** /oauth_applications | Create an OAuth application
+*Clerk::SDK.oauth_applications* | [**delete_oauth_application**](docs/OAuthApplicationsApi.md#delete_oauth_application) | **DELETE** /oauth_applications/{oauth_application_id} | Delete an OAuth application
+*Clerk::SDK.oauth_applications* | [**get_oauth_application**](docs/OAuthApplicationsApi.md#get_oauth_application) | **GET** /oauth_applications/{oauth_application_id} | Retrieve an OAuth application by ID
+*Clerk::SDK.oauth_applications* | [**list_oauth_applications**](docs/OAuthApplicationsApi.md#list_oauth_applications) | **GET** /oauth_applications | Get a list of OAuth applications for an instance
+*Clerk::SDK.oauth_applications* | [**rotate_oauth_application_secret**](docs/OAuthApplicationsApi.md#rotate_oauth_application_secret) | **POST** /oauth_applications/{oauth_application_id}/rotate_secret | Rotate the client secret of the given OAuth application
+*Clerk::SDK.oauth_applications* | [**update_oauth_application**](docs/OAuthApplicationsApi.md#update_oauth_application) | **PATCH** /oauth_applications/{oauth_application_id} | Update an OAuth application
 *Clerk::SDK.organization_domains* | [**create_organization_domain**](docs/OrganizationDomainsApi.md#create_organization_domain) | **POST** /organizations/{organization_id}/domains | Create a new organization domain.
 *Clerk::SDK.organization_domains* | [**delete_organization_domain**](docs/OrganizationDomainsApi.md#delete_organization_domain) | **DELETE** /organizations/{organization_id}/domains/{domain_id} | Remove a domain from an organization.
 *Clerk::SDK.organization_domains* | [**list_organization_domains**](docs/OrganizationDomainsApi.md#list_organization_domains) | **GET** /organizations/{organization_id}/domains | Get a list of all domains of an organization.
@@ -154,7 +154,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.users* | [**delete_user**](docs/UsersApi.md#delete_user) | **DELETE** /users/{user_id} | Delete a user
 *Clerk::SDK.users* | [**delete_user_profile_image**](docs/UsersApi.md#delete_user_profile_image) | **DELETE** /users/{user_id}/profile_image | Delete user profile image
 *Clerk::SDK.users* | [**disable_mfa**](docs/UsersApi.md#disable_mfa) | **DELETE** /users/{user_id}/mfa | Disable a user's MFA methods
-*Clerk::SDK.users* | [**get_o_auth_access_token**](docs/UsersApi.md#get_o_auth_access_token) | **GET** /users/{user_id}/oauth_access_tokens/{provider} | Retrieve the OAuth access token of a user
+*Clerk::SDK.users* | [**get_oauth_access_token**](docs/UsersApi.md#get_oauth_access_token) | **GET** /users/{user_id}/oauth_access_tokens/{provider} | Retrieve the OAuth access token of a user
 *Clerk::SDK.users* | [**get_user**](docs/UsersApi.md#get_user) | **GET** /users/{user_id} | Retrieve a user
 *Clerk::SDK.users* | [**get_user_list**](docs/UsersApi.md#get_user_list) | **GET** /users | List all users
 *Clerk::SDK.users* | [**get_users_count**](docs/UsersApi.md#get_users_count) | **GET** /users/count | Count users

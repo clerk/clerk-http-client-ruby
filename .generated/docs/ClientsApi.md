@@ -28,15 +28,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::ClientsApi.new
 client_id = 'client_id_example' # String | Client ID.
 
 begin
   # Get a client
-  result = sdk.get_client(client_id)
+  result = Clerk::SDK.clients.get_client(client_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->get_client: #{e}"
+  puts "Error when calling Clerk::SDK.clients->get_client: #{e}"
 end
 ```
 
@@ -49,12 +48,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Get a client
-  data, status_code, headers = sdk.get_client_with_http_info(client_id)
+  data, status_code, headers = Clerk::SDK.clients.get_client_with_http_info(client_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Client>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->get_client_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.clients->get_client_with_http_info: #{e}"
 end
 ```
 
@@ -97,7 +96,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::ClientsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -105,10 +103,10 @@ opts = {
 
 begin
   # List all clients
-  result = sdk.get_client_list(opts)
+  result = Clerk::SDK.clients.get_client_list(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->get_client_list: #{e}"
+  puts "Error when calling Clerk::SDK.clients->get_client_list: #{e}"
 end
 ```
 
@@ -121,12 +119,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all clients
-  data, status_code, headers = sdk.get_client_list_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.clients.get_client_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Client>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->get_client_list_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.clients->get_client_list_with_http_info: #{e}"
 end
 ```
 
@@ -170,17 +168,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::ClientsApi.new
 opts = {
   verify_client_request: ClerkHttpClient::VerifyClientRequest.new # VerifyClientRequest | Parameters.
 }
 
 begin
   # Verify a client
-  result = sdk.verify_client(opts)
+  result = Clerk::SDK.clients.verify_client(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->verify_client: #{e}"
+  puts "Error when calling Clerk::SDK.clients->verify_client: #{e}"
 end
 ```
 
@@ -193,12 +190,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Verify a client
-  data, status_code, headers = sdk.verify_client_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.clients.verify_client_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Client>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling ClientsApi->verify_client_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.clients->verify_client_with_http_info: #{e}"
 end
 ```
 

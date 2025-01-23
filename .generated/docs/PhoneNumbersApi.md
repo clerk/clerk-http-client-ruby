@@ -29,17 +29,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::PhoneNumbersApi.new
 opts = {
   create_phone_number_request: ClerkHttpClient::CreatePhoneNumberRequest.new # CreatePhoneNumberRequest | 
 }
 
 begin
   # Create a phone number
-  result = sdk.create_phone_number(opts)
+  result = Clerk::SDK.phone_numbers.create_phone_number(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling PhoneNumbersApi->create_phone_number: #{e}"
+  puts "Error when calling Clerk::SDK.phone_numbers->create_phone_number: #{e}"
 end
 ```
 
@@ -52,12 +51,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a phone number
-  data, status_code, headers = sdk.create_phone_number_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.phone_numbers.create_phone_number_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PhoneNumber>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling PhoneNumbersApi->create_phone_number_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.phone_numbers->create_phone_number_with_http_info: #{e}"
 end
 ```
 
@@ -100,15 +99,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::PhoneNumbersApi.new
 phone_number_id = 'phone_number_id_example' # String | The ID of the phone number to delete
 
 begin
   # Delete a phone number
-  result = sdk.delete_phone_number(phone_number_id)
+  result = Clerk::SDK.phone_numbers.delete_phone_number(phone_number_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling PhoneNumbersApi->delete_phone_number: #{e}"
+  puts "Error when calling Clerk::SDK.phone_numbers->delete_phone_number: #{e}"
 end
 ```
 
@@ -121,12 +119,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a phone number
-  data, status_code, headers = sdk.delete_phone_number_with_http_info(phone_number_id)
+  data, status_code, headers = Clerk::SDK.phone_numbers.delete_phone_number_with_http_info(phone_number_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling PhoneNumbersApi->delete_phone_number_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.phone_numbers->delete_phone_number_with_http_info: #{e}"
 end
 ```
 
@@ -169,15 +167,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::PhoneNumbersApi.new
 phone_number_id = 'phone_number_id_example' # String | The ID of the phone number to retrieve
 
 begin
   # Retrieve a phone number
-  result = sdk.get_phone_number(phone_number_id)
+  result = Clerk::SDK.phone_numbers.get_phone_number(phone_number_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling PhoneNumbersApi->get_phone_number: #{e}"
+  puts "Error when calling Clerk::SDK.phone_numbers->get_phone_number: #{e}"
 end
 ```
 
@@ -190,12 +187,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a phone number
-  data, status_code, headers = sdk.get_phone_number_with_http_info(phone_number_id)
+  data, status_code, headers = Clerk::SDK.phone_numbers.get_phone_number_with_http_info(phone_number_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PhoneNumber>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling PhoneNumbersApi->get_phone_number_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.phone_numbers->get_phone_number_with_http_info: #{e}"
 end
 ```
 
@@ -238,7 +235,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::PhoneNumbersApi.new
 phone_number_id = 'phone_number_id_example' # String | The ID of the phone number to update
 opts = {
   update_phone_number_request: ClerkHttpClient::UpdatePhoneNumberRequest.new # UpdatePhoneNumberRequest | 
@@ -246,10 +242,10 @@ opts = {
 
 begin
   # Update a phone number
-  result = sdk.update_phone_number(phone_number_id, opts)
+  result = Clerk::SDK.phone_numbers.update_phone_number(phone_number_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling PhoneNumbersApi->update_phone_number: #{e}"
+  puts "Error when calling Clerk::SDK.phone_numbers->update_phone_number: #{e}"
 end
 ```
 
@@ -262,12 +258,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a phone number
-  data, status_code, headers = sdk.update_phone_number_with_http_info(phone_number_id, opts)
+  data, status_code, headers = Clerk::SDK.phone_numbers.update_phone_number_with_http_info(phone_number_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <PhoneNumber>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling PhoneNumbersApi->update_phone_number_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.phone_numbers->update_phone_number_with_http_info: #{e}"
 end
 ```
 

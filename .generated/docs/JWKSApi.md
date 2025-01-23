@@ -26,14 +26,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::JWKSApi.new
 
 begin
   # Retrieve the JSON Web Key Set of the instance
-  result = sdk.get_jwks
+  result = Clerk::SDK.jwks.get_jwks
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWKSApi->get_jwks: #{e}"
+  puts "Error when calling Clerk::SDK.jwks->get_jwks: #{e}"
 end
 ```
 
@@ -46,12 +45,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve the JSON Web Key Set of the instance
-  data, status_code, headers = sdk.get_jwks_with_http_info
+  data, status_code, headers = Clerk::SDK.jwks.get_jwks_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWKS>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWKSApi->get_jwks_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.jwks->get_jwks_with_http_info: #{e}"
 end
 ```
 

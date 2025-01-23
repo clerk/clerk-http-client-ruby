@@ -30,17 +30,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::JWTTemplatesApi.new
 opts = {
   create_jwt_template_request: ClerkHttpClient::CreateJWTTemplateRequest.new # CreateJWTTemplateRequest | 
 }
 
 begin
   # Create a JWT template
-  result = sdk.create_jwt_template(opts)
+  result = Clerk::SDK.jwt_templates.create_jwt_template(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->create_jwt_template: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->create_jwt_template: #{e}"
 end
 ```
 
@@ -53,12 +52,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a JWT template
-  data, status_code, headers = sdk.create_jwt_template_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.jwt_templates.create_jwt_template_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->create_jwt_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->create_jwt_template_with_http_info: #{e}"
 end
 ```
 
@@ -101,15 +100,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::JWTTemplatesApi.new
 template_id = 'template_id_example' # String | JWT Template ID
 
 begin
   # Delete a Template
-  result = sdk.delete_jwt_template(template_id)
+  result = Clerk::SDK.jwt_templates.delete_jwt_template(template_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->delete_jwt_template: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->delete_jwt_template: #{e}"
 end
 ```
 
@@ -122,12 +120,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a Template
-  data, status_code, headers = sdk.delete_jwt_template_with_http_info(template_id)
+  data, status_code, headers = Clerk::SDK.jwt_templates.delete_jwt_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->delete_jwt_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->delete_jwt_template_with_http_info: #{e}"
 end
 ```
 
@@ -170,15 +168,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::JWTTemplatesApi.new
 template_id = 'template_id_example' # String | JWT Template ID
 
 begin
   # Retrieve a template
-  result = sdk.get_jwt_template(template_id)
+  result = Clerk::SDK.jwt_templates.get_jwt_template(template_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->get_jwt_template: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->get_jwt_template: #{e}"
 end
 ```
 
@@ -191,12 +188,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a template
-  data, status_code, headers = sdk.get_jwt_template_with_http_info(template_id)
+  data, status_code, headers = Clerk::SDK.jwt_templates.get_jwt_template_with_http_info(template_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->get_jwt_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->get_jwt_template_with_http_info: #{e}"
 end
 ```
 
@@ -237,14 +234,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::JWTTemplatesApi.new
 
 begin
   # List all templates
-  result = sdk.list_jwt_templates
+  result = Clerk::SDK.jwt_templates.list_jwt_templates
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->list_jwt_templates: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->list_jwt_templates: #{e}"
 end
 ```
 
@@ -257,12 +253,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all templates
-  data, status_code, headers = sdk.list_jwt_templates_with_http_info
+  data, status_code, headers = Clerk::SDK.jwt_templates.list_jwt_templates_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<JWTTemplate>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->list_jwt_templates_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->list_jwt_templates_with_http_info: #{e}"
 end
 ```
 
@@ -303,7 +299,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::JWTTemplatesApi.new
 template_id = 'template_id_example' # String | The ID of the JWT template to update
 opts = {
   create_jwt_template_request: ClerkHttpClient::CreateJWTTemplateRequest.new # CreateJWTTemplateRequest | 
@@ -311,10 +306,10 @@ opts = {
 
 begin
   # Update a JWT template
-  result = sdk.update_jwt_template(template_id, opts)
+  result = Clerk::SDK.jwt_templates.update_jwt_template(template_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->update_jwt_template: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->update_jwt_template: #{e}"
 end
 ```
 
@@ -327,12 +322,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a JWT template
-  data, status_code, headers = sdk.update_jwt_template_with_http_info(template_id, opts)
+  data, status_code, headers = Clerk::SDK.jwt_templates.update_jwt_template_with_http_info(template_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <JWTTemplate>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling JWTTemplatesApi->update_jwt_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.jwt_templates->update_jwt_template_with_http_info: #{e}"
 end
 ```
 

@@ -13,7 +13,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | [**delete_user**](UsersApi.md#delete_user) | **DELETE** /users/{user_id} | Delete a user |
 | [**delete_user_profile_image**](UsersApi.md#delete_user_profile_image) | **DELETE** /users/{user_id}/profile_image | Delete user profile image |
 | [**disable_mfa**](UsersApi.md#disable_mfa) | **DELETE** /users/{user_id}/mfa | Disable a user&#39;s MFA methods |
-| [**get_o_auth_access_token**](UsersApi.md#get_o_auth_access_token) | **GET** /users/{user_id}/oauth_access_tokens/{provider} | Retrieve the OAuth access token of a user |
+| [**get_oauth_access_token**](UsersApi.md#get_oauth_access_token) | **GET** /users/{user_id}/oauth_access_tokens/{provider} | Retrieve the OAuth access token of a user |
 | [**get_user**](UsersApi.md#get_user) | **GET** /users/{user_id} | Retrieve a user |
 | [**get_user_list**](UsersApi.md#get_user_list) | **GET** /users | List all users |
 | [**get_users_count**](UsersApi.md#get_users_count) | **GET** /users/count | Count users |
@@ -50,15 +50,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to ban
 
 begin
   # Ban a user
-  result = sdk.ban_user(user_id)
+  result = Clerk::SDK.users.ban_user(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->ban_user: #{e}"
+  puts "Error when calling Clerk::SDK.users->ban_user: #{e}"
 end
 ```
 
@@ -71,12 +70,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Ban a user
-  data, status_code, headers = sdk.ban_user_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.ban_user_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->ban_user_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->ban_user_with_http_info: #{e}"
 end
 ```
 
@@ -119,15 +118,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 create_user_request = ClerkHttpClient::CreateUserRequest.new # CreateUserRequest | 
 
 begin
   # Create a new user
-  result = sdk.create_user(create_user_request)
+  result = Clerk::SDK.users.create_user(create_user_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->create_user: #{e}"
+  puts "Error when calling Clerk::SDK.users->create_user: #{e}"
 end
 ```
 
@@ -140,12 +138,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a new user
-  data, status_code, headers = sdk.create_user_with_http_info(create_user_request)
+  data, status_code, headers = Clerk::SDK.users.create_user_with_http_info(create_user_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->create_user_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->create_user_with_http_info: #{e}"
 end
 ```
 
@@ -188,15 +186,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user for whom the TOTP is being created.
 
 begin
   # Create a TOTP for a user
-  result = sdk.create_user_totp(user_id)
+  result = Clerk::SDK.users.create_user_totp(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->create_user_totp: #{e}"
+  puts "Error when calling Clerk::SDK.users->create_user_totp: #{e}"
 end
 ```
 
@@ -209,12 +206,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a TOTP for a user
-  data, status_code, headers = sdk.create_user_totp_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.create_user_totp_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TOTP>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->create_user_totp_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->create_user_totp_with_http_info: #{e}"
 end
 ```
 
@@ -257,15 +254,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose backup codes are to be deleted.
 
 begin
   # Disable all user's Backup codes
-  result = sdk.delete_backup_code(user_id)
+  result = Clerk::SDK.users.delete_backup_code(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_backup_code: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_backup_code: #{e}"
 end
 ```
 
@@ -278,12 +274,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Disable all user's Backup codes
-  data, status_code, headers = sdk.delete_backup_code_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.delete_backup_code_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DisableMFA200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_backup_code_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_backup_code_with_http_info: #{e}"
 end
 ```
 
@@ -326,16 +322,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user's external account
 external_account_id = 'external_account_id_example' # String | The ID of the external account to delete
 
 begin
   # Delete External Account
-  result = sdk.delete_external_account(user_id, external_account_id)
+  result = Clerk::SDK.users.delete_external_account(user_id, external_account_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_external_account: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_external_account: #{e}"
 end
 ```
 
@@ -348,12 +343,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete External Account
-  data, status_code, headers = sdk.delete_external_account_with_http_info(user_id, external_account_id)
+  data, status_code, headers = Clerk::SDK.users.delete_external_account_with_http_info(user_id, external_account_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_external_account_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_external_account_with_http_info: #{e}"
 end
 ```
 
@@ -397,15 +392,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose TOTPs are to be deleted
 
 begin
   # Delete all the user's TOTPs
-  result = sdk.delete_totp(user_id)
+  result = Clerk::SDK.users.delete_totp(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_totp: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_totp: #{e}"
 end
 ```
 
@@ -418,12 +412,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete all the user's TOTPs
-  data, status_code, headers = sdk.delete_totp_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.delete_totp_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DisableMFA200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_totp_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_totp_with_http_info: #{e}"
 end
 ```
 
@@ -466,15 +460,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to delete
 
 begin
   # Delete a user
-  result = sdk.delete_user(user_id)
+  result = Clerk::SDK.users.delete_user(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_user: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_user: #{e}"
 end
 ```
 
@@ -487,12 +480,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a user
-  data, status_code, headers = sdk.delete_user_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.delete_user_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_user_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_user_with_http_info: #{e}"
 end
 ```
 
@@ -535,15 +528,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to delete the profile image for
 
 begin
   # Delete user profile image
-  result = sdk.delete_user_profile_image(user_id)
+  result = Clerk::SDK.users.delete_user_profile_image(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_user_profile_image: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_user_profile_image: #{e}"
 end
 ```
 
@@ -556,12 +548,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete user profile image
-  data, status_code, headers = sdk.delete_user_profile_image_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.delete_user_profile_image_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->delete_user_profile_image_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->delete_user_profile_image_with_http_info: #{e}"
 end
 ```
 
@@ -604,15 +596,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose MFA methods are to be disabled
 
 begin
   # Disable a user's MFA methods
-  result = sdk.disable_mfa(user_id)
+  result = Clerk::SDK.users.disable_mfa(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->disable_mfa: #{e}"
+  puts "Error when calling Clerk::SDK.users->disable_mfa: #{e}"
 end
 ```
 
@@ -625,12 +616,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Disable a user's MFA methods
-  data, status_code, headers = sdk.disable_mfa_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.disable_mfa_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DisableMFA200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->disable_mfa_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->disable_mfa_with_http_info: #{e}"
 end
 ```
 
@@ -654,9 +645,9 @@ end
 - **Accept**: application/json
 
 
-## get_o_auth_access_token
+## get_oauth_access_token
 
-> <Array<GetOAuthAccessToken200ResponseInner>> get_o_auth_access_token(user_id, provider)
+> <Array<GetOAuthAccessToken200ResponseInner>> get_oauth_access_token(user_id, provider)
 
 Retrieve the OAuth access token of a user
 
@@ -673,34 +664,33 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user for which to retrieve the OAuth access token
 provider = 'provider_example' # String | The ID of the OAuth provider (e.g. `oauth_google`)
 
 begin
   # Retrieve the OAuth access token of a user
-  result = sdk.get_o_auth_access_token(user_id, provider)
+  result = Clerk::SDK.users.get_oauth_access_token(user_id, provider)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->get_o_auth_access_token: #{e}"
+  puts "Error when calling Clerk::SDK.users->get_oauth_access_token: #{e}"
 end
 ```
 
-#### Using the `get_o_auth_access_token_with_http_info variant
+#### Using the `get_oauth_access_token_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<GetOAuthAccessToken200ResponseInner>>, Integer, Hash)> get_o_auth_access_token_with_http_info(user_id, provider)
+> <Array(<Array<GetOAuthAccessToken200ResponseInner>>, Integer, Hash)> get_oauth_access_token_with_http_info(user_id, provider)
 
 ```ruby
 begin
   # Retrieve the OAuth access token of a user
-  data, status_code, headers = sdk.get_o_auth_access_token_with_http_info(user_id, provider)
+  data, status_code, headers = Clerk::SDK.users.get_oauth_access_token_with_http_info(user_id, provider)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<GetOAuthAccessToken200ResponseInner>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->get_o_auth_access_token_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->get_oauth_access_token_with_http_info: #{e}"
 end
 ```
 
@@ -744,15 +734,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to retrieve
 
 begin
   # Retrieve a user
-  result = sdk.get_user(user_id)
+  result = Clerk::SDK.users.get_user(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->get_user: #{e}"
+  puts "Error when calling Clerk::SDK.users->get_user: #{e}"
 end
 ```
 
@@ -765,12 +754,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a user
-  data, status_code, headers = sdk.get_user_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.get_user_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->get_user_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->get_user_with_http_info: #{e}"
 end
 ```
 
@@ -813,7 +802,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 opts = {
   email_address: ['inner_example'], # Array<String> | Returns users with the specified email addresses. Accepts up to 100 email addresses. Any email addresses not found are ignored.
   phone_number: ['inner_example'], # Array<String> | Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
@@ -839,10 +827,10 @@ opts = {
 
 begin
   # List all users
-  result = sdk.get_user_list(opts)
+  result = Clerk::SDK.users.get_user_list(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->get_user_list: #{e}"
+  puts "Error when calling Clerk::SDK.users->get_user_list: #{e}"
 end
 ```
 
@@ -855,12 +843,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all users
-  data, status_code, headers = sdk.get_user_list_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.users.get_user_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<User>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->get_user_list_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->get_user_list_with_http_info: #{e}"
 end
 ```
 
@@ -922,7 +910,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 opts = {
   email_address: ['inner_example'], # Array<String> | Counts users with the specified email addresses. Accepts up to 100 email addresses. Any email addresses not found are ignored.
   phone_number: ['inner_example'], # Array<String> | Counts users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
@@ -938,10 +925,10 @@ opts = {
 
 begin
   # Count users
-  result = sdk.get_users_count(opts)
+  result = Clerk::SDK.users.get_users_count(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->get_users_count: #{e}"
+  puts "Error when calling Clerk::SDK.users->get_users_count: #{e}"
 end
 ```
 
@@ -954,12 +941,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Count users
-  data, status_code, headers = sdk.get_users_count_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.users.get_users_count_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TotalCount>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->get_users_count_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->get_users_count_with_http_info: #{e}"
 end
 ```
 
@@ -1011,15 +998,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to lock
 
 begin
   # Lock a user
-  result = sdk.lock_user(user_id)
+  result = Clerk::SDK.users.lock_user(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->lock_user: #{e}"
+  puts "Error when calling Clerk::SDK.users->lock_user: #{e}"
 end
 ```
 
@@ -1032,12 +1018,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Lock a user
-  data, status_code, headers = sdk.lock_user_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.lock_user_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->lock_user_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->lock_user_with_http_info: #{e}"
 end
 ```
 
@@ -1080,7 +1066,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to update the profile image for
 opts = {
   file: File.new('/path/to/some/file') # File | 
@@ -1088,10 +1073,10 @@ opts = {
 
 begin
   # Set user profile image
-  result = sdk.set_user_profile_image(user_id, opts)
+  result = Clerk::SDK.users.set_user_profile_image(user_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->set_user_profile_image: #{e}"
+  puts "Error when calling Clerk::SDK.users->set_user_profile_image: #{e}"
 end
 ```
 
@@ -1104,12 +1089,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Set user profile image
-  data, status_code, headers = sdk.set_user_profile_image_with_http_info(user_id, opts)
+  data, status_code, headers = Clerk::SDK.users.set_user_profile_image_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->set_user_profile_image_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->set_user_profile_image_with_http_info: #{e}"
 end
 ```
 
@@ -1153,15 +1138,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to unban
 
 begin
   # Unban a user
-  result = sdk.unban_user(user_id)
+  result = Clerk::SDK.users.unban_user(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->unban_user: #{e}"
+  puts "Error when calling Clerk::SDK.users->unban_user: #{e}"
 end
 ```
 
@@ -1174,12 +1158,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Unban a user
-  data, status_code, headers = sdk.unban_user_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.unban_user_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->unban_user_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->unban_user_with_http_info: #{e}"
 end
 ```
 
@@ -1222,15 +1206,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to unlock
 
 begin
   # Unlock a user
-  result = sdk.unlock_user(user_id)
+  result = Clerk::SDK.users.unlock_user(user_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->unlock_user: #{e}"
+  puts "Error when calling Clerk::SDK.users->unlock_user: #{e}"
 end
 ```
 
@@ -1243,12 +1226,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Unlock a user
-  data, status_code, headers = sdk.unlock_user_with_http_info(user_id)
+  data, status_code, headers = Clerk::SDK.users.unlock_user_with_http_info(user_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->unlock_user_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->unlock_user_with_http_info: #{e}"
 end
 ```
 
@@ -1291,16 +1274,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user to update
 update_user_request = ClerkHttpClient::UpdateUserRequest.new # UpdateUserRequest | 
 
 begin
   # Update a user
-  result = sdk.update_user(user_id, update_user_request)
+  result = Clerk::SDK.users.update_user(user_id, update_user_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->update_user: #{e}"
+  puts "Error when calling Clerk::SDK.users->update_user: #{e}"
 end
 ```
 
@@ -1313,12 +1295,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update a user
-  data, status_code, headers = sdk.update_user_with_http_info(user_id, update_user_request)
+  data, status_code, headers = Clerk::SDK.users.update_user_with_http_info(user_id, update_user_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->update_user_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->update_user_with_http_info: #{e}"
 end
 ```
 
@@ -1362,7 +1344,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose metadata will be updated and merged
 opts = {
   update_user_metadata_request: ClerkHttpClient::UpdateUserMetadataRequest.new # UpdateUserMetadataRequest | 
@@ -1370,10 +1351,10 @@ opts = {
 
 begin
   # Merge and update a user's metadata
-  result = sdk.update_user_metadata(user_id, opts)
+  result = Clerk::SDK.users.update_user_metadata(user_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->update_user_metadata: #{e}"
+  puts "Error when calling Clerk::SDK.users->update_user_metadata: #{e}"
 end
 ```
 
@@ -1386,12 +1367,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Merge and update a user's metadata
-  data, status_code, headers = sdk.update_user_metadata_with_http_info(user_id, opts)
+  data, status_code, headers = Clerk::SDK.users.update_user_metadata_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <User>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->update_user_metadata_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->update_user_metadata_with_http_info: #{e}"
 end
 ```
 
@@ -1435,16 +1416,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user that owns the passkey identity
 passkey_identification_id = 'passkey_identification_id_example' # String | The ID of the passkey identity to be deleted
 
 begin
   # Delete a user passkey
-  result = sdk.user_passkey_delete(user_id, passkey_identification_id)
+  result = Clerk::SDK.users.user_passkey_delete(user_id, passkey_identification_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->user_passkey_delete: #{e}"
+  puts "Error when calling Clerk::SDK.users->user_passkey_delete: #{e}"
 end
 ```
 
@@ -1457,12 +1437,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a user passkey
-  data, status_code, headers = sdk.user_passkey_delete_with_http_info(user_id, passkey_identification_id)
+  data, status_code, headers = Clerk::SDK.users.user_passkey_delete_with_http_info(user_id, passkey_identification_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->user_passkey_delete_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->user_passkey_delete_with_http_info: #{e}"
 end
 ```
 
@@ -1506,16 +1486,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user that owns the web3 wallet
 web3_wallet_identification_id = 'web3_wallet_identification_id_example' # String | The ID of the web3 wallet identity to be deleted
 
 begin
   # Delete a user web3 wallet
-  result = sdk.user_web3_wallet_delete(user_id, web3_wallet_identification_id)
+  result = Clerk::SDK.users.user_web3_wallet_delete(user_id, web3_wallet_identification_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->user_web3_wallet_delete: #{e}"
+  puts "Error when calling Clerk::SDK.users->user_web3_wallet_delete: #{e}"
 end
 ```
 
@@ -1528,12 +1507,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete a user web3 wallet
-  data, status_code, headers = sdk.user_web3_wallet_delete_with_http_info(user_id, web3_wallet_identification_id)
+  data, status_code, headers = Clerk::SDK.users.user_web3_wallet_delete_with_http_info(user_id, web3_wallet_identification_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->user_web3_wallet_delete_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->user_web3_wallet_delete_with_http_info: #{e}"
 end
 ```
 
@@ -1577,7 +1556,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose organization invitations we want to retrieve
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
@@ -1587,10 +1565,10 @@ opts = {
 
 begin
   # Retrieve all invitations for a user
-  result = sdk.users_get_organization_invitations(user_id, opts)
+  result = Clerk::SDK.users.users_get_organization_invitations(user_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->users_get_organization_invitations: #{e}"
+  puts "Error when calling Clerk::SDK.users->users_get_organization_invitations: #{e}"
 end
 ```
 
@@ -1603,12 +1581,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve all invitations for a user
-  data, status_code, headers = sdk.users_get_organization_invitations_with_http_info(user_id, opts)
+  data, status_code, headers = Clerk::SDK.users.users_get_organization_invitations_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitationsWithPublicOrganizationData>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->users_get_organization_invitations_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->users_get_organization_invitations_with_http_info: #{e}"
 end
 ```
 
@@ -1654,7 +1632,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user whose organization memberships we want to retrieve
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
@@ -1663,10 +1640,10 @@ opts = {
 
 begin
   # Retrieve all memberships for a user
-  result = sdk.users_get_organization_memberships(user_id, opts)
+  result = Clerk::SDK.users.users_get_organization_memberships(user_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->users_get_organization_memberships: #{e}"
+  puts "Error when calling Clerk::SDK.users->users_get_organization_memberships: #{e}"
 end
 ```
 
@@ -1679,12 +1656,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve all memberships for a user
-  data, status_code, headers = sdk.users_get_organization_memberships_with_http_info(user_id, opts)
+  data, status_code, headers = Clerk::SDK.users.users_get_organization_memberships_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationMemberships>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->users_get_organization_memberships_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->users_get_organization_memberships_with_http_info: #{e}"
 end
 ```
 
@@ -1729,7 +1706,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user for whom to verify the password
 opts = {
   verify_password_request: ClerkHttpClient::VerifyPasswordRequest.new({password: 'password_example'}) # VerifyPasswordRequest | 
@@ -1737,10 +1713,10 @@ opts = {
 
 begin
   # Verify the password of a user
-  result = sdk.verify_password(user_id, opts)
+  result = Clerk::SDK.users.verify_password(user_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->verify_password: #{e}"
+  puts "Error when calling Clerk::SDK.users->verify_password: #{e}"
 end
 ```
 
@@ -1753,12 +1729,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Verify the password of a user
-  data, status_code, headers = sdk.verify_password_with_http_info(user_id, opts)
+  data, status_code, headers = Clerk::SDK.users.verify_password_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <VerifyPassword200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->verify_password_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->verify_password_with_http_info: #{e}"
 end
 ```
 
@@ -1802,7 +1778,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::UsersApi.new
 user_id = 'user_id_example' # String | The ID of the user for whom to verify the TOTP
 opts = {
   verify_totp_request: ClerkHttpClient::VerifyTOTPRequest.new({code: 'code_example'}) # VerifyTOTPRequest | 
@@ -1810,10 +1785,10 @@ opts = {
 
 begin
   # Verify a TOTP or backup code for a user
-  result = sdk.verify_totp(user_id, opts)
+  result = Clerk::SDK.users.verify_totp(user_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->verify_totp: #{e}"
+  puts "Error when calling Clerk::SDK.users->verify_totp: #{e}"
 end
 ```
 
@@ -1826,12 +1801,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Verify a TOTP or backup code for a user
-  data, status_code, headers = sdk.verify_totp_with_http_info(user_id, opts)
+  data, status_code, headers = Clerk::SDK.users.verify_totp_with_http_info(user_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <VerifyTOTP200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling UsersApi->verify_totp_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.users->verify_totp_with_http_info: #{e}"
 end
 ```
 

@@ -27,17 +27,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::WaitlistEntriesApi.new
 opts = {
   create_waitlist_entry_request: ClerkHttpClient::CreateWaitlistEntryRequest.new({email_address: 'email_address_example'}) # CreateWaitlistEntryRequest | 
 }
 
 begin
   # Create a waitlist entry
-  result = sdk.create_waitlist_entry(opts)
+  result = Clerk::SDK.waitlist_entries.create_waitlist_entry(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WaitlistEntriesApi->create_waitlist_entry: #{e}"
+  puts "Error when calling Clerk::SDK.waitlist_entries->create_waitlist_entry: #{e}"
 end
 ```
 
@@ -50,12 +49,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a waitlist entry
-  data, status_code, headers = sdk.create_waitlist_entry_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.waitlist_entries.create_waitlist_entry_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <WaitlistEntry>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WaitlistEntriesApi->create_waitlist_entry_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.waitlist_entries->create_waitlist_entry_with_http_info: #{e}"
 end
 ```
 
@@ -98,7 +97,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::WaitlistEntriesApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -109,10 +107,10 @@ opts = {
 
 begin
   # List all waitlist entries
-  result = sdk.list_waitlist_entries(opts)
+  result = Clerk::SDK.waitlist_entries.list_waitlist_entries(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WaitlistEntriesApi->list_waitlist_entries: #{e}"
+  puts "Error when calling Clerk::SDK.waitlist_entries->list_waitlist_entries: #{e}"
 end
 ```
 
@@ -125,12 +123,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all waitlist entries
-  data, status_code, headers = sdk.list_waitlist_entries_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.waitlist_entries.list_waitlist_entries_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <ListWaitlistEntries200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling WaitlistEntriesApi->list_waitlist_entries_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.waitlist_entries->list_waitlist_entries_with_http_info: #{e}"
 end
 ```
 

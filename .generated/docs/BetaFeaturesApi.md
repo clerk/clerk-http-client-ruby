@@ -28,16 +28,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::BetaFeaturesApi.new
 opts = {
   change_production_instance_domain_request: ClerkHttpClient::ChangeProductionInstanceDomainRequest.new # ChangeProductionInstanceDomainRequest | 
 }
 
 begin
   # Update production instance domain
-  sdk.change_production_instance_domain(opts)
+  Clerk::SDK.beta_features.change_production_instance_domain(opts)
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling BetaFeaturesApi->change_production_instance_domain: #{e}"
+  puts "Error when calling Clerk::SDK.beta_features->change_production_instance_domain: #{e}"
 end
 ```
 
@@ -50,12 +49,12 @@ This returns an Array which contains the response data (`nil` in this case), sta
 ```ruby
 begin
   # Update production instance domain
-  data, status_code, headers = sdk.change_production_instance_domain_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.beta_features.change_production_instance_domain_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling BetaFeaturesApi->change_production_instance_domain_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.beta_features->change_production_instance_domain_with_http_info: #{e}"
 end
 ```
 
@@ -98,17 +97,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::BetaFeaturesApi.new
 opts = {
   update_instance_auth_config_request: ClerkHttpClient::UpdateInstanceAuthConfigRequest.new # UpdateInstanceAuthConfigRequest | 
 }
 
 begin
   # Update instance settings
-  result = sdk.update_instance_auth_config(opts)
+  result = Clerk::SDK.beta_features.update_instance_auth_config(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling BetaFeaturesApi->update_instance_auth_config: #{e}"
+  puts "Error when calling Clerk::SDK.beta_features->update_instance_auth_config: #{e}"
 end
 ```
 
@@ -121,12 +119,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update instance settings
-  data, status_code, headers = sdk.update_instance_auth_config_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.beta_features.update_instance_auth_config_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <UpdateInstanceAuthConfig200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling BetaFeaturesApi->update_instance_auth_config_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.beta_features->update_instance_auth_config_with_http_info: #{e}"
 end
 ```
 
@@ -169,16 +167,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::BetaFeaturesApi.new
 opts = {
   update_production_instance_domain_request: ClerkHttpClient::UpdateProductionInstanceDomainRequest.new # UpdateProductionInstanceDomainRequest | 
 }
 
 begin
   # Update production instance domain
-  sdk.update_production_instance_domain(opts)
+  Clerk::SDK.beta_features.update_production_instance_domain(opts)
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling BetaFeaturesApi->update_production_instance_domain: #{e}"
+  puts "Error when calling Clerk::SDK.beta_features->update_production_instance_domain: #{e}"
 end
 ```
 
@@ -191,12 +188,12 @@ This returns an Array which contains the response data (`nil` in this case), sta
 ```ruby
 begin
   # Update production instance domain
-  data, status_code, headers = sdk.update_production_instance_domain_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.beta_features.update_production_instance_domain_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling BetaFeaturesApi->update_production_instance_domain_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.beta_features->update_production_instance_domain_with_http_info: #{e}"
 end
 ```
 

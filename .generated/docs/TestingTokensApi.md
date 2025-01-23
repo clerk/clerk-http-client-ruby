@@ -26,14 +26,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::TestingTokensApi.new
 
 begin
   # Retrieve a new testing token
-  result = sdk.create_testing_token
+  result = Clerk::SDK.testing_tokens.create_testing_token
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling TestingTokensApi->create_testing_token: #{e}"
+  puts "Error when calling Clerk::SDK.testing_tokens->create_testing_token: #{e}"
 end
 ```
 
@@ -46,12 +45,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a new testing token
-  data, status_code, headers = sdk.create_testing_token_with_http_info
+  data, status_code, headers = Clerk::SDK.testing_tokens.create_testing_token_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <TestingToken>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling TestingTokensApi->create_testing_token_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.testing_tokens->create_testing_token_with_http_info: #{e}"
 end
 ```
 

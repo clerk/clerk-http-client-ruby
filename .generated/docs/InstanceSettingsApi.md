@@ -29,14 +29,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::InstanceSettingsApi.new
 
 begin
   # Fetch the current instance
-  result = sdk.get_instance
+  result = Clerk::SDK.instance_settings.get_instance
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InstanceSettingsApi->get_instance: #{e}"
+  puts "Error when calling Clerk::SDK.instance_settings->get_instance: #{e}"
 end
 ```
 
@@ -49,12 +48,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Fetch the current instance
-  data, status_code, headers = sdk.get_instance_with_http_info
+  data, status_code, headers = Clerk::SDK.instance_settings.get_instance_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Instance>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InstanceSettingsApi->get_instance_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.instance_settings->get_instance_with_http_info: #{e}"
 end
 ```
 
@@ -95,16 +94,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::InstanceSettingsApi.new
 opts = {
   update_instance_request: ClerkHttpClient::UpdateInstanceRequest.new # UpdateInstanceRequest | 
 }
 
 begin
   # Update instance settings
-  sdk.update_instance(opts)
+  Clerk::SDK.instance_settings.update_instance(opts)
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InstanceSettingsApi->update_instance: #{e}"
+  puts "Error when calling Clerk::SDK.instance_settings->update_instance: #{e}"
 end
 ```
 
@@ -117,12 +115,12 @@ This returns an Array which contains the response data (`nil` in this case), sta
 ```ruby
 begin
   # Update instance settings
-  data, status_code, headers = sdk.update_instance_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.instance_settings.update_instance_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => nil
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InstanceSettingsApi->update_instance_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.instance_settings->update_instance_with_http_info: #{e}"
 end
 ```
 
@@ -165,17 +163,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::InstanceSettingsApi.new
 opts = {
   update_instance_organization_settings_request: ClerkHttpClient::UpdateInstanceOrganizationSettingsRequest.new # UpdateInstanceOrganizationSettingsRequest | 
 }
 
 begin
   # Update instance organization settings
-  result = sdk.update_instance_organization_settings(opts)
+  result = Clerk::SDK.instance_settings.update_instance_organization_settings(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InstanceSettingsApi->update_instance_organization_settings: #{e}"
+  puts "Error when calling Clerk::SDK.instance_settings->update_instance_organization_settings: #{e}"
 end
 ```
 
@@ -188,12 +185,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update instance organization settings
-  data, status_code, headers = sdk.update_instance_organization_settings_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.instance_settings.update_instance_organization_settings_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationSettings>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InstanceSettingsApi->update_instance_organization_settings_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.instance_settings->update_instance_organization_settings_with_http_info: #{e}"
 end
 ```
 
@@ -236,17 +233,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::InstanceSettingsApi.new
 opts = {
   update_instance_restrictions_request: ClerkHttpClient::UpdateInstanceRestrictionsRequest.new # UpdateInstanceRestrictionsRequest | 
 }
 
 begin
   # Update instance restrictions
-  result = sdk.update_instance_restrictions(opts)
+  result = Clerk::SDK.instance_settings.update_instance_restrictions(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InstanceSettingsApi->update_instance_restrictions: #{e}"
+  puts "Error when calling Clerk::SDK.instance_settings->update_instance_restrictions: #{e}"
 end
 ```
 
@@ -259,12 +255,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Update instance restrictions
-  data, status_code, headers = sdk.update_instance_restrictions_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.instance_settings.update_instance_restrictions_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <InstanceRestrictions>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling InstanceSettingsApi->update_instance_restrictions_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.instance_settings->update_instance_restrictions_with_http_info: #{e}"
 end
 ```
 

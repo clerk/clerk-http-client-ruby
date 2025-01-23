@@ -31,17 +31,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::AllowListBlockListApi.new
 opts = {
   create_allowlist_identifier_request: ClerkHttpClient::CreateAllowlistIdentifierRequest.new({identifier: 'identifier_example'}) # CreateAllowlistIdentifierRequest | 
 }
 
 begin
   # Add identifier to the allow-list
-  result = sdk.create_allowlist_identifier(opts)
+  result = Clerk::SDK.allow_list_block_list.create_allowlist_identifier(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->create_allowlist_identifier: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->create_allowlist_identifier: #{e}"
 end
 ```
 
@@ -54,12 +53,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Add identifier to the allow-list
-  data, status_code, headers = sdk.create_allowlist_identifier_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.allow_list_block_list.create_allowlist_identifier_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <AllowlistIdentifier>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->create_allowlist_identifier_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->create_allowlist_identifier_with_http_info: #{e}"
 end
 ```
 
@@ -102,17 +101,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::AllowListBlockListApi.new
 opts = {
   create_blocklist_identifier_request: ClerkHttpClient::CreateBlocklistIdentifierRequest.new({identifier: 'identifier_example'}) # CreateBlocklistIdentifierRequest | 
 }
 
 begin
   # Add identifier to the block-list
-  result = sdk.create_blocklist_identifier(opts)
+  result = Clerk::SDK.allow_list_block_list.create_blocklist_identifier(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->create_blocklist_identifier: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->create_blocklist_identifier: #{e}"
 end
 ```
 
@@ -125,12 +123,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Add identifier to the block-list
-  data, status_code, headers = sdk.create_blocklist_identifier_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.allow_list_block_list.create_blocklist_identifier_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BlocklistIdentifier>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->create_blocklist_identifier_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->create_blocklist_identifier_with_http_info: #{e}"
 end
 ```
 
@@ -173,15 +171,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::AllowListBlockListApi.new
 identifier_id = 'identifier_id_example' # String | The ID of the identifier to delete from the allow-list
 
 begin
   # Delete identifier from allow-list
-  result = sdk.delete_allowlist_identifier(identifier_id)
+  result = Clerk::SDK.allow_list_block_list.delete_allowlist_identifier(identifier_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->delete_allowlist_identifier: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->delete_allowlist_identifier: #{e}"
 end
 ```
 
@@ -194,12 +191,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete identifier from allow-list
-  data, status_code, headers = sdk.delete_allowlist_identifier_with_http_info(identifier_id)
+  data, status_code, headers = Clerk::SDK.allow_list_block_list.delete_allowlist_identifier_with_http_info(identifier_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->delete_allowlist_identifier_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->delete_allowlist_identifier_with_http_info: #{e}"
 end
 ```
 
@@ -242,15 +239,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::AllowListBlockListApi.new
 identifier_id = 'identifier_id_example' # String | The ID of the identifier to delete from the block-list
 
 begin
   # Delete identifier from block-list
-  result = sdk.delete_blocklist_identifier(identifier_id)
+  result = Clerk::SDK.allow_list_block_list.delete_blocklist_identifier(identifier_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->delete_blocklist_identifier: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->delete_blocklist_identifier: #{e}"
 end
 ```
 
@@ -263,12 +259,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Delete identifier from block-list
-  data, status_code, headers = sdk.delete_blocklist_identifier_with_http_info(identifier_id)
+  data, status_code, headers = Clerk::SDK.allow_list_block_list.delete_blocklist_identifier_with_http_info(identifier_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->delete_blocklist_identifier_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->delete_blocklist_identifier_with_http_info: #{e}"
 end
 ```
 
@@ -311,14 +307,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::AllowListBlockListApi.new
 
 begin
   # List all identifiers on the allow-list
-  result = sdk.list_allowlist_identifiers
+  result = Clerk::SDK.allow_list_block_list.list_allowlist_identifiers
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->list_allowlist_identifiers: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->list_allowlist_identifiers: #{e}"
 end
 ```
 
@@ -331,12 +326,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all identifiers on the allow-list
-  data, status_code, headers = sdk.list_allowlist_identifiers_with_http_info
+  data, status_code, headers = Clerk::SDK.allow_list_block_list.list_allowlist_identifiers_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<AllowlistIdentifier>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->list_allowlist_identifiers_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->list_allowlist_identifiers_with_http_info: #{e}"
 end
 ```
 
@@ -377,14 +372,13 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::AllowListBlockListApi.new
 
 begin
   # List all identifiers on the block-list
-  result = sdk.list_blocklist_identifiers
+  result = Clerk::SDK.allow_list_block_list.list_blocklist_identifiers
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->list_blocklist_identifiers: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->list_blocklist_identifiers: #{e}"
 end
 ```
 
@@ -397,12 +391,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all identifiers on the block-list
-  data, status_code, headers = sdk.list_blocklist_identifiers_with_http_info
+  data, status_code, headers = Clerk::SDK.allow_list_block_list.list_blocklist_identifiers_with_http_info
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <BlocklistIdentifiers>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling AllowListBlockListApi->list_blocklist_identifiers_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.allow_list_block_list->list_blocklist_identifiers_with_http_info: #{e}"
 end
 ```
 

@@ -32,17 +32,16 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SessionsApi.new
 opts = {
   create_session_request: ClerkHttpClient::CreateSessionRequest.new # CreateSessionRequest | 
 }
 
 begin
   # Create a new active session
-  result = sdk.create_session(opts)
+  result = Clerk::SDK.sessions.create_session(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->create_session: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->create_session: #{e}"
 end
 ```
 
@@ -55,12 +54,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a new active session
-  data, status_code, headers = sdk.create_session_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.sessions.create_session_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Session>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->create_session_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->create_session_with_http_info: #{e}"
 end
 ```
 
@@ -103,7 +102,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 opts = {
   create_session_token_request: ClerkHttpClient::CreateSessionTokenRequest.new # CreateSessionTokenRequest | 
@@ -111,10 +109,10 @@ opts = {
 
 begin
   # Create a session token
-  result = sdk.create_session_token(session_id, opts)
+  result = Clerk::SDK.sessions.create_session_token(session_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->create_session_token: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->create_session_token: #{e}"
 end
 ```
 
@@ -127,12 +125,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a session token
-  data, status_code, headers = sdk.create_session_token_with_http_info(session_id, opts)
+  data, status_code, headers = Clerk::SDK.sessions.create_session_token_with_http_info(session_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CreateSessionToken200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->create_session_token_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->create_session_token_with_http_info: #{e}"
 end
 ```
 
@@ -176,7 +174,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 template_name = 'template_name_example' # String | The name of the JWT Template defined in your instance (e.g. `custom_hasura`).
 opts = {
@@ -185,10 +182,10 @@ opts = {
 
 begin
   # Create a session token from a jwt template
-  result = sdk.create_session_token_from_template(session_id, template_name, opts)
+  result = Clerk::SDK.sessions.create_session_token_from_template(session_id, template_name, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->create_session_token_from_template: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->create_session_token_from_template: #{e}"
 end
 ```
 
@@ -201,12 +198,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Create a session token from a jwt template
-  data, status_code, headers = sdk.create_session_token_from_template_with_http_info(session_id, template_name, opts)
+  data, status_code, headers = Clerk::SDK.sessions.create_session_token_from_template_with_http_info(session_id, template_name, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <CreateSessionToken200Response>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->create_session_token_from_template_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->create_session_token_from_template_with_http_info: #{e}"
 end
 ```
 
@@ -251,15 +248,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 
 begin
   # Retrieve a session
-  result = sdk.get_session(session_id)
+  result = Clerk::SDK.sessions.get_session(session_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->get_session: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->get_session: #{e}"
 end
 ```
 
@@ -272,12 +268,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Retrieve a session
-  data, status_code, headers = sdk.get_session_with_http_info(session_id)
+  data, status_code, headers = Clerk::SDK.sessions.get_session_with_http_info(session_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Session>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->get_session_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->get_session_with_http_info: #{e}"
 end
 ```
 
@@ -320,7 +316,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SessionsApi.new
 opts = {
   client_id: 'client_id_example', # String | List sessions for the given client
   user_id: 'user_id_example', # String | List sessions for the given user
@@ -331,10 +326,10 @@ opts = {
 
 begin
   # List all sessions
-  result = sdk.get_session_list(opts)
+  result = Clerk::SDK.sessions.get_session_list(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->get_session_list: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->get_session_list: #{e}"
 end
 ```
 
@@ -347,12 +342,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # List all sessions
-  data, status_code, headers = sdk.get_session_list_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.sessions.get_session_list_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Session>>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->get_session_list_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->get_session_list_with_http_info: #{e}"
 end
 ```
 
@@ -399,15 +394,14 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 
 begin
   # Revoke a session
-  result = sdk.revoke_session(session_id)
+  result = Clerk::SDK.sessions.revoke_session(session_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->revoke_session: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->revoke_session: #{e}"
 end
 ```
 
@@ -420,12 +414,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Revoke a session
-  data, status_code, headers = sdk.revoke_session_with_http_info(session_id)
+  data, status_code, headers = Clerk::SDK.sessions.revoke_session_with_http_info(session_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Session>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->revoke_session_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->revoke_session_with_http_info: #{e}"
 end
 ```
 
@@ -468,7 +462,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::SessionsApi.new
 session_id = 'session_id_example' # String | The ID of the session
 opts = {
   verify_session_request: ClerkHttpClient::VerifySessionRequest.new # VerifySessionRequest | Parameters.
@@ -476,10 +469,10 @@ opts = {
 
 begin
   # Verify a session
-  result = sdk.verify_session(session_id, opts)
+  result = Clerk::SDK.sessions.verify_session(session_id, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->verify_session: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->verify_session: #{e}"
 end
 ```
 
@@ -492,12 +485,12 @@ This returns an Array which contains the response data, status code and headers.
 ```ruby
 begin
   # Verify a session
-  data, status_code, headers = sdk.verify_session_with_http_info(session_id, opts)
+  data, status_code, headers = Clerk::SDK.sessions.verify_session_with_http_info(session_id, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Session>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling SessionsApi->verify_session_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.sessions->verify_session_with_http_info: #{e}"
 end
 ```
 

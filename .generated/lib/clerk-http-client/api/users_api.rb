@@ -622,8 +622,8 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @return [Array<GetOAuthAccessToken200ResponseInner>]
 
-    def get_o_auth_access_token(user_id, provider, opts = {})
-      data, _status_code, _headers = get_o_auth_access_token_with_http_info(user_id, provider, opts)
+    def get_oauth_access_token(user_id, provider, opts = {})
+      data, _status_code, _headers = get_oauth_access_token_with_http_info(user_id, provider, opts)
       data
     end
 
@@ -634,17 +634,17 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<GetOAuthAccessToken200ResponseInner>, Integer, Hash)>] Array<GetOAuthAccessToken200ResponseInner> data, response status code and response headers
     # GET array
-    def get_o_auth_access_token_with_http_info(user_id, provider, opts = {})
+    def get_oauth_access_token_with_http_info(user_id, provider, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsersApi.get_o_auth_access_token ...'
+        @api_client.config.logger.debug 'Calling API: UsersApi.get_oauth_access_token ...'
       end
       # verify the required parameter 'user_id' is set
       if @api_client.config.client_side_validation && user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersApi.get_o_auth_access_token"
+        fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersApi.get_oauth_access_token"
       end
       # verify the required parameter 'provider' is set
       if @api_client.config.client_side_validation && provider.nil?
-        fail ArgumentError, "Missing the required parameter 'provider' when calling UsersApi.get_o_auth_access_token"
+        fail ArgumentError, "Missing the required parameter 'provider' when calling UsersApi.get_oauth_access_token"
       end
       # resource path
       local_var_path = '/users/{user_id}/oauth_access_tokens/{provider}'.sub('{' + 'user_id' + '}', CGI.escape(user_id.to_s)).sub('{' + 'provider' + '}', CGI.escape(provider.to_s))
@@ -670,7 +670,7 @@ module ClerkHttpClient
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
 
       new_options = opts.merge(
-        :operation => :"UsersApi.get_o_auth_access_token",
+        :operation => :"UsersApi.get_oauth_access_token",
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -681,7 +681,7 @@ module ClerkHttpClient
 
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsersApi#get_o_auth_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#get_oauth_access_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

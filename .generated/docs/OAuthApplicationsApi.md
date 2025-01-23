@@ -4,17 +4,17 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
-| [**create_o_auth_application**](OAuthApplicationsApi.md#create_o_auth_application) | **POST** /oauth_applications | Create an OAuth application |
-| [**delete_o_auth_application**](OAuthApplicationsApi.md#delete_o_auth_application) | **DELETE** /oauth_applications/{oauth_application_id} | Delete an OAuth application |
-| [**get_o_auth_application**](OAuthApplicationsApi.md#get_o_auth_application) | **GET** /oauth_applications/{oauth_application_id} | Retrieve an OAuth application by ID |
-| [**list_o_auth_applications**](OAuthApplicationsApi.md#list_o_auth_applications) | **GET** /oauth_applications | Get a list of OAuth applications for an instance |
-| [**rotate_o_auth_application_secret**](OAuthApplicationsApi.md#rotate_o_auth_application_secret) | **POST** /oauth_applications/{oauth_application_id}/rotate_secret | Rotate the client secret of the given OAuth application |
-| [**update_o_auth_application**](OAuthApplicationsApi.md#update_o_auth_application) | **PATCH** /oauth_applications/{oauth_application_id} | Update an OAuth application |
+| [**create_oauth_application**](OAuthApplicationsApi.md#create_oauth_application) | **POST** /oauth_applications | Create an OAuth application |
+| [**delete_oauth_application**](OAuthApplicationsApi.md#delete_oauth_application) | **DELETE** /oauth_applications/{oauth_application_id} | Delete an OAuth application |
+| [**get_oauth_application**](OAuthApplicationsApi.md#get_oauth_application) | **GET** /oauth_applications/{oauth_application_id} | Retrieve an OAuth application by ID |
+| [**list_oauth_applications**](OAuthApplicationsApi.md#list_oauth_applications) | **GET** /oauth_applications | Get a list of OAuth applications for an instance |
+| [**rotate_oauth_application_secret**](OAuthApplicationsApi.md#rotate_oauth_application_secret) | **POST** /oauth_applications/{oauth_application_id}/rotate_secret | Rotate the client secret of the given OAuth application |
+| [**update_oauth_application**](OAuthApplicationsApi.md#update_oauth_application) | **PATCH** /oauth_applications/{oauth_application_id} | Update an OAuth application |
 
 
-## create_o_auth_application
+## create_oauth_application
 
-> <OAuthApplicationWithSecret> create_o_auth_application(opts)
+> <OAuthApplicationWithSecret> create_oauth_application(opts)
 
 Create an OAuth application
 
@@ -31,35 +31,34 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OAuthApplicationsApi.new
 opts = {
-  create_o_auth_application_request: ClerkHttpClient::CreateOAuthApplicationRequest.new({name: 'name_example'}) # CreateOAuthApplicationRequest | 
+  create_oauth_application_request: ClerkHttpClient::CreateOAuthApplicationRequest.new({name: 'name_example'}) # CreateOAuthApplicationRequest | 
 }
 
 begin
   # Create an OAuth application
-  result = sdk.create_o_auth_application(opts)
+  result = Clerk::SDK.oauth_applications.create_oauth_application(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->create_o_auth_application: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->create_oauth_application: #{e}"
 end
 ```
 
-#### Using the `create_o_auth_application_with_http_info variant
+#### Using the `create_oauth_application_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OAuthApplicationWithSecret>, Integer, Hash)> create_o_auth_application_with_http_info(opts)
+> <Array(<OAuthApplicationWithSecret>, Integer, Hash)> create_oauth_application_with_http_info(opts)
 
 ```ruby
 begin
   # Create an OAuth application
-  data, status_code, headers = sdk.create_o_auth_application_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.oauth_applications.create_oauth_application_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplicationWithSecret>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->create_o_auth_application_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->create_oauth_application_with_http_info: #{e}"
 end
 ```
 
@@ -67,7 +66,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **create_o_auth_application_request** | [**CreateOAuthApplicationRequest**](CreateOAuthApplicationRequest.md) |  | [optional] |
+| **create_oauth_application_request** | [**CreateOAuthApplicationRequest**](CreateOAuthApplicationRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -83,9 +82,9 @@ end
 - **Accept**: application/json
 
 
-## delete_o_auth_application
+## delete_oauth_application
 
-> <DeletedObject> delete_o_auth_application(oauth_application_id)
+> <DeletedObject> delete_oauth_application(oauth_application_id)
 
 Delete an OAuth application
 
@@ -102,33 +101,32 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OAuthApplicationsApi.new
 oauth_application_id = 'oauth_application_id_example' # String | The ID of the OAuth application to delete
 
 begin
   # Delete an OAuth application
-  result = sdk.delete_o_auth_application(oauth_application_id)
+  result = Clerk::SDK.oauth_applications.delete_oauth_application(oauth_application_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->delete_o_auth_application: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->delete_oauth_application: #{e}"
 end
 ```
 
-#### Using the `delete_o_auth_application_with_http_info variant
+#### Using the `delete_oauth_application_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<DeletedObject>, Integer, Hash)> delete_o_auth_application_with_http_info(oauth_application_id)
+> <Array(<DeletedObject>, Integer, Hash)> delete_oauth_application_with_http_info(oauth_application_id)
 
 ```ruby
 begin
   # Delete an OAuth application
-  data, status_code, headers = sdk.delete_o_auth_application_with_http_info(oauth_application_id)
+  data, status_code, headers = Clerk::SDK.oauth_applications.delete_oauth_application_with_http_info(oauth_application_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <DeletedObject>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->delete_o_auth_application_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->delete_oauth_application_with_http_info: #{e}"
 end
 ```
 
@@ -152,9 +150,9 @@ end
 - **Accept**: application/json
 
 
-## get_o_auth_application
+## get_oauth_application
 
-> <OAuthApplication> get_o_auth_application(oauth_application_id)
+> <OAuthApplication> get_oauth_application(oauth_application_id)
 
 Retrieve an OAuth application by ID
 
@@ -171,33 +169,32 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OAuthApplicationsApi.new
 oauth_application_id = 'oauth_application_id_example' # String | The ID of the OAuth application
 
 begin
   # Retrieve an OAuth application by ID
-  result = sdk.get_o_auth_application(oauth_application_id)
+  result = Clerk::SDK.oauth_applications.get_oauth_application(oauth_application_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->get_o_auth_application: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->get_oauth_application: #{e}"
 end
 ```
 
-#### Using the `get_o_auth_application_with_http_info variant
+#### Using the `get_oauth_application_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OAuthApplication>, Integer, Hash)> get_o_auth_application_with_http_info(oauth_application_id)
+> <Array(<OAuthApplication>, Integer, Hash)> get_oauth_application_with_http_info(oauth_application_id)
 
 ```ruby
 begin
   # Retrieve an OAuth application by ID
-  data, status_code, headers = sdk.get_o_auth_application_with_http_info(oauth_application_id)
+  data, status_code, headers = Clerk::SDK.oauth_applications.get_oauth_application_with_http_info(oauth_application_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplication>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->get_o_auth_application_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->get_oauth_application_with_http_info: #{e}"
 end
 ```
 
@@ -221,9 +218,9 @@ end
 - **Accept**: application/json
 
 
-## list_o_auth_applications
+## list_oauth_applications
 
-> <OAuthApplications> list_o_auth_applications(opts)
+> <OAuthApplications> list_oauth_applications(opts)
 
 Get a list of OAuth applications for an instance
 
@@ -240,7 +237,6 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OAuthApplicationsApi.new
 opts = {
   limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
@@ -248,28 +244,28 @@ opts = {
 
 begin
   # Get a list of OAuth applications for an instance
-  result = sdk.list_o_auth_applications(opts)
+  result = Clerk::SDK.oauth_applications.list_oauth_applications(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->list_o_auth_applications: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->list_oauth_applications: #{e}"
 end
 ```
 
-#### Using the `list_o_auth_applications_with_http_info variant
+#### Using the `list_oauth_applications_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OAuthApplications>, Integer, Hash)> list_o_auth_applications_with_http_info(opts)
+> <Array(<OAuthApplications>, Integer, Hash)> list_oauth_applications_with_http_info(opts)
 
 ```ruby
 begin
   # Get a list of OAuth applications for an instance
-  data, status_code, headers = sdk.list_o_auth_applications_with_http_info(opts)
+  data, status_code, headers = Clerk::SDK.oauth_applications.list_oauth_applications_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplications>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->list_o_auth_applications_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->list_oauth_applications_with_http_info: #{e}"
 end
 ```
 
@@ -294,9 +290,9 @@ end
 - **Accept**: application/json
 
 
-## rotate_o_auth_application_secret
+## rotate_oauth_application_secret
 
-> <OAuthApplicationWithSecret> rotate_o_auth_application_secret(oauth_application_id)
+> <OAuthApplicationWithSecret> rotate_oauth_application_secret(oauth_application_id)
 
 Rotate the client secret of the given OAuth application
 
@@ -313,33 +309,32 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OAuthApplicationsApi.new
 oauth_application_id = 'oauth_application_id_example' # String | The ID of the OAuth application for which to rotate the client secret
 
 begin
   # Rotate the client secret of the given OAuth application
-  result = sdk.rotate_o_auth_application_secret(oauth_application_id)
+  result = Clerk::SDK.oauth_applications.rotate_oauth_application_secret(oauth_application_id)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->rotate_o_auth_application_secret: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->rotate_oauth_application_secret: #{e}"
 end
 ```
 
-#### Using the `rotate_o_auth_application_secret_with_http_info variant
+#### Using the `rotate_oauth_application_secret_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OAuthApplicationWithSecret>, Integer, Hash)> rotate_o_auth_application_secret_with_http_info(oauth_application_id)
+> <Array(<OAuthApplicationWithSecret>, Integer, Hash)> rotate_oauth_application_secret_with_http_info(oauth_application_id)
 
 ```ruby
 begin
   # Rotate the client secret of the given OAuth application
-  data, status_code, headers = sdk.rotate_o_auth_application_secret_with_http_info(oauth_application_id)
+  data, status_code, headers = Clerk::SDK.oauth_applications.rotate_oauth_application_secret_with_http_info(oauth_application_id)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplicationWithSecret>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->rotate_o_auth_application_secret_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->rotate_oauth_application_secret_with_http_info: #{e}"
 end
 ```
 
@@ -363,9 +358,9 @@ end
 - **Accept**: application/json
 
 
-## update_o_auth_application
+## update_oauth_application
 
-> <OAuthApplication> update_o_auth_application(oauth_application_id, update_o_auth_application_request)
+> <OAuthApplication> update_oauth_application(oauth_application_id, update_oauth_application_request)
 
 Update an OAuth application
 
@@ -382,34 +377,33 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-sdk = ClerkHttpClient::OAuthApplicationsApi.new
 oauth_application_id = 'oauth_application_id_example' # String | The ID of the OAuth application to update
-update_o_auth_application_request = ClerkHttpClient::UpdateOAuthApplicationRequest.new # UpdateOAuthApplicationRequest | 
+update_oauth_application_request = ClerkHttpClient::UpdateOAuthApplicationRequest.new # UpdateOAuthApplicationRequest | 
 
 begin
   # Update an OAuth application
-  result = sdk.update_o_auth_application(oauth_application_id, update_o_auth_application_request)
+  result = Clerk::SDK.oauth_applications.update_oauth_application(oauth_application_id, update_oauth_application_request)
   p result
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->update_o_auth_application: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->update_oauth_application: #{e}"
 end
 ```
 
-#### Using the `update_o_auth_application_with_http_info variant
+#### Using the `update_oauth_application_with_http_info variant
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OAuthApplication>, Integer, Hash)> update_o_auth_application_with_http_info(oauth_application_id, update_o_auth_application_request)
+> <Array(<OAuthApplication>, Integer, Hash)> update_oauth_application_with_http_info(oauth_application_id, update_oauth_application_request)
 
 ```ruby
 begin
   # Update an OAuth application
-  data, status_code, headers = sdk.update_o_auth_application_with_http_info(oauth_application_id, update_o_auth_application_request)
+  data, status_code, headers = Clerk::SDK.oauth_applications.update_oauth_application_with_http_info(oauth_application_id, update_oauth_application_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OAuthApplication>
 rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling OAuthApplicationsApi->update_o_auth_application_with_http_info: #{e}"
+  puts "Error when calling Clerk::SDK.oauth_applications->update_oauth_application_with_http_info: #{e}"
 end
 ```
 
@@ -418,7 +412,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **oauth_application_id** | **String** | The ID of the OAuth application to update |  |
-| **update_o_auth_application_request** | [**UpdateOAuthApplicationRequest**](UpdateOAuthApplicationRequest.md) |  |  |
+| **update_oauth_application_request** | [**UpdateOAuthApplicationRequest**](UpdateOAuthApplicationRequest.md) |  |  |
 
 ### Return type
 

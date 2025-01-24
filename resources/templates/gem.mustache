@@ -46,7 +46,11 @@ require '{{importPath}}'
 {{/apiInfo}}
 
 module {{moduleName}}
-  module Models; end
+  module Models
+    def self.included(base)
+      base.extend(ClassMethods)
+    end
+  end
 
   class << self
     # If no block given, return the default Configuration object.

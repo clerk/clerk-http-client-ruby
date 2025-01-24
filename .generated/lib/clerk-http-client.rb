@@ -182,7 +182,6 @@ ClerkHttpClient.autoload :WaitlistEntriesApi, 'clerk-http-client/api/waitlist_en
 ClerkHttpClient.autoload :WebhooksApi, 'clerk-http-client/api/webhooks_api'
 
 module ClerkHttpClient
-
   class << self
     # If no block given, return the default Configuration object.
     def configure

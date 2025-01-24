@@ -219,4 +219,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::VerifyPasswordRequest < VerifyPasswordRequest; end;
 end

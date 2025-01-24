@@ -300,4 +300,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::Admin < Admin; end;
 end

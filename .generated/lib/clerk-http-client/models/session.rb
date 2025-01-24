@@ -441,4 +441,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::Session < Session; end;
 end

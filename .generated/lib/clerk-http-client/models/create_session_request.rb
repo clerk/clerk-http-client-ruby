@@ -212,4 +212,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateSessionRequest < CreateSessionRequest; end;
 end

@@ -328,4 +328,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::SAML < SAML; end;
 end

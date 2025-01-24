@@ -239,4 +239,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateSAMLConnectionRequestAttributeMapping < CreateSAMLConnectionRequestAttributeMapping; end;
 end

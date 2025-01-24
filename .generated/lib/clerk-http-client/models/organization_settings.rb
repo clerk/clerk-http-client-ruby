@@ -388,4 +388,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::OrganizationSettings < OrganizationSettings; end;
 end

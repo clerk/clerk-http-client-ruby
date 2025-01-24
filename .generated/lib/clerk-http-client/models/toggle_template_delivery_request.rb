@@ -213,4 +213,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::ToggleTemplateDeliveryRequest < ToggleTemplateDeliveryRequest; end;
 end

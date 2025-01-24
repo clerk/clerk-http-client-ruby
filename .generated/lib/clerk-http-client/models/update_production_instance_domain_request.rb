@@ -212,4 +212,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::UpdateProductionInstanceDomainRequest < UpdateProductionInstanceDomainRequest; end;
 end

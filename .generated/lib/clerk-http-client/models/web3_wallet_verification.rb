@@ -102,4 +102,7 @@ module ClerkHttpClient
     end
   end
 
+  module Model::ClerkHttpClient
+    extends ClerkHttpClient
+  end
 end

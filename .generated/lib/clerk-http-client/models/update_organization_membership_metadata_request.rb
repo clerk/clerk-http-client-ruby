@@ -226,4 +226,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::UpdateOrganizationMembershipMetadataRequest < UpdateOrganizationMembershipMetadataRequest; end;
 end

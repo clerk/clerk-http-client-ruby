@@ -219,4 +219,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::VerifyTOTPRequest < VerifyTOTPRequest; end;
 end

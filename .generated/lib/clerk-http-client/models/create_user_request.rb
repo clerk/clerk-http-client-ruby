@@ -456,4 +456,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateUserRequest < CreateUserRequest; end;
 end

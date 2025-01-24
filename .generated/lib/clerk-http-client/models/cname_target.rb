@@ -251,4 +251,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CNameTarget < CNameTarget; end;
 end

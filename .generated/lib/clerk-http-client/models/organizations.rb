@@ -237,4 +237,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::Organizations < Organizations; end;
 end

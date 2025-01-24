@@ -291,4 +291,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::UpdateInstanceAuthConfig200Response < UpdateInstanceAuthConfig200Response; end;
 end

@@ -260,4 +260,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateActorTokenRequest < CreateActorTokenRequest; end;
 end

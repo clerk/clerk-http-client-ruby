@@ -269,4 +269,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::OrganizationMembershipPublicUserData < OrganizationMembershipPublicUserData; end;
 end

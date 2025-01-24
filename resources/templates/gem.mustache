@@ -46,6 +46,8 @@ require '{{importPath}}'
 {{/apiInfo}}
 
 module {{moduleName}}
+  module Models; end
+
   class << self
     # If no block given, return the default Configuration object.
     def configure

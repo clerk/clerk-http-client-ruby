@@ -268,4 +268,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::IdentificationLink < IdentificationLink; end;
 end

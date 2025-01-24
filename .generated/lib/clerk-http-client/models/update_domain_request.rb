@@ -235,4 +235,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::UpdateDomainRequest < UpdateDomainRequest; end;
 end

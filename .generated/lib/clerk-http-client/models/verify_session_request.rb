@@ -212,4 +212,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::VerifySessionRequest < VerifySessionRequest; end;
 end

@@ -222,4 +222,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::VerifyDomainProxyRequest < VerifyDomainProxyRequest; end;
 end

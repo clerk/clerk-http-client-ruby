@@ -297,4 +297,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::SessionLatestActivity < SessionLatestActivity; end;
 end

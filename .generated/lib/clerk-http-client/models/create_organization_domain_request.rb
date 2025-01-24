@@ -233,4 +233,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateOrganizationDomainRequest < CreateOrganizationDomainRequest; end;
 end

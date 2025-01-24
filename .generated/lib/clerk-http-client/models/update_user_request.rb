@@ -475,4 +475,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::UpdateUserRequest < UpdateUserRequest; end;
 end

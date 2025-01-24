@@ -229,4 +229,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateWaitlistEntryRequest < CreateWaitlistEntryRequest; end;
 end

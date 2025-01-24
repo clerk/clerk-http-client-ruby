@@ -278,4 +278,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::OrganizationDomainVerification < OrganizationDomainVerification; end;
 end

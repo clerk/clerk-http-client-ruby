@@ -275,4 +275,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::UpsertTemplateRequest < UpsertTemplateRequest; end;
 end

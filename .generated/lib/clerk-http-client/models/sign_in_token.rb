@@ -365,4 +365,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::SignInToken < SignInToken; end;
 end

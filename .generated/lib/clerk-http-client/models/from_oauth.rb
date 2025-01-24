@@ -321,4 +321,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::FromOAuth < FromOAuth; end;
 end

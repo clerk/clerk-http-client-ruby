@@ -224,4 +224,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateSignInTokenRequest < CreateSignInTokenRequest; end;
 end

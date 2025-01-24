@@ -312,4 +312,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::OTP < OTP; end;
 end

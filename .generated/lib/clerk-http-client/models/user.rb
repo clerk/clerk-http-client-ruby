@@ -636,4 +636,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::User < User; end;
 end

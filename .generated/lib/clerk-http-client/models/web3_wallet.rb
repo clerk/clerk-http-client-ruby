@@ -324,4 +324,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::Web3Wallet < Web3Wallet; end;
 end

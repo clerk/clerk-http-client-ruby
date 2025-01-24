@@ -212,4 +212,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateRedirectURLRequest < CreateRedirectURLRequest; end;
 end

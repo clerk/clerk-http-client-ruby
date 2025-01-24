@@ -282,4 +282,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::InstanceRestrictions < InstanceRestrictions; end;
 end

@@ -286,4 +286,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::TOTP < TOTP; end;
 end

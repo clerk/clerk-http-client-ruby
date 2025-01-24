@@ -300,4 +300,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::Ticket < Ticket; end;
 end

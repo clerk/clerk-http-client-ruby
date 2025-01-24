@@ -274,4 +274,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::JWKSKeysInner < JWKSKeysInner; end;
 end

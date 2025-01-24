@@ -219,4 +219,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateBlocklistIdentifierRequest < CreateBlocklistIdentifierRequest; end;
 end

@@ -457,4 +457,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::Template < Template; end;
 end

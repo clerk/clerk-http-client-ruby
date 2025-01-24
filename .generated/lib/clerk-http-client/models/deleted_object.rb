@@ -252,4 +252,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::DeletedObject < DeletedObject; end;
 end

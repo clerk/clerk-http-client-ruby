@@ -384,4 +384,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::JWTTemplate < JWTTemplate; end;
 end

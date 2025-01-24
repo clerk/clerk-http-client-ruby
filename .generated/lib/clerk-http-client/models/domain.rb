@@ -365,4 +365,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::Domain < Domain; end;
 end

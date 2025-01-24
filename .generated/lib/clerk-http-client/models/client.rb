@@ -377,4 +377,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::Client < Client; end;
 end

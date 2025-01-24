@@ -21,3 +21,5 @@
       raise "Invalid ENUM value #{value} for class #{{{classname}}}"
     end
   end
+
+  class Model::{{classname}}{{#allowableValues}}{{#enumVars}} < {{classname}}{{#allowableValues}}{{#enumVars}}; end;

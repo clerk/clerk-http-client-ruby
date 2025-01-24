@@ -238,4 +238,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::SchemasSAMLConnectionAttributeMapping < SchemasSAMLConnectionAttributeMapping; end;
 end

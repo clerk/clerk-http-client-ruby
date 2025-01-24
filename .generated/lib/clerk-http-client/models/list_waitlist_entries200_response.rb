@@ -237,4 +237,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::ListWaitlistEntries200Response < ListWaitlistEntries200Response; end;
 end

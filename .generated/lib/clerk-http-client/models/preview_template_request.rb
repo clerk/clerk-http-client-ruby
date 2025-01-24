@@ -243,4 +243,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::PreviewTemplateRequest < PreviewTemplateRequest; end;
 end

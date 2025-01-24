@@ -234,4 +234,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::UpdateOAuthApplicationRequest < UpdateOAuthApplicationRequest; end;
 end

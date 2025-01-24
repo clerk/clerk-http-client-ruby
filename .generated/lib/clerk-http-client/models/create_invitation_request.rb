@@ -347,4 +347,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateInvitationRequest < CreateInvitationRequest; end;
 end

@@ -254,4 +254,5 @@ module ClerkHttpClient
 
   end
 
+  class Model::CreateSessionToken200Response < CreateSessionToken200Response; end;
 end

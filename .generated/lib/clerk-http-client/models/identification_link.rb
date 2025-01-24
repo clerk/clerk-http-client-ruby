@@ -117,7 +117,7 @@ module ClerkHttpClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @type.nil?
-      type_validator = EnumAttributeValidator.new('String', ["oauth_google", "oauth_mock", "saml"])
+      type_validator = EnumAttributeValidator.new('String', ["oauth_google", "oauth_mock", "saml", "oauth_facebook"])
       return false unless type_validator.valid?(@type)
       return false if @id.nil?
       true
@@ -126,7 +126,7 @@ module ClerkHttpClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] type Object to be assigned
     def type=(type)
-      validator = EnumAttributeValidator.new('String', ["oauth_google", "oauth_mock", "saml"])
+      validator = EnumAttributeValidator.new('String', ["oauth_google", "oauth_mock", "saml", "oauth_facebook"])
       unless validator.valid?(type)
         fail ArgumentError, "invalid value for \"type\", must be one of #{validator.allowable_values}."
       end

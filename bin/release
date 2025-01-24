@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -eo pipefail
+IFS=$'\n\t'
+
+# Get the version number from the generated version file
+VERSION=$(ruby -e "require './.generated/lib/clerk-http-client/version.rb'; puts ClerkHttpClient::VERSION")
+
+echo "Building and releasing version ${VERSION}"
+
+# Navigate to the generated directory
+cd .generated
+
+# Remove any existing gem files
+rm clerk-http-client-*.gem || true
+
+# Build the gem
+gem build clerk-http-client.gemspec
+
+# Publish to RubyGems
+gem push "clerk-http-client-${VERSION}.gem"

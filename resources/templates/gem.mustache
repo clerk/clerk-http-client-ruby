@@ -46,11 +46,8 @@ require '{{importPath}}'
 {{/apiInfo}}
 
 module {{moduleName}}
-  module Models
-    def self.included(base)
-      base.extend(ClassMethods)
-    end
-  end
+  # Allow (only) models to be included in other modules
+  module Model; end
 
   class << self
     # If no block given, return the default Configuration object.

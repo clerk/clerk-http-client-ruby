@@ -182,11 +182,8 @@ ClerkHttpClient.autoload :WaitlistEntriesApi, 'clerk-http-client/api/waitlist_en
 ClerkHttpClient.autoload :WebhooksApi, 'clerk-http-client/api/webhooks_api'
 
 module ClerkHttpClient
-  module Models
-    def self.included(base)
-      base.extend(ClassMethods)
-    end
-  end
+  # Allow (only) models to be included in other modules
+  module Model; end
 
   class << self
     # If no block given, return the default Configuration object.

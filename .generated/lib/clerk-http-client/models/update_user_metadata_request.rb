@@ -237,5 +237,4 @@ module ClerkHttpClient
     end
 
   end
-
 end

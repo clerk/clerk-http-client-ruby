@@ -11,5 +11,5 @@ Generator version: 7.9.0
 =end
 
 module ClerkHttpClient
-  VERSION = '2.0.0.beta1'
+  VERSION = '2.0.0.beta5'
 end

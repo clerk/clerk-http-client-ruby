@@ -100,5 +100,4 @@ module ClerkHttpClient
       end
     end
   end
-
 end

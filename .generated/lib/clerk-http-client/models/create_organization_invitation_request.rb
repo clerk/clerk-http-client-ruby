@@ -315,6 +315,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreateOrganizationInvitationRequest < CreateOrganizationInvitationRequest; end;
 end

@@ -317,6 +317,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::RedirectURL < RedirectURL; end;
 end

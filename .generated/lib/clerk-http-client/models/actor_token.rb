@@ -381,6 +381,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::ActorToken < ActorToken; end;
 end

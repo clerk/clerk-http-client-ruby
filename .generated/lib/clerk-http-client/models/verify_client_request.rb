@@ -211,6 +211,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::VerifyClientRequest < VerifyClientRequest; end;
 end

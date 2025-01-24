@@ -323,6 +323,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreateJWTTemplateRequest < CreateJWTTemplateRequest; end;
 end

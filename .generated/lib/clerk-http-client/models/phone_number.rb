@@ -387,6 +387,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::PhoneNumber < PhoneNumber; end;
 end

@@ -304,6 +304,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::GetOAuthAccessToken200ResponseInner < GetOAuthAccessToken200ResponseInner; end;
 end

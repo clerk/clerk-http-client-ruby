@@ -379,6 +379,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::SAMLAccount < SAMLAccount; end;
 end

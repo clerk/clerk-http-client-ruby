@@ -267,6 +267,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::ClerkError < ClerkError; end;
 end

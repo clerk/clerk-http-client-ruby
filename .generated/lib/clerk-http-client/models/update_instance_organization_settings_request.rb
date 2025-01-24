@@ -273,6 +273,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::UpdateInstanceOrganizationSettingsRequest < UpdateInstanceOrganizationSettingsRequest; end;
 end

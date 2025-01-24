@@ -477,6 +477,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::OAuthApplication < OAuthApplication; end;
 end

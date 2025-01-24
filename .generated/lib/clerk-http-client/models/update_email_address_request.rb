@@ -223,6 +223,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::UpdateEmailAddressRequest < UpdateEmailAddressRequest; end;
 end

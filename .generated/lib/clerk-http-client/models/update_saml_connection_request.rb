@@ -354,6 +354,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::UpdateSAMLConnectionRequest < UpdateSAMLConnectionRequest; end;
 end

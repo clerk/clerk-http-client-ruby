@@ -367,6 +367,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::EmailAddress < EmailAddress; end;
 end

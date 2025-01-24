@@ -237,6 +237,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::UpdateUserMetadataRequest < UpdateUserMetadataRequest; end;
 end

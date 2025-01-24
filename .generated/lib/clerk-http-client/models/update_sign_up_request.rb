@@ -212,6 +212,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::UpdateSignUpRequest < UpdateSignUpRequest; end;
 end

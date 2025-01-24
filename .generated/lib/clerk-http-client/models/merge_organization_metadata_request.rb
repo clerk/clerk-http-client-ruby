@@ -225,6 +225,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::MergeOrganizationMetadataRequest < MergeOrganizationMetadataRequest; end;
 end

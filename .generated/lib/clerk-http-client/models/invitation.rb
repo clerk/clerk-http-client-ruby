@@ -386,6 +386,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::Invitation < Invitation; end;
 end

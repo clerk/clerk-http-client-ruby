@@ -223,6 +223,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::UpdateOrganizationDomainRequest < UpdateOrganizationDomainRequest; end;
 end

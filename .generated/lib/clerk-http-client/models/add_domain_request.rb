@@ -245,6 +245,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::AddDomainRequest < AddDomainRequest; end;
 end

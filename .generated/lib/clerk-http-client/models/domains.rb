@@ -236,6 +236,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::Domains < Domains; end;
 end

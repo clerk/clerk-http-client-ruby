@@ -296,6 +296,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::UpdateInstanceRequest < UpdateInstanceRequest; end;
 end

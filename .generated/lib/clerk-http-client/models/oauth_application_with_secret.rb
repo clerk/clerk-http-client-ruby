@@ -494,6 +494,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::OAuthApplicationWithSecret < OAuthApplicationWithSecret; end;
 end

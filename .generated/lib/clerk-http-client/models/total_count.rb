@@ -268,6 +268,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::TotalCount < TotalCount; end;
 end

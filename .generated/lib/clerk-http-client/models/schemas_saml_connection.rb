@@ -547,6 +547,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::SchemasSAMLConnection < SchemasSAMLConnection; end;
 end

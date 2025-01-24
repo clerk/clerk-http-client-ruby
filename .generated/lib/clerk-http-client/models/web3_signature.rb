@@ -319,6 +319,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::Web3Signature < Web3Signature; end;
 end

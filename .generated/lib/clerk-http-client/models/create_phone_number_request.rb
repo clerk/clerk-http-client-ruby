@@ -254,6 +254,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreatePhoneNumberRequest < CreatePhoneNumberRequest; end;
 end

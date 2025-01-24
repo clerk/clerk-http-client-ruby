@@ -528,6 +528,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::SignUp < SignUp; end;
 end

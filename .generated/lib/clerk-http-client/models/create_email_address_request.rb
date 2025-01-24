@@ -243,6 +243,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreateEmailAddressRequest < CreateEmailAddressRequest; end;
 end

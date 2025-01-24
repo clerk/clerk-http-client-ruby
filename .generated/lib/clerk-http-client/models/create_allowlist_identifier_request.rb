@@ -230,6 +230,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreateAllowlistIdentifierRequest < CreateAllowlistIdentifierRequest; end;
 end

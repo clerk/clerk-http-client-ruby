@@ -314,6 +314,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::BlocklistIdentifier < BlocklistIdentifier; end;
 end

@@ -250,6 +250,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreateOAuthApplicationRequest < CreateOAuthApplicationRequest; end;
 end

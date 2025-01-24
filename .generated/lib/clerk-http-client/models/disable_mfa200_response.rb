@@ -210,6 +210,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::DisableMFA200Response < DisableMFA200Response; end;
 end

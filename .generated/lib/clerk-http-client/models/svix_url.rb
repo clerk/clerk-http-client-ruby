@@ -217,6 +217,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::SvixURL < SvixURL; end;
 end

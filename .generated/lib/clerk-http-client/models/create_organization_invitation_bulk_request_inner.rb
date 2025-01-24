@@ -280,6 +280,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreateOrganizationInvitationBulkRequestInner < CreateOrganizationInvitationBulkRequestInner; end;
 end

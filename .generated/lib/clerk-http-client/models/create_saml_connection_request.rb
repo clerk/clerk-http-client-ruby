@@ -362,6 +362,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreateSAMLConnectionRequest < CreateSAMLConnectionRequest; end;
 end

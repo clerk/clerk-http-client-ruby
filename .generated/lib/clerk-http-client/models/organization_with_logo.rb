@@ -455,6 +455,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::OrganizationWithLogo < OrganizationWithLogo; end;
 end

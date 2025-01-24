@@ -306,6 +306,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::SchemasPasskey < SchemasPasskey; end;
 end

@@ -234,6 +234,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::UpdatePhoneNumberRequest < UpdatePhoneNumberRequest; end;
 end

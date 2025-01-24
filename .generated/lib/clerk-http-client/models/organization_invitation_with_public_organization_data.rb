@@ -361,6 +361,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::OrganizationInvitationWithPublicOrganizationData < OrganizationInvitationWithPublicOrganizationData; end;
 end

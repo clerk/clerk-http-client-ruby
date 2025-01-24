@@ -363,6 +363,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::ProxyCheck < ProxyCheck; end;
 end

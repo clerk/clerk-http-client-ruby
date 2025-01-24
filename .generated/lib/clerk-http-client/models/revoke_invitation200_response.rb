@@ -393,6 +393,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::RevokeInvitation200Response < RevokeInvitation200Response; end;
 end

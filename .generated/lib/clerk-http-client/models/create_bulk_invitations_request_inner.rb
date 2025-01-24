@@ -301,6 +301,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::CreateBulkInvitationsRequestInner < CreateBulkInvitationsRequestInner; end;
 end

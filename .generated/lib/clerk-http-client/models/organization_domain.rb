@@ -360,6 +360,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::OrganizationDomain < OrganizationDomain; end;
 end

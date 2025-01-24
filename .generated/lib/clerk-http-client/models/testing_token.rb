@@ -285,6 +285,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::TestingToken < TestingToken; end;
 end

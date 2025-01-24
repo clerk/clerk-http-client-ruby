@@ -210,6 +210,4 @@ module ClerkHttpClient
     end
 
   end
-
-  class Model::VerifyPassword200Response < VerifyPassword200Response; end;
 end

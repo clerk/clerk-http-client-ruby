@@ -31,7 +31,7 @@ Please review that repository for setup information.
 ## Installation
 
 ```shell
-gem 'clerk-http-client', '~> 1.0.0'
+gem 'clerk-sdk-ruby', '~> 4.0', require: 'clerk'
 ```
 
 ## Generate a client

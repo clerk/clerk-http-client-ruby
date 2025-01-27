@@ -1,4 +1,4 @@
-# ClerkHttpClient::JWKSApi
+# Clerk::SDK.jwks
 
 All URIs are relative to *https://api.clerk.com/v1*
 

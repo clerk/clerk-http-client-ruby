@@ -1,4 +1,4 @@
-# ClerkHttpClient::WaitlistEntriesApi
+# Clerk::SDK.waitlist_entries
 
 All URIs are relative to *https://api.clerk.com/v1*
 

@@ -1,4 +1,4 @@
-# ClerkHttpClient::MiscellaneousApi
+# Clerk::SDK.miscellaneous
 
 All URIs are relative to *https://api.clerk.com/v1*
 

@@ -1,4 +1,4 @@
-# ClerkHttpClient::PhoneNumbersApi
+# Clerk::SDK.phone_numbers
 
 All URIs are relative to *https://api.clerk.com/v1*
 

@@ -1,4 +1,4 @@
-# ClerkHttpClient::DomainsApi
+# Clerk::SDK.domains
 
 All URIs are relative to *https://api.clerk.com/v1*
 

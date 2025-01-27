@@ -1,4 +1,4 @@
-# ClerkHttpClient::SessionsApi
+# Clerk::SDK.sessions
 
 All URIs are relative to *https://api.clerk.com/v1*
 

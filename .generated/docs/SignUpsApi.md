@@ -1,4 +1,4 @@
-# ClerkHttpClient::SignUpsApi
+# Clerk::SDK.sign_ups
 
 All URIs are relative to *https://api.clerk.com/v1*
 

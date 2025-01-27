@@ -1,4 +1,4 @@
-# ClerkHttpClient::SAMLConnectionsApi
+# Clerk::SDK.saml_connections
 
 All URIs are relative to *https://api.clerk.com/v1*
 

@@ -1,4 +1,4 @@
-# ClerkHttpClient::OrganizationMembershipsApi
+# Clerk::SDK.organization_memberships
 
 All URIs are relative to *https://api.clerk.com/v1*
 

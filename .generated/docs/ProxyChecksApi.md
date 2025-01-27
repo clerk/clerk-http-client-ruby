@@ -1,4 +1,4 @@
-# ClerkHttpClient::ProxyChecksApi
+# Clerk::SDK.proxy_checks
 
 All URIs are relative to *https://api.clerk.com/v1*
 

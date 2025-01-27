@@ -1,4 +1,4 @@
-# ClerkHttpClient::OAuthApplicationsApi
+# Clerk::SDK.oauth_applications
 
 All URIs are relative to *https://api.clerk.com/v1*
 

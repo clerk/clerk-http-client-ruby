@@ -1,4 +1,4 @@
-# ClerkHttpClient::AllowListBlockListApi
+# Clerk::SDK.allow_list_block_list
 
 All URIs are relative to *https://api.clerk.com/v1*
 

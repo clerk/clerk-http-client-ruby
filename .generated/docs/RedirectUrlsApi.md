@@ -1,4 +1,4 @@
-# ClerkHttpClient::RedirectURLsApi
+# Clerk::SDK.redirect_urls
 
 All URIs are relative to *https://api.clerk.com/v1*
 

@@ -1,4 +1,4 @@
-# ClerkHttpClient::EmailSMSTemplatesApi
+# Clerk::SDK.email_sms_templates
 
 All URIs are relative to *https://api.clerk.com/v1*
 

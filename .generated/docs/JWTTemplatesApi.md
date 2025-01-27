@@ -1,4 +1,4 @@
-# ClerkHttpClient::JWTTemplatesApi
+# Clerk::SDK.jwt_templates
 
 All URIs are relative to *https://api.clerk.com/v1*
 

@@ -1,4 +1,4 @@
-# ClerkHttpClient::EmailAddressesApi
+# Clerk::SDK.email_addresses
 
 All URIs are relative to *https://api.clerk.com/v1*
 

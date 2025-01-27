@@ -1,0 +1,6 @@
+name: "🐛 Bug Report"
+description: Report a bug in Clerk's Ruby SDK.
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for taking the time to report an issue with Clerk's Ruby SDK. Please file all issues in the [Ruby SDK repository](https://github.com/clerk/clerk-sdk-ruby/issues).

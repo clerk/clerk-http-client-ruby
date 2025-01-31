@@ -147,7 +147,6 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.testing_tokens* | [**create_testing_token**](docs/TestingTokensApi.md#create_testing_token) | **POST** /testing_tokens | Retrieve a new testing token
 *Clerk::SDK.users* | [**ban_user**](docs/UsersApi.md#ban_user) | **POST** /users/{user_id}/ban | Ban a user
 *Clerk::SDK.users* | [**create_user**](docs/UsersApi.md#create_user) | **POST** /users | Create a new user
-*Clerk::SDK.users* | [**create_user_totp**](docs/UsersApi.md#create_user_totp) | **POST** /users/{user_id}/totp | Create a TOTP for a user
 *Clerk::SDK.users* | [**delete_backup_code**](docs/UsersApi.md#delete_backup_code) | **DELETE** /users/{user_id}/backup_code | Disable all user's Backup codes
 *Clerk::SDK.users* | [**delete_external_account**](docs/UsersApi.md#delete_external_account) | **DELETE** /users/{user_id}/external_accounts/{external_account_id} | Delete External Account
 *Clerk::SDK.users* | [**delete_totp**](docs/UsersApi.md#delete_totp) | **DELETE** /users/{user_id}/totp | Delete all the user's TOTPs
@@ -274,7 +273,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::SignInToken](docs/SignInToken.md)
  - [ClerkHttpClient::SignUp](docs/SignUp.md)
  - [ClerkHttpClient::SvixURL](docs/SvixURL.md)
- - [ClerkHttpClient::TOTP](docs/TOTP.md)
  - [ClerkHttpClient::Template](docs/Template.md)
  - [ClerkHttpClient::TestingToken](docs/TestingToken.md)
  - [ClerkHttpClient::Ticket](docs/Ticket.md)

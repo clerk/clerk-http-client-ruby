@@ -24,7 +24,7 @@ module ClerkHttpClient
     # Define the allowed scopes for the new OAuth applications that dictate the user payload of the OAuth user info endpoint. Available scopes are `profile`, `email`, `public_metadata`, `private_metadata`. Provide the requested scopes as a string, separated by spaces.
     attr_accessor :scopes
 
-    # If true, this client is public and cannot securely store a client secret. Only the authorization code flow with proof key for code exchange (PKCE) may be used. Public clients cannot be updated to be confidential clients, and vice versa.
+    # If true, this client is public and you can use the Proof Key of Code Exchange (PKCE) flow.
     attr_accessor :public
 
     # Attribute mapping from ruby-style variable name to JSON key.

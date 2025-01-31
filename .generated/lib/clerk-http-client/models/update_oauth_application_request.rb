@@ -24,12 +24,16 @@ module ClerkHttpClient
     # Define the allowed scopes for the new OAuth applications that dictate the user payload of the OAuth user info endpoint. Available scopes are `profile`, `email`, `public_metadata`, `private_metadata`. Provide the requested scopes as a string, separated by spaces.
     attr_accessor :scopes
 
+    # If true, this client is public and you can use the Proof Key of Code Exchange (PKCE) flow.
+    attr_accessor :public
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
         :'callback_url' => :'callback_url',
-        :'scopes' => :'scopes'
+        :'scopes' => :'scopes',
+        :'public' => :'public'
       }
     end
 
@@ -43,7 +47,8 @@ module ClerkHttpClient
       {
         :'name' => :'String',
         :'callback_url' => :'String',
-        :'scopes' => :'String'
+        :'scopes' => :'String',
+        :'public' => :'Boolean'
       }
     end
 
@@ -81,6 +86,10 @@ module ClerkHttpClient
       else
         self.scopes = 'profile email'
       end
+
+      if attributes.key?(:'public')
+        self.public = attributes[:'public']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -105,7 +114,8 @@ module ClerkHttpClient
       self.class == o.class &&
           name == o.name &&
           callback_url == o.callback_url &&
-          scopes == o.scopes
+          scopes == o.scopes &&
+          public == o.public
     end
 
     # @see the `==` method
@@ -117,7 +127,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, callback_url, scopes].hash
+      [name, callback_url, scopes, public].hash
     end
 
     # Builds the object from hash

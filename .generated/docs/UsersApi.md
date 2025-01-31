@@ -6,7 +6,6 @@ All URIs are relative to *https://api.clerk.com/v1*
 | ------ | ------------ | ----------- |
 | [**ban_user**](UsersApi.md#ban_user) | **POST** /users/{user_id}/ban | Ban a user |
 | [**create_user**](UsersApi.md#create_user) | **POST** /users | Create a new user |
-| [**create_user_totp**](UsersApi.md#create_user_totp) | **POST** /users/{user_id}/totp | Create a TOTP for a user |
 | [**delete_backup_code**](UsersApi.md#delete_backup_code) | **DELETE** /users/{user_id}/backup_code | Disable all user&#39;s Backup codes |
 | [**delete_external_account**](UsersApi.md#delete_external_account) | **DELETE** /users/{user_id}/external_accounts/{external_account_id} | Delete External Account |
 | [**delete_totp**](UsersApi.md#delete_totp) | **DELETE** /users/{user_id}/totp | Delete all the user&#39;s TOTPs |
@@ -164,74 +163,6 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_user_totp
-
-> <TOTP> create_user_totp(user_id)
-
-Create a TOTP for a user
-
-Creates a TOTP (Time-based One-Time Password) for a given user, returning both the TOTP secret and the URI. 
-
-### Examples
-
-```ruby
-require 'time'
-require 'clerk'
-
-## Setup
-Clerk.configure do |config|
-  config.secret_key = 'sk_test_xxxxxxxxx'
-end
-
-user_id = 'user_id_example' # String | The ID of the user for whom the TOTP is being created.
-
-begin
-  # Create a TOTP for a user
-  result = Clerk::SDK.users.create_user_totp(user_id)
-  p result
-rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling Clerk::SDK.users->create_user_totp: #{e}"
-end
-```
-
-#### Using the `create_user_totp_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<TOTP>, Integer, Hash)> create_user_totp_with_http_info(user_id)
-
-```ruby
-begin
-  # Create a TOTP for a user
-  data, status_code, headers = Clerk::SDK.users.create_user_totp_with_http_info(user_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <TOTP>
-rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling Clerk::SDK.users->create_user_totp_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The ID of the user for whom the TOTP is being created. |  |
-
-### Return type
-
-[**TOTP**](TOTP.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

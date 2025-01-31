@@ -6,7 +6,6 @@ All URIs are relative to *https://api.clerk.com/v1*
 | ------ | ------------ | ----------- |
 | [**ban_user**](UsersApi.md#ban_user) | **POST** /users/{user_id}/ban | Ban a user |
 | [**create_user**](UsersApi.md#create_user) | **POST** /users | Create a new user |
-| [**create_user_totp**](UsersApi.md#create_user_totp) | **POST** /users/{user_id}/totp | Create a TOTP for a user |
 | [**delete_backup_code**](UsersApi.md#delete_backup_code) | **DELETE** /users/{user_id}/backup_code | Disable all user&#39;s Backup codes |
 | [**delete_external_account**](UsersApi.md#delete_external_account) | **DELETE** /users/{user_id}/external_accounts/{external_account_id} | Delete External Account |
 | [**delete_totp**](UsersApi.md#delete_totp) | **DELETE** /users/{user_id}/totp | Delete all the user&#39;s TOTPs |
@@ -164,74 +163,6 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
-
-
-## create_user_totp
-
-> <TOTP> create_user_totp(user_id)
-
-Create a TOTP for a user
-
-Creates a TOTP (Time-based One-Time Password) for a given user, returning both the TOTP secret and the URI. 
-
-### Examples
-
-```ruby
-require 'time'
-require 'clerk'
-
-## Setup
-Clerk.configure do |config|
-  config.secret_key = 'sk_test_xxxxxxxxx'
-end
-
-user_id = 'user_id_example' # String | The ID of the user for whom the TOTP is being created.
-
-begin
-  # Create a TOTP for a user
-  result = Clerk::SDK.users.create_user_totp(user_id)
-  p result
-rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling Clerk::SDK.users->create_user_totp: #{e}"
-end
-```
-
-#### Using the `create_user_totp_with_http_info variant
-
-This returns an Array which contains the response data, status code and headers.
-
-> <Array(<TOTP>, Integer, Hash)> create_user_totp_with_http_info(user_id)
-
-```ruby
-begin
-  # Create a TOTP for a user
-  data, status_code, headers = Clerk::SDK.users.create_user_totp_with_http_info(user_id)
-  p status_code # => 2xx
-  p headers # => { ... }
-  p data # => <TOTP>
-rescue ClerkHttpClient::ApiError => e
-  puts "Error when calling Clerk::SDK.users->create_user_totp_with_http_info: #{e}"
-end
-```
-
-### Parameters
-
-| Name | Type | Description | Notes |
-| ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The ID of the user for whom the TOTP is being created. |  |
-
-### Return type
-
-[**TOTP**](TOTP.md)
-
-### Authorization
-
-[bearerAuth](../README.md#bearerAuth)
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
 - **Accept**: application/json
 
 
@@ -815,6 +746,7 @@ opts = {
   phone_number_query: 'phone_number_query_example', # String | Returns users with phone numbers that match the given query, via case-insensitive partial match. For example, `phone_number_query=555` will match a user with the phone number `+1555xxxxxxx`.
   username_query: 'username_query_example', # String | Returns users with usernames that match the given query, via case-insensitive partial match. For example, `username_query=CoolUser` will match a user with the username `SomeCoolUser`.
   name_query: 'name_query_example', # String | Returns users with names that match the given query, via case-insensitive partial match.
+  banned: true, # Boolean | Returns users which are either banned (`banned=true`) or not banned (`banned=false`).
   last_active_at_before: 1700690400000, # Integer | Returns users whose last session activity was before the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was before 2023-11-23.
   last_active_at_after: 1700690400000, # Integer | Returns users whose last session activity was after the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was after 2023-11-23.
   last_active_at_since: 1700690400000, # Integer | Returns users that had session activity since the given date. Example: use 1700690400000 to retrieve users that had session activity from 2023-11-23 until the current day. Deprecated in favor of `last_active_at_after`.
@@ -868,6 +800,7 @@ end
 | **phone_number_query** | **String** | Returns users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;. | [optional] |
 | **username_query** | **String** | Returns users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;. | [optional] |
 | **name_query** | **String** | Returns users with names that match the given query, via case-insensitive partial match. | [optional] |
+| **banned** | **Boolean** | Returns users which are either banned (&#x60;banned&#x3D;true&#x60;) or not banned (&#x60;banned&#x3D;false&#x60;). | [optional] |
 | **last_active_at_before** | **Integer** | Returns users whose last session activity was before the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was before 2023-11-23. | [optional] |
 | **last_active_at_after** | **Integer** | Returns users whose last session activity was after the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was after 2023-11-23. | [optional] |
 | **last_active_at_since** | **Integer** | Returns users that had session activity since the given date. Example: use 1700690400000 to retrieve users that had session activity from 2023-11-23 until the current day. Deprecated in favor of &#x60;last_active_at_after&#x60;. | [optional] |
@@ -920,7 +853,8 @@ opts = {
   query: 'query_example', # String | Counts users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names. The query value doesn't need to match the exact value you are looking for, it is capable of partial matches as well.
   email_address_query: 'email_address_query_example', # String | Counts users with emails that match the given query, via case-insensitive partial match. For example, `email_address_query=ello` will match a user with the email `HELLO@example.com`, and will be included in the resulting count.
   phone_number_query: 'phone_number_query_example', # String | Counts users with phone numbers that match the given query, via case-insensitive partial match. For example, `phone_number_query=555` will match a user with the phone number `+1555xxxxxxx`, and will be included in the resulting count.
-  username_query: 'username_query_example' # String | Counts users with usernames that match the given query, via case-insensitive partial match. For example, `username_query=CoolUser` will match a user with the username `SomeCoolUser`, and will be included in the resulting count.
+  username_query: 'username_query_example', # String | Counts users with usernames that match the given query, via case-insensitive partial match. For example, `username_query=CoolUser` will match a user with the username `SomeCoolUser`, and will be included in the resulting count.
+  banned: true # Boolean | Counts users which are either banned (`banned=true`) or not banned (`banned=false`).
 }
 
 begin
@@ -964,6 +898,7 @@ end
 | **email_address_query** | **String** | Counts users with emails that match the given query, via case-insensitive partial match. For example, &#x60;email_address_query&#x3D;ello&#x60; will match a user with the email &#x60;HELLO@example.com&#x60;, and will be included in the resulting count. | [optional] |
 | **phone_number_query** | **String** | Counts users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;, and will be included in the resulting count. | [optional] |
 | **username_query** | **String** | Counts users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;, and will be included in the resulting count. | [optional] |
+| **banned** | **Boolean** | Counts users which are either banned (&#x60;banned&#x3D;true&#x60;) or not banned (&#x60;banned&#x3D;false&#x60;). | [optional] |
 
 ### Return type
 

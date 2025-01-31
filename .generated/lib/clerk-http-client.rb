@@ -112,7 +112,6 @@ ClerkHttpClient.autoload :SessionLatestActivity, 'clerk-http-client/models/sessi
 ClerkHttpClient.autoload :SignInToken, 'clerk-http-client/models/sign_in_token'
 ClerkHttpClient.autoload :SignUp, 'clerk-http-client/models/sign_up'
 ClerkHttpClient.autoload :SvixURL, 'clerk-http-client/models/svix_url'
-ClerkHttpClient.autoload :TOTP, 'clerk-http-client/models/totp'
 ClerkHttpClient.autoload :Template, 'clerk-http-client/models/template'
 ClerkHttpClient.autoload :TestingToken, 'clerk-http-client/models/testing_token'
 ClerkHttpClient.autoload :Ticket, 'clerk-http-client/models/ticket'

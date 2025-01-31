@@ -11,6 +11,7 @@
 | **client_id** | **String** |  |  |
 | **public** | **Boolean** |  |  |
 | **scopes** | **String** |  |  |
+| **redirect_uris** | **Array&lt;String&gt;** |  |  |
 | **callback_url** | **String** |  |  |
 | **authorize_url** | **String** |  |  |
 | **token_fetch_url** | **String** |  |  |
@@ -33,6 +34,7 @@ instance = ClerkHttpClient::OAuthApplication.new(
   client_id: null,
   public: null,
   scopes: null,
+  redirect_uris: null,
   callback_url: null,
   authorize_url: null,
   token_fetch_url: null,

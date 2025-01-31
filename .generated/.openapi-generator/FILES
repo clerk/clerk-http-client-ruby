@@ -124,7 +124,6 @@ docs/SignInTokensApi.md
 docs/SignUp.md
 docs/SignUpsApi.md
 docs/SvixUrl.md
-docs/TOTP.md
 docs/Template.md
 docs/TestingToken.md
 docs/TestingTokensApi.md
@@ -299,7 +298,6 @@ lib/clerk-http-client/models/testing_token.rb
 lib/clerk-http-client/models/ticket.rb
 lib/clerk-http-client/models/toggle_template_delivery_request.rb
 lib/clerk-http-client/models/total_count.rb
-lib/clerk-http-client/models/totp.rb
 lib/clerk-http-client/models/update_domain_request.rb
 lib/clerk-http-client/models/update_email_address_request.rb
 lib/clerk-http-client/models/update_instance_auth_config200_response.rb

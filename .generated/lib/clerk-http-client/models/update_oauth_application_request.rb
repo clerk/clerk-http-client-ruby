@@ -18,18 +18,26 @@ module ClerkHttpClient
     # The new name of the OAuth application
     attr_accessor :name
 
+    # An array of redirect URIs of the new OAuth application
+    attr_accessor :redirect_uris
+
     # The new callback URL of the OAuth application
     attr_accessor :callback_url
 
     # Define the allowed scopes for the new OAuth applications that dictate the user payload of the OAuth user info endpoint. Available scopes are `profile`, `email`, `public_metadata`, `private_metadata`. Provide the requested scopes as a string, separated by spaces.
     attr_accessor :scopes
 
+    # If true, this client is public and you can use the Proof Key of Code Exchange (PKCE) flow.
+    attr_accessor :public
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'name' => :'name',
+        :'redirect_uris' => :'redirect_uris',
         :'callback_url' => :'callback_url',
-        :'scopes' => :'scopes'
+        :'scopes' => :'scopes',
+        :'public' => :'public'
       }
     end
 
@@ -42,14 +50,20 @@ module ClerkHttpClient
     def self.openapi_types
       {
         :'name' => :'String',
+        :'redirect_uris' => :'Array<String>',
         :'callback_url' => :'String',
-        :'scopes' => :'String'
+        :'scopes' => :'String',
+        :'public' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'name',
+        :'redirect_uris',
+        :'callback_url',
+        :'scopes',
       ])
     end
 
@@ -72,6 +86,12 @@ module ClerkHttpClient
         self.name = attributes[:'name']
       end
 
+      if attributes.key?(:'redirect_uris')
+        if (value = attributes[:'redirect_uris']).is_a?(Array)
+          self.redirect_uris = value
+        end
+      end
+
       if attributes.key?(:'callback_url')
         self.callback_url = attributes[:'callback_url']
       end
@@ -80,6 +100,10 @@ module ClerkHttpClient
         self.scopes = attributes[:'scopes']
       else
         self.scopes = 'profile email'
+      end
+
+      if attributes.key?(:'public')
+        self.public = attributes[:'public']
       end
     end
 
@@ -104,8 +128,10 @@ module ClerkHttpClient
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          redirect_uris == o.redirect_uris &&
           callback_url == o.callback_url &&
-          scopes == o.scopes
+          scopes == o.scopes &&
+          public == o.public
     end
 
     # @see the `==` method
@@ -117,7 +143,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, callback_url, scopes].hash
+      [name, redirect_uris, callback_url, scopes, public].hash
     end
 
     # Builds the object from hash

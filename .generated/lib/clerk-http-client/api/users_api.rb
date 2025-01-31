@@ -154,71 +154,6 @@ module ClerkHttpClient
       return data, status_code, headers
     end
 
-    # Create a TOTP for a user
-    # Creates a TOTP (Time-based One-Time Password) for a given user, returning both the TOTP secret and the URI. 
-    # @param user_id [String] The ID of the user for whom the TOTP is being created.
-    # @param [Hash] opts the optional parameters
-    # @return [TOTP]
-
-    def create_user_totp(user_id, opts = {})
-      data, _status_code, _headers = create_user_totp_with_http_info(user_id, opts)
-      data
-    end
-
-    # Create a TOTP for a user
-    # Creates a TOTP (Time-based One-Time Password) for a given user, returning both the TOTP secret and the URI. 
-    # @param user_id [String] The ID of the user for whom the TOTP is being created.
-    # @param [Hash] opts the optional parameters
-    # @return [Array<(TOTP, Integer, Hash)>] TOTP data, response status code and response headers
-    # POST 
-    def create_user_totp_with_http_info(user_id, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug 'Calling API: UsersApi.create_user_totp ...'
-      end
-      # verify the required parameter 'user_id' is set
-      if @api_client.config.client_side_validation && user_id.nil?
-        fail ArgumentError, "Missing the required parameter 'user_id' when calling UsersApi.create_user_totp"
-      end
-      # resource path
-      local_var_path = '/users/{user_id}/totp'.sub('{' + 'user_id' + '}', CGI.escape(user_id.to_s))
-
-      # query parameters
-      query_params = opts[:query_params] || {}
-
-      # header parameters
-      header_params = opts[:header_params] || {}
-      # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
-
-      # form parameters
-      form_params = opts[:form_params] || {}
-
-      # http body (model)
-      post_body = opts[:debug_body]
-
-      # return_type
-      return_type = opts[:debug_return_type] || 'TOTP'
-
-      # auth_names
-      auth_names = opts[:debug_auth_names] || ['bearerAuth']
-
-      new_options = opts.merge(
-        :operation => :"UsersApi.create_user_totp",
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => return_type
-      )
-
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsersApi#create_user_totp\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
     # Disable all user's Backup codes
     # Disable all of a user's backup codes.
     # @param user_id [String] The ID of the user whose backup codes are to be deleted.
@@ -766,6 +701,7 @@ module ClerkHttpClient
     # @option opts [String] :phone_number_query Returns users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;.
     # @option opts [String] :username_query Returns users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;.
     # @option opts [String] :name_query Returns users with names that match the given query, via case-insensitive partial match.
+    # @option opts [Boolean] :banned Returns users which are either banned (&#x60;banned&#x3D;true&#x60;) or not banned (&#x60;banned&#x3D;false&#x60;).
     # @option opts [Integer] :last_active_at_before Returns users whose last session activity was before the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was before 2023-11-23.
     # @option opts [Integer] :last_active_at_after Returns users whose last session activity was after the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was after 2023-11-23.
     # @option opts [Integer] :last_active_at_since Returns users that had session activity since the given date. Example: use 1700690400000 to retrieve users that had session activity from 2023-11-23 until the current day. Deprecated in favor of &#x60;last_active_at_after&#x60;.
@@ -796,6 +732,7 @@ module ClerkHttpClient
     # @option opts [String] :phone_number_query Returns users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;.
     # @option opts [String] :username_query Returns users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;.
     # @option opts [String] :name_query Returns users with names that match the given query, via case-insensitive partial match.
+    # @option opts [Boolean] :banned Returns users which are either banned (&#x60;banned&#x3D;true&#x60;) or not banned (&#x60;banned&#x3D;false&#x60;).
     # @option opts [Integer] :last_active_at_before Returns users whose last session activity was before the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was before 2023-11-23.
     # @option opts [Integer] :last_active_at_after Returns users whose last session activity was after the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was after 2023-11-23.
     # @option opts [Integer] :last_active_at_since Returns users that had session activity since the given date. Example: use 1700690400000 to retrieve users that had session activity from 2023-11-23 until the current day. Deprecated in favor of &#x60;last_active_at_after&#x60;.
@@ -859,6 +796,7 @@ module ClerkHttpClient
       query_params[:'phone_number_query'] = opts[:'phone_number_query'] if !opts[:'phone_number_query'].nil?
       query_params[:'username_query'] = opts[:'username_query'] if !opts[:'username_query'].nil?
       query_params[:'name_query'] = opts[:'name_query'] if !opts[:'name_query'].nil?
+      query_params[:'banned'] = opts[:'banned'] if !opts[:'banned'].nil?
       query_params[:'last_active_at_before'] = opts[:'last_active_at_before'] if !opts[:'last_active_at_before'].nil?
       query_params[:'last_active_at_after'] = opts[:'last_active_at_after'] if !opts[:'last_active_at_after'].nil?
       query_params[:'last_active_at_since'] = opts[:'last_active_at_since'] if !opts[:'last_active_at_since'].nil?
@@ -915,6 +853,7 @@ module ClerkHttpClient
     # @option opts [String] :email_address_query Counts users with emails that match the given query, via case-insensitive partial match. For example, &#x60;email_address_query&#x3D;ello&#x60; will match a user with the email &#x60;HELLO@example.com&#x60;, and will be included in the resulting count.
     # @option opts [String] :phone_number_query Counts users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;, and will be included in the resulting count.
     # @option opts [String] :username_query Counts users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;, and will be included in the resulting count.
+    # @option opts [Boolean] :banned Counts users which are either banned (&#x60;banned&#x3D;true&#x60;) or not banned (&#x60;banned&#x3D;false&#x60;).
     # @return [TotalCount]
 
     def get_users_count(opts = {})
@@ -935,6 +874,7 @@ module ClerkHttpClient
     # @option opts [String] :email_address_query Counts users with emails that match the given query, via case-insensitive partial match. For example, &#x60;email_address_query&#x3D;ello&#x60; will match a user with the email &#x60;HELLO@example.com&#x60;, and will be included in the resulting count.
     # @option opts [String] :phone_number_query Counts users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;, and will be included in the resulting count.
     # @option opts [String] :username_query Counts users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;, and will be included in the resulting count.
+    # @option opts [Boolean] :banned Counts users which are either banned (&#x60;banned&#x3D;true&#x60;) or not banned (&#x60;banned&#x3D;false&#x60;).
     # @return [Array<(TotalCount, Integer, Hash)>] TotalCount data, response status code and response headers
     # GET 
     def get_users_count_with_http_info(opts = {})
@@ -972,6 +912,7 @@ module ClerkHttpClient
       query_params[:'email_address_query'] = opts[:'email_address_query'] if !opts[:'email_address_query'].nil?
       query_params[:'phone_number_query'] = opts[:'phone_number_query'] if !opts[:'phone_number_query'].nil?
       query_params[:'username_query'] = opts[:'username_query'] if !opts[:'username_query'].nil?
+      query_params[:'banned'] = opts[:'banned'] if !opts[:'banned'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

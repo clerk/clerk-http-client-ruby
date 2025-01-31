@@ -18,6 +18,9 @@ module ClerkHttpClient
     # The name of the new OAuth application
     attr_accessor :name
 
+    # An array of redirect URIs of the new OAuth application
+    attr_accessor :redirect_uris
+
     # The callback URL of the new OAuth application
     attr_accessor :callback_url
 
@@ -31,6 +34,7 @@ module ClerkHttpClient
     def self.attribute_map
       {
         :'name' => :'name',
+        :'redirect_uris' => :'redirect_uris',
         :'callback_url' => :'callback_url',
         :'scopes' => :'scopes',
         :'public' => :'public'
@@ -46,6 +50,7 @@ module ClerkHttpClient
     def self.openapi_types
       {
         :'name' => :'String',
+        :'redirect_uris' => :'Array<String>',
         :'callback_url' => :'String',
         :'scopes' => :'String',
         :'public' => :'Boolean'
@@ -55,6 +60,10 @@ module ClerkHttpClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'redirect_uris',
+        :'callback_url',
+        :'scopes',
+        :'public'
       ])
     end
 
@@ -77,6 +86,12 @@ module ClerkHttpClient
         self.name = attributes[:'name']
       else
         self.name = nil
+      end
+
+      if attributes.key?(:'redirect_uris')
+        if (value = attributes[:'redirect_uris']).is_a?(Array)
+          self.redirect_uris = value
+        end
       end
 
       if attributes.key?(:'callback_url')
@@ -120,6 +135,7 @@ module ClerkHttpClient
       return true if self.equal?(o)
       self.class == o.class &&
           name == o.name &&
+          redirect_uris == o.redirect_uris &&
           callback_url == o.callback_url &&
           scopes == o.scopes &&
           public == o.public
@@ -134,7 +150,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, callback_url, scopes, public].hash
+      [name, redirect_uris, callback_url, scopes, public].hash
     end
 
     # Builds the object from hash

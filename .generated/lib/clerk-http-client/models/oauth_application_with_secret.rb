@@ -29,6 +29,8 @@ module ClerkHttpClient
 
     attr_accessor :scopes
 
+    attr_accessor :redirect_uris
+
     attr_accessor :callback_url
 
     attr_accessor :authorize_url
@@ -82,6 +84,7 @@ module ClerkHttpClient
         :'client_id' => :'client_id',
         :'public' => :'public',
         :'scopes' => :'scopes',
+        :'redirect_uris' => :'redirect_uris',
         :'callback_url' => :'callback_url',
         :'authorize_url' => :'authorize_url',
         :'token_fetch_url' => :'token_fetch_url',
@@ -109,6 +112,7 @@ module ClerkHttpClient
         :'client_id' => :'String',
         :'public' => :'Boolean',
         :'scopes' => :'String',
+        :'redirect_uris' => :'Array<String>',
         :'callback_url' => :'String',
         :'authorize_url' => :'String',
         :'token_fetch_url' => :'String',
@@ -189,6 +193,14 @@ module ClerkHttpClient
         self.scopes = attributes[:'scopes']
       else
         self.scopes = nil
+      end
+
+      if attributes.key?(:'redirect_uris')
+        if (value = attributes[:'redirect_uris']).is_a?(Array)
+          self.redirect_uris = value
+        end
+      else
+        self.redirect_uris = nil
       end
 
       if attributes.key?(:'callback_url')
@@ -277,6 +289,10 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "scopes", scopes cannot be nil.')
       end
 
+      if @redirect_uris.nil?
+        invalid_properties.push('invalid value for "redirect_uris", redirect_uris cannot be nil.')
+      end
+
       if @callback_url.nil?
         invalid_properties.push('invalid value for "callback_url", callback_url cannot be nil.')
       end
@@ -325,6 +341,7 @@ module ClerkHttpClient
       return false if @client_id.nil?
       return false if @public.nil?
       return false if @scopes.nil?
+      return false if @redirect_uris.nil?
       return false if @callback_url.nil?
       return false if @authorize_url.nil?
       return false if @token_fetch_url.nil?
@@ -358,6 +375,7 @@ module ClerkHttpClient
           client_id == o.client_id &&
           public == o.public &&
           scopes == o.scopes &&
+          redirect_uris == o.redirect_uris &&
           callback_url == o.callback_url &&
           authorize_url == o.authorize_url &&
           token_fetch_url == o.token_fetch_url &&
@@ -378,7 +396,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, instance_id, name, client_id, public, scopes, callback_url, authorize_url, token_fetch_url, user_info_url, discovery_url, token_introspection_url, created_at, updated_at, client_secret].hash
+      [object, id, instance_id, name, client_id, public, scopes, redirect_uris, callback_url, authorize_url, token_fetch_url, user_info_url, discovery_url, token_introspection_url, created_at, updated_at, client_secret].hash
     end
 
     # Builds the object from hash

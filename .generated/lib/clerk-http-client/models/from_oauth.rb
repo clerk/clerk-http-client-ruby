@@ -25,6 +25,8 @@ module ClerkHttpClient
 
     attr_accessor :attempts
 
+    attr_accessor :verified_at_client
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -54,7 +56,8 @@ module ClerkHttpClient
         :'strategy' => :'strategy',
         :'error' => :'error',
         :'expire_at' => :'expire_at',
-        :'attempts' => :'attempts'
+        :'attempts' => :'attempts',
+        :'verified_at_client' => :'verified_at_client'
       }
     end
 
@@ -70,7 +73,8 @@ module ClerkHttpClient
         :'strategy' => :'String',
         :'error' => :'FromOAuthError',
         :'expire_at' => :'Integer',
-        :'attempts' => :'Integer'
+        :'attempts' => :'Integer',
+        :'verified_at_client' => :'String'
       }
     end
 
@@ -79,7 +83,8 @@ module ClerkHttpClient
       Set.new([
         :'error',
         :'expire_at',
-        :'attempts'
+        :'attempts',
+        :'verified_at_client'
       ])
     end
 
@@ -122,6 +127,12 @@ module ClerkHttpClient
 
       if attributes.key?(:'attempts')
         self.attempts = attributes[:'attempts']
+      else
+        self.attempts = nil
+      end
+
+      if attributes.key?(:'verified_at_client')
+        self.verified_at_client = attributes[:'verified_at_client']
       end
     end
 
@@ -192,7 +203,8 @@ module ClerkHttpClient
           strategy == o.strategy &&
           error == o.error &&
           expire_at == o.expire_at &&
-          attempts == o.attempts
+          attempts == o.attempts &&
+          verified_at_client == o.verified_at_client
     end
 
     # @see the `==` method
@@ -204,7 +216,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, strategy, error, expire_at, attempts].hash
+      [status, strategy, error, expire_at, attempts, verified_at_client].hash
     end
 
     # Builds the object from hash

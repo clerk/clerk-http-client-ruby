@@ -27,6 +27,8 @@ module ClerkHttpClient
 
     attr_accessor :expire_at
 
+    attr_accessor :verified_at_client
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -57,7 +59,8 @@ module ClerkHttpClient
         :'nonce' => :'nonce',
         :'message' => :'message',
         :'attempts' => :'attempts',
-        :'expire_at' => :'expire_at'
+        :'expire_at' => :'expire_at',
+        :'verified_at_client' => :'verified_at_client'
       }
     end
 
@@ -74,7 +77,8 @@ module ClerkHttpClient
         :'nonce' => :'String',
         :'message' => :'String',
         :'attempts' => :'Integer',
-        :'expire_at' => :'Integer'
+        :'expire_at' => :'Integer',
+        :'verified_at_client' => :'String'
       }
     end
 
@@ -84,7 +88,8 @@ module ClerkHttpClient
         :'nonce',
         :'message',
         :'attempts',
-        :'expire_at'
+        :'expire_at',
+        :'verified_at_client'
       ])
     end
 
@@ -125,10 +130,18 @@ module ClerkHttpClient
 
       if attributes.key?(:'attempts')
         self.attempts = attributes[:'attempts']
+      else
+        self.attempts = nil
       end
 
       if attributes.key?(:'expire_at')
         self.expire_at = attributes[:'expire_at']
+      else
+        self.expire_at = nil
+      end
+
+      if attributes.key?(:'verified_at_client')
+        self.verified_at_client = attributes[:'verified_at_client']
       end
     end
 
@@ -191,7 +204,8 @@ module ClerkHttpClient
           nonce == o.nonce &&
           message == o.message &&
           attempts == o.attempts &&
-          expire_at == o.expire_at
+          expire_at == o.expire_at &&
+          verified_at_client == o.verified_at_client
     end
 
     # @see the `==` method
@@ -203,7 +217,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, strategy, nonce, message, attempts, expire_at].hash
+      [status, strategy, nonce, message, attempts, expire_at, verified_at_client].hash
     end
 
     # Builds the object from hash

@@ -288,6 +288,7 @@ module ClerkHttpClient
     # @option opts [Float] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
     # @option opts [Boolean] :include_members_count Flag to denote whether the member counts of each organization should be included in the response or not.
     # @option opts [String] :query Returns organizations with ID, name, or slug that match the given query. Uses exact match for organization ID and partial match for name and slug.
+    # @option opts [Array<String>] :organization_id Returns organizations with the organization ids specified. Any organization ids not found are ignored. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids. Example: ?organization_id&#x3D;+org_1&amp;organization_id&#x3D;-org_2
     # @option opts [String] :order_by Allows to return organizations in a particular order. At the moment, you can order the returned organizations either by their &#x60;name&#x60;, &#x60;created_at&#x60; or &#x60;members_count&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want organizations to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. (default to '-created_at')
     # @return [Organizations]
 
@@ -303,6 +304,7 @@ module ClerkHttpClient
     # @option opts [Float] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
     # @option opts [Boolean] :include_members_count Flag to denote whether the member counts of each organization should be included in the response or not.
     # @option opts [String] :query Returns organizations with ID, name, or slug that match the given query. Uses exact match for organization ID and partial match for name and slug.
+    # @option opts [Array<String>] :organization_id Returns organizations with the organization ids specified. Any organization ids not found are ignored. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids. Example: ?organization_id&#x3D;+org_1&amp;organization_id&#x3D;-org_2
     # @option opts [String] :order_by Allows to return organizations in a particular order. At the moment, you can order the returned organizations either by their &#x60;name&#x60;, &#x60;created_at&#x60; or &#x60;members_count&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want organizations to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. (default to '-created_at')
     # @return [Array<(Organizations, Integer, Hash)>] Organizations data, response status code and response headers
     # GET 
@@ -331,6 +333,7 @@ module ClerkHttpClient
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'include_members_count'] = opts[:'include_members_count'] if !opts[:'include_members_count'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'organization_id'] = @api_client.build_collection_param(opts[:'organization_id'], :multi) if !opts[:'organization_id'].nil?
       query_params[:'order_by'] = opts[:'order_by'] if !opts[:'order_by'].nil?
 
       # header parameters

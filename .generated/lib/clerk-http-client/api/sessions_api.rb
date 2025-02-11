@@ -20,7 +20,7 @@ module ClerkHttpClient
       @api_client = api_client
     end
     # Create a new active session
-    # Create a new active session for the provided user ID.  This operation is only available for Clerk Development instances.
+    # Create a new active session for the provided user ID.  **This operation is intended only for use in testing, and is not available for production instances.** If you are looking to generate a user session from the backend, we recommend using the [Sign-in Tokens](https://clerk.com/docs/reference/backend-api/tag/Sign-in-Tokens#operation/CreateSignInToken) resource instead.
     # @param [Hash] opts the optional parameters
     # @option opts [CreateSessionRequest] :create_session_request 
     # @return [Session]
@@ -31,7 +31,7 @@ module ClerkHttpClient
     end
 
     # Create a new active session
-    # Create a new active session for the provided user ID.  This operation is only available for Clerk Development instances.
+    # Create a new active session for the provided user ID.  **This operation is intended only for use in testing, and is not available for production instances.** If you are looking to generate a user session from the backend, we recommend using the [Sign-in Tokens](https://clerk.com/docs/reference/backend-api/tag/Sign-in-Tokens#operation/CreateSignInToken) resource instead.
     # @param [Hash] opts the optional parameters
     # @option opts [CreateSessionRequest] :create_session_request 
     # @return [Array<(Session, Integer, Hash)>] Session data, response status code and response headers

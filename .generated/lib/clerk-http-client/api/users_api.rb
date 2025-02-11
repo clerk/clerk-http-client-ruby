@@ -747,26 +747,6 @@ module ClerkHttpClient
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.get_user_list ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'query'].nil? && opts[:'query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"query"]" when calling UsersApi.get_user_list, the character length must be great than or equal to 3.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'email_address_query'].nil? && opts[:'email_address_query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"email_address_query"]" when calling UsersApi.get_user_list, the character length must be great than or equal to 3.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'phone_number_query'].nil? && opts[:'phone_number_query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"phone_number_query"]" when calling UsersApi.get_user_list, the character length must be great than or equal to 3.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'username_query'].nil? && opts[:'username_query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"username_query"]" when calling UsersApi.get_user_list, the character length must be great than or equal to 3.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'name_query'].nil? && opts[:'name_query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"name_query"]" when calling UsersApi.get_user_list, the character length must be great than or equal to 3.'
-      end
-
       if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
         fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling UsersApi.get_user_list, must be smaller than or equal to 500.'
       end
@@ -881,22 +861,6 @@ module ClerkHttpClient
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: UsersApi.get_users_count ...'
       end
-      if @api_client.config.client_side_validation && !opts[:'query'].nil? && opts[:'query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"query"]" when calling UsersApi.get_users_count, the character length must be great than or equal to 3.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'email_address_query'].nil? && opts[:'email_address_query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"email_address_query"]" when calling UsersApi.get_users_count, the character length must be great than or equal to 3.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'phone_number_query'].nil? && opts[:'phone_number_query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"phone_number_query"]" when calling UsersApi.get_users_count, the character length must be great than or equal to 3.'
-      end
-
-      if @api_client.config.client_side_validation && !opts[:'username_query'].nil? && opts[:'username_query'].to_s.length < 3
-        fail ArgumentError, 'invalid value for "opts[:"username_query"]" when calling UsersApi.get_users_count, the character length must be great than or equal to 3.'
-      end
-
       # resource path
       local_var_path = '/users/count'
 

@@ -90,7 +90,7 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
     # @option opts [Float] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
-    # @option opts [String] :query Filter waitlist entries by email address
+    # @option opts [String] :query Filter waitlist entries by &#x60;email_address&#x60; or &#x60;id&#x60;
     # @option opts [String] :status Filter waitlist entries by their status
     # @option opts [String] :order_by Specify the order of results. Supported values are: - &#x60;created_at&#x60; - &#x60;email_address&#x60; - &#x60;invited_at&#x60;  Use &#x60;+&#x60; for ascending or &#x60;-&#x60; for descending order. Defaults to &#x60;-created_at&#x60;. (default to '-created_at')
     # @return [ListWaitlistEntries200Response]
@@ -105,7 +105,7 @@ module ClerkHttpClient
     # @param [Hash] opts the optional parameters
     # @option opts [Float] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
     # @option opts [Float] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
-    # @option opts [String] :query Filter waitlist entries by email address
+    # @option opts [String] :query Filter waitlist entries by &#x60;email_address&#x60; or &#x60;id&#x60;
     # @option opts [String] :status Filter waitlist entries by their status
     # @option opts [String] :order_by Specify the order of results. Supported values are: - &#x60;created_at&#x60; - &#x60;email_address&#x60; - &#x60;invited_at&#x60;  Use &#x60;+&#x60; for ascending or &#x60;-&#x60; for descending order. Defaults to &#x60;-created_at&#x60;. (default to '-created_at')
     # @return [Array<(ListWaitlistEntries200Response, Integer, Hash)>] ListWaitlistEntries200Response data, response status code and response headers

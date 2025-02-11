@@ -23,6 +23,8 @@ module ClerkHttpClient
 
     attr_accessor :expire_at
 
+    attr_accessor :verified_at_client
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -51,7 +53,8 @@ module ClerkHttpClient
         :'status' => :'status',
         :'strategy' => :'strategy',
         :'attempts' => :'attempts',
-        :'expire_at' => :'expire_at'
+        :'expire_at' => :'expire_at',
+        :'verified_at_client' => :'verified_at_client'
       }
     end
 
@@ -66,13 +69,17 @@ module ClerkHttpClient
         :'status' => :'String',
         :'strategy' => :'String',
         :'attempts' => :'Integer',
-        :'expire_at' => :'Integer'
+        :'expire_at' => :'Integer',
+        :'verified_at_client' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'attempts',
+        :'expire_at',
+        :'verified_at_client'
       ])
     end
 
@@ -114,6 +121,10 @@ module ClerkHttpClient
       else
         self.expire_at = nil
       end
+
+      if attributes.key?(:'verified_at_client')
+        self.verified_at_client = attributes[:'verified_at_client']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -129,14 +140,6 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "strategy", strategy cannot be nil.')
       end
 
-      if @attempts.nil?
-        invalid_properties.push('invalid value for "attempts", attempts cannot be nil.')
-      end
-
-      if @expire_at.nil?
-        invalid_properties.push('invalid value for "expire_at", expire_at cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -150,8 +153,6 @@ module ClerkHttpClient
       return false if @strategy.nil?
       strategy_validator = EnumAttributeValidator.new('String', ["phone_code", "email_code", "reset_password_email_code"])
       return false unless strategy_validator.valid?(@strategy)
-      return false if @attempts.nil?
-      return false if @expire_at.nil?
       true
     end
 
@@ -183,7 +184,8 @@ module ClerkHttpClient
           status == o.status &&
           strategy == o.strategy &&
           attempts == o.attempts &&
-          expire_at == o.expire_at
+          expire_at == o.expire_at &&
+          verified_at_client == o.verified_at_client
     end
 
     # @see the `==` method
@@ -195,7 +197,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, strategy, attempts, expire_at].hash
+      [status, strategy, attempts, expire_at, verified_at_client].hash
     end
 
     # Builds the object from hash

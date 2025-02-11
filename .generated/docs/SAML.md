@@ -9,7 +9,8 @@
 | **external_verification_redirect_url** | **String** |  |  |
 | **error** | [**FromOAuthError**](FromOAuthError.md) |  | [optional] |
 | **expire_at** | **Integer** |  |  |
-| **attempts** | **Integer** |  | [optional] |
+| **attempts** | **Integer** |  |  |
+| **verified_at_client** | **String** |  | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = ClerkHttpClient::SAML.new(
   external_verification_redirect_url: null,
   error: null,
   expire_at: null,
-  attempts: null
+  attempts: null,
+  verified_at_client: null
 )
 ```
 

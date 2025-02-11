@@ -18,7 +18,7 @@ module ClerkHttpClient
     # The email address to add to the waitlist
     attr_accessor :email_address
 
-    # Optional flag which denotes whether an email invitation should be sent to the given email address. Defaults to `true`.
+    # Optional flag which denotes whether a confirmation email should be sent to the given email address. Defaults to `true`.
     attr_accessor :notify
 
     # Attribute mapping from ruby-style variable name to JSON key.

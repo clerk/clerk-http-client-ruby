@@ -8,8 +8,9 @@
 | **strategy** | **String** |  |  |
 | **nonce** | **String** |  | [optional] |
 | **message** | **String** |  | [optional] |
-| **attempts** | **Integer** |  | [optional] |
-| **expire_at** | **Integer** |  | [optional] |
+| **attempts** | **Integer** |  |  |
+| **expire_at** | **Integer** |  |  |
+| **verified_at_client** | **String** |  | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = ClerkHttpClient::Web3Signature.new(
   nonce: null,
   message: null,
   attempts: null,
-  expire_at: null
+  expire_at: null,
+  verified_at_client: null
 )
 ```
 

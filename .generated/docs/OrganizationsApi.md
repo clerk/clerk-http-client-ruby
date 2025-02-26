@@ -6,7 +6,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | ------ | ------------ | ----------- |
 | [**create_organization**](OrganizationsApi.md#create_organization) | **POST** /organizations | Create an organization |
 | [**delete_organization**](OrganizationsApi.md#delete_organization) | **DELETE** /organizations/{organization_id} | Delete an organization |
-| [**delete_organization_logo**](OrganizationsApi.md#delete_organization_logo) | **DELETE** /organizations/{organization_id}/logo |  |
+| [**delete_organization_logo**](OrganizationsApi.md#delete_organization_logo) | **DELETE** /organizations/{organization_id}/logo | Delete the organization&#39;s logo. |
 | [**get_organization**](OrganizationsApi.md#get_organization) | **GET** /organizations/{organization_id} | Retrieve an organization by ID or slug |
 | [**list_organizations**](OrganizationsApi.md#list_organizations) | **GET** /organizations | Get a list of organizations for an instance |
 | [**merge_organization_metadata**](OrganizationsApi.md#merge_organization_metadata) | **PATCH** /organizations/{organization_id}/metadata | Merge and update metadata for an organization |
@@ -156,7 +156,7 @@ end
 
 > <Organization> delete_organization_logo(organization_id)
 
-
+Delete the organization's logo.
 
 Delete the organization's logo.
 
@@ -174,7 +174,7 @@ end
 organization_id = 'organization_id_example' # String | The ID of the organization for which the logo will be deleted.
 
 begin
-  
+  # Delete the organization's logo.
   result = Clerk::SDK.organizations.delete_organization_logo(organization_id)
   p result
 rescue ClerkHttpClient::ApiError => e
@@ -190,7 +190,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  
+  # Delete the organization's logo.
   data, status_code, headers = Clerk::SDK.organizations.delete_organization_logo_with_http_info(organization_id)
   p status_code # => 2xx
   p headers # => { ... }
@@ -241,7 +241,8 @@ end
 
 organization_id = 'organization_id_example' # String | The ID or slug of the organization
 opts = {
-  include_members_count: true # Boolean | Flag to denote whether or not the organization's members count should be included in the response.
+  include_members_count: true, # Boolean | Flag to denote whether or not the organization's members count should be included in the response.
+  include_missing_member_with_elevated_permissions: true # Boolean | Flag to denote whether or not to include a member with elevated permissions who is not currently a member of the organization.
 }
 
 begin
@@ -277,6 +278,7 @@ end
 | ---- | ---- | ----------- | ----- |
 | **organization_id** | **String** | The ID or slug of the organization |  |
 | **include_members_count** | **Boolean** | Flag to denote whether or not the organization&#39;s members count should be included in the response. | [optional] |
+| **include_missing_member_with_elevated_permissions** | **Boolean** | Flag to denote whether or not to include a member with elevated permissions who is not currently a member of the organization. | [optional] |
 
 ### Return type
 
@@ -312,12 +314,14 @@ Clerk.configure do |config|
 end
 
 opts = {
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
   include_members_count: true, # Boolean | Flag to denote whether the member counts of each organization should be included in the response or not.
+  include_missing_member_with_elevated_permissions: true, # Boolean | Flag to denote whether or not to include a member with elevated permissions who is not currently a member of the organization.
   query: 'query_example', # String | Returns organizations with ID, name, or slug that match the given query. Uses exact match for organization ID and partial match for name and slug.
+  user_id: ['inner_example'], # Array<String> | Returns organizations with the user ids specified. Any user ids not found are ignored. For each user id, the `+` and `-` can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set.
   organization_id: ['inner_example'], # Array<String> | Returns organizations with the organization ids specified. Any organization ids not found are ignored. For each organization id, the `+` and `-` can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids. Example: ?organization_id=+org_1&organization_id=-org_2
-  order_by: 'order_by_example' # String | Allows to return organizations in a particular order. At the moment, you can order the returned organizations either by their `name`, `created_at` or `members_count`. In order to specify the direction, you can use the `+/-` symbols prepended in the property to order by. For example, if you want organizations to be returned in descending order according to their `created_at` property, you can use `-created_at`. If you don't use `+` or `-`, then `+` is implied. Defaults to `-created_at`.
+  order_by: 'order_by_example', # String | Allows to return organizations in a particular order. At the moment, you can order the returned organizations either by their `name`, `created_at` or `members_count`. In order to specify the direction, you can use the `+/-` symbols prepended in the property to order by. For example, if you want organizations to be returned in descending order according to their `created_at` property, you can use `-created_at`. If you don't use `+` or `-`, then `+` is implied. Defaults to `-created_at`.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
 }
 
 begin
@@ -351,12 +355,14 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **include_members_count** | **Boolean** | Flag to denote whether the member counts of each organization should be included in the response or not. | [optional] |
+| **include_missing_member_with_elevated_permissions** | **Boolean** | Flag to denote whether or not to include a member with elevated permissions who is not currently a member of the organization. | [optional] |
 | **query** | **String** | Returns organizations with ID, name, or slug that match the given query. Uses exact match for organization ID and partial match for name and slug. | [optional] |
+| **user_id** | [**Array&lt;String&gt;**](String.md) | Returns organizations with the user ids specified. Any user ids not found are ignored. For each user id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. | [optional] |
 | **organization_id** | [**Array&lt;String&gt;**](String.md) | Returns organizations with the organization ids specified. Any organization ids not found are ignored. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids. Example: ?organization_id&#x3D;+org_1&amp;organization_id&#x3D;-org_2 | [optional] |
 | **order_by** | **String** | Allows to return organizations in a particular order. At the moment, you can order the returned organizations either by their &#x60;name&#x60;, &#x60;created_at&#x60; or &#x60;members_count&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want organizations to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. | [optional][default to &#39;-created_at&#39;] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 

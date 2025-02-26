@@ -4,12 +4,12 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_id** | **String** |  | [optional] |
-| **first_name** | **String** |  | [optional] |
-| **last_name** | **String** |  | [optional] |
-| **profile_image_url** | **String** |  | [optional] |
-| **image_url** | **String** |  | [optional] |
-| **has_image** | **Boolean** |  | [optional] |
+| **user_id** | **String** |  |  |
+| **first_name** | **String** |  |  |
+| **last_name** | **String** |  |  |
+| **profile_image_url** | **String** |  |  |
+| **image_url** | **String** |  |  |
+| **has_image** | **Boolean** |  |  |
 | **identifier** | **String** |  | [optional] |
 
 ## Example

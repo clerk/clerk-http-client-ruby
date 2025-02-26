@@ -28,7 +28,7 @@ Clerk.configure do |config|
 end
 
 opts = {
-  create_actor_token_request: ClerkHttpClient::CreateActorTokenRequest.new({user_id: 'user_id_example', actor: {"sub":"user_2OEpKhcCN1Lat9NQ0G6puh7q5Rb"}}) # CreateActorTokenRequest | 
+  create_actor_token_request: ClerkHttpClient::CreateActorTokenRequest.new({user_id: 'user_id_example', actor: ClerkHttpClient::CreateActorTokenRequestActor.new({sub: 'sub_example'})}) # CreateActorTokenRequest | 
 }
 
 begin

@@ -17,7 +17,7 @@
 | **sp_entity_id** | **String** |  |  |
 | **sp_metadata_url** | **String** |  |  |
 | **organization_id** | **String** |  | [optional] |
-| **attribute_mapping** | [**SchemasSAMLConnectionAttributeMapping**](SchemasSAMLConnectionAttributeMapping.md) |  | [optional] |
+| **attribute_mapping** | [**SAMLConnectionAttributeMapping**](SAMLConnectionAttributeMapping.md) |  | [optional] |
 | **active** | **Boolean** |  |  |
 | **provider** | **String** |  |  |
 | **user_count** | **Integer** |  |  |

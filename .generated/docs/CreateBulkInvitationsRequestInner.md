@@ -10,6 +10,7 @@
 | **notify** | **Boolean** | Optional flag which denotes whether an email invitation should be sent to the given email address. Defaults to true. | [optional][default to true] |
 | **ignore_existing** | **Boolean** | Whether an invitation should be created if there is already an existing invitation for this email address, or it&#39;s claimed by another user. | [optional][default to false] |
 | **expires_in_days** | **Integer** | The number of days the invitation will be valid for. By default, the invitation expires after 30 days. | [optional] |
+| **template_slug** | **String** | The slug of the email template to use for the invitation email. | [optional][default to &#39;invitation&#39;] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = ClerkHttpClient::CreateBulkInvitationsRequestInner.new(
   redirect_url: null,
   notify: null,
   ignore_existing: null,
-  expires_in_days: null
+  expires_in_days: null,
+  template_slug: null
 )
 ```
 

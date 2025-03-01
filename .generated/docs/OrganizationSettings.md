@@ -7,8 +7,8 @@
 | **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value. |  |
 | **enabled** | **Boolean** |  |  |
 | **max_allowed_memberships** | **Integer** |  |  |
-| **max_allowed_roles** | **Integer** |  | [optional] |
-| **max_allowed_permissions** | **Integer** |  | [optional] |
+| **max_allowed_roles** | **Integer** |  |  |
+| **max_allowed_permissions** | **Integer** |  |  |
 | **creator_role** | **String** | The role key that a user will be assigned after creating an organization. |  |
 | **admin_delete_enabled** | **Boolean** | The default for whether an admin can delete an organization with the Frontend API. |  |
 | **domains_enabled** | **Boolean** |  |  |

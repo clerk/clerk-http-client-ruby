@@ -4,17 +4,17 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **id** | **String** |  | [optional] |
-| **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value.  | [optional] |
-| **role** | **String** |  | [optional] |
+| **id** | **String** |  |  |
+| **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value.  |  |
+| **role** | **String** |  |  |
 | **role_name** | **String** |  | [optional] |
-| **permissions** | **Array&lt;String&gt;** |  | [optional] |
-| **public_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization membership, accessible from both Frontend and Backend APIs | [optional] |
+| **permissions** | **Array&lt;String&gt;** |  |  |
+| **public_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization membership, accessible from both Frontend and Backend APIs |  |
 | **private_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization membership, accessible only from the Backend API | [optional] |
-| **organization** | [**Organization**](Organization.md) |  | [optional] |
+| **organization** | [**Organization**](Organization.md) |  |  |
 | **public_user_data** | [**OrganizationMembershipPublicUserData**](OrganizationMembershipPublicUserData.md) |  | [optional] |
-| **created_at** | **Integer** | Unix timestamp of creation. | [optional] |
-| **updated_at** | **Integer** | Unix timestamp of last update. | [optional] |
+| **created_at** | **Integer** | Unix timestamp of creation. |  |
+| **updated_at** | **Integer** | Unix timestamp of last update. |  |
 
 ## Example
 

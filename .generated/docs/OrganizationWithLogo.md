@@ -9,8 +9,10 @@
 | **name** | **String** |  |  |
 | **slug** | **String** |  |  |
 | **members_count** | **Integer** |  | [optional] |
+| **missing_member_with_elevated_permissions** | **Boolean** |  | [optional] |
+| **pending_invitations_count** | **Integer** |  | [optional] |
 | **max_allowed_memberships** | **Integer** |  |  |
-| **admin_delete_enabled** | **Boolean** |  | [optional] |
+| **admin_delete_enabled** | **Boolean** |  |  |
 | **public_metadata** | **Hash&lt;String, Object&gt;** |  |  |
 | **private_metadata** | **Hash&lt;String, Object&gt;** |  |  |
 | **created_by** | **String** |  | [optional] |
@@ -18,7 +20,7 @@
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
 | **logo_url** | **String** |  | [optional] |
 | **image_url** | **String** |  |  |
-| **has_image** | **Boolean** |  | [optional] |
+| **has_image** | **Boolean** |  |  |
 
 ## Example
 
@@ -31,6 +33,8 @@ instance = ClerkHttpClient::OrganizationWithLogo.new(
   name: null,
   slug: null,
   members_count: null,
+  missing_member_with_elevated_permissions: null,
+  pending_invitations_count: null,
   max_allowed_memberships: null,
   admin_delete_enabled: null,
   public_metadata: null,

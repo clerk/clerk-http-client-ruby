@@ -12,7 +12,7 @@
 | **public** | **Boolean** |  |  |
 | **scopes** | **String** |  |  |
 | **redirect_uris** | **Array&lt;String&gt;** |  |  |
-| **callback_url** | **String** |  |  |
+| **callback_url** | **String** | Deprecated: Use redirect_uris instead.  |  |
 | **authorize_url** | **String** |  |  |
 | **token_fetch_url** | **String** |  |  |
 | **user_info_url** | **String** |  |  |

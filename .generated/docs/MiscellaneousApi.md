@@ -27,8 +27,13 @@ Clerk.configure do |config|
 end
 
 opts = {
-  frontend_api: 'frontend_api_example', # String | The Frontend API key of your instance
-  publishable_key: 'publishable_key_example' # String | The publishable key of your instance
+  frontend_api: 'frontend_api_example', # String | Please use `frontend_api` instead
+  frontend_api2: 'frontend_api_example', # String | The Frontend API key of your instance
+  publishable_key: 'publishable_key_example', # String | The publishable key of your instance
+  proxy_url: 'proxy_url_example', # String | The proxy URL of your instance
+  domain: 'domain_example', # String | The domain of your instance
+  sign_in_url: 'sign_in_url_example', # String | The sign in URL of your instance
+  use_domain_for_script: true # Boolean | Whether to use the domain for the script URL
 }
 
 begin
@@ -61,8 +66,13 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **frontend_api** | **String** | The Frontend API key of your instance | [optional] |
+| **frontend_api** | **String** | Please use &#x60;frontend_api&#x60; instead | [optional] |
+| **frontend_api2** | **String** | The Frontend API key of your instance | [optional] |
 | **publishable_key** | **String** | The publishable key of your instance | [optional] |
+| **proxy_url** | **String** | The proxy URL of your instance | [optional] |
+| **domain** | **String** | The domain of your instance | [optional] |
+| **sign_in_url** | **String** | The sign in URL of your instance | [optional] |
+| **use_domain_for_script** | **Boolean** | Whether to use the domain for the script URL | [optional] |
 
 ### Return type
 

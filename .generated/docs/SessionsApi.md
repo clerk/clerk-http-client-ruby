@@ -33,7 +33,7 @@ Clerk.configure do |config|
 end
 
 opts = {
-  create_session_request: ClerkHttpClient::CreateSessionRequest.new # CreateSessionRequest | 
+  create_session_request: ClerkHttpClient::CreateSessionRequest.new({user_id: 'user_id_example'}) # CreateSessionRequest | 
 }
 
 begin
@@ -320,8 +320,9 @@ opts = {
   client_id: 'client_id_example', # String | List sessions for the given client
   user_id: 'user_id_example', # String | List sessions for the given user
   status: 'abandoned', # String | Filter sessions by the provided status
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  paginated: true, # Boolean | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
 }
 
 begin
@@ -358,8 +359,9 @@ end
 | **client_id** | **String** | List sessions for the given client | [optional] |
 | **user_id** | **String** | List sessions for the given user | [optional] |
 | **status** | **String** | Filter sessions by the provided status | [optional] |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **paginated** | **Boolean** | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated. | [optional] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 

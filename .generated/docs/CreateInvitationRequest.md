@@ -10,7 +10,7 @@
 | **notify** | **Boolean** | Optional flag which denotes whether an email invitation should be sent to the given email address. Defaults to &#x60;true&#x60;. | [optional][default to true] |
 | **ignore_existing** | **Boolean** | Whether an invitation should be created if there is already an existing invitation for this email address, or it&#39;s claimed by another user. | [optional][default to false] |
 | **expires_in_days** | **Integer** | The number of days the invitation will be valid for. By default, the invitation expires after 30 days. | [optional] |
-| **template_slug** | **String** | The slug of the email template to use for the invitation email. If not provided, the \&quot;invitation\&quot; template will be used. | [optional] |
+| **template_slug** | **String** | The slug of the email template to use for the invitation email. | [optional] |
 
 ## Example
 

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **name** | **String** | The name of the new organization. May not contain URLs or HTML. |  |
+| **name** | **String** | The name of the new organization. May not contain URLs or HTML. Max length: 256 |  |
 | **created_by** | **String** | The ID of the User who will become the administrator for the new organization | [optional] |
 | **private_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization, accessible only from the Backend API | [optional] |
 | **public_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization, read-only from the Frontend API and fully accessible (read/write) from the Backend API | [optional] |

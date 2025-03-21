@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **token** | **String** | A JWT that represents the active client. | [optional] |
+| **token** | **String** | A JWT that represents the active client. |  |
 
 ## Example
 

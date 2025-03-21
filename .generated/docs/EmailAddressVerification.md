@@ -16,7 +16,8 @@ ClerkHttpClient::EmailAddressVerification.openapi_one_of
 # [
 #   :'Admin',
 #   :'FromOAuth',
-#   :'OTP'
+#   :'OTP',
+#   :'Ticket'
 # ]
 ```
 
@@ -47,5 +48,6 @@ ClerkHttpClient::EmailAddressVerification.build(data_that_doesnt_match)
 - `Admin`
 - `FromOAuth`
 - `OTP`
+- `Ticket`
 - `nil` (if no type matches)
 

@@ -98,8 +98,8 @@ Clerk.configure do |config|
 end
 
 opts = {
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56, # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
   query: 'query_example', # String | Filter waitlist entries by `email_address` or `id`
   status: 'pending', # String | Filter waitlist entries by their status
   order_by: 'order_by_example' # String | Specify the order of results. Supported values are: - `created_at` - `email_address` - `invited_at`  Use `+` for ascending or `-` for descending order. Defaults to `-created_at`.
@@ -136,8 +136,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **query** | **String** | Filter waitlist entries by &#x60;email_address&#x60; or &#x60;id&#x60; | [optional] |
 | **status** | **String** | Filter waitlist entries by their status | [optional] |
 | **order_by** | **String** | Specify the order of results. Supported values are: - &#x60;created_at&#x60; - &#x60;email_address&#x60; - &#x60;invited_at&#x60;  Use &#x60;+&#x60; for ascending or &#x60;-&#x60; for descending order. Defaults to &#x60;-created_at&#x60;. | [optional][default to &#39;-created_at&#39;] |

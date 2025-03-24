@@ -4,10 +4,10 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value. | [optional] |
-| **id** | **String** |  | [optional] |
-| **environment_type** | **String** |  | [optional] |
-| **allowed_origins** | **Array&lt;String&gt;** |  | [optional] |
+| **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value. |  |
+| **id** | **String** |  |  |
+| **environment_type** | **String** |  |  |
+| **allowed_origins** | **Array&lt;String&gt;** |  |  |
 
 ## Example
 

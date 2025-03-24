@@ -28,7 +28,7 @@ Clerk.configure do |config|
 end
 
 opts = {
-  create_sign_in_token_request: ClerkHttpClient::CreateSignInTokenRequest.new # CreateSignInTokenRequest | 
+  create_sign_in_token_request: ClerkHttpClient::CreateSignInTokenRequest.new({user_id: 'user_id_example'}) # CreateSignInTokenRequest | 
 }
 
 begin

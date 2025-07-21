@@ -12,9 +12,9 @@
 | **status** | **String** |  |  |
 | **last_active_organization_id** | **String** |  | [optional] |
 | **last_active_at** | **Integer** |  |  |
-| **latest_activity** | [**SessionLatestActivity**](SessionLatestActivity.md) |  | [optional] |
-| **expire_at** | **Integer** |  |  |
-| **abandon_at** | **Integer** |  |  |
+| **latest_activity** | [**SessionActivityResponse**](SessionActivityResponse.md) |  | [optional] |
+| **expire_at** | **Integer** | Unix timestamp of expiration.  |  |
+| **abandon_at** | **Integer** | Unix timestamp of abandonment.  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
 | **created_at** | **Integer** | Unix timestamp of creation.  |  |
 

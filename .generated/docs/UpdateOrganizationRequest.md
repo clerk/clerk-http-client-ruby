@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **public_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization, that is visible to both your frontend and backend. | [optional] |
 | **private_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the organization that is only visible to your backend. | [optional] |
-| **name** | **String** | The new name of the organization. May not contain URLs or HTML. | [optional] |
+| **name** | **String** | The new name of the organization. May not contain URLs or HTML. Max length: 256 | [optional] |
 | **slug** | **String** | The new slug of the organization, which needs to be unique in the instance | [optional] |
 | **max_allowed_memberships** | **Integer** | The maximum number of memberships allowed for this organization | [optional] |
 | **admin_delete_enabled** | **Boolean** | If true, an admin can delete this organization with the Frontend API. | [optional] |

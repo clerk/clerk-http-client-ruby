@@ -6,6 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | The name of the new SAML Connection | [optional] |
 | **domain** | **String** | The domain to use for the new SAML Connection | [optional] |
+| **domains** | **Array&lt;String&gt;** | A list of the domains on use for the SAML connection | [optional] |
 | **idp_entity_id** | **String** | The entity id as provided by the IdP | [optional] |
 | **idp_sso_url** | **String** | The SSO url as provided by the IdP | [optional] |
 | **idp_certificate** | **String** | The x509 certificated as provided by the IdP | [optional] |
@@ -27,6 +28,7 @@ require 'clerk-http-client'
 instance = ClerkHttpClient::UpdateSAMLConnectionRequest.new(
   name: null,
   domain: null,
+  domains: null,
   idp_entity_id: null,
   idp_sso_url: null,
   idp_certificate: null,

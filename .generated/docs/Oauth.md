@@ -7,9 +7,10 @@
 | **status** | **String** |  |  |
 | **strategy** | **String** |  |  |
 | **external_verification_redirect_url** | **String** |  | [optional] |
-| **error** | [**OauthError**](OauthError.md) |  | [optional] |
+| **error** | [**FromOAuthError**](FromOAuthError.md) |  | [optional] |
 | **expire_at** | **Integer** |  |  |
-| **attempts** | **Integer** |  | [optional] |
+| **attempts** | **Integer** |  |  |
+| **verified_at_client** | **String** |  | [optional] |
 
 ## Example
 
@@ -22,7 +23,8 @@ instance = ClerkHttpClient::Oauth.new(
   external_verification_redirect_url: null,
   error: null,
   expire_at: null,
-  attempts: null
+  attempts: null,
+  verified_at_client: null
 )
 ```
 

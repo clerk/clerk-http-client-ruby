@@ -24,8 +24,10 @@ All URIs are relative to *https://api.clerk.com/v1*
 | [**update_user_metadata**](UsersApi.md#update_user_metadata) | **PATCH** /users/{user_id}/metadata | Merge and update a user&#39;s metadata |
 | [**user_passkey_delete**](UsersApi.md#user_passkey_delete) | **DELETE** /users/{user_id}/passkeys/{passkey_identification_id} | Delete a user passkey |
 | [**user_web3_wallet_delete**](UsersApi.md#user_web3_wallet_delete) | **DELETE** /users/{user_id}/web3_wallets/{web3_wallet_identification_id} | Delete a user web3 wallet |
+| [**users_ban**](UsersApi.md#users_ban) | **POST** /users/ban | Ban multiple users |
 | [**users_get_organization_invitations**](UsersApi.md#users_get_organization_invitations) | **GET** /users/{user_id}/organization_invitations | Retrieve all invitations for a user |
 | [**users_get_organization_memberships**](UsersApi.md#users_get_organization_memberships) | **GET** /users/{user_id}/organization_memberships | Retrieve all memberships for a user |
+| [**users_unban**](UsersApi.md#users_unban) | **POST** /users/unban | Unban multiple users |
 | [**verify_password**](UsersApi.md#verify_password) | **POST** /users/{user_id}/verify_password | Verify the password of a user |
 | [**verify_totp**](UsersApi.md#verify_totp) | **POST** /users/{user_id}/verify_totp | Verify a TOTP or backup code for a user |
 
@@ -104,7 +106,7 @@ end
 
 Create a new user
 
-Creates a new user. Your user management settings determine how you should setup your user model.  Any email address and phone number created using this method will be marked as verified.  Note: If you are performing a migration, check out our guide on [zero downtime migrations](https://clerk.com/docs/deployments/migrate-overview).  A rate limit rule of 20 requests per 10 seconds is applied to this endpoint.
+Creates a new user. Your user management settings determine how you should setup your user model.  Any email address and phone number created using this method will be marked as verified.  Note: If you are performing a migration, check out our guide on [zero downtime migrations](https://clerk.com/docs/deployments/migrate-overview).  The following rate limit rules apply to this endpoint: 1000 requests per 10 seconds for production instances and 100 requests per 10 seconds for development instances
 
 ### Examples
 
@@ -578,7 +580,7 @@ end
 
 ## get_oauth_access_token
 
-> <Array<GetOAuthAccessToken200ResponseInner>> get_oauth_access_token(user_id, provider)
+> <OAuthAccessToken> get_oauth_access_token(user_id, provider, opts)
 
 Retrieve the OAuth access token of a user
 
@@ -597,10 +599,15 @@ end
 
 user_id = 'user_id_example' # String | The ID of the user for which to retrieve the OAuth access token
 provider = 'provider_example' # String | The ID of the OAuth provider (e.g. `oauth_google`)
+opts = {
+  paginated: true, # Boolean | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+}
 
 begin
   # Retrieve the OAuth access token of a user
-  result = Clerk::SDK.users.get_oauth_access_token(user_id, provider)
+  result = Clerk::SDK.users.get_oauth_access_token(user_id, provider, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
   puts "Error when calling Clerk::SDK.users->get_oauth_access_token: #{e}"
@@ -611,15 +618,15 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<GetOAuthAccessToken200ResponseInner>>, Integer, Hash)> get_oauth_access_token_with_http_info(user_id, provider)
+> <Array(<OAuthAccessToken>, Integer, Hash)> get_oauth_access_token_with_http_info(user_id, provider, opts)
 
 ```ruby
 begin
   # Retrieve the OAuth access token of a user
-  data, status_code, headers = Clerk::SDK.users.get_oauth_access_token_with_http_info(user_id, provider)
+  data, status_code, headers = Clerk::SDK.users.get_oauth_access_token_with_http_info(user_id, provider, opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Array<GetOAuthAccessToken200ResponseInner>>
+  p data # => <OAuthAccessToken>
 rescue ClerkHttpClient::ApiError => e
   puts "Error when calling Clerk::SDK.users->get_oauth_access_token_with_http_info: #{e}"
 end
@@ -631,10 +638,13 @@ end
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The ID of the user for which to retrieve the OAuth access token |  |
 | **provider** | **String** | The ID of the OAuth provider (e.g. &#x60;oauth_google&#x60;) |  |
+| **paginated** | **Boolean** | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated. | [optional] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 
-[**Array&lt;GetOAuthAccessToken200ResponseInner&gt;**](GetOAuthAccessToken200ResponseInner.md)
+[**OAuthAccessToken**](OAuthAccessToken.md)
 
 ### Authorization
 
@@ -752,8 +762,8 @@ opts = {
   last_active_at_since: 1700690400000, # Integer | Returns users that had session activity since the given date. Example: use 1700690400000 to retrieve users that had session activity from 2023-11-23 until the current day. Deprecated in favor of `last_active_at_after`.
   created_at_before: 1730160000000, # Integer | Returns users who have been created before the given date (with millisecond precision). Example: use 1730160000000 to retrieve users who have been created before 2024-10-29.
   created_at_after: 1730160000000, # Integer | Returns users who have been created after the given date (with millisecond precision). Example: use 1730160000000 to retrieve users who have been created after 2024-10-29.
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56, # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
   order_by: 'order_by_example' # String | Allows to return users in a particular order. At the moment, you can order the returned users by their `created_at`,`updated_at`,`email_address`,`web3wallet`,`first_name`,`last_name`,`phone_number`,`username`,`last_active_at`,`last_sign_in_at`. In order to specify the direction, you can use the `+/-` symbols prepended in the property to order by. For example, if you want users to be returned in descending order according to their `created_at` property, you can use `-created_at`. If you don't use `+` or `-`, then `+` is implied. We only support one `order_by` parameter, and if multiple `order_by` parameters are provided, we will only keep the first one. For example, if you pass `order_by=username&order_by=created_at`, we will consider only the first `order_by` parameter, which is `username`. The `created_at` parameter will be ignored in this case.
 }
 
@@ -806,8 +816,8 @@ end
 | **last_active_at_since** | **Integer** | Returns users that had session activity since the given date. Example: use 1700690400000 to retrieve users that had session activity from 2023-11-23 until the current day. Deprecated in favor of &#x60;last_active_at_after&#x60;. | [optional] |
 | **created_at_before** | **Integer** | Returns users who have been created before the given date (with millisecond precision). Example: use 1730160000000 to retrieve users who have been created before 2024-10-29. | [optional] |
 | **created_at_after** | **Integer** | Returns users who have been created after the given date (with millisecond precision). Example: use 1730160000000 to retrieve users who have been created after 2024-10-29. | [optional] |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **order_by** | **String** | Allows to return users in a particular order. At the moment, you can order the returned users by their &#x60;created_at&#x60;,&#x60;updated_at&#x60;,&#x60;email_address&#x60;,&#x60;web3wallet&#x60;,&#x60;first_name&#x60;,&#x60;last_name&#x60;,&#x60;phone_number&#x60;,&#x60;username&#x60;,&#x60;last_active_at&#x60;,&#x60;last_sign_in_at&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want users to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. We only support one &#x60;order_by&#x60; parameter, and if multiple &#x60;order_by&#x60; parameters are provided, we will only keep the first one. For example, if you pass &#x60;order_by&#x3D;username&amp;order_by&#x3D;created_at&#x60;, we will consider only the first &#x60;order_by&#x60; parameter, which is &#x60;username&#x60;. The &#x60;created_at&#x60; parameter will be ignored in this case. | [optional][default to &#39;-created_at&#39;] |
 
 ### Return type
@@ -850,11 +860,18 @@ opts = {
   username: ['inner_example'], # Array<String> | Counts users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored.
   web3_wallet: ['inner_example'], # Array<String> | Counts users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addressed not found are ignored.
   user_id: ['inner_example'], # Array<String> | Counts users with the user ids specified. Accepts up to 100 user ids. Any user ids not found are ignored.
+  organization_id: ['inner_example'], # Array<String> | Returns users that have memberships to the given organizations. For each organization id, the `+` and `-` can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids.
   query: 'query_example', # String | Counts users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names. The query value doesn't need to match the exact value you are looking for, it is capable of partial matches as well.
   email_address_query: 'email_address_query_example', # String | Counts users with emails that match the given query, via case-insensitive partial match. For example, `email_address_query=ello` will match a user with the email `HELLO@example.com`, and will be included in the resulting count.
   phone_number_query: 'phone_number_query_example', # String | Counts users with phone numbers that match the given query, via case-insensitive partial match. For example, `phone_number_query=555` will match a user with the phone number `+1555xxxxxxx`, and will be included in the resulting count.
   username_query: 'username_query_example', # String | Counts users with usernames that match the given query, via case-insensitive partial match. For example, `username_query=CoolUser` will match a user with the username `SomeCoolUser`, and will be included in the resulting count.
-  banned: true # Boolean | Counts users which are either banned (`banned=true`) or not banned (`banned=false`).
+  name_query: 'name_query_example', # String | Returns users with names that match the given query, via case-insensitive partial match.
+  banned: true, # Boolean | Counts users which are either banned (`banned=true`) or not banned (`banned=false`).
+  last_active_at_before: 1700690400000, # Integer | Returns users whose last session activity was before the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was before 2023-11-23.
+  last_active_at_after: 1700690400000, # Integer | Returns users whose last session activity was after the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was after 2023-11-23.
+  last_active_at_since: 1700690400000, # Integer | Returns users that had session activity since the given date. Example: use 1700690400000 to retrieve users that had session activity from 2023-11-23 until the current day. Deprecated in favor of `last_active_at_after`.
+  created_at_before: 1730160000000, # Integer | Returns users who have been created before the given date (with millisecond precision). Example: use 1730160000000 to retrieve users who have been created before 2024-10-29.
+  created_at_after: 1730160000000 # Integer | Returns users who have been created after the given date (with millisecond precision). Example: use 1730160000000 to retrieve users who have been created after 2024-10-29.
 }
 
 begin
@@ -894,11 +911,18 @@ end
 | **username** | [**Array&lt;String&gt;**](String.md) | Counts users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored. | [optional] |
 | **web3_wallet** | [**Array&lt;String&gt;**](String.md) | Counts users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addressed not found are ignored. | [optional] |
 | **user_id** | [**Array&lt;String&gt;**](String.md) | Counts users with the user ids specified. Accepts up to 100 user ids. Any user ids not found are ignored. | [optional] |
+| **organization_id** | [**Array&lt;String&gt;**](String.md) | Returns users that have memberships to the given organizations. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids. | [optional] |
 | **query** | **String** | Counts users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names. The query value doesn&#39;t need to match the exact value you are looking for, it is capable of partial matches as well. | [optional] |
 | **email_address_query** | **String** | Counts users with emails that match the given query, via case-insensitive partial match. For example, &#x60;email_address_query&#x3D;ello&#x60; will match a user with the email &#x60;HELLO@example.com&#x60;, and will be included in the resulting count. | [optional] |
 | **phone_number_query** | **String** | Counts users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;, and will be included in the resulting count. | [optional] |
 | **username_query** | **String** | Counts users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;, and will be included in the resulting count. | [optional] |
+| **name_query** | **String** | Returns users with names that match the given query, via case-insensitive partial match. | [optional] |
 | **banned** | **Boolean** | Counts users which are either banned (&#x60;banned&#x3D;true&#x60;) or not banned (&#x60;banned&#x3D;false&#x60;). | [optional] |
+| **last_active_at_before** | **Integer** | Returns users whose last session activity was before the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was before 2023-11-23. | [optional] |
+| **last_active_at_after** | **Integer** | Returns users whose last session activity was after the given date (with millisecond precision). Example: use 1700690400000 to retrieve users whose last session activity was after 2023-11-23. | [optional] |
+| **last_active_at_since** | **Integer** | Returns users that had session activity since the given date. Example: use 1700690400000 to retrieve users that had session activity from 2023-11-23 until the current day. Deprecated in favor of &#x60;last_active_at_after&#x60;. | [optional] |
+| **created_at_before** | **Integer** | Returns users who have been created before the given date (with millisecond precision). Example: use 1730160000000 to retrieve users who have been created before 2024-10-29. | [optional] |
+| **created_at_after** | **Integer** | Returns users who have been created after the given date (with millisecond precision). Example: use 1730160000000 to retrieve users who have been created after 2024-10-29. | [optional] |
 
 ### Return type
 
@@ -1472,6 +1496,74 @@ end
 - **Accept**: application/json
 
 
+## users_ban
+
+> <Array<User>> users_ban(users_ban_request)
+
+Ban multiple users
+
+Marks multiple users as banned, which means that all their sessions are revoked and they are not allowed to sign in again.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+users_ban_request = ClerkHttpClient::UsersBanRequest.new({user_ids: ['user_ids_example']}) # UsersBanRequest | 
+
+begin
+  # Ban multiple users
+  result = Clerk::SDK.users.users_ban(users_ban_request)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.users->users_ban: #{e}"
+end
+```
+
+#### Using the `users_ban_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<User>>, Integer, Hash)> users_ban_with_http_info(users_ban_request)
+
+```ruby
+begin
+  # Ban multiple users
+  data, status_code, headers = Clerk::SDK.users.users_ban_with_http_info(users_ban_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<User>>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.users->users_ban_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **users_ban_request** | [**UsersBanRequest**](UsersBanRequest.md) |  |  |
+
+### Return type
+
+[**Array&lt;User&gt;**](User.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
 ## users_get_organization_invitations
 
 > <OrganizationInvitationsWithPublicOrganizationData> users_get_organization_invitations(user_id, opts)
@@ -1493,8 +1585,8 @@ end
 
 user_id = 'user_id_example' # String | The ID of the user whose organization invitations we want to retrieve
 opts = {
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56, # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
   status: 'pending' # String | Filter organization invitations based on their status
 }
 
@@ -1530,8 +1622,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The ID of the user whose organization invitations we want to retrieve |  |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **status** | **String** | Filter organization invitations based on their status | [optional] |
 
 ### Return type
@@ -1569,8 +1661,8 @@ end
 
 user_id = 'user_id_example' # String | The ID of the user whose organization memberships we want to retrieve
 opts = {
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
 }
 
 begin
@@ -1605,8 +1697,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **user_id** | **String** | The ID of the user whose organization memberships we want to retrieve |  |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 
@@ -1619,6 +1711,74 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## users_unban
+
+> <Array<User>> users_unban(users_unban_request)
+
+Unban multiple users
+
+Removes the ban mark from multiple users.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+users_unban_request = ClerkHttpClient::UsersUnbanRequest.new({user_ids: ['user_ids_example']}) # UsersUnbanRequest | 
+
+begin
+  # Unban multiple users
+  result = Clerk::SDK.users.users_unban(users_unban_request)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.users->users_unban: #{e}"
+end
+```
+
+#### Using the `users_unban_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<Array<User>>, Integer, Hash)> users_unban_with_http_info(users_unban_request)
+
+```ruby
+begin
+  # Unban multiple users
+  data, status_code, headers = Clerk::SDK.users.users_unban_with_http_info(users_unban_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <Array<User>>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.users->users_unban_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **users_unban_request** | [**UsersUnbanRequest**](UsersUnbanRequest.md) |  |  |
+
+### Return type
+
+[**Array&lt;User&gt;**](User.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

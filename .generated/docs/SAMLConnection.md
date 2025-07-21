@@ -6,7 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  |  |
 | **name** | **String** |  |  |
-| **domain** | **String** |  |  |
+| **domain** | **String** |  | [optional] |
+| **domains** | **Array&lt;String&gt;** |  | [optional] |
 | **active** | **Boolean** |  |  |
 | **provider** | **String** |  |  |
 | **sync_user_attributes** | **Boolean** |  |  |
@@ -25,6 +26,7 @@ instance = ClerkHttpClient::SAMLConnection.new(
   id: null,
   name: null,
   domain: null,
+  domains: null,
   active: null,
   provider: null,
   sync_user_attributes: null,

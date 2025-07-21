@@ -5,7 +5,8 @@
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | The name to use as a label for this SAML Connection |  |
-| **domain** | **String** | The domain of your organization. Sign in flows using an email with this domain, will use this SAML Connection. |  |
+| **domain** | **String** | The domain of your organization. Sign in flows using an email with this domain, will use this SAML Connection. | [optional] |
+| **domains** | **Array&lt;String&gt;** | The domains of your organization. Sign in flows using an email with one of these domains, will use this SAML Connection. | [optional] |
 | **provider** | **String** | The IdP provider of the connection. |  |
 | **idp_entity_id** | **String** | The Entity ID as provided by the IdP | [optional] |
 | **idp_sso_url** | **String** | The Single-Sign On URL as provided by the IdP | [optional] |
@@ -23,6 +24,7 @@ require 'clerk-http-client'
 instance = ClerkHttpClient::CreateSAMLConnectionRequest.new(
   name: null,
   domain: null,
+  domains: null,
   provider: null,
   idp_entity_id: null,
   idp_sso_url: null,

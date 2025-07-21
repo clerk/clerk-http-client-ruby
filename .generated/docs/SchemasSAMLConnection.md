@@ -7,7 +7,8 @@
 | **object** | **String** |  |  |
 | **id** | **String** |  |  |
 | **name** | **String** |  |  |
-| **domain** | **String** |  |  |
+| **domain** | **String** |  | [optional] |
+| **domains** | **Array&lt;String&gt;** |  | [optional] |
 | **idp_entity_id** | **String** |  |  |
 | **idp_sso_url** | **String** |  |  |
 | **idp_certificate** | **String** |  |  |
@@ -17,7 +18,7 @@
 | **sp_entity_id** | **String** |  |  |
 | **sp_metadata_url** | **String** |  |  |
 | **organization_id** | **String** |  | [optional] |
-| **attribute_mapping** | [**SchemasSAMLConnectionAttributeMapping**](SchemasSAMLConnectionAttributeMapping.md) |  | [optional] |
+| **attribute_mapping** | [**SAMLConnectionAttributeMapping**](SAMLConnectionAttributeMapping.md) |  | [optional] |
 | **active** | **Boolean** |  |  |
 | **provider** | **String** |  |  |
 | **user_count** | **Integer** |  |  |
@@ -38,6 +39,7 @@ instance = ClerkHttpClient::SchemasSAMLConnection.new(
   id: null,
   name: null,
   domain: null,
+  domains: null,
   idp_entity_id: null,
   idp_sso_url: null,
   idp_certificate: null,

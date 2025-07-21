@@ -31,7 +31,7 @@ Clerk.configure do |config|
 end
 
 opts = {
-  create_jwt_template_request: ClerkHttpClient::CreateJWTTemplateRequest.new # CreateJWTTemplateRequest | 
+  create_jwt_template_request: ClerkHttpClient::CreateJWTTemplateRequest.new({name: 'name_example', claims: 3.56}) # CreateJWTTemplateRequest | 
 }
 
 begin
@@ -219,7 +219,7 @@ end
 
 ## list_jwt_templates
 
-> <Array<JWTTemplate>> list_jwt_templates
+> <Array<JWTTemplate>> list_jwt_templates(opts)
 
 List all templates
 
@@ -234,10 +234,15 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
+opts = {
+  paginated: true, # Boolean | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+}
 
 begin
   # List all templates
-  result = Clerk::SDK.jwt_templates.list_jwt_templates
+  result = Clerk::SDK.jwt_templates.list_jwt_templates(opts)
   p result
 rescue ClerkHttpClient::ApiError => e
   puts "Error when calling Clerk::SDK.jwt_templates->list_jwt_templates: #{e}"
@@ -248,12 +253,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<JWTTemplate>>, Integer, Hash)> list_jwt_templates_with_http_info
+> <Array(<Array<JWTTemplate>>, Integer, Hash)> list_jwt_templates_with_http_info(opts)
 
 ```ruby
 begin
   # List all templates
-  data, status_code, headers = Clerk::SDK.jwt_templates.list_jwt_templates_with_http_info
+  data, status_code, headers = Clerk::SDK.jwt_templates.list_jwt_templates_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<JWTTemplate>>
@@ -264,7 +269,11 @@ end
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **paginated** | **Boolean** | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated. | [optional] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 
@@ -301,7 +310,7 @@ end
 
 template_id = 'template_id_example' # String | The ID of the JWT template to update
 opts = {
-  create_jwt_template_request: ClerkHttpClient::CreateJWTTemplateRequest.new # CreateJWTTemplateRequest | 
+  create_jwt_template_request: ClerkHttpClient::CreateJWTTemplateRequest.new({name: 'name_example', claims: 3.56}) # CreateJWTTemplateRequest | 
 }
 
 begin

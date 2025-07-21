@@ -14,6 +14,7 @@
 | **position** | **Integer** | position with the listing of templates | [optional] |
 | **can_revert** | **Boolean** | whether this template can be reverted to the corresponding system default | [optional] |
 | **can_delete** | **Boolean** | whether this template can be deleted | [optional] |
+| **can_edit_body** | **Boolean** | whether the body of this template can be edited | [optional] |
 | **can_toggle** | **Boolean** | whether this template can be enabled or disabled, true only for notification SMS templates | [optional] |
 | **subject** | **String** | email subject | [optional] |
 | **markup** | **String** | the editor markup used to generate the body of the template | [optional] |
@@ -43,6 +44,7 @@ instance = ClerkHttpClient::Template.new(
   position: null,
   can_revert: null,
   can_delete: null,
+  can_edit_body: null,
   can_toggle: null,
   subject: null,
   markup: null,

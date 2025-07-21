@@ -30,7 +30,7 @@ Clerk.configure do |config|
 end
 
 opts = {
-  create_phone_number_request: ClerkHttpClient::CreatePhoneNumberRequest.new # CreatePhoneNumberRequest | 
+  create_phone_number_request: ClerkHttpClient::CreatePhoneNumberRequest.new({user_id: 'user_id_example', phone_number: 'phone_number_example'}) # CreatePhoneNumberRequest | 
 }
 
 begin

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **user_id** | **String** | The ID representing the user | [optional] |
+| **user_id** | **String** | The ID representing the user |  |
 
 ## Example
 

@@ -87,7 +87,7 @@ end
 
 ## create_organization_invitation_bulk
 
-> <OrganizationInvitations> create_organization_invitation_bulk(organization_id, create_organization_invitation_bulk_request_inner)
+> <OrganizationInvitations> create_organization_invitation_bulk(organization_id, create_organization_invitation_request)
 
 Bulk create and send organization invitations
 
@@ -105,11 +105,11 @@ Clerk.configure do |config|
 end
 
 organization_id = 'organization_id_example' # String | The organization ID.
-create_organization_invitation_bulk_request_inner = [ClerkHttpClient::CreateOrganizationInvitationBulkRequestInner.new({email_address: 'email_address_example', role: 'role_example'})] # Array<CreateOrganizationInvitationBulkRequestInner> | 
+create_organization_invitation_request = [ClerkHttpClient::CreateOrganizationInvitationRequest.new({email_address: 'email_address_example', role: 'role_example'})] # Array<CreateOrganizationInvitationRequest> | 
 
 begin
   # Bulk create and send organization invitations
-  result = Clerk::SDK.organization_invitations.create_organization_invitation_bulk(organization_id, create_organization_invitation_bulk_request_inner)
+  result = Clerk::SDK.organization_invitations.create_organization_invitation_bulk(organization_id, create_organization_invitation_request)
   p result
 rescue ClerkHttpClient::ApiError => e
   puts "Error when calling Clerk::SDK.organization_invitations->create_organization_invitation_bulk: #{e}"
@@ -120,12 +120,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<OrganizationInvitations>, Integer, Hash)> create_organization_invitation_bulk_with_http_info(organization_id, create_organization_invitation_bulk_request_inner)
+> <Array(<OrganizationInvitations>, Integer, Hash)> create_organization_invitation_bulk_with_http_info(organization_id, create_organization_invitation_request)
 
 ```ruby
 begin
   # Bulk create and send organization invitations
-  data, status_code, headers = Clerk::SDK.organization_invitations.create_organization_invitation_bulk_with_http_info(organization_id, create_organization_invitation_bulk_request_inner)
+  data, status_code, headers = Clerk::SDK.organization_invitations.create_organization_invitation_bulk_with_http_info(organization_id, create_organization_invitation_request)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <OrganizationInvitations>
@@ -139,7 +139,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **organization_id** | **String** | The organization ID. |  |
-| **create_organization_invitation_bulk_request_inner** | [**Array&lt;CreateOrganizationInvitationBulkRequestInner&gt;**](CreateOrganizationInvitationBulkRequestInner.md) |  |  |
+| **create_organization_invitation_request** | [**Array&lt;CreateOrganizationInvitationRequest&gt;**](CreateOrganizationInvitationRequest.md) |  |  |
 
 ### Return type
 
@@ -245,11 +245,11 @@ Clerk.configure do |config|
 end
 
 opts = {
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
   order_by: 'order_by_example', # String | Allows to return organization invitations in a particular order. At the moment, you can order the returned organization invitations either by their `created_at` or `email_address`. In order to specify the direction, you can use the `+/-` symbols prepended in the property to order by. For example, if you want organization invitations to be returned in descending order according to their `created_at` property, you can use `-created_at`. If you don't use `+` or `-`, then `+` is implied. Defaults to `-created_at`.
   status: 'pending', # String | Filter organization invitations based on their status
-  query: 'query_example' # String | Filter organization invitations based on their `email_address`
+  query: 'query_example', # String | Filter organization invitations based on their `email_address`
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
 }
 
 begin
@@ -283,11 +283,11 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **order_by** | **String** | Allows to return organization invitations in a particular order. At the moment, you can order the returned organization invitations either by their &#x60;created_at&#x60; or &#x60;email_address&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want organization invitations to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. | [optional][default to &#39;-created_at&#39;] |
 | **status** | **String** | Filter organization invitations based on their status | [optional] |
 | **query** | **String** | Filter organization invitations based on their &#x60;email_address&#x60; | [optional] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 
@@ -324,9 +324,11 @@ end
 
 organization_id = 'organization_id_example' # String | The organization ID.
 opts = {
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
-  status: 'pending' # String | Filter organization invitations based on their status
+  status: 'pending', # String | Filter organization invitations based on their status
+  email_address: 'email_address_example', # String | Returns organization invitations inviting the specified email address.
+  order_by: 'order_by_example', # String | Allows to return organization invitations in a particular order. You can order the returned organization invitations either by their `created_at` or `email_address`. In order to specify the direction, you can use the `+/-` symbols prepended in the property to order by. For example, if you want organization invitations to be returned in descending order according to their `created_at` property, you can use `-created_at`. If you don't use `+` or `-`, then `+` is implied. Defaults to `-created_at`.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
 }
 
 begin
@@ -361,9 +363,11 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **organization_id** | **String** | The organization ID. |  |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **status** | **String** | Filter organization invitations based on their status | [optional] |
+| **email_address** | **String** | Returns organization invitations inviting the specified email address. | [optional] |
+| **order_by** | **String** | Allows to return organization invitations in a particular order. You can order the returned organization invitations either by their &#x60;created_at&#x60; or &#x60;email_address&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want organization invitations to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. | [optional][default to &#39;-created_at&#39;] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 
@@ -400,8 +404,8 @@ end
 
 organization_id = 'organization_id_example' # String | The organization ID.
 opts = {
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
 }
 
 begin
@@ -436,8 +440,8 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **organization_id** | **String** | The organization ID. |  |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 

@@ -170,10 +170,12 @@ Clerk.configure do |config|
 end
 
 opts = {
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14, # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
   status: 'pending', # String | Filter invitations based on their status
-  query: 'query_example' # String | Filter invitations based on their `email_address` or `id`
+  query: 'query_example', # String | Filter invitations based on their `email_address` or `id`
+  order_by: 'order_by_example', # String | Allows to return invitations in a particular order. At the moment, you can order the returned invitations either by their `created_at`, `email_address` or `expires_at`. In order to specify the direction, you can use the `+/-` symbols prepended in the property to order by. For example, if you want invitations to be returned in descending order according to their `created_at` property, you can use `-created_at`. If you don't use `+` or `-`, then `+` is implied. Defaults to `-created_at`.
+  paginated: true, # Boolean | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
 }
 
 begin
@@ -207,10 +209,12 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **status** | **String** | Filter invitations based on their status | [optional] |
 | **query** | **String** | Filter invitations based on their &#x60;email_address&#x60; or &#x60;id&#x60; | [optional] |
+| **order_by** | **String** | Allows to return invitations in a particular order. At the moment, you can order the returned invitations either by their &#x60;created_at&#x60;, &#x60;email_address&#x60; or &#x60;expires_at&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want invitations to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. | [optional][default to &#39;-created_at&#39;] |
+| **paginated** | **Boolean** | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated. | [optional] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 

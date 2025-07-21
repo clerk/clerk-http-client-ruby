@@ -29,7 +29,7 @@
 | **backup_code_enabled** | **Boolean** |  | [optional] |
 | **mfa_enabled_at** | **Integer** | Unix timestamp of when MFA was last enabled for this user. It should be noted that this field is not nullified if MFA is disabled.  | [optional] |
 | **mfa_disabled_at** | **Integer** | Unix timestamp of when MFA was last disabled for this user. It should be noted that this field is not nullified if MFA is enabled again.  | [optional] |
-| **external_accounts** | **Array&lt;Object&gt;** |  | [optional] |
+| **external_accounts** | [**Array&lt;ExternalAccountWithVerification&gt;**](ExternalAccountWithVerification.md) |  | [optional] |
 | **saml_accounts** | [**Array&lt;SAMLAccount&gt;**](SAMLAccount.md) |  | [optional] |
 | **last_sign_in_at** | **Integer** | Unix timestamp of last sign-in.  | [optional] |
 | **banned** | **Boolean** | Flag to denote whether user is banned or not.  | [optional] |

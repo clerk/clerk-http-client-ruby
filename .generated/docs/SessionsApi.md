@@ -9,6 +9,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | [**create_session_token_from_template**](SessionsApi.md#create_session_token_from_template) | **POST** /sessions/{session_id}/tokens/{template_name} | Create a session token from a jwt template |
 | [**get_session**](SessionsApi.md#get_session) | **GET** /sessions/{session_id} | Retrieve a session |
 | [**get_session_list**](SessionsApi.md#get_session_list) | **GET** /sessions | List all sessions |
+| [**refresh_session**](SessionsApi.md#refresh_session) | **POST** /sessions/{session_id}/refresh | Refresh a session |
 | [**revoke_session**](SessionsApi.md#revoke_session) | **POST** /sessions/{session_id}/revoke | Revoke a session |
 | [**verify_session**](SessionsApi.md#verify_session) | **POST** /sessions/{session_id}/verify | Verify a session |
 
@@ -33,7 +34,7 @@ Clerk.configure do |config|
 end
 
 opts = {
-  create_session_request: ClerkHttpClient::CreateSessionRequest.new # CreateSessionRequest | 
+  create_session_request: ClerkHttpClient::CreateSessionRequest.new({user_id: 'user_id_example'}) # CreateSessionRequest | 
 }
 
 begin
@@ -320,8 +321,9 @@ opts = {
   client_id: 'client_id_example', # String | List sessions for the given client
   user_id: 'user_id_example', # String | List sessions for the given user
   status: 'abandoned', # String | Filter sessions by the provided status
-  limit: 8.14, # Float | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 8.14 # Float | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  paginated: true, # Boolean | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
 }
 
 begin
@@ -358,8 +360,9 @@ end
 | **client_id** | **String** | List sessions for the given client | [optional] |
 | **user_id** | **String** | List sessions for the given user | [optional] |
 | **status** | **String** | Filter sessions by the provided status | [optional] |
-| **limit** | **Float** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
-| **offset** | **Float** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **paginated** | **Boolean** | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated. | [optional] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 
@@ -372,6 +375,78 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## refresh_session
+
+> <SessionRefresh> refresh_session(session_id, opts)
+
+Refresh a session
+
+Refreshes a session by creating a new session token. A 401 is returned when there are validation errors, which signals the SDKs to fallback to the handshake flow.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+session_id = 'session_id_example' # String | The ID of the session
+opts = {
+  refresh_session_request: ClerkHttpClient::RefreshSessionRequest.new({expired_token: 'expired_token_example', refresh_token: 'refresh_token_example', request_origin: 'request_origin_example'}) # RefreshSessionRequest | Refresh session parameters
+}
+
+begin
+  # Refresh a session
+  result = Clerk::SDK.sessions.refresh_session(session_id, opts)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.sessions->refresh_session: #{e}"
+end
+```
+
+#### Using the `refresh_session_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<SessionRefresh>, Integer, Hash)> refresh_session_with_http_info(session_id, opts)
+
+```ruby
+begin
+  # Refresh a session
+  data, status_code, headers = Clerk::SDK.sessions.refresh_session_with_http_info(session_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <SessionRefresh>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.sessions->refresh_session_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **session_id** | **String** | The ID of the session |  |
+| **refresh_session_request** | [**RefreshSessionRequest**](RefreshSessionRequest.md) | Refresh session parameters | [optional] |
+
+### Return type
+
+[**SessionRefresh**](SessionRefresh.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

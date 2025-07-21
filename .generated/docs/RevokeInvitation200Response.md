@@ -7,7 +7,7 @@
 | **object** | **String** |  |  |
 | **id** | **String** |  |  |
 | **email_address** | **String** |  |  |
-| **public_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
+| **public_metadata** | **Hash&lt;String, Object&gt;** |  |  |
 | **revoked** | **Boolean** |  | [optional] |
 | **status** | **String** |  |  |
 | **url** | **String** |  | [optional] |

@@ -30,7 +30,7 @@ Clerk.configure do |config|
 end
 
 opts = {
-  create_email_address_request: ClerkHttpClient::CreateEmailAddressRequest.new # CreateEmailAddressRequest | 
+  create_email_address_request: ClerkHttpClient::CreateEmailAddressRequest.new({user_id: 'user_id_example', email_address: 'email_address_example'}) # CreateEmailAddressRequest | 
 }
 
 begin

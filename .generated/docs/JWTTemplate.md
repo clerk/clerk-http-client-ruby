@@ -10,8 +10,8 @@
 | **claims** | **Object** |  |  |
 | **lifetime** | **Integer** |  |  |
 | **allowed_clock_skew** | **Integer** |  |  |
-| **custom_signing_key** | **Boolean** |  | [optional] |
-| **signing_algorithm** | **String** |  | [optional] |
+| **custom_signing_key** | **Boolean** |  |  |
+| **signing_algorithm** | **String** |  |  |
 | **created_at** | **Integer** | Unix timestamp of creation.  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
 

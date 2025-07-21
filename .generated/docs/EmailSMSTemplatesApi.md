@@ -84,7 +84,7 @@ end
 
 ## get_template_list
 
-> <Array<Template>> get_template_list(template_type)
+> <Array<Template>> get_template_list(template_type, opts)
 
 List all templates
 
@@ -102,10 +102,15 @@ Clerk.configure do |config|
 end
 
 template_type = 'email' # String | The type of templates to list (email or SMS)
+opts = {
+  paginated: true, # Boolean | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
+  limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
+  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+}
 
 begin
   # List all templates
-  result = Clerk::SDK.email_sms_templates.get_template_list(template_type)
+  result = Clerk::SDK.email_sms_templates.get_template_list(template_type, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
   puts "Error when calling Clerk::SDK.email_sms_templates->get_template_list: #{e}"
@@ -116,12 +121,12 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Array<Template>>, Integer, Hash)> get_template_list_with_http_info(template_type)
+> <Array(<Array<Template>>, Integer, Hash)> get_template_list_with_http_info(template_type, opts)
 
 ```ruby
 begin
   # List all templates
-  data, status_code, headers = Clerk::SDK.email_sms_templates.get_template_list_with_http_info(template_type)
+  data, status_code, headers = Clerk::SDK.email_sms_templates.get_template_list_with_http_info(template_type, opts)
   p status_code # => 2xx
   p headers # => { ... }
   p data # => <Array<Template>>
@@ -135,6 +140,9 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **template_type** | **String** | The type of templates to list (email or SMS) |  |
+| **paginated** | **Boolean** | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated. | [optional] |
+| **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
+| **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 
 ### Return type
 

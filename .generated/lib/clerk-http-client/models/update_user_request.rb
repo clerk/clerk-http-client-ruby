@@ -42,7 +42,7 @@ module ClerkHttpClient
     # The ID of the image to set as the user's profile image
     attr_accessor :profile_image_id
 
-    # The plaintext password to give the user. Must be at least 8 characters long, and can not be in any list of hacked passwords.
+    # The plaintext password to give the user. Must be at least 8 characters long, and cannot be in any list of hacked passwords.
     attr_accessor :password
 
     # In case you already have the password digests and not the passwords, you can use them for the newly created user via this property. The digests should be generated with one of the supported algorithms. The hashing algorithm can be specified using the `password_hasher` property.

@@ -15,7 +15,7 @@ require 'time'
 
 module ClerkHttpClient
   class CreateBlocklistIdentifierRequest
-    # The identifier to be added in the block-list. This can be an email address, a phone number or a web3 wallet.
+    # The identifier to be added in the block-list. This can be an email address, a phone number, or a web3 wallet.
     attr_accessor :identifier
 
     # Attribute mapping from ruby-style variable name to JSON key.

@@ -1,4 +1,4 @@
-# ClerkHttpClient::Machine
+# ClerkHttpClient::CreateMachine200Response
 
 ## Properties
 
@@ -12,13 +12,14 @@
 | **updated_at** | **Integer** | Unix timestamp of last update. |  |
 | **default_token_ttl** | **Integer** | The default time-to-live (TTL) in seconds for tokens created by this machine. | [optional][default to 3600] |
 | **scoped_machines** | [**Array&lt;MachineWithoutScopedMachines&gt;**](MachineWithoutScopedMachines.md) | Array of machines this machine has access to. |  |
+| **secret_key** | **String** | The secret key for the machine, only returned upon creation. | [readonly] |
 
 ## Example
 
 ```ruby
 require 'clerk-http-client'
 
-instance = ClerkHttpClient::Machine.new(
+instance = ClerkHttpClient::CreateMachine200Response.new(
   object: null,
   id: null,
   name: null,
@@ -26,7 +27,8 @@ instance = ClerkHttpClient::Machine.new(
   created_at: null,
   updated_at: null,
   default_token_ttl: null,
-  scoped_machines: null
+  scoped_machines: null,
+  secret_key: null
 )
 ```
 

@@ -18,10 +18,14 @@ module ClerkHttpClient
     # The name of the machine
     attr_accessor :name
 
+    # The default time-to-live (TTL) in seconds for tokens created by this machine. Must be at least 1 second.
+    attr_accessor :default_token_ttl
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name'
+        :'name' => :'name',
+        :'default_token_ttl' => :'default_token_ttl'
       }
     end
 
@@ -33,7 +37,8 @@ module ClerkHttpClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'name' => :'String'
+        :'name' => :'String',
+        :'default_token_ttl' => :'Integer'
       }
     end
 
@@ -61,6 +66,10 @@ module ClerkHttpClient
       if attributes.key?(:'name')
         self.name = attributes[:'name']
       end
+
+      if attributes.key?(:'default_token_ttl')
+        self.default_token_ttl = attributes[:'default_token_ttl']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -76,6 +85,14 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
       end
 
+      if !@default_token_ttl.nil? && @default_token_ttl > 315360000
+        invalid_properties.push('invalid value for "default_token_ttl", must be smaller than or equal to 315360000.')
+      end
+
+      if !@default_token_ttl.nil? && @default_token_ttl < 1
+        invalid_properties.push('invalid value for "default_token_ttl", must be greater than or equal to 1.')
+      end
+
       invalid_properties
     end
 
@@ -85,6 +102,8 @@ module ClerkHttpClient
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if !@name.nil? && @name.to_s.length > 255
       return false if !@name.nil? && @name.to_s.length < 1
+      return false if !@default_token_ttl.nil? && @default_token_ttl > 315360000
+      return false if !@default_token_ttl.nil? && @default_token_ttl < 1
       true
     end
 
@@ -106,12 +125,31 @@ module ClerkHttpClient
       @name = name
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] default_token_ttl Value to be assigned
+    def default_token_ttl=(default_token_ttl)
+      if default_token_ttl.nil?
+        fail ArgumentError, 'default_token_ttl cannot be nil'
+      end
+
+      if default_token_ttl > 315360000
+        fail ArgumentError, 'invalid value for "default_token_ttl", must be smaller than or equal to 315360000.'
+      end
+
+      if default_token_ttl < 1
+        fail ArgumentError, 'invalid value for "default_token_ttl", must be greater than or equal to 1.'
+      end
+
+      @default_token_ttl = default_token_ttl
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name
+          name == o.name &&
+          default_token_ttl == o.default_token_ttl
     end
 
     # @see the `==` method
@@ -123,7 +161,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name].hash
+      [name, default_token_ttl].hash
     end
 
     # Builds the object from hash

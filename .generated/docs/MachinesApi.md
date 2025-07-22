@@ -9,13 +9,14 @@ All URIs are relative to *https://api.clerk.com/v1*
 | [**delete_machine**](MachinesApi.md#delete_machine) | **DELETE** /machines/{machine_id} | Delete a machine |
 | [**delete_machine_scope**](MachinesApi.md#delete_machine_scope) | **DELETE** /machines/{machine_id}/scopes/{other_machine_id} | Delete a machine scope |
 | [**get_machine**](MachinesApi.md#get_machine) | **GET** /machines/{machine_id} | Retrieve a machine |
+| [**get_machine_secret_key**](MachinesApi.md#get_machine_secret_key) | **GET** /machines/{machine_id}/secret_key | Retrieve a machine secret key |
 | [**list_machines**](MachinesApi.md#list_machines) | **GET** /machines | Get a list of machines for an instance |
 | [**update_machine**](MachinesApi.md#update_machine) | **PATCH** /machines/{machine_id} | Update a machine |
 
 
 ## create_machine
 
-> <Machine> create_machine(opts)
+> <CreateMachine200Response> create_machine(opts)
 
 Create a machine
 
@@ -49,7 +50,7 @@ end
 
 This returns an Array which contains the response data, status code and headers.
 
-> <Array(<Machine>, Integer, Hash)> create_machine_with_http_info(opts)
+> <Array(<CreateMachine200Response>, Integer, Hash)> create_machine_with_http_info(opts)
 
 ```ruby
 begin
@@ -57,7 +58,7 @@ begin
   data, status_code, headers = Clerk::SDK.machines.create_machine_with_http_info(opts)
   p status_code # => 2xx
   p headers # => { ... }
-  p data # => <Machine>
+  p data # => <CreateMachine200Response>
 rescue ClerkHttpClient::ApiError => e
   puts "Error when calling Clerk::SDK.machines->create_machine_with_http_info: #{e}"
 end
@@ -71,7 +72,7 @@ end
 
 ### Return type
 
-[**Machine**](Machine.md)
+[**CreateMachine200Response**](CreateMachine200Response.md)
 
 ### Authorization
 
@@ -350,6 +351,74 @@ end
 ### Return type
 
 [**Machine**](Machine.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_machine_secret_key
+
+> <GetMachineSecretKey200Response> get_machine_secret_key(machine_id)
+
+Retrieve a machine secret key
+
+Returns the secret key for a machine.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+machine_id = 'machine_id_example' # String | The ID of the machine to retrieve the secret key for
+
+begin
+  # Retrieve a machine secret key
+  result = Clerk::SDK.machines.get_machine_secret_key(machine_id)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.machines->get_machine_secret_key: #{e}"
+end
+```
+
+#### Using the `get_machine_secret_key_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetMachineSecretKey200Response>, Integer, Hash)> get_machine_secret_key_with_http_info(machine_id)
+
+```ruby
+begin
+  # Retrieve a machine secret key
+  data, status_code, headers = Clerk::SDK.machines.get_machine_secret_key_with_http_info(machine_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetMachineSecretKey200Response>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.machines->get_machine_secret_key_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **machine_id** | **String** | The ID of the machine to retrieve the secret key for |  |
+
+### Return type
+
+[**GetMachineSecretKey200Response**](GetMachineSecretKey200Response.md)
 
 ### Authorization
 

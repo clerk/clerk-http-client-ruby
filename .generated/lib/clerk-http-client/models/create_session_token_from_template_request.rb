@@ -33,7 +33,7 @@ module ClerkHttpClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'expires_in_seconds' => :'Float'
+        :'expires_in_seconds' => :'Integer'
       }
     end
 

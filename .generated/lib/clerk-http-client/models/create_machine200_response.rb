@@ -14,22 +14,67 @@ require 'date'
 require 'time'
 
 module ClerkHttpClient
-  class CreateMachineRequest
-    # The name of the machine
+  class CreateMachine200Response
+    attr_accessor :object
+
+    # Unique identifier for the machine.
+    attr_accessor :id
+
+    # The name of the machine.
     attr_accessor :name
 
-    # Array of machine IDs that this machine will have access to. Maximum of 25 scopes per machine.
+    # The ID of the instance this machine belongs to.
+    attr_accessor :instance_id
+
+    # Unix timestamp of creation.
+    attr_accessor :created_at
+
+    # Unix timestamp of last update.
+    attr_accessor :updated_at
+
+    # The default time-to-live (TTL) in seconds for tokens created by this machine.
+    attr_accessor :default_token_ttl
+
+    # Array of machines this machine has access to.
     attr_accessor :scoped_machines
 
-    # The default time-to-live (TTL) in seconds for tokens created by this machine. Must be at least 1 second.
-    attr_accessor :default_token_ttl
+    # The secret key for the machine, only returned upon creation.
+    attr_accessor :secret_key
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'object' => :'object',
+        :'id' => :'id',
         :'name' => :'name',
+        :'instance_id' => :'instance_id',
+        :'created_at' => :'created_at',
+        :'updated_at' => :'updated_at',
+        :'default_token_ttl' => :'default_token_ttl',
         :'scoped_machines' => :'scoped_machines',
-        :'default_token_ttl' => :'default_token_ttl'
+        :'secret_key' => :'secret_key'
       }
     end
 
@@ -41,9 +86,15 @@ module ClerkHttpClient
     # Attribute type mapping.
     def self.openapi_types
       {
+        :'object' => :'String',
+        :'id' => :'String',
         :'name' => :'String',
-        :'scoped_machines' => :'Array<String>',
-        :'default_token_ttl' => :'Integer'
+        :'instance_id' => :'String',
+        :'created_at' => :'Integer',
+        :'updated_at' => :'Integer',
+        :'default_token_ttl' => :'Integer',
+        :'scoped_machines' => :'Array<MachineWithoutScopedMachines>',
+        :'secret_key' => :'String'
       }
     end
 
@@ -53,20 +104,39 @@ module ClerkHttpClient
       ])
     end
 
+    # List of class defined in allOf (OpenAPI v3)
+    def self.openapi_all_of
+      [
+      :'Machine'
+      ]
+    end
+
     # Initializes the object
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `ClerkHttpClient::CreateMachineRequest` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `ClerkHttpClient::CreateMachine200Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `ClerkHttpClient::CreateMachineRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `ClerkHttpClient::CreateMachine200Response`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
+
+      if attributes.key?(:'object')
+        self.object = attributes[:'object']
+      else
+        self.object = nil
+      end
+
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      else
+        self.id = nil
+      end
 
       if attributes.key?(:'name')
         self.name = attributes[:'name']
@@ -74,16 +144,42 @@ module ClerkHttpClient
         self.name = nil
       end
 
-      if attributes.key?(:'scoped_machines')
-        if (value = attributes[:'scoped_machines']).is_a?(Array)
-          self.scoped_machines = value
-        end
+      if attributes.key?(:'instance_id')
+        self.instance_id = attributes[:'instance_id']
+      else
+        self.instance_id = nil
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      else
+        self.created_at = nil
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      else
+        self.updated_at = nil
       end
 
       if attributes.key?(:'default_token_ttl')
         self.default_token_ttl = attributes[:'default_token_ttl']
       else
         self.default_token_ttl = 3600
+      end
+
+      if attributes.key?(:'scoped_machines')
+        if (value = attributes[:'scoped_machines']).is_a?(Array)
+          self.scoped_machines = value
+        end
+      else
+        self.scoped_machines = nil
+      end
+
+      if attributes.key?(:'secret_key')
+        self.secret_key = attributes[:'secret_key']
+      else
+        self.secret_key = nil
       end
     end
 
@@ -92,6 +188,14 @@ module ClerkHttpClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @object.nil?
+        invalid_properties.push('invalid value for "object", object cannot be nil.')
+      end
+
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
       if @name.nil?
         invalid_properties.push('invalid value for "name", name cannot be nil.')
       end
@@ -104,16 +208,28 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "name", the character length must be great than or equal to 1.')
       end
 
-      if !@scoped_machines.nil? && @scoped_machines.length > 25
-        invalid_properties.push('invalid value for "scoped_machines", number of items must be less than or equal to 25.')
+      if @instance_id.nil?
+        invalid_properties.push('invalid value for "instance_id", instance_id cannot be nil.')
       end
 
-      if !@default_token_ttl.nil? && @default_token_ttl > 315360000
-        invalid_properties.push('invalid value for "default_token_ttl", must be smaller than or equal to 315360000.')
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @updated_at.nil?
+        invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
       end
 
       if !@default_token_ttl.nil? && @default_token_ttl < 1
         invalid_properties.push('invalid value for "default_token_ttl", must be greater than or equal to 1.')
+      end
+
+      if @scoped_machines.nil?
+        invalid_properties.push('invalid value for "scoped_machines", scoped_machines cannot be nil.')
+      end
+
+      if @secret_key.nil?
+        invalid_properties.push('invalid value for "secret_key", secret_key cannot be nil.')
       end
 
       invalid_properties
@@ -123,13 +239,30 @@ module ClerkHttpClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @object.nil?
+      object_validator = EnumAttributeValidator.new('String', ["machine"])
+      return false unless object_validator.valid?(@object)
+      return false if @id.nil?
       return false if @name.nil?
       return false if @name.to_s.length > 255
       return false if @name.to_s.length < 1
-      return false if !@scoped_machines.nil? && @scoped_machines.length > 25
-      return false if !@default_token_ttl.nil? && @default_token_ttl > 315360000
+      return false if @instance_id.nil?
+      return false if @created_at.nil?
+      return false if @updated_at.nil?
       return false if !@default_token_ttl.nil? && @default_token_ttl < 1
+      return false if @scoped_machines.nil?
+      return false if @secret_key.nil?
       true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] object Object to be assigned
+    def object=(object)
+      validator = EnumAttributeValidator.new('String', ["machine"])
+      unless validator.valid?(object)
+        fail ArgumentError, "invalid value for \"object\", must be one of #{validator.allowable_values}."
+      end
+      @object = object
     end
 
     # Custom attribute writer method with validation
@@ -151,28 +284,10 @@ module ClerkHttpClient
     end
 
     # Custom attribute writer method with validation
-    # @param [Object] scoped_machines Value to be assigned
-    def scoped_machines=(scoped_machines)
-      if scoped_machines.nil?
-        fail ArgumentError, 'scoped_machines cannot be nil'
-      end
-
-      if scoped_machines.length > 25
-        fail ArgumentError, 'invalid value for "scoped_machines", number of items must be less than or equal to 25.'
-      end
-
-      @scoped_machines = scoped_machines
-    end
-
-    # Custom attribute writer method with validation
     # @param [Object] default_token_ttl Value to be assigned
     def default_token_ttl=(default_token_ttl)
       if default_token_ttl.nil?
         fail ArgumentError, 'default_token_ttl cannot be nil'
-      end
-
-      if default_token_ttl > 315360000
-        fail ArgumentError, 'invalid value for "default_token_ttl", must be smaller than or equal to 315360000.'
       end
 
       if default_token_ttl < 1
@@ -187,9 +302,15 @@ module ClerkHttpClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          object == o.object &&
+          id == o.id &&
           name == o.name &&
+          instance_id == o.instance_id &&
+          created_at == o.created_at &&
+          updated_at == o.updated_at &&
+          default_token_ttl == o.default_token_ttl &&
           scoped_machines == o.scoped_machines &&
-          default_token_ttl == o.default_token_ttl
+          secret_key == o.secret_key
     end
 
     # @see the `==` method
@@ -201,7 +322,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, scoped_machines, default_token_ttl].hash
+      [object, id, name, instance_id, created_at, updated_at, default_token_ttl, scoped_machines, secret_key].hash
     end
 
     # Builds the object from hash

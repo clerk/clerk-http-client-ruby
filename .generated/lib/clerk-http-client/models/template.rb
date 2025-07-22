@@ -20,7 +20,7 @@ module ClerkHttpClient
     # String representing the object's type. Objects of the same type share the same value. 
     attr_accessor :object
 
-    # the id of the instance the template belongs to
+    # The id of the instance to which this template belongs
     attr_accessor :instance_id
 
     # whether this is a system (default) or user overridden) template

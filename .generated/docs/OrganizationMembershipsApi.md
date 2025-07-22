@@ -101,7 +101,7 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-organization_id = 'organization_id_example' # String | The ID of the organization the membership belongs to
+organization_id = 'organization_id_example' # String | The ID of the organization to which the membership belongs
 user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
 
 begin
@@ -135,7 +135,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** | The ID of the organization the membership belongs to |  |
+| **organization_id** | **String** | The ID of the organization to which the membership belongs |  |
 | **user_id** | **String** | The ID of the user that this membership belongs to |  |
 
 ### Return type
@@ -351,7 +351,7 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-organization_id = 'organization_id_example' # String | The ID of the organization the membership belongs to
+organization_id = 'organization_id_example' # String | The ID of the organization to which the membership belongs
 user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
 update_organization_membership_request = ClerkHttpClient::UpdateOrganizationMembershipRequest.new({role: 'role_example'}) # UpdateOrganizationMembershipRequest | 
 
@@ -386,7 +386,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** | The ID of the organization the membership belongs to |  |
+| **organization_id** | **String** | The ID of the organization to which the membership belongs |  |
 | **user_id** | **String** | The ID of the user that this membership belongs to |  |
 | **update_organization_membership_request** | [**UpdateOrganizationMembershipRequest**](UpdateOrganizationMembershipRequest.md) |  |  |
 
@@ -423,7 +423,7 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-organization_id = 'organization_id_example' # String | The ID of the organization the membership belongs to
+organization_id = 'organization_id_example' # String | The ID of the organization to which the membership belongs
 user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
 opts = {
   update_organization_membership_metadata_request: ClerkHttpClient::UpdateOrganizationMembershipMetadataRequest.new # UpdateOrganizationMembershipMetadataRequest | 
@@ -460,7 +460,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** | The ID of the organization the membership belongs to |  |
+| **organization_id** | **String** | The ID of the organization to which the membership belongs |  |
 | **user_id** | **String** | The ID of the user that this membership belongs to |  |
 | **update_organization_membership_metadata_request** | [**UpdateOrganizationMembershipMetadataRequest**](UpdateOrganizationMembershipMetadataRequest.md) |  | [optional] |
 

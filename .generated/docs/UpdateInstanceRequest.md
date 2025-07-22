@@ -10,7 +10,7 @@
 | **support_email** | **String** |  | [optional] |
 | **clerk_js_version** | **String** |  | [optional] |
 | **development_origin** | **String** |  | [optional] |
-| **allowed_origins** | **Array&lt;String&gt;** | For browser-like stacks such as browser extensions, Electron (not officially supported), or Capacitor.js (not officially supported), the instance allowed origins need to be updated with the request origin value. For Chrome extensions popup, background, or service worker pages, the origin is chrome-extension://extension_uiid. For Electron apps the default origin is http://localhost:3000. For Capacitor, the origin is capacitor://localhost. | [optional] |
+| **allowed_origins** | **Array&lt;String&gt;** | For browser-like stacks such as browser extensions, Electron (not officially supported), or Capacitor.js (not officially supported), the instance allowed origins need to be updated with the request origin value. For Chrome extensions popup, background, or service worker pages, the origin is chrome-extension://extension_uuid. For Electron apps the default origin is http://localhost:3000. For Capacitor, the origin is capacitor://localhost. | [optional] |
 | **cookieless_dev** | **Boolean** | Whether the instance should operate in cookieless development mode (i.e. without third-party cookies). Deprecated: Please use &#x60;url_based_session_syncing&#x60; instead. | [optional] |
 | **url_based_session_syncing** | **Boolean** | Whether the instance should use URL-based session syncing in development mode (i.e. without third-party cookies). | [optional] |
 

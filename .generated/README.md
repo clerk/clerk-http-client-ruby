@@ -99,6 +99,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.machines* | [**delete_machine**](docs/MachinesApi.md#delete_machine) | **DELETE** /machines/{machine_id} | Delete a machine
 *Clerk::SDK.machines* | [**delete_machine_scope**](docs/MachinesApi.md#delete_machine_scope) | **DELETE** /machines/{machine_id}/scopes/{other_machine_id} | Delete a machine scope
 *Clerk::SDK.machines* | [**get_machine**](docs/MachinesApi.md#get_machine) | **GET** /machines/{machine_id} | Retrieve a machine
+*Clerk::SDK.machines* | [**get_machine_secret_key**](docs/MachinesApi.md#get_machine_secret_key) | **GET** /machines/{machine_id}/secret_key | Retrieve a machine secret key
 *Clerk::SDK.machines* | [**list_machines**](docs/MachinesApi.md#list_machines) | **GET** /machines | Get a list of machines for an instance
 *Clerk::SDK.machines* | [**update_machine**](docs/MachinesApi.md#update_machine) | **PATCH** /machines/{machine_id} | Update a machine
 *Clerk::SDK.miscellaneous* | [**get_public_interstitial**](docs/MiscellaneousApi.md#get_public_interstitial) | **GET** /public/interstitial | Returns the markup for the interstitial page
@@ -220,6 +221,7 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::CreateEmailAddressRequest](docs/CreateEmailAddressRequest.md)
  - [ClerkHttpClient::CreateInvitationRequest](docs/CreateInvitationRequest.md)
  - [ClerkHttpClient::CreateJWTTemplateRequest](docs/CreateJWTTemplateRequest.md)
+ - [ClerkHttpClient::CreateMachine200Response](docs/CreateMachine200Response.md)
  - [ClerkHttpClient::CreateMachineRequest](docs/CreateMachineRequest.md)
  - [ClerkHttpClient::CreateMachineScopeRequest](docs/CreateMachineScopeRequest.md)
  - [ClerkHttpClient::CreateMachineTokenRequest](docs/CreateMachineTokenRequest.md)
@@ -251,6 +253,7 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::ExternalAccountWithVerificationVerification](docs/ExternalAccountWithVerificationVerification.md)
  - [ClerkHttpClient::FromOAuth](docs/FromOAuth.md)
  - [ClerkHttpClient::FromOAuthError](docs/FromOAuthError.md)
+ - [ClerkHttpClient::GetMachineSecretKey200Response](docs/GetMachineSecretKey200Response.md)
  - [ClerkHttpClient::GoogleOneTap](docs/GoogleOneTap.md)
  - [ClerkHttpClient::IdentificationLink](docs/IdentificationLink.md)
  - [ClerkHttpClient::Instance](docs/Instance.md)

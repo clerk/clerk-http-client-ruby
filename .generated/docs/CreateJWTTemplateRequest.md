@@ -6,8 +6,8 @@
 | ---- | ---- | ----------- | ----- |
 | **name** | **String** | JWT template name |  |
 | **claims** | **Object** | JWT template claims in JSON format |  |
-| **lifetime** | **Float** | JWT token lifetime | [optional] |
-| **allowed_clock_skew** | **Float** | JWT token allowed clock skew | [optional] |
+| **lifetime** | **Integer** | JWT token lifetime | [optional] |
+| **allowed_clock_skew** | **Integer** | JWT token allowed clock skew | [optional] |
 | **custom_signing_key** | **Boolean** | Whether a custom signing key/algorithm is also provided for this template | [optional] |
 | **signing_algorithm** | **String** | The custom signing algorithm to use when minting JWTs. Required if &#x60;custom_signing_key&#x60; is &#x60;true&#x60;. | [optional] |
 | **signing_key** | **String** | The custom signing private key to use when minting JWTs. Required if &#x60;custom_signing_key&#x60; is &#x60;true&#x60;. | [optional] |

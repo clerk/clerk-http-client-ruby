@@ -32,6 +32,9 @@ module ClerkHttpClient
     # Unix timestamp of last update.
     attr_accessor :updated_at
 
+    # The default time-to-live (TTL) in seconds for tokens created by this machine.
+    attr_accessor :default_token_ttl
+
     # Array of machines this machine has access to.
     attr_accessor :scoped_machines
 
@@ -66,6 +69,7 @@ module ClerkHttpClient
         :'instance_id' => :'instance_id',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at',
+        :'default_token_ttl' => :'default_token_ttl',
         :'scoped_machines' => :'scoped_machines'
       }
     end
@@ -84,6 +88,7 @@ module ClerkHttpClient
         :'instance_id' => :'String',
         :'created_at' => :'Integer',
         :'updated_at' => :'Integer',
+        :'default_token_ttl' => :'Integer',
         :'scoped_machines' => :'Array<MachineWithoutScopedMachines>'
       }
     end
@@ -152,6 +157,12 @@ module ClerkHttpClient
         self.updated_at = nil
       end
 
+      if attributes.key?(:'default_token_ttl')
+        self.default_token_ttl = attributes[:'default_token_ttl']
+      else
+        self.default_token_ttl = 3600
+      end
+
       if attributes.key?(:'scoped_machines')
         if (value = attributes[:'scoped_machines']).is_a?(Array)
           self.scoped_machines = value
@@ -198,6 +209,10 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
       end
 
+      if !@default_token_ttl.nil? && @default_token_ttl < 1
+        invalid_properties.push('invalid value for "default_token_ttl", must be greater than or equal to 1.')
+      end
+
       if @scoped_machines.nil?
         invalid_properties.push('invalid value for "scoped_machines", scoped_machines cannot be nil.')
       end
@@ -219,6 +234,7 @@ module ClerkHttpClient
       return false if @instance_id.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?
+      return false if !@default_token_ttl.nil? && @default_token_ttl < 1
       return false if @scoped_machines.nil?
       true
     end
@@ -251,6 +267,20 @@ module ClerkHttpClient
       @name = name
     end
 
+    # Custom attribute writer method with validation
+    # @param [Object] default_token_ttl Value to be assigned
+    def default_token_ttl=(default_token_ttl)
+      if default_token_ttl.nil?
+        fail ArgumentError, 'default_token_ttl cannot be nil'
+      end
+
+      if default_token_ttl < 1
+        fail ArgumentError, 'invalid value for "default_token_ttl", must be greater than or equal to 1.'
+      end
+
+      @default_token_ttl = default_token_ttl
+    end
+
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared
     def ==(o)
@@ -262,6 +292,7 @@ module ClerkHttpClient
           instance_id == o.instance_id &&
           created_at == o.created_at &&
           updated_at == o.updated_at &&
+          default_token_ttl == o.default_token_ttl &&
           scoped_machines == o.scoped_machines
     end
 
@@ -274,7 +305,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, name, instance_id, created_at, updated_at, scoped_machines].hash
+      [object, id, name, instance_id, created_at, updated_at, default_token_ttl, scoped_machines].hash
     end
 
     # Builds the object from hash

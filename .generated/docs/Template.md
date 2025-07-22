@@ -6,7 +6,7 @@
 | ---- | ---- | ----------- | ----- |
 | **id** | **String** |  | [optional] |
 | **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value.  | [optional] |
-| **instance_id** | **String** | the id of the instance the template belongs to | [optional] |
+| **instance_id** | **String** | The id of the instance to which this template belongs | [optional] |
 | **resource_type** | **String** | whether this is a system (default) or user overridden) template | [optional] |
 | **template_type** | **String** | whether this is an email or SMS template | [optional] |
 | **name** | **String** | user-friendly name of the template | [optional] |

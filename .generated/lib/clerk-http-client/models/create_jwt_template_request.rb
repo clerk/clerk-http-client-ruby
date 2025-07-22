@@ -59,8 +59,8 @@ module ClerkHttpClient
       {
         :'name' => :'String',
         :'claims' => :'Object',
-        :'lifetime' => :'Float',
-        :'allowed_clock_skew' => :'Float',
+        :'lifetime' => :'Integer',
+        :'allowed_clock_skew' => :'Integer',
         :'custom_signing_key' => :'Boolean',
         :'signing_algorithm' => :'String',
         :'signing_key' => :'String'

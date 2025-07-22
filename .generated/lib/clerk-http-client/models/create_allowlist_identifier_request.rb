@@ -15,7 +15,7 @@ require 'time'
 
 module ClerkHttpClient
   class CreateAllowlistIdentifierRequest
-    # The identifier to be added in the allow-list. This can be an email address, a phone number or a web3 wallet.
+    # The identifier to be added in the allow-list. This can be an email address, a phone number, or a web3 wallet.
     attr_accessor :identifier
 
     # This flag denotes whether the given identifier will receive an invitation to join the application. Note that this only works for email address and phone number identifiers.

@@ -23,7 +23,7 @@ module ClerkHttpClient
     # Creates a new machine.
     # @param [Hash] opts the optional parameters
     # @option opts [CreateMachineRequest] :create_machine_request 
-    # @return [Machine]
+    # @return [CreateMachine200Response]
 
     def create_machine(opts = {})
       data, _status_code, _headers = create_machine_with_http_info(opts)
@@ -34,7 +34,7 @@ module ClerkHttpClient
     # Creates a new machine.
     # @param [Hash] opts the optional parameters
     # @option opts [CreateMachineRequest] :create_machine_request 
-    # @return [Array<(Machine, Integer, Hash)>] Machine data, response status code and response headers
+    # @return [Array<(CreateMachine200Response, Integer, Hash)>] CreateMachine200Response data, response status code and response headers
     # POST 
     def create_machine_with_http_info(opts = {})
       if @api_client.config.debugging
@@ -63,7 +63,7 @@ module ClerkHttpClient
       post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'create_machine_request'])
 
       # return_type
-      return_type = opts[:debug_return_type] || 'Machine'
+      return_type = opts[:debug_return_type] || 'CreateMachine200Response'
 
       # auth_names
       auth_names = opts[:debug_auth_names] || ['bearerAuth']
@@ -354,6 +354,71 @@ module ClerkHttpClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MachinesApi#get_machine\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Retrieve a machine secret key
+    # Returns the secret key for a machine.
+    # @param machine_id [String] The ID of the machine to retrieve the secret key for
+    # @param [Hash] opts the optional parameters
+    # @return [GetMachineSecretKey200Response]
+
+    def get_machine_secret_key(machine_id, opts = {})
+      data, _status_code, _headers = get_machine_secret_key_with_http_info(machine_id, opts)
+      data
+    end
+
+    # Retrieve a machine secret key
+    # Returns the secret key for a machine.
+    # @param machine_id [String] The ID of the machine to retrieve the secret key for
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetMachineSecretKey200Response, Integer, Hash)>] GetMachineSecretKey200Response data, response status code and response headers
+    # GET 
+    def get_machine_secret_key_with_http_info(machine_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MachinesApi.get_machine_secret_key ...'
+      end
+      # verify the required parameter 'machine_id' is set
+      if @api_client.config.client_side_validation && machine_id.nil?
+        fail ArgumentError, "Missing the required parameter 'machine_id' when calling MachinesApi.get_machine_secret_key"
+      end
+      # resource path
+      local_var_path = '/machines/{machine_id}/secret_key'.sub('{' + 'machine_id' + '}', CGI.escape(machine_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetMachineSecretKey200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"MachinesApi.get_machine_secret_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MachinesApi#get_machine_secret_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -4,7 +4,7 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **expires_in_seconds** | **Float** | Use this parameter to override the JWT token lifetime. | [optional] |
+| **expires_in_seconds** | **Integer** | Use this parameter to override the JWT token lifetime. | [optional] |
 
 ## Example
 

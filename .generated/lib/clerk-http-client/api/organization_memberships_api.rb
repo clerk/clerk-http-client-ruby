@@ -97,7 +97,7 @@ module ClerkHttpClient
 
     # Remove a member from an organization
     # Removes the given membership from the organization
-    # @param organization_id [String] The ID of the organization the membership belongs to
+    # @param organization_id [String] The ID of the organization to which the membership belongs
     # @param user_id [String] The ID of the user that this membership belongs to
     # @param [Hash] opts the optional parameters
     # @return [OrganizationMembership]
@@ -109,7 +109,7 @@ module ClerkHttpClient
 
     # Remove a member from an organization
     # Removes the given membership from the organization
-    # @param organization_id [String] The ID of the organization the membership belongs to
+    # @param organization_id [String] The ID of the organization to which the membership belongs
     # @param user_id [String] The ID of the user that this membership belongs to
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationMembership, Integer, Hash)>] OrganizationMembership data, response status code and response headers
@@ -379,7 +379,7 @@ module ClerkHttpClient
 
     # Update an organization membership
     # Updates the properties of an existing organization membership
-    # @param organization_id [String] The ID of the organization the membership belongs to
+    # @param organization_id [String] The ID of the organization to which the membership belongs
     # @param user_id [String] The ID of the user that this membership belongs to
     # @param update_organization_membership_request [UpdateOrganizationMembershipRequest] 
     # @param [Hash] opts the optional parameters
@@ -392,7 +392,7 @@ module ClerkHttpClient
 
     # Update an organization membership
     # Updates the properties of an existing organization membership
-    # @param organization_id [String] The ID of the organization the membership belongs to
+    # @param organization_id [String] The ID of the organization to which the membership belongs
     # @param user_id [String] The ID of the user that this membership belongs to
     # @param update_organization_membership_request [UpdateOrganizationMembershipRequest] 
     # @param [Hash] opts the optional parameters
@@ -461,7 +461,7 @@ module ClerkHttpClient
 
     # Merge and update organization membership metadata
     # Update an organization membership's metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
-    # @param organization_id [String] The ID of the organization the membership belongs to
+    # @param organization_id [String] The ID of the organization to which the membership belongs
     # @param user_id [String] The ID of the user that this membership belongs to
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateOrganizationMembershipMetadataRequest] :update_organization_membership_metadata_request 
@@ -474,7 +474,7 @@ module ClerkHttpClient
 
     # Merge and update organization membership metadata
     # Update an organization membership&#39;s metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to &#x60;null&#x60;.
-    # @param organization_id [String] The ID of the organization the membership belongs to
+    # @param organization_id [String] The ID of the organization to which the membership belongs
     # @param user_id [String] The ID of the user that this membership belongs to
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateOrganizationMembershipMetadataRequest] :update_organization_membership_metadata_request 

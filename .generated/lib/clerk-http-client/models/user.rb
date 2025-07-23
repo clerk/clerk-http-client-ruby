@@ -264,38 +264,56 @@ module ClerkHttpClient
 
       if attributes.key?(:'id')
         self.id = attributes[:'id']
+      else
+        self.id = nil
       end
 
       if attributes.key?(:'object')
         self.object = attributes[:'object']
+      else
+        self.object = nil
       end
 
       if attributes.key?(:'external_id')
         self.external_id = attributes[:'external_id']
+      else
+        self.external_id = nil
       end
 
       if attributes.key?(:'primary_email_address_id')
         self.primary_email_address_id = attributes[:'primary_email_address_id']
+      else
+        self.primary_email_address_id = nil
       end
 
       if attributes.key?(:'primary_phone_number_id')
         self.primary_phone_number_id = attributes[:'primary_phone_number_id']
+      else
+        self.primary_phone_number_id = nil
       end
 
       if attributes.key?(:'primary_web3_wallet_id')
         self.primary_web3_wallet_id = attributes[:'primary_web3_wallet_id']
+      else
+        self.primary_web3_wallet_id = nil
       end
 
       if attributes.key?(:'username')
         self.username = attributes[:'username']
+      else
+        self.username = nil
       end
 
       if attributes.key?(:'first_name')
         self.first_name = attributes[:'first_name']
+      else
+        self.first_name = nil
       end
 
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
+      else
+        self.last_name = nil
       end
 
       if attributes.key?(:'profile_image_url')
@@ -308,12 +326,16 @@ module ClerkHttpClient
 
       if attributes.key?(:'has_image')
         self.has_image = attributes[:'has_image']
+      else
+        self.has_image = nil
       end
 
       if attributes.key?(:'public_metadata')
         if (value = attributes[:'public_metadata']).is_a?(Hash)
           self.public_metadata = value
         end
+      else
+        self.public_metadata = nil
       end
 
       if attributes.key?(:'private_metadata')
@@ -332,96 +354,138 @@ module ClerkHttpClient
         if (value = attributes[:'email_addresses']).is_a?(Array)
           self.email_addresses = value
         end
+      else
+        self.email_addresses = nil
       end
 
       if attributes.key?(:'phone_numbers')
         if (value = attributes[:'phone_numbers']).is_a?(Array)
           self.phone_numbers = value
         end
+      else
+        self.phone_numbers = nil
       end
 
       if attributes.key?(:'web3_wallets')
         if (value = attributes[:'web3_wallets']).is_a?(Array)
           self.web3_wallets = value
         end
+      else
+        self.web3_wallets = nil
       end
 
       if attributes.key?(:'passkeys')
         if (value = attributes[:'passkeys']).is_a?(Array)
           self.passkeys = value
         end
+      else
+        self.passkeys = nil
       end
 
       if attributes.key?(:'password_enabled')
         self.password_enabled = attributes[:'password_enabled']
+      else
+        self.password_enabled = nil
       end
 
       if attributes.key?(:'two_factor_enabled')
         self.two_factor_enabled = attributes[:'two_factor_enabled']
+      else
+        self.two_factor_enabled = nil
       end
 
       if attributes.key?(:'totp_enabled')
         self.totp_enabled = attributes[:'totp_enabled']
+      else
+        self.totp_enabled = nil
       end
 
       if attributes.key?(:'backup_code_enabled')
         self.backup_code_enabled = attributes[:'backup_code_enabled']
+      else
+        self.backup_code_enabled = nil
       end
 
       if attributes.key?(:'mfa_enabled_at')
         self.mfa_enabled_at = attributes[:'mfa_enabled_at']
+      else
+        self.mfa_enabled_at = nil
       end
 
       if attributes.key?(:'mfa_disabled_at')
         self.mfa_disabled_at = attributes[:'mfa_disabled_at']
+      else
+        self.mfa_disabled_at = nil
       end
 
       if attributes.key?(:'external_accounts')
         if (value = attributes[:'external_accounts']).is_a?(Array)
           self.external_accounts = value
         end
+      else
+        self.external_accounts = nil
       end
 
       if attributes.key?(:'saml_accounts')
         if (value = attributes[:'saml_accounts']).is_a?(Array)
           self.saml_accounts = value
         end
+      else
+        self.saml_accounts = nil
       end
 
       if attributes.key?(:'last_sign_in_at')
         self.last_sign_in_at = attributes[:'last_sign_in_at']
+      else
+        self.last_sign_in_at = nil
       end
 
       if attributes.key?(:'banned')
         self.banned = attributes[:'banned']
+      else
+        self.banned = nil
       end
 
       if attributes.key?(:'locked')
         self.locked = attributes[:'locked']
+      else
+        self.locked = nil
       end
 
       if attributes.key?(:'lockout_expires_in_seconds')
         self.lockout_expires_in_seconds = attributes[:'lockout_expires_in_seconds']
+      else
+        self.lockout_expires_in_seconds = nil
       end
 
       if attributes.key?(:'verification_attempts_remaining')
         self.verification_attempts_remaining = attributes[:'verification_attempts_remaining']
+      else
+        self.verification_attempts_remaining = nil
       end
 
       if attributes.key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
+      else
+        self.updated_at = nil
       end
 
       if attributes.key?(:'created_at')
         self.created_at = attributes[:'created_at']
+      else
+        self.created_at = nil
       end
 
       if attributes.key?(:'delete_self_enabled')
         self.delete_self_enabled = attributes[:'delete_self_enabled']
+      else
+        self.delete_self_enabled = nil
       end
 
       if attributes.key?(:'create_organization_enabled')
         self.create_organization_enabled = attributes[:'create_organization_enabled']
+      else
+        self.create_organization_enabled = nil
       end
 
       if attributes.key?(:'create_organizations_limit')
@@ -430,10 +494,14 @@ module ClerkHttpClient
 
       if attributes.key?(:'last_active_at')
         self.last_active_at = attributes[:'last_active_at']
+      else
+        self.last_active_at = nil
       end
 
       if attributes.key?(:'legal_accepted_at')
         self.legal_accepted_at = attributes[:'legal_accepted_at']
+      else
+        self.legal_accepted_at = nil
       end
     end
 
@@ -442,6 +510,86 @@ module ClerkHttpClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
+      end
+
+      if @object.nil?
+        invalid_properties.push('invalid value for "object", object cannot be nil.')
+      end
+
+      if @has_image.nil?
+        invalid_properties.push('invalid value for "has_image", has_image cannot be nil.')
+      end
+
+      if @public_metadata.nil?
+        invalid_properties.push('invalid value for "public_metadata", public_metadata cannot be nil.')
+      end
+
+      if @email_addresses.nil?
+        invalid_properties.push('invalid value for "email_addresses", email_addresses cannot be nil.')
+      end
+
+      if @phone_numbers.nil?
+        invalid_properties.push('invalid value for "phone_numbers", phone_numbers cannot be nil.')
+      end
+
+      if @web3_wallets.nil?
+        invalid_properties.push('invalid value for "web3_wallets", web3_wallets cannot be nil.')
+      end
+
+      if @passkeys.nil?
+        invalid_properties.push('invalid value for "passkeys", passkeys cannot be nil.')
+      end
+
+      if @password_enabled.nil?
+        invalid_properties.push('invalid value for "password_enabled", password_enabled cannot be nil.')
+      end
+
+      if @two_factor_enabled.nil?
+        invalid_properties.push('invalid value for "two_factor_enabled", two_factor_enabled cannot be nil.')
+      end
+
+      if @totp_enabled.nil?
+        invalid_properties.push('invalid value for "totp_enabled", totp_enabled cannot be nil.')
+      end
+
+      if @backup_code_enabled.nil?
+        invalid_properties.push('invalid value for "backup_code_enabled", backup_code_enabled cannot be nil.')
+      end
+
+      if @external_accounts.nil?
+        invalid_properties.push('invalid value for "external_accounts", external_accounts cannot be nil.')
+      end
+
+      if @saml_accounts.nil?
+        invalid_properties.push('invalid value for "saml_accounts", saml_accounts cannot be nil.')
+      end
+
+      if @banned.nil?
+        invalid_properties.push('invalid value for "banned", banned cannot be nil.')
+      end
+
+      if @locked.nil?
+        invalid_properties.push('invalid value for "locked", locked cannot be nil.')
+      end
+
+      if @updated_at.nil?
+        invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
+      end
+
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @delete_self_enabled.nil?
+        invalid_properties.push('invalid value for "delete_self_enabled", delete_self_enabled cannot be nil.')
+      end
+
+      if @create_organization_enabled.nil?
+        invalid_properties.push('invalid value for "create_organization_enabled", create_organization_enabled cannot be nil.')
+      end
+
       invalid_properties
     end
 
@@ -449,8 +597,28 @@ module ClerkHttpClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
+      return false if @id.nil?
+      return false if @object.nil?
       object_validator = EnumAttributeValidator.new('String', ["user"])
       return false unless object_validator.valid?(@object)
+      return false if @has_image.nil?
+      return false if @public_metadata.nil?
+      return false if @email_addresses.nil?
+      return false if @phone_numbers.nil?
+      return false if @web3_wallets.nil?
+      return false if @passkeys.nil?
+      return false if @password_enabled.nil?
+      return false if @two_factor_enabled.nil?
+      return false if @totp_enabled.nil?
+      return false if @backup_code_enabled.nil?
+      return false if @external_accounts.nil?
+      return false if @saml_accounts.nil?
+      return false if @banned.nil?
+      return false if @locked.nil?
+      return false if @updated_at.nil?
+      return false if @created_at.nil?
+      return false if @delete_self_enabled.nil?
+      return false if @create_organization_enabled.nil?
       true
     end
 

@@ -14,9 +14,23 @@ require 'clerk-http-client'
 ClerkHttpClient::SAMLAccountVerification.openapi_one_of
 # =>
 # [
-#   :'SAML',
-#   :'Ticket'
+#   :'VerificationSaml',
+#   :'VerificationTicket'
 # ]
+```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's property name.
+
+#### Example
+
+```ruby
+require 'clerk-http-client'
+
+ClerkHttpClient::SAMLAccountVerification.openapi_discriminator_name
+# => :'object'
+```
 ```
 
 ### build
@@ -29,7 +43,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'clerk-http-client'
 
 ClerkHttpClient::SAMLAccountVerification.build(data)
-# => #<SAML:0x00007fdd4aab02a0>
+# => #<VerificationSaml:0x00007fdd4aab02a0>
 
 ClerkHttpClient::SAMLAccountVerification.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +57,7 @@ ClerkHttpClient::SAMLAccountVerification.build(data_that_doesnt_match)
 
 #### Return type
 
-- `SAML`
-- `Ticket`
+- `VerificationSaml`
+- `VerificationTicket`
 - `nil` (if no type matches)
 

@@ -534,7 +534,7 @@ module ClerkHttpClient
     end
 
     # Upload a logo for the organization
-    # Set or replace an organization's logo, by uploading an image file. This endpoint uses the `multipart/form-data` request content type and accepts a file of image type. The file size cannot exceed 10MB. Only the following file content types are supported: `image/jpeg`, `image/png`, `image/gif`, `image/webp`, `image/x-icon`, `image/vnd.microsoft.icon`.
+    # Set or replace an organization's logo, by uploading an image file. This endpoint uses the `multipart/form-data` request content type and accepts a file of image type. The file size cannot exceed 10MB. Only the following file content types are supported: `image/jpeg`, `image/png`, `image/gif`, `image/webp`.
     # @param organization_id [String] The ID of the organization for which to upload a logo
     # @param file [File] 
     # @param [Hash] opts the optional parameters
@@ -547,7 +547,7 @@ module ClerkHttpClient
     end
 
     # Upload a logo for the organization
-    # Set or replace an organization&#39;s logo, by uploading an image file. This endpoint uses the &#x60;multipart/form-data&#x60; request content type and accepts a file of image type. The file size cannot exceed 10MB. Only the following file content types are supported: &#x60;image/jpeg&#x60;, &#x60;image/png&#x60;, &#x60;image/gif&#x60;, &#x60;image/webp&#x60;, &#x60;image/x-icon&#x60;, &#x60;image/vnd.microsoft.icon&#x60;.
+    # Set or replace an organization&#39;s logo, by uploading an image file. This endpoint uses the &#x60;multipart/form-data&#x60; request content type and accepts a file of image type. The file size cannot exceed 10MB. Only the following file content types are supported: &#x60;image/jpeg&#x60;, &#x60;image/png&#x60;, &#x60;image/gif&#x60;, &#x60;image/webp&#x60;.
     # @param organization_id [String] The ID of the organization for which to upload a logo
     # @param file [File] 
     # @param [Hash] opts the optional parameters

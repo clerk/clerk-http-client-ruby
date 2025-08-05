@@ -201,7 +201,7 @@ module ClerkHttpClient
         :'email_addresses' => :'Array<EmailAddress>',
         :'phone_numbers' => :'Array<PhoneNumber>',
         :'web3_wallets' => :'Array<Web3Wallet>',
-        :'passkeys' => :'Array<SchemasPasskey>',
+        :'passkeys' => :'Array<Passkey>',
         :'password_enabled' => :'Boolean',
         :'two_factor_enabled' => :'Boolean',
         :'totp_enabled' => :'Boolean',

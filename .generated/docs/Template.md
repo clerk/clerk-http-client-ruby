@@ -25,6 +25,7 @@
 | **reply_to_email_name** | **String** |  | [optional] |
 | **delivered_by_clerk** | **Boolean** |  | [optional] |
 | **enabled** | **Boolean** |  | [optional] |
+| **flagged_as_suspicious** | **Boolean** |  | [optional] |
 | **updated_at** | **Integer** | Unix timestamp of last update.  | [optional] |
 | **created_at** | **Integer** | Unix timestamp of creation.  | [optional] |
 
@@ -55,6 +56,7 @@ instance = ClerkHttpClient::Template.new(
   reply_to_email_name: null,
   delivered_by_clerk: null,
   enabled: null,
+  flagged_as_suspicious: null,
   updated_at: null,
   created_at: null
 )

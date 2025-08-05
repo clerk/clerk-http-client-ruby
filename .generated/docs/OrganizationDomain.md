@@ -13,6 +13,7 @@
 | **verification** | [**OrganizationDomainVerification**](OrganizationDomainVerification.md) | Verification details for the domain |  |
 | **total_pending_invitations** | **Integer** | Total number of pending invitations associated with this domain |  |
 | **total_pending_suggestions** | **Integer** | Total number of pending suggestions associated with this domain |  |
+| **public_organization_data** | [**OrganizationInvitationPublicOrganizationData**](OrganizationInvitationPublicOrganizationData.md) | Public organization data associated with this domain | [optional] |
 | **created_at** | **Integer** | Unix timestamp when the domain was created |  |
 | **updated_at** | **Integer** | Unix timestamp of the last update to the domain |  |
 
@@ -31,6 +32,7 @@ instance = ClerkHttpClient::OrganizationDomain.new(
   verification: null,
   total_pending_invitations: null,
   total_pending_suggestions: null,
+  public_organization_data: null,
   created_at: null,
   updated_at: null
 )

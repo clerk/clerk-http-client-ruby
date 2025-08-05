@@ -43,6 +43,9 @@ module ClerkHttpClient
     # Total number of pending suggestions associated with this domain
     attr_accessor :total_pending_suggestions
 
+    # Public organization data associated with this domain
+    attr_accessor :public_organization_data
+
     # Unix timestamp when the domain was created
     attr_accessor :created_at
 
@@ -83,6 +86,7 @@ module ClerkHttpClient
         :'verification' => :'verification',
         :'total_pending_invitations' => :'total_pending_invitations',
         :'total_pending_suggestions' => :'total_pending_suggestions',
+        :'public_organization_data' => :'public_organization_data',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
       }
@@ -105,6 +109,7 @@ module ClerkHttpClient
         :'verification' => :'OrganizationDomainVerification',
         :'total_pending_invitations' => :'Integer',
         :'total_pending_suggestions' => :'Integer',
+        :'public_organization_data' => :'OrganizationInvitationPublicOrganizationData',
         :'created_at' => :'Integer',
         :'updated_at' => :'Integer'
       }
@@ -115,6 +120,7 @@ module ClerkHttpClient
       Set.new([
         :'affiliation_email_address',
         :'verification',
+        :'public_organization_data',
       ])
     end
 
@@ -185,6 +191,10 @@ module ClerkHttpClient
         self.total_pending_suggestions = attributes[:'total_pending_suggestions']
       else
         self.total_pending_suggestions = nil
+      end
+
+      if attributes.key?(:'public_organization_data')
+        self.public_organization_data = attributes[:'public_organization_data']
       end
 
       if attributes.key?(:'created_at')
@@ -298,6 +308,7 @@ module ClerkHttpClient
           verification == o.verification &&
           total_pending_invitations == o.total_pending_invitations &&
           total_pending_suggestions == o.total_pending_suggestions &&
+          public_organization_data == o.public_organization_data &&
           created_at == o.created_at &&
           updated_at == o.updated_at
     end
@@ -311,7 +322,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, organization_id, name, enrollment_mode, affiliation_email_address, verification, total_pending_invitations, total_pending_suggestions, created_at, updated_at].hash
+      [object, id, organization_id, name, enrollment_mode, affiliation_email_address, verification, total_pending_invitations, total_pending_suggestions, public_organization_data, created_at, updated_at].hash
     end
 
     # Builds the object from hash

@@ -4,13 +4,11 @@
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **status** | **String** |  |  |
-| **strategy** | **String** |  |  |
-| **nonce** | **String** |  | [optional] |
-| **message** | **String** |  | [optional] |
-| **attempts** | **Integer** |  |  |
-| **expire_at** | **Integer** |  |  |
-| **verified_at_client** | **String** |  | [optional] |
+| **id** | **String** |  | [optional] |
+| **object** | **String** | String representing the object&#39;s type. Objects of the same type share the same value.  |  |
+| **name** | **String** |  |  |
+| **last_used_at** | **Integer** | Unix timestamp of when the passkey was last used.  |  |
+| **verification** | [**PasskeyVerification**](PasskeyVerification.md) |  |  |
 
 ## Example
 
@@ -18,13 +16,11 @@
 require 'clerk-http-client'
 
 instance = ClerkHttpClient::Passkey.new(
-  status: null,
-  strategy: null,
-  nonce: null,
-  message: null,
-  attempts: null,
-  expire_at: null,
-  verified_at_client: null
+  id: null,
+  object: null,
+  name: null,
+  last_used_at: null,
+  verification: null
 )
 ```
 

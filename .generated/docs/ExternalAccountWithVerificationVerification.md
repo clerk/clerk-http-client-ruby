@@ -14,9 +14,23 @@ require 'clerk-http-client'
 ClerkHttpClient::ExternalAccountWithVerificationVerification.openapi_one_of
 # =>
 # [
-#   :'GoogleOneTap',
-#   :'Oauth'
+#   :'VerificationGoogleOneTap',
+#   :'VerificationOauth'
 # ]
+```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's property name.
+
+#### Example
+
+```ruby
+require 'clerk-http-client'
+
+ClerkHttpClient::ExternalAccountWithVerificationVerification.openapi_discriminator_name
+# => :'object'
+```
 ```
 
 ### build
@@ -29,7 +43,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'clerk-http-client'
 
 ClerkHttpClient::ExternalAccountWithVerificationVerification.build(data)
-# => #<GoogleOneTap:0x00007fdd4aab02a0>
+# => #<VerificationGoogleOneTap:0x00007fdd4aab02a0>
 
 ClerkHttpClient::ExternalAccountWithVerificationVerification.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +57,7 @@ ClerkHttpClient::ExternalAccountWithVerificationVerification.build(data_that_doe
 
 #### Return type
 
-- `GoogleOneTap`
-- `Oauth`
+- `VerificationGoogleOneTap`
+- `VerificationOauth`
 - `nil` (if no type matches)
 

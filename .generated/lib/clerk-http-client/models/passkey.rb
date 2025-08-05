@@ -15,19 +15,17 @@ require 'time'
 
 module ClerkHttpClient
   class Passkey
-    attr_accessor :status
+    attr_accessor :id
 
-    attr_accessor :strategy
+    # String representing the object's type. Objects of the same type share the same value. 
+    attr_accessor :object
 
-    attr_accessor :nonce
+    attr_accessor :name
 
-    attr_accessor :message
+    # Unix timestamp of when the passkey was last used. 
+    attr_accessor :last_used_at
 
-    attr_accessor :attempts
-
-    attr_accessor :expire_at
-
-    attr_accessor :verified_at_client
+    attr_accessor :verification
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -54,13 +52,11 @@ module ClerkHttpClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'status' => :'status',
-        :'strategy' => :'strategy',
-        :'nonce' => :'nonce',
-        :'message' => :'message',
-        :'attempts' => :'attempts',
-        :'expire_at' => :'expire_at',
-        :'verified_at_client' => :'verified_at_client'
+        :'id' => :'id',
+        :'object' => :'object',
+        :'name' => :'name',
+        :'last_used_at' => :'last_used_at',
+        :'verification' => :'verification'
       }
     end
 
@@ -72,23 +68,18 @@ module ClerkHttpClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'status' => :'String',
-        :'strategy' => :'String',
-        :'nonce' => :'String',
-        :'message' => :'String',
-        :'attempts' => :'Integer',
-        :'expire_at' => :'Integer',
-        :'verified_at_client' => :'String'
+        :'id' => :'String',
+        :'object' => :'String',
+        :'name' => :'String',
+        :'last_used_at' => :'Integer',
+        :'verification' => :'PasskeyVerification'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'message',
-        :'attempts',
-        :'expire_at',
-        :'verified_at_client'
+        :'verification'
       ])
     end
 
@@ -107,40 +98,32 @@ module ClerkHttpClient
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
+      end
+
+      if attributes.key?(:'object')
+        self.object = attributes[:'object']
       else
-        self.status = nil
+        self.object = nil
       end
 
-      if attributes.key?(:'strategy')
-        self.strategy = attributes[:'strategy']
+      if attributes.key?(:'name')
+        self.name = attributes[:'name']
       else
-        self.strategy = nil
+        self.name = nil
       end
 
-      if attributes.key?(:'nonce')
-        self.nonce = attributes[:'nonce']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'attempts')
-        self.attempts = attributes[:'attempts']
+      if attributes.key?(:'last_used_at')
+        self.last_used_at = attributes[:'last_used_at']
       else
-        self.attempts = nil
+        self.last_used_at = nil
       end
 
-      if attributes.key?(:'expire_at')
-        self.expire_at = attributes[:'expire_at']
+      if attributes.key?(:'verification')
+        self.verification = attributes[:'verification']
       else
-        self.expire_at = nil
-      end
-
-      if attributes.key?(:'verified_at_client')
-        self.verified_at_client = attributes[:'verified_at_client']
+        self.verification = nil
       end
     end
 
@@ -149,12 +132,16 @@ module ClerkHttpClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
+      if @object.nil?
+        invalid_properties.push('invalid value for "object", object cannot be nil.')
       end
 
-      if @strategy.nil?
-        invalid_properties.push('invalid value for "strategy", strategy cannot be nil.')
+      if @name.nil?
+        invalid_properties.push('invalid value for "name", name cannot be nil.')
+      end
+
+      if @last_used_at.nil?
+        invalid_properties.push('invalid value for "last_used_at", last_used_at cannot be nil.')
       end
 
       invalid_properties
@@ -164,45 +151,22 @@ module ClerkHttpClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["verified"])
-      return false unless status_validator.valid?(@status)
-      return false if @strategy.nil?
-      strategy_validator = EnumAttributeValidator.new('String', ["passkey"])
-      return false unless strategy_validator.valid?(@strategy)
-      nonce_validator = EnumAttributeValidator.new('String', ["nonce"])
-      return false unless nonce_validator.valid?(@nonce)
+      return false if @object.nil?
+      object_validator = EnumAttributeValidator.new('String', ["passkey"])
+      return false unless object_validator.valid?(@object)
+      return false if @name.nil?
+      return false if @last_used_at.nil?
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] status Object to be assigned
-    def status=(status)
-      validator = EnumAttributeValidator.new('String', ["verified"])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
-      @status = status
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] strategy Object to be assigned
-    def strategy=(strategy)
+    # @param [Object] object Object to be assigned
+    def object=(object)
       validator = EnumAttributeValidator.new('String', ["passkey"])
-      unless validator.valid?(strategy)
-        fail ArgumentError, "invalid value for \"strategy\", must be one of #{validator.allowable_values}."
+      unless validator.valid?(object)
+        fail ArgumentError, "invalid value for \"object\", must be one of #{validator.allowable_values}."
       end
-      @strategy = strategy
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] nonce Object to be assigned
-    def nonce=(nonce)
-      validator = EnumAttributeValidator.new('String', ["nonce"])
-      unless validator.valid?(nonce)
-        fail ArgumentError, "invalid value for \"nonce\", must be one of #{validator.allowable_values}."
-      end
-      @nonce = nonce
+      @object = object
     end
 
     # Checks equality by comparing each attribute.
@@ -210,13 +174,11 @@ module ClerkHttpClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          status == o.status &&
-          strategy == o.strategy &&
-          nonce == o.nonce &&
-          message == o.message &&
-          attempts == o.attempts &&
-          expire_at == o.expire_at &&
-          verified_at_client == o.verified_at_client
+          id == o.id &&
+          object == o.object &&
+          name == o.name &&
+          last_used_at == o.last_used_at &&
+          verification == o.verification
     end
 
     # @see the `==` method
@@ -228,7 +190,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [status, strategy, nonce, message, attempts, expire_at, verified_at_client].hash
+      [id, object, name, last_used_at, verification].hash
     end
 
     # Builds the object from hash

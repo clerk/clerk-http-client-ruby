@@ -14,9 +14,23 @@ require 'clerk-http-client'
 ClerkHttpClient::Web3WalletVerification.openapi_one_of
 # =>
 # [
-#   :'Admin',
-#   :'Web3Signature'
+#   :'VerificationAdmin',
+#   :'VerificationWeb3'
 # ]
+```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's property name.
+
+#### Example
+
+```ruby
+require 'clerk-http-client'
+
+ClerkHttpClient::Web3WalletVerification.openapi_discriminator_name
+# => :'object'
+```
 ```
 
 ### build
@@ -29,7 +43,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'clerk-http-client'
 
 ClerkHttpClient::Web3WalletVerification.build(data)
-# => #<Admin:0x00007fdd4aab02a0>
+# => #<VerificationAdmin:0x00007fdd4aab02a0>
 
 ClerkHttpClient::Web3WalletVerification.build(data_that_doesnt_match)
 # => nil
@@ -43,7 +57,7 @@ ClerkHttpClient::Web3WalletVerification.build(data_that_doesnt_match)
 
 #### Return type
 
-- `Admin`
-- `Web3Signature`
+- `VerificationAdmin`
+- `VerificationWeb3`
 - `nil` (if no type matches)
 

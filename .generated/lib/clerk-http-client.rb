@@ -21,7 +21,6 @@ ClerkHttpClient.autoload :AWSCredential, 'clerk-http-client/models/aws_credentia
 ClerkHttpClient.autoload :AccountlessApplication, 'clerk-http-client/models/accountless_application'
 ClerkHttpClient.autoload :ActorToken, 'clerk-http-client/models/actor_token'
 ClerkHttpClient.autoload :AddDomainRequest, 'clerk-http-client/models/add_domain_request'
-ClerkHttpClient.autoload :Admin, 'clerk-http-client/models/admin'
 ClerkHttpClient.autoload :AllowlistIdentifier, 'clerk-http-client/models/allowlist_identifier'
 ClerkHttpClient.autoload :BlocklistIdentifier, 'clerk-http-client/models/blocklist_identifier'
 ClerkHttpClient.autoload :BlocklistIdentifiers, 'clerk-http-client/models/blocklist_identifiers'
@@ -30,8 +29,9 @@ ClerkHttpClient.autoload :ChangeProductionInstanceDomainRequest, 'clerk-http-cli
 ClerkHttpClient.autoload :ClerkError, 'clerk-http-client/models/clerk_error'
 ClerkHttpClient.autoload :ClerkErrors, 'clerk-http-client/models/clerk_errors'
 ClerkHttpClient.autoload :Client, 'clerk-http-client/models/client'
+ClerkHttpClient.autoload :CommerceMoneyResponse, 'clerk-http-client/models/commerce_money_response'
+ClerkHttpClient.autoload :CommercePlan, 'clerk-http-client/models/commerce_plan'
 ClerkHttpClient.autoload :Cookies, 'clerk-http-client/models/cookies'
-ClerkHttpClient.autoload :CreateAWSCredentialRequest, 'clerk-http-client/models/create_aws_credential_request'
 ClerkHttpClient.autoload :CreateActorTokenRequest, 'clerk-http-client/models/create_actor_token_request'
 ClerkHttpClient.autoload :CreateActorTokenRequestActor, 'clerk-http-client/models/create_actor_token_request_actor'
 ClerkHttpClient.autoload :CreateAllowlistIdentifierRequest, 'clerk-http-client/models/create_allowlist_identifier_request'
@@ -43,7 +43,6 @@ ClerkHttpClient.autoload :CreateJWTTemplateRequest, 'clerk-http-client/models/cr
 ClerkHttpClient.autoload :CreateMachine200Response, 'clerk-http-client/models/create_machine200_response'
 ClerkHttpClient.autoload :CreateMachineRequest, 'clerk-http-client/models/create_machine_request'
 ClerkHttpClient.autoload :CreateMachineScopeRequest, 'clerk-http-client/models/create_machine_scope_request'
-ClerkHttpClient.autoload :CreateMachineTokenRequest, 'clerk-http-client/models/create_machine_token_request'
 ClerkHttpClient.autoload :CreateOAuthApplicationRequest, 'clerk-http-client/models/create_oauth_application_request'
 ClerkHttpClient.autoload :CreateOrganizationDomainRequest, 'clerk-http-client/models/create_organization_domain_request'
 ClerkHttpClient.autoload :CreateOrganizationInvitationRequest, 'clerk-http-client/models/create_organization_invitation_request'
@@ -70,10 +69,8 @@ ClerkHttpClient.autoload :EmailAddress, 'clerk-http-client/models/email_address'
 ClerkHttpClient.autoload :EmailAddressVerification, 'clerk-http-client/models/email_address_verification'
 ClerkHttpClient.autoload :ExternalAccountWithVerification, 'clerk-http-client/models/external_account_with_verification'
 ClerkHttpClient.autoload :ExternalAccountWithVerificationVerification, 'clerk-http-client/models/external_account_with_verification_verification'
-ClerkHttpClient.autoload :FromOAuth, 'clerk-http-client/models/from_oauth'
-ClerkHttpClient.autoload :FromOAuthError, 'clerk-http-client/models/from_oauth_error'
+ClerkHttpClient.autoload :FeatureResponse, 'clerk-http-client/models/feature_response'
 ClerkHttpClient.autoload :GetMachineSecretKey200Response, 'clerk-http-client/models/get_machine_secret_key200_response'
-ClerkHttpClient.autoload :GoogleOneTap, 'clerk-http-client/models/google_one_tap'
 ClerkHttpClient.autoload :IdentificationLink, 'clerk-http-client/models/identification_link'
 ClerkHttpClient.autoload :Instance, 'clerk-http-client/models/instance'
 ClerkHttpClient.autoload :InstanceRestrictions, 'clerk-http-client/models/instance_restrictions'
@@ -92,7 +89,6 @@ ClerkHttpClient.autoload :ListMachines200Response, 'clerk-http-client/models/lis
 ClerkHttpClient.autoload :ListWaitlistEntries200Response, 'clerk-http-client/models/list_waitlist_entries200_response'
 ClerkHttpClient.autoload :Machine, 'clerk-http-client/models/machine'
 ClerkHttpClient.autoload :MachineScope, 'clerk-http-client/models/machine_scope'
-ClerkHttpClient.autoload :MachineToken, 'clerk-http-client/models/machine_token'
 ClerkHttpClient.autoload :MachineWithoutScopedMachines, 'clerk-http-client/models/machine_without_scoped_machines'
 ClerkHttpClient.autoload :MergeOrganizationMetadataRequest, 'clerk-http-client/models/merge_organization_metadata_request'
 ClerkHttpClient.autoload :OAuthAccessToken, 'clerk-http-client/models/oauth_access_token'
@@ -100,8 +96,6 @@ ClerkHttpClient.autoload :OAuthAccessTokenInner, 'clerk-http-client/models/oauth
 ClerkHttpClient.autoload :OAuthApplication, 'clerk-http-client/models/oauth_application'
 ClerkHttpClient.autoload :OAuthApplicationWithSecret, 'clerk-http-client/models/oauth_application_with_secret'
 ClerkHttpClient.autoload :OAuthApplications, 'clerk-http-client/models/oauth_applications'
-ClerkHttpClient.autoload :OTP, 'clerk-http-client/models/otp'
-ClerkHttpClient.autoload :Oauth, 'clerk-http-client/models/oauth'
 ClerkHttpClient.autoload :Organization, 'clerk-http-client/models/organization'
 ClerkHttpClient.autoload :OrganizationDomain, 'clerk-http-client/models/organization_domain'
 ClerkHttpClient.autoload :OrganizationDomainVerification, 'clerk-http-client/models/organization_domain_verification'
@@ -117,7 +111,9 @@ ClerkHttpClient.autoload :OrganizationMemberships, 'clerk-http-client/models/org
 ClerkHttpClient.autoload :OrganizationSettings, 'clerk-http-client/models/organization_settings'
 ClerkHttpClient.autoload :OrganizationWithLogo, 'clerk-http-client/models/organization_with_logo'
 ClerkHttpClient.autoload :Organizations, 'clerk-http-client/models/organizations'
+ClerkHttpClient.autoload :PaginatedCommercePlanResponse, 'clerk-http-client/models/paginated_commerce_plan_response'
 ClerkHttpClient.autoload :Passkey, 'clerk-http-client/models/passkey'
+ClerkHttpClient.autoload :PasskeyVerification, 'clerk-http-client/models/passkey_verification'
 ClerkHttpClient.autoload :PhoneNumber, 'clerk-http-client/models/phone_number'
 ClerkHttpClient.autoload :PhoneNumberVerification, 'clerk-http-client/models/phone_number_verification'
 ClerkHttpClient.autoload :PreviewTemplateRequest, 'clerk-http-client/models/preview_template_request'
@@ -126,15 +122,12 @@ ClerkHttpClient.autoload :RedirectURL, 'clerk-http-client/models/redirect_url'
 ClerkHttpClient.autoload :RefreshSessionRequest, 'clerk-http-client/models/refresh_session_request'
 ClerkHttpClient.autoload :RevokeInvitation200Response, 'clerk-http-client/models/revoke_invitation200_response'
 ClerkHttpClient.autoload :RevokeOrganizationInvitationRequest, 'clerk-http-client/models/revoke_organization_invitation_request'
-ClerkHttpClient.autoload :SAML, 'clerk-http-client/models/saml'
 ClerkHttpClient.autoload :SAMLAccount, 'clerk-http-client/models/saml_account'
 ClerkHttpClient.autoload :SAMLAccountSamlConnection, 'clerk-http-client/models/saml_account_saml_connection'
 ClerkHttpClient.autoload :SAMLAccountVerification, 'clerk-http-client/models/saml_account_verification'
 ClerkHttpClient.autoload :SAMLConnection, 'clerk-http-client/models/saml_connection'
 ClerkHttpClient.autoload :SAMLConnectionAttributeMapping, 'clerk-http-client/models/saml_connection_attribute_mapping'
 ClerkHttpClient.autoload :SAMLConnections, 'clerk-http-client/models/saml_connections'
-ClerkHttpClient.autoload :SchemasPasskey, 'clerk-http-client/models/schemas_passkey'
-ClerkHttpClient.autoload :SchemasPasskeyVerification, 'clerk-http-client/models/schemas_passkey_verification'
 ClerkHttpClient.autoload :SchemasSAMLConnection, 'clerk-http-client/models/schemas_saml_connection'
 ClerkHttpClient.autoload :Session, 'clerk-http-client/models/session'
 ClerkHttpClient.autoload :SessionActivityResponse, 'clerk-http-client/models/session_activity_response'
@@ -146,7 +139,6 @@ ClerkHttpClient.autoload :SignUpVerifications, 'clerk-http-client/models/sign_up
 ClerkHttpClient.autoload :SvixURL, 'clerk-http-client/models/svix_url'
 ClerkHttpClient.autoload :Template, 'clerk-http-client/models/template'
 ClerkHttpClient.autoload :TestingToken, 'clerk-http-client/models/testing_token'
-ClerkHttpClient.autoload :Ticket, 'clerk-http-client/models/ticket'
 ClerkHttpClient.autoload :ToggleTemplateDeliveryRequest, 'clerk-http-client/models/toggle_template_delivery_request'
 ClerkHttpClient.autoload :Token, 'clerk-http-client/models/token'
 ClerkHttpClient.autoload :TotalCount, 'clerk-http-client/models/total_count'
@@ -175,6 +167,16 @@ ClerkHttpClient.autoload :UpsertTemplateRequest, 'clerk-http-client/models/upser
 ClerkHttpClient.autoload :User, 'clerk-http-client/models/user'
 ClerkHttpClient.autoload :UsersBanRequest, 'clerk-http-client/models/users_ban_request'
 ClerkHttpClient.autoload :UsersUnbanRequest, 'clerk-http-client/models/users_unban_request'
+ClerkHttpClient.autoload :VerificationAdmin, 'clerk-http-client/models/verification_admin'
+ClerkHttpClient.autoload :VerificationFromOauth, 'clerk-http-client/models/verification_from_oauth'
+ClerkHttpClient.autoload :VerificationFromOauthError, 'clerk-http-client/models/verification_from_oauth_error'
+ClerkHttpClient.autoload :VerificationGoogleOneTap, 'clerk-http-client/models/verification_google_one_tap'
+ClerkHttpClient.autoload :VerificationOauth, 'clerk-http-client/models/verification_oauth'
+ClerkHttpClient.autoload :VerificationOtp, 'clerk-http-client/models/verification_otp'
+ClerkHttpClient.autoload :VerificationPasskey, 'clerk-http-client/models/verification_passkey'
+ClerkHttpClient.autoload :VerificationSaml, 'clerk-http-client/models/verification_saml'
+ClerkHttpClient.autoload :VerificationTicket, 'clerk-http-client/models/verification_ticket'
+ClerkHttpClient.autoload :VerificationWeb3, 'clerk-http-client/models/verification_web3'
 ClerkHttpClient.autoload :VerifyClientRequest, 'clerk-http-client/models/verify_client_request'
 ClerkHttpClient.autoload :VerifyDomainProxyRequest, 'clerk-http-client/models/verify_domain_proxy_request'
 ClerkHttpClient.autoload :VerifyOAuthAccessToken200Response, 'clerk-http-client/models/verify_oauth_access_token200_response'
@@ -189,7 +191,6 @@ ClerkHttpClient.autoload :VerifySessionRequest, 'clerk-http-client/models/verify
 ClerkHttpClient.autoload :VerifyTOTP200Response, 'clerk-http-client/models/verify_totp200_response'
 ClerkHttpClient.autoload :VerifyTOTPRequest, 'clerk-http-client/models/verify_totp_request'
 ClerkHttpClient.autoload :WaitlistEntry, 'clerk-http-client/models/waitlist_entry'
-ClerkHttpClient.autoload :Web3Signature, 'clerk-http-client/models/web3_signature'
 ClerkHttpClient.autoload :Web3Wallet, 'clerk-http-client/models/web3_wallet'
 ClerkHttpClient.autoload :Web3WalletVerification, 'clerk-http-client/models/web3_wallet_verification'
 
@@ -200,6 +201,7 @@ ClerkHttpClient.autoload :ActorTokensApi, 'clerk-http-client/api/actor_tokens_ap
 ClerkHttpClient.autoload :AllowListBlockListApi, 'clerk-http-client/api/allow_list_block_list_api'
 ClerkHttpClient.autoload :BetaFeaturesApi, 'clerk-http-client/api/beta_features_api'
 ClerkHttpClient.autoload :ClientsApi, 'clerk-http-client/api/clients_api'
+ClerkHttpClient.autoload :CommerceApi, 'clerk-http-client/api/commerce_api'
 ClerkHttpClient.autoload :DomainsApi, 'clerk-http-client/api/domains_api'
 ClerkHttpClient.autoload :EmailAddressesApi, 'clerk-http-client/api/email_addresses_api'
 ClerkHttpClient.autoload :EmailSMSTemplatesApi, 'clerk-http-client/api/email_sms_templates_api'
@@ -207,7 +209,6 @@ ClerkHttpClient.autoload :InstanceSettingsApi, 'clerk-http-client/api/instance_s
 ClerkHttpClient.autoload :InvitationsApi, 'clerk-http-client/api/invitations_api'
 ClerkHttpClient.autoload :JWKSApi, 'clerk-http-client/api/jwks_api'
 ClerkHttpClient.autoload :JWTTemplatesApi, 'clerk-http-client/api/jwt_templates_api'
-ClerkHttpClient.autoload :MachineTokensApi, 'clerk-http-client/api/machine_tokens_api'
 ClerkHttpClient.autoload :MachinesApi, 'clerk-http-client/api/machines_api'
 ClerkHttpClient.autoload :MiscellaneousApi, 'clerk-http-client/api/miscellaneous_api'
 ClerkHttpClient.autoload :OAuthAccessTokensApi, 'clerk-http-client/api/oauth_access_tokens_api'
@@ -271,6 +272,10 @@ module ClerkHttpClient
       ClerkHttpClient::ClientsApi.new
     end
 
+    def commerce
+      ClerkHttpClient::CommerceApi.new
+    end
+
     def domains
       ClerkHttpClient::DomainsApi.new
     end
@@ -297,10 +302,6 @@ module ClerkHttpClient
 
     def jwt_templates
       ClerkHttpClient::JWTTemplatesApi.new
-    end
-
-    def machine_tokens
-      ClerkHttpClient::MachineTokensApi.new
     end
 
     def machines

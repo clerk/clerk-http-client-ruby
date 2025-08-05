@@ -73,6 +73,8 @@ module ClerkHttpClient
 
     attr_accessor :enabled
 
+    attr_accessor :flagged_as_suspicious
+
     # Unix timestamp of last update. 
     attr_accessor :updated_at
 
@@ -125,6 +127,7 @@ module ClerkHttpClient
         :'reply_to_email_name' => :'reply_to_email_name',
         :'delivered_by_clerk' => :'delivered_by_clerk',
         :'enabled' => :'enabled',
+        :'flagged_as_suspicious' => :'flagged_as_suspicious',
         :'updated_at' => :'updated_at',
         :'created_at' => :'created_at'
       }
@@ -159,6 +162,7 @@ module ClerkHttpClient
         :'reply_to_email_name' => :'String',
         :'delivered_by_clerk' => :'Boolean',
         :'enabled' => :'Boolean',
+        :'flagged_as_suspicious' => :'Boolean',
         :'updated_at' => :'Integer',
         :'created_at' => :'Integer'
       }
@@ -275,6 +279,10 @@ module ClerkHttpClient
         self.enabled = attributes[:'enabled']
       end
 
+      if attributes.key?(:'flagged_as_suspicious')
+        self.flagged_as_suspicious = attributes[:'flagged_as_suspicious']
+      end
+
       if attributes.key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
       end
@@ -337,6 +345,7 @@ module ClerkHttpClient
           reply_to_email_name == o.reply_to_email_name &&
           delivered_by_clerk == o.delivered_by_clerk &&
           enabled == o.enabled &&
+          flagged_as_suspicious == o.flagged_as_suspicious &&
           updated_at == o.updated_at &&
           created_at == o.created_at
     end
@@ -350,7 +359,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, object, instance_id, resource_type, template_type, name, slug, position, can_revert, can_delete, can_edit_body, can_toggle, subject, markup, body, available_variables, required_variables, from_email_name, reply_to_email_name, delivered_by_clerk, enabled, updated_at, created_at].hash
+      [id, object, instance_id, resource_type, template_type, name, slug, position, can_revert, can_delete, can_edit_body, can_toggle, subject, markup, body, available_variables, required_variables, from_email_name, reply_to_email_name, delivered_by_clerk, enabled, flagged_as_suspicious, updated_at, created_at].hash
     end
 
     # Builds the object from hash

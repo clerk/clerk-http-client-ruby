@@ -44,10 +44,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Clerk::SDK.aws_credentials* | [**create_aws_credential**](docs/AWSCredentialsApi.md#create_aws_credential) | **POST** /aws_credentials | Create an AWS Credential
 *Clerk::SDK.aws_credentials* | [**delete_aws_credential**](docs/AWSCredentialsApi.md#delete_aws_credential) | **DELETE** /aws_credentials/{id} | Delete an AWS Credential
-*Clerk::SDK.aws_credentials* | [**get_aws_credential**](docs/AWSCredentialsApi.md#get_aws_credential) | **GET** /aws_credentials/{id} | Retrieve an AWS Credential
-*Clerk::SDK.aws_credentials* | [**get_aws_credential_list**](docs/AWSCredentialsApi.md#get_aws_credential_list) | **GET** /aws_credentials | List all AWS Credentials
 *Clerk::SDK.aws_credentials* | [**update_aws_credential**](docs/AWSCredentialsApi.md#update_aws_credential) | **PATCH** /aws_credentials/{id} | Update an AWS Credential
 *Clerk::SDK.accountless_applications* | [**complete_accountless_application**](docs/AccountlessApplicationsApi.md#complete_accountless_application) | **POST** /accountless_applications/complete | Complete an accountless application [EXPERIMENTAL]
 *Clerk::SDK.accountless_applications* | [**create_accountless_application**](docs/AccountlessApplicationsApi.md#create_accountless_application) | **POST** /accountless_applications | Create an accountless application [EXPERIMENTAL]
@@ -65,6 +62,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.clients* | [**get_client**](docs/ClientsApi.md#get_client) | **GET** /clients/{client_id} | Get a client
 *Clerk::SDK.clients* | [**get_client_list**](docs/ClientsApi.md#get_client_list) | **GET** /clients | List all clients
 *Clerk::SDK.clients* | [**verify_client**](docs/ClientsApi.md#verify_client) | **POST** /clients/verify | Verify a client
+*Clerk::SDK.commerce* | [**get_commerce_plan_list**](docs/CommerceApi.md#get_commerce_plan_list) | **GET** /commerce/plans | List all commerce plans
 *Clerk::SDK.domains* | [**add_domain**](docs/DomainsApi.md#add_domain) | **POST** /domains | Add a domain
 *Clerk::SDK.domains* | [**delete_domain**](docs/DomainsApi.md#delete_domain) | **DELETE** /domains/{domain_id} | Delete a satellite domain
 *Clerk::SDK.domains* | [**list_domains**](docs/DomainsApi.md#list_domains) | **GET** /domains | List all instance domains
@@ -93,7 +91,6 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.jwt_templates* | [**get_jwt_template**](docs/JWTTemplatesApi.md#get_jwt_template) | **GET** /jwt_templates/{template_id} | Retrieve a template
 *Clerk::SDK.jwt_templates* | [**list_jwt_templates**](docs/JWTTemplatesApi.md#list_jwt_templates) | **GET** /jwt_templates | List all templates
 *Clerk::SDK.jwt_templates* | [**update_jwt_template**](docs/JWTTemplatesApi.md#update_jwt_template) | **PATCH** /jwt_templates/{template_id} | Update a JWT template
-*Clerk::SDK.machine_tokens* | [**create_machine_token**](docs/MachineTokensApi.md#create_machine_token) | **POST** /machine_tokens | Create a machine token
 *Clerk::SDK.machines* | [**create_machine**](docs/MachinesApi.md#create_machine) | **POST** /machines | Create a machine
 *Clerk::SDK.machines* | [**create_machine_scope**](docs/MachinesApi.md#create_machine_scope) | **POST** /machines/{machine_id}/scopes | Create a machine scope
 *Clerk::SDK.machines* | [**delete_machine**](docs/MachinesApi.md#delete_machine) | **DELETE** /machines/{machine_id} | Delete a machine
@@ -202,7 +199,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::AccountlessApplication](docs/AccountlessApplication.md)
  - [ClerkHttpClient::ActorToken](docs/ActorToken.md)
  - [ClerkHttpClient::AddDomainRequest](docs/AddDomainRequest.md)
- - [ClerkHttpClient::Admin](docs/Admin.md)
  - [ClerkHttpClient::AllowlistIdentifier](docs/AllowlistIdentifier.md)
  - [ClerkHttpClient::BlocklistIdentifier](docs/BlocklistIdentifier.md)
  - [ClerkHttpClient::BlocklistIdentifiers](docs/BlocklistIdentifiers.md)
@@ -211,8 +207,9 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::ClerkError](docs/ClerkError.md)
  - [ClerkHttpClient::ClerkErrors](docs/ClerkErrors.md)
  - [ClerkHttpClient::Client](docs/Client.md)
+ - [ClerkHttpClient::CommerceMoneyResponse](docs/CommerceMoneyResponse.md)
+ - [ClerkHttpClient::CommercePlan](docs/CommercePlan.md)
  - [ClerkHttpClient::Cookies](docs/Cookies.md)
- - [ClerkHttpClient::CreateAWSCredentialRequest](docs/CreateAWSCredentialRequest.md)
  - [ClerkHttpClient::CreateActorTokenRequest](docs/CreateActorTokenRequest.md)
  - [ClerkHttpClient::CreateActorTokenRequestActor](docs/CreateActorTokenRequestActor.md)
  - [ClerkHttpClient::CreateAllowlistIdentifierRequest](docs/CreateAllowlistIdentifierRequest.md)
@@ -224,7 +221,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::CreateMachine200Response](docs/CreateMachine200Response.md)
  - [ClerkHttpClient::CreateMachineRequest](docs/CreateMachineRequest.md)
  - [ClerkHttpClient::CreateMachineScopeRequest](docs/CreateMachineScopeRequest.md)
- - [ClerkHttpClient::CreateMachineTokenRequest](docs/CreateMachineTokenRequest.md)
  - [ClerkHttpClient::CreateOAuthApplicationRequest](docs/CreateOAuthApplicationRequest.md)
  - [ClerkHttpClient::CreateOrganizationDomainRequest](docs/CreateOrganizationDomainRequest.md)
  - [ClerkHttpClient::CreateOrganizationInvitationRequest](docs/CreateOrganizationInvitationRequest.md)
@@ -251,10 +247,8 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::EmailAddressVerification](docs/EmailAddressVerification.md)
  - [ClerkHttpClient::ExternalAccountWithVerification](docs/ExternalAccountWithVerification.md)
  - [ClerkHttpClient::ExternalAccountWithVerificationVerification](docs/ExternalAccountWithVerificationVerification.md)
- - [ClerkHttpClient::FromOAuth](docs/FromOAuth.md)
- - [ClerkHttpClient::FromOAuthError](docs/FromOAuthError.md)
+ - [ClerkHttpClient::FeatureResponse](docs/FeatureResponse.md)
  - [ClerkHttpClient::GetMachineSecretKey200Response](docs/GetMachineSecretKey200Response.md)
- - [ClerkHttpClient::GoogleOneTap](docs/GoogleOneTap.md)
  - [ClerkHttpClient::IdentificationLink](docs/IdentificationLink.md)
  - [ClerkHttpClient::Instance](docs/Instance.md)
  - [ClerkHttpClient::InstanceRestrictions](docs/InstanceRestrictions.md)
@@ -273,7 +267,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::ListWaitlistEntries200Response](docs/ListWaitlistEntries200Response.md)
  - [ClerkHttpClient::Machine](docs/Machine.md)
  - [ClerkHttpClient::MachineScope](docs/MachineScope.md)
- - [ClerkHttpClient::MachineToken](docs/MachineToken.md)
  - [ClerkHttpClient::MachineWithoutScopedMachines](docs/MachineWithoutScopedMachines.md)
  - [ClerkHttpClient::MergeOrganizationMetadataRequest](docs/MergeOrganizationMetadataRequest.md)
  - [ClerkHttpClient::OAuthAccessToken](docs/OAuthAccessToken.md)
@@ -281,8 +274,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::OAuthApplication](docs/OAuthApplication.md)
  - [ClerkHttpClient::OAuthApplicationWithSecret](docs/OAuthApplicationWithSecret.md)
  - [ClerkHttpClient::OAuthApplications](docs/OAuthApplications.md)
- - [ClerkHttpClient::OTP](docs/OTP.md)
- - [ClerkHttpClient::Oauth](docs/Oauth.md)
  - [ClerkHttpClient::Organization](docs/Organization.md)
  - [ClerkHttpClient::OrganizationDomain](docs/OrganizationDomain.md)
  - [ClerkHttpClient::OrganizationDomainVerification](docs/OrganizationDomainVerification.md)
@@ -298,7 +289,9 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::OrganizationSettings](docs/OrganizationSettings.md)
  - [ClerkHttpClient::OrganizationWithLogo](docs/OrganizationWithLogo.md)
  - [ClerkHttpClient::Organizations](docs/Organizations.md)
+ - [ClerkHttpClient::PaginatedCommercePlanResponse](docs/PaginatedCommercePlanResponse.md)
  - [ClerkHttpClient::Passkey](docs/Passkey.md)
+ - [ClerkHttpClient::PasskeyVerification](docs/PasskeyVerification.md)
  - [ClerkHttpClient::PhoneNumber](docs/PhoneNumber.md)
  - [ClerkHttpClient::PhoneNumberVerification](docs/PhoneNumberVerification.md)
  - [ClerkHttpClient::PreviewTemplateRequest](docs/PreviewTemplateRequest.md)
@@ -307,15 +300,12 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::RefreshSessionRequest](docs/RefreshSessionRequest.md)
  - [ClerkHttpClient::RevokeInvitation200Response](docs/RevokeInvitation200Response.md)
  - [ClerkHttpClient::RevokeOrganizationInvitationRequest](docs/RevokeOrganizationInvitationRequest.md)
- - [ClerkHttpClient::SAML](docs/SAML.md)
  - [ClerkHttpClient::SAMLAccount](docs/SAMLAccount.md)
  - [ClerkHttpClient::SAMLAccountSamlConnection](docs/SAMLAccountSamlConnection.md)
  - [ClerkHttpClient::SAMLAccountVerification](docs/SAMLAccountVerification.md)
  - [ClerkHttpClient::SAMLConnection](docs/SAMLConnection.md)
  - [ClerkHttpClient::SAMLConnectionAttributeMapping](docs/SAMLConnectionAttributeMapping.md)
  - [ClerkHttpClient::SAMLConnections](docs/SAMLConnections.md)
- - [ClerkHttpClient::SchemasPasskey](docs/SchemasPasskey.md)
- - [ClerkHttpClient::SchemasPasskeyVerification](docs/SchemasPasskeyVerification.md)
  - [ClerkHttpClient::SchemasSAMLConnection](docs/SchemasSAMLConnection.md)
  - [ClerkHttpClient::Session](docs/Session.md)
  - [ClerkHttpClient::SessionActivityResponse](docs/SessionActivityResponse.md)
@@ -327,7 +317,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::SvixURL](docs/SvixURL.md)
  - [ClerkHttpClient::Template](docs/Template.md)
  - [ClerkHttpClient::TestingToken](docs/TestingToken.md)
- - [ClerkHttpClient::Ticket](docs/Ticket.md)
  - [ClerkHttpClient::ToggleTemplateDeliveryRequest](docs/ToggleTemplateDeliveryRequest.md)
  - [ClerkHttpClient::Token](docs/Token.md)
  - [ClerkHttpClient::TotalCount](docs/TotalCount.md)
@@ -356,6 +345,16 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::User](docs/User.md)
  - [ClerkHttpClient::UsersBanRequest](docs/UsersBanRequest.md)
  - [ClerkHttpClient::UsersUnbanRequest](docs/UsersUnbanRequest.md)
+ - [ClerkHttpClient::VerificationAdmin](docs/VerificationAdmin.md)
+ - [ClerkHttpClient::VerificationFromOauth](docs/VerificationFromOauth.md)
+ - [ClerkHttpClient::VerificationFromOauthError](docs/VerificationFromOauthError.md)
+ - [ClerkHttpClient::VerificationGoogleOneTap](docs/VerificationGoogleOneTap.md)
+ - [ClerkHttpClient::VerificationOauth](docs/VerificationOauth.md)
+ - [ClerkHttpClient::VerificationOtp](docs/VerificationOtp.md)
+ - [ClerkHttpClient::VerificationPasskey](docs/VerificationPasskey.md)
+ - [ClerkHttpClient::VerificationSaml](docs/VerificationSaml.md)
+ - [ClerkHttpClient::VerificationTicket](docs/VerificationTicket.md)
+ - [ClerkHttpClient::VerificationWeb3](docs/VerificationWeb3.md)
  - [ClerkHttpClient::VerifyClientRequest](docs/VerifyClientRequest.md)
  - [ClerkHttpClient::VerifyDomainProxyRequest](docs/VerifyDomainProxyRequest.md)
  - [ClerkHttpClient::VerifyOAuthAccessToken200Response](docs/VerifyOAuthAccessToken200Response.md)
@@ -370,7 +369,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::VerifyTOTP200Response](docs/VerifyTOTP200Response.md)
  - [ClerkHttpClient::VerifyTOTPRequest](docs/VerifyTOTPRequest.md)
  - [ClerkHttpClient::WaitlistEntry](docs/WaitlistEntry.md)
- - [ClerkHttpClient::Web3Signature](docs/Web3Signature.md)
  - [ClerkHttpClient::Web3Wallet](docs/Web3Wallet.md)
  - [ClerkHttpClient::Web3WalletVerification](docs/Web3WalletVerification.md)
 

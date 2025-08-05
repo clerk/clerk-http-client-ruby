@@ -22,7 +22,7 @@
 | **email_addresses** | [**Array&lt;EmailAddress&gt;**](EmailAddress.md) |  |  |
 | **phone_numbers** | [**Array&lt;PhoneNumber&gt;**](PhoneNumber.md) |  |  |
 | **web3_wallets** | [**Array&lt;Web3Wallet&gt;**](Web3Wallet.md) |  |  |
-| **passkeys** | [**Array&lt;SchemasPasskey&gt;**](SchemasPasskey.md) |  |  |
+| **passkeys** | [**Array&lt;Passkey&gt;**](Passkey.md) |  |  |
 | **password_enabled** | **Boolean** |  |  |
 | **two_factor_enabled** | **Boolean** |  |  |
 | **totp_enabled** | **Boolean** |  |  |

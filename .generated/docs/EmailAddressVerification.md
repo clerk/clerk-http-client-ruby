@@ -14,11 +14,25 @@ require 'clerk-http-client'
 ClerkHttpClient::EmailAddressVerification.openapi_one_of
 # =>
 # [
-#   :'Admin',
-#   :'FromOAuth',
-#   :'OTP',
-#   :'Ticket'
+#   :'VerificationAdmin',
+#   :'VerificationFromOauth',
+#   :'VerificationOtp',
+#   :'VerificationTicket'
 # ]
+```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's property name.
+
+#### Example
+
+```ruby
+require 'clerk-http-client'
+
+ClerkHttpClient::EmailAddressVerification.openapi_discriminator_name
+# => :'object'
+```
 ```
 
 ### build
@@ -31,7 +45,7 @@ Find the appropriate object from the `openapi_one_of` list and casts the data in
 require 'clerk-http-client'
 
 ClerkHttpClient::EmailAddressVerification.build(data)
-# => #<Admin:0x00007fdd4aab02a0>
+# => #<VerificationAdmin:0x00007fdd4aab02a0>
 
 ClerkHttpClient::EmailAddressVerification.build(data_that_doesnt_match)
 # => nil
@@ -45,9 +59,9 @@ ClerkHttpClient::EmailAddressVerification.build(data_that_doesnt_match)
 
 #### Return type
 
-- `Admin`
-- `FromOAuth`
-- `OTP`
-- `Ticket`
+- `VerificationAdmin`
+- `VerificationFromOauth`
+- `VerificationOtp`
+- `VerificationTicket`
 - `nil` (if no type matches)
 

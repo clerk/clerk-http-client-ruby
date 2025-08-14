@@ -355,14 +355,10 @@ module ClerkHttpClient
 
       if attributes.key?(:'period')
         self.period = attributes[:'period']
-      else
-        self.period = nil
       end
 
       if attributes.key?(:'interval')
         self.interval = attributes[:'interval']
-      else
-        self.interval = nil
       end
 
       if attributes.key?(:'features')
@@ -475,14 +471,6 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "avatar_url", avatar_url cannot be nil.')
       end
 
-      if @period.nil?
-        invalid_properties.push('invalid value for "period", period cannot be nil.')
-      end
-
-      if @interval.nil?
-        invalid_properties.push('invalid value for "interval", interval cannot be nil.')
-      end
-
       if @features.nil?
         invalid_properties.push('invalid value for "features", features cannot be nil.')
       end
@@ -520,8 +508,6 @@ module ClerkHttpClient
       return false if @for_payer_type.nil?
       return false if @slug.nil?
       return false if @avatar_url.nil?
-      return false if @period.nil?
-      return false if @interval.nil?
       return false if @features.nil?
       true
     end

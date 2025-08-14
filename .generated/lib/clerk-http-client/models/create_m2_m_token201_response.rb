@@ -14,31 +14,32 @@ require 'date'
 require 'time'
 
 module ClerkHttpClient
-  class OrganizationSettings
-    # String representing the object's type. Objects of the same type share the same value.
+  class CreateM2MToken201Response
     attr_accessor :object
 
-    attr_accessor :enabled
+    attr_accessor :id
 
-    attr_accessor :max_allowed_memberships
+    attr_accessor :subject
 
-    attr_accessor :max_allowed_roles
+    attr_accessor :claims
 
-    # max_allowed_permissions is now a no-op, as permissions are now unlimited
-    attr_accessor :max_allowed_permissions
+    attr_accessor :scopes
 
-    # The role key that a user will be assigned after creating an organization.
-    attr_accessor :creator_role
+    attr_accessor :token
 
-    # The default for whether an admin can delete an organization with the Frontend API.
-    attr_accessor :admin_delete_enabled
+    attr_accessor :revoked
 
-    attr_accessor :domains_enabled
+    attr_accessor :revocation_reason
 
-    attr_accessor :domains_enrollment_modes
+    attr_accessor :expired
 
-    # The role key that it will be used in order to create an organization invitation or suggestion.
-    attr_accessor :domains_default_role
+    attr_accessor :expiration
+
+    attr_accessor :last_used_at
+
+    attr_accessor :created_at
+
+    attr_accessor :updated_at
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -66,15 +67,18 @@ module ClerkHttpClient
     def self.attribute_map
       {
         :'object' => :'object',
-        :'enabled' => :'enabled',
-        :'max_allowed_memberships' => :'max_allowed_memberships',
-        :'max_allowed_roles' => :'max_allowed_roles',
-        :'max_allowed_permissions' => :'max_allowed_permissions',
-        :'creator_role' => :'creator_role',
-        :'admin_delete_enabled' => :'admin_delete_enabled',
-        :'domains_enabled' => :'domains_enabled',
-        :'domains_enrollment_modes' => :'domains_enrollment_modes',
-        :'domains_default_role' => :'domains_default_role'
+        :'id' => :'id',
+        :'subject' => :'subject',
+        :'claims' => :'claims',
+        :'scopes' => :'scopes',
+        :'token' => :'token',
+        :'revoked' => :'revoked',
+        :'revocation_reason' => :'revocation_reason',
+        :'expired' => :'expired',
+        :'expiration' => :'expiration',
+        :'last_used_at' => :'last_used_at',
+        :'created_at' => :'created_at',
+        :'updated_at' => :'updated_at'
       }
     end
 
@@ -87,21 +91,28 @@ module ClerkHttpClient
     def self.openapi_types
       {
         :'object' => :'String',
-        :'enabled' => :'Boolean',
-        :'max_allowed_memberships' => :'Integer',
-        :'max_allowed_roles' => :'Integer',
-        :'max_allowed_permissions' => :'Integer',
-        :'creator_role' => :'String',
-        :'admin_delete_enabled' => :'Boolean',
-        :'domains_enabled' => :'Boolean',
-        :'domains_enrollment_modes' => :'Array<String>',
-        :'domains_default_role' => :'String'
+        :'id' => :'String',
+        :'subject' => :'String',
+        :'claims' => :'Object',
+        :'scopes' => :'Array<String>',
+        :'token' => :'String',
+        :'revoked' => :'Boolean',
+        :'revocation_reason' => :'String',
+        :'expired' => :'Boolean',
+        :'expiration' => :'Float',
+        :'last_used_at' => :'Float',
+        :'created_at' => :'Float',
+        :'updated_at' => :'Float'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'claims',
+        :'revocation_reason',
+        :'expiration',
+        :'last_used_at',
       ])
     end
 
@@ -109,13 +120,13 @@ module ClerkHttpClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `ClerkHttpClient::OrganizationSettings` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `ClerkHttpClient::CreateM2MToken201Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `ClerkHttpClient::OrganizationSettings`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `ClerkHttpClient::CreateM2MToken201Response`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
@@ -126,58 +137,74 @@ module ClerkHttpClient
         self.object = nil
       end
 
-      if attributes.key?(:'enabled')
-        self.enabled = attributes[:'enabled']
+      if attributes.key?(:'id')
+        self.id = attributes[:'id']
       else
-        self.enabled = nil
+        self.id = nil
       end
 
-      if attributes.key?(:'max_allowed_memberships')
-        self.max_allowed_memberships = attributes[:'max_allowed_memberships']
+      if attributes.key?(:'subject')
+        self.subject = attributes[:'subject']
       else
-        self.max_allowed_memberships = nil
+        self.subject = nil
       end
 
-      if attributes.key?(:'max_allowed_roles')
-        self.max_allowed_roles = attributes[:'max_allowed_roles']
-      else
-        self.max_allowed_roles = nil
+      if attributes.key?(:'claims')
+        self.claims = attributes[:'claims']
       end
 
-      if attributes.key?(:'max_allowed_permissions')
-        self.max_allowed_permissions = attributes[:'max_allowed_permissions']
-      end
-
-      if attributes.key?(:'creator_role')
-        self.creator_role = attributes[:'creator_role']
-      else
-        self.creator_role = nil
-      end
-
-      if attributes.key?(:'admin_delete_enabled')
-        self.admin_delete_enabled = attributes[:'admin_delete_enabled']
-      else
-        self.admin_delete_enabled = nil
-      end
-
-      if attributes.key?(:'domains_enabled')
-        self.domains_enabled = attributes[:'domains_enabled']
-      else
-        self.domains_enabled = nil
-      end
-
-      if attributes.key?(:'domains_enrollment_modes')
-        if (value = attributes[:'domains_enrollment_modes']).is_a?(Array)
-          self.domains_enrollment_modes = value
+      if attributes.key?(:'scopes')
+        if (value = attributes[:'scopes']).is_a?(Array)
+          self.scopes = value
         end
-      else
-        self.domains_enrollment_modes = nil
       end
 
-      if attributes.key?(:'domains_default_role')
-        self.domains_default_role = attributes[:'domains_default_role']
+      if attributes.key?(:'token')
+        self.token = attributes[:'token']
       else
-        self.domains_default_role = nil
+        self.token = nil
+      end
+
+      if attributes.key?(:'revoked')
+        self.revoked = attributes[:'revoked']
+      else
+        self.revoked = nil
+      end
+
+      if attributes.key?(:'revocation_reason')
+        self.revocation_reason = attributes[:'revocation_reason']
+      else
+        self.revocation_reason = nil
+      end
+
+      if attributes.key?(:'expired')
+        self.expired = attributes[:'expired']
+      else
+        self.expired = nil
+      end
+
+      if attributes.key?(:'expiration')
+        self.expiration = attributes[:'expiration']
+      else
+        self.expiration = nil
+      end
+
+      if attributes.key?(:'last_used_at')
+        self.last_used_at = attributes[:'last_used_at']
+      else
+        self.last_used_at = nil
+      end
+
+      if attributes.key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      else
+        self.created_at = nil
+      end
+
+      if attributes.key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
+      else
+        self.updated_at = nil
       end
     end
 
@@ -190,36 +217,42 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "object", object cannot be nil.')
       end
 
-      if @enabled.nil?
-        invalid_properties.push('invalid value for "enabled", enabled cannot be nil.')
+      if @id.nil?
+        invalid_properties.push('invalid value for "id", id cannot be nil.')
       end
 
-      if @max_allowed_memberships.nil?
-        invalid_properties.push('invalid value for "max_allowed_memberships", max_allowed_memberships cannot be nil.')
+      pattern = Regexp.new(/^mt_[0-9A-Fa-f]{32}$/)
+      if @id !~ pattern
+        invalid_properties.push("invalid value for \"id\", must conform to the pattern #{pattern}.")
       end
 
-      if @max_allowed_roles.nil?
-        invalid_properties.push('invalid value for "max_allowed_roles", max_allowed_roles cannot be nil.')
+      if @subject.nil?
+        invalid_properties.push('invalid value for "subject", subject cannot be nil.')
       end
 
-      if @creator_role.nil?
-        invalid_properties.push('invalid value for "creator_role", creator_role cannot be nil.')
+      pattern = Regexp.new(/^mch_\w{27}$/)
+      if @subject !~ pattern
+        invalid_properties.push("invalid value for \"subject\", must conform to the pattern #{pattern}.")
       end
 
-      if @admin_delete_enabled.nil?
-        invalid_properties.push('invalid value for "admin_delete_enabled", admin_delete_enabled cannot be nil.')
+      if @token.nil?
+        invalid_properties.push('invalid value for "token", token cannot be nil.')
       end
 
-      if @domains_enabled.nil?
-        invalid_properties.push('invalid value for "domains_enabled", domains_enabled cannot be nil.')
+      if @revoked.nil?
+        invalid_properties.push('invalid value for "revoked", revoked cannot be nil.')
       end
 
-      if @domains_enrollment_modes.nil?
-        invalid_properties.push('invalid value for "domains_enrollment_modes", domains_enrollment_modes cannot be nil.')
+      if @expired.nil?
+        invalid_properties.push('invalid value for "expired", expired cannot be nil.')
       end
 
-      if @domains_default_role.nil?
-        invalid_properties.push('invalid value for "domains_default_role", domains_default_role cannot be nil.')
+      if @created_at.nil?
+        invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
+      end
+
+      if @updated_at.nil?
+        invalid_properties.push('invalid value for "updated_at", updated_at cannot be nil.')
       end
 
       invalid_properties
@@ -230,27 +263,58 @@ module ClerkHttpClient
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
       return false if @object.nil?
-      object_validator = EnumAttributeValidator.new('String', ["organization_settings"])
+      object_validator = EnumAttributeValidator.new('String', ["machine_to_machine_token"])
       return false unless object_validator.valid?(@object)
-      return false if @enabled.nil?
-      return false if @max_allowed_memberships.nil?
-      return false if @max_allowed_roles.nil?
-      return false if @creator_role.nil?
-      return false if @admin_delete_enabled.nil?
-      return false if @domains_enabled.nil?
-      return false if @domains_enrollment_modes.nil?
-      return false if @domains_default_role.nil?
+      return false if @id.nil?
+      return false if @id !~ Regexp.new(/^mt_[0-9A-Fa-f]{32}$/)
+      return false if @subject.nil?
+      return false if @subject !~ Regexp.new(/^mch_\w{27}$/)
+      return false if @token.nil?
+      return false if @revoked.nil?
+      return false if @expired.nil?
+      return false if @created_at.nil?
+      return false if @updated_at.nil?
       true
     end
 
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] object Object to be assigned
     def object=(object)
-      validator = EnumAttributeValidator.new('String', ["organization_settings"])
+      validator = EnumAttributeValidator.new('String', ["machine_to_machine_token"])
       unless validator.valid?(object)
         fail ArgumentError, "invalid value for \"object\", must be one of #{validator.allowable_values}."
       end
       @object = object
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] id Value to be assigned
+    def id=(id)
+      if id.nil?
+        fail ArgumentError, 'id cannot be nil'
+      end
+
+      pattern = Regexp.new(/^mt_[0-9A-Fa-f]{32}$/)
+      if id !~ pattern
+        fail ArgumentError, "invalid value for \"id\", must conform to the pattern #{pattern}."
+      end
+
+      @id = id
+    end
+
+    # Custom attribute writer method with validation
+    # @param [Object] subject Value to be assigned
+    def subject=(subject)
+      if subject.nil?
+        fail ArgumentError, 'subject cannot be nil'
+      end
+
+      pattern = Regexp.new(/^mch_\w{27}$/)
+      if subject !~ pattern
+        fail ArgumentError, "invalid value for \"subject\", must conform to the pattern #{pattern}."
+      end
+
+      @subject = subject
     end
 
     # Checks equality by comparing each attribute.
@@ -259,15 +323,18 @@ module ClerkHttpClient
       return true if self.equal?(o)
       self.class == o.class &&
           object == o.object &&
-          enabled == o.enabled &&
-          max_allowed_memberships == o.max_allowed_memberships &&
-          max_allowed_roles == o.max_allowed_roles &&
-          max_allowed_permissions == o.max_allowed_permissions &&
-          creator_role == o.creator_role &&
-          admin_delete_enabled == o.admin_delete_enabled &&
-          domains_enabled == o.domains_enabled &&
-          domains_enrollment_modes == o.domains_enrollment_modes &&
-          domains_default_role == o.domains_default_role
+          id == o.id &&
+          subject == o.subject &&
+          claims == o.claims &&
+          scopes == o.scopes &&
+          token == o.token &&
+          revoked == o.revoked &&
+          revocation_reason == o.revocation_reason &&
+          expired == o.expired &&
+          expiration == o.expiration &&
+          last_used_at == o.last_used_at &&
+          created_at == o.created_at &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -279,7 +346,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, enabled, max_allowed_memberships, max_allowed_roles, max_allowed_permissions, creator_role, admin_delete_enabled, domains_enabled, domains_enrollment_modes, domains_default_role].hash
+      [object, id, subject, claims, scopes, token, revoked, revocation_reason, expired, expiration, last_used_at, created_at, updated_at].hash
     end
 
     # Builds the object from hash

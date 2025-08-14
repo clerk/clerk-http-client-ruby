@@ -19,6 +19,8 @@ module ClerkHttpClient
 
     attr_accessor :blocklist
 
+    attr_accessor :allowlist_blocklist_disabled_on_sign_in
+
     attr_accessor :block_email_subaddresses
 
     attr_accessor :block_disposable_email_domains
@@ -28,6 +30,7 @@ module ClerkHttpClient
       {
         :'allowlist' => :'allowlist',
         :'blocklist' => :'blocklist',
+        :'allowlist_blocklist_disabled_on_sign_in' => :'allowlist_blocklist_disabled_on_sign_in',
         :'block_email_subaddresses' => :'block_email_subaddresses',
         :'block_disposable_email_domains' => :'block_disposable_email_domains'
       }
@@ -43,6 +46,7 @@ module ClerkHttpClient
       {
         :'allowlist' => :'Boolean',
         :'blocklist' => :'Boolean',
+        :'allowlist_blocklist_disabled_on_sign_in' => :'Boolean',
         :'block_email_subaddresses' => :'Boolean',
         :'block_disposable_email_domains' => :'Boolean'
       }
@@ -53,6 +57,7 @@ module ClerkHttpClient
       Set.new([
         :'allowlist',
         :'blocklist',
+        :'allowlist_blocklist_disabled_on_sign_in',
         :'block_email_subaddresses',
         :'block_disposable_email_domains'
       ])
@@ -79,6 +84,10 @@ module ClerkHttpClient
 
       if attributes.key?(:'blocklist')
         self.blocklist = attributes[:'blocklist']
+      end
+
+      if attributes.key?(:'allowlist_blocklist_disabled_on_sign_in')
+        self.allowlist_blocklist_disabled_on_sign_in = attributes[:'allowlist_blocklist_disabled_on_sign_in']
       end
 
       if attributes.key?(:'block_email_subaddresses')
@@ -112,6 +121,7 @@ module ClerkHttpClient
       self.class == o.class &&
           allowlist == o.allowlist &&
           blocklist == o.blocklist &&
+          allowlist_blocklist_disabled_on_sign_in == o.allowlist_blocklist_disabled_on_sign_in &&
           block_email_subaddresses == o.block_email_subaddresses &&
           block_disposable_email_domains == o.block_disposable_email_domains
     end
@@ -125,7 +135,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [allowlist, blocklist, block_email_subaddresses, block_disposable_email_domains].hash
+      [allowlist, blocklist, allowlist_blocklist_disabled_on_sign_in, block_email_subaddresses, block_disposable_email_domains].hash
     end
 
     # Builds the object from hash

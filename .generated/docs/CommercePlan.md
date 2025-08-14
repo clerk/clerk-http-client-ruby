@@ -28,8 +28,8 @@
 | **for_payer_type** | **String** | The payer type this plan is designed for. |  |
 | **slug** | **String** | The URL-friendly slug for the plan. |  |
 | **avatar_url** | **String** | The URL of the plan&#39;s avatar image. |  |
-| **period** | **String** | The billing period for the plan. |  |
-| **interval** | **Integer** | The billing interval. |  |
+| **period** | **String** | The billing period for the plan. | [optional] |
+| **interval** | **Integer** | The billing interval. | [optional] |
 | **features** | [**Array&lt;FeatureResponse&gt;**](FeatureResponse.md) | The features included in this plan. |  |
 
 ## Example

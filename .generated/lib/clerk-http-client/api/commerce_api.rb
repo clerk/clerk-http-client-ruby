@@ -25,6 +25,7 @@ module ClerkHttpClient
     # @option opts [Boolean] :paginated Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
     # @option opts [Integer] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
     # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
+    # @option opts [String] :payer_type Filter plans by payer type
     # @return [PaginatedCommercePlanResponse]
 
     def get_commerce_plan_list(opts = {})
@@ -38,6 +39,7 @@ module ClerkHttpClient
     # @option opts [Boolean] :paginated Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
     # @option opts [Integer] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
     # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
+    # @option opts [String] :payer_type Filter plans by payer type
     # @return [Array<(PaginatedCommercePlanResponse, Integer, Hash)>] PaginatedCommercePlanResponse data, response status code and response headers
     # GET 
     def get_commerce_plan_list_with_http_info(opts = {})
@@ -56,6 +58,10 @@ module ClerkHttpClient
         fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling CommerceApi.get_commerce_plan_list, must be greater than or equal to 0.'
       end
 
+      allowable_values = ["user", "org"]
+      if @api_client.config.client_side_validation && opts[:'payer_type'] && !allowable_values.include?(opts[:'payer_type'])
+        fail ArgumentError, "invalid value for \"payer_type\", must be one of #{allowable_values}"
+      end
       # resource path
       local_var_path = '/commerce/plans'
 
@@ -64,6 +70,7 @@ module ClerkHttpClient
       query_params[:'paginated'] = opts[:'paginated'] if !opts[:'paginated'].nil?
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'payer_type'] = opts[:'payer_type'] if !opts[:'payer_type'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

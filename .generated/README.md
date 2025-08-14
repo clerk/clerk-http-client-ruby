@@ -91,6 +91,10 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.jwt_templates* | [**get_jwt_template**](docs/JWTTemplatesApi.md#get_jwt_template) | **GET** /jwt_templates/{template_id} | Retrieve a template
 *Clerk::SDK.jwt_templates* | [**list_jwt_templates**](docs/JWTTemplatesApi.md#list_jwt_templates) | **GET** /jwt_templates | List all templates
 *Clerk::SDK.jwt_templates* | [**update_jwt_template**](docs/JWTTemplatesApi.md#update_jwt_template) | **PATCH** /jwt_templates/{template_id} | Update a JWT template
+*Clerk::SDK.m2m_tokens* | [**create_m2_m_token**](docs/M2MTokensApi.md#create_m2_m_token) | **POST** /m2m_tokens | Create a M2M Token
+*Clerk::SDK.m2m_tokens* | [**get_m2_m_tokens**](docs/M2MTokensApi.md#get_m2_m_tokens) | **GET** /m2m_tokens | Get M2M Tokens
+*Clerk::SDK.m2m_tokens* | [**revoke_m2_m_token**](docs/M2MTokensApi.md#revoke_m2_m_token) | **POST** /m2m_tokens/{m2m_token_id}/revoke | Revoke a M2M Token
+*Clerk::SDK.m2m_tokens* | [**verify_m2_m_token**](docs/M2MTokensApi.md#verify_m2_m_token) | **POST** /m2m_tokens/verify | Verify a M2M Token
 *Clerk::SDK.machines* | [**create_machine**](docs/MachinesApi.md#create_machine) | **POST** /machines | Create a machine
 *Clerk::SDK.machines* | [**create_machine_scope**](docs/MachinesApi.md#create_machine_scope) | **POST** /machines/{machine_id}/scopes | Create a machine scope
 *Clerk::SDK.machines* | [**delete_machine**](docs/MachinesApi.md#delete_machine) | **DELETE** /machines/{machine_id} | Delete a machine
@@ -218,6 +222,8 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::CreateEmailAddressRequest](docs/CreateEmailAddressRequest.md)
  - [ClerkHttpClient::CreateInvitationRequest](docs/CreateInvitationRequest.md)
  - [ClerkHttpClient::CreateJWTTemplateRequest](docs/CreateJWTTemplateRequest.md)
+ - [ClerkHttpClient::CreateM2MToken201Response](docs/CreateM2MToken201Response.md)
+ - [ClerkHttpClient::CreateM2MTokenRequest](docs/CreateM2MTokenRequest.md)
  - [ClerkHttpClient::CreateMachine200Response](docs/CreateMachine200Response.md)
  - [ClerkHttpClient::CreateMachineRequest](docs/CreateMachineRequest.md)
  - [ClerkHttpClient::CreateMachineScopeRequest](docs/CreateMachineScopeRequest.md)
@@ -248,6 +254,12 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::ExternalAccountWithVerification](docs/ExternalAccountWithVerification.md)
  - [ClerkHttpClient::ExternalAccountWithVerificationVerification](docs/ExternalAccountWithVerificationVerification.md)
  - [ClerkHttpClient::FeatureResponse](docs/FeatureResponse.md)
+ - [ClerkHttpClient::GetM2MTokens200Response](docs/GetM2MTokens200Response.md)
+ - [ClerkHttpClient::GetM2MTokens200ResponseM2mTokensInner](docs/GetM2MTokens200ResponseM2mTokensInner.md)
+ - [ClerkHttpClient::GetM2MTokens400Response](docs/GetM2MTokens400Response.md)
+ - [ClerkHttpClient::GetM2MTokens400ResponseErrorsInner](docs/GetM2MTokens400ResponseErrorsInner.md)
+ - [ClerkHttpClient::GetM2MTokens403Response](docs/GetM2MTokens403Response.md)
+ - [ClerkHttpClient::GetM2MTokens403ResponseErrorsInner](docs/GetM2MTokens403ResponseErrorsInner.md)
  - [ClerkHttpClient::GetMachineSecretKey200Response](docs/GetMachineSecretKey200Response.md)
  - [ClerkHttpClient::IdentificationLink](docs/IdentificationLink.md)
  - [ClerkHttpClient::Instance](docs/Instance.md)
@@ -299,6 +311,7 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::RedirectURL](docs/RedirectURL.md)
  - [ClerkHttpClient::RefreshSessionRequest](docs/RefreshSessionRequest.md)
  - [ClerkHttpClient::RevokeInvitation200Response](docs/RevokeInvitation200Response.md)
+ - [ClerkHttpClient::RevokeM2MTokenRequest](docs/RevokeM2MTokenRequest.md)
  - [ClerkHttpClient::RevokeOrganizationInvitationRequest](docs/RevokeOrganizationInvitationRequest.md)
  - [ClerkHttpClient::SAMLAccount](docs/SAMLAccount.md)
  - [ClerkHttpClient::SAMLAccountSamlConnection](docs/SAMLAccountSamlConnection.md)
@@ -357,11 +370,8 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::VerificationWeb3](docs/VerificationWeb3.md)
  - [ClerkHttpClient::VerifyClientRequest](docs/VerifyClientRequest.md)
  - [ClerkHttpClient::VerifyDomainProxyRequest](docs/VerifyDomainProxyRequest.md)
+ - [ClerkHttpClient::VerifyM2MTokenRequest](docs/VerifyM2MTokenRequest.md)
  - [ClerkHttpClient::VerifyOAuthAccessToken200Response](docs/VerifyOAuthAccessToken200Response.md)
- - [ClerkHttpClient::VerifyOAuthAccessToken400Response](docs/VerifyOAuthAccessToken400Response.md)
- - [ClerkHttpClient::VerifyOAuthAccessToken400ResponseErrorsInner](docs/VerifyOAuthAccessToken400ResponseErrorsInner.md)
- - [ClerkHttpClient::VerifyOAuthAccessToken404Response](docs/VerifyOAuthAccessToken404Response.md)
- - [ClerkHttpClient::VerifyOAuthAccessToken404ResponseErrorsInner](docs/VerifyOAuthAccessToken404ResponseErrorsInner.md)
  - [ClerkHttpClient::VerifyOAuthAccessTokenRequest](docs/VerifyOAuthAccessTokenRequest.md)
  - [ClerkHttpClient::VerifyPassword200Response](docs/VerifyPassword200Response.md)
  - [ClerkHttpClient::VerifyPasswordRequest](docs/VerifyPasswordRequest.md)

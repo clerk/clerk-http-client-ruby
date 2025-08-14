@@ -29,7 +29,8 @@ end
 opts = {
   paginated: true, # Boolean | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
   limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
-  offset: 56 # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  offset: 56, # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
+  payer_type: 'user' # String | Filter plans by payer type
 }
 
 begin
@@ -66,6 +67,7 @@ end
 | **paginated** | **Boolean** | Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated. | [optional] |
 | **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
 | **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
+| **payer_type** | **String** | Filter plans by payer type | [optional] |
 
 ### Return type
 

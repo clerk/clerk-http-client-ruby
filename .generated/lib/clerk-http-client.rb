@@ -40,6 +40,8 @@ ClerkHttpClient.autoload :CreateBulkInvitationsRequestInner, 'clerk-http-client/
 ClerkHttpClient.autoload :CreateEmailAddressRequest, 'clerk-http-client/models/create_email_address_request'
 ClerkHttpClient.autoload :CreateInvitationRequest, 'clerk-http-client/models/create_invitation_request'
 ClerkHttpClient.autoload :CreateJWTTemplateRequest, 'clerk-http-client/models/create_jwt_template_request'
+ClerkHttpClient.autoload :CreateM2MToken201Response, 'clerk-http-client/models/create_m2_m_token201_response'
+ClerkHttpClient.autoload :CreateM2MTokenRequest, 'clerk-http-client/models/create_m2_m_token_request'
 ClerkHttpClient.autoload :CreateMachine200Response, 'clerk-http-client/models/create_machine200_response'
 ClerkHttpClient.autoload :CreateMachineRequest, 'clerk-http-client/models/create_machine_request'
 ClerkHttpClient.autoload :CreateMachineScopeRequest, 'clerk-http-client/models/create_machine_scope_request'
@@ -70,6 +72,12 @@ ClerkHttpClient.autoload :EmailAddressVerification, 'clerk-http-client/models/em
 ClerkHttpClient.autoload :ExternalAccountWithVerification, 'clerk-http-client/models/external_account_with_verification'
 ClerkHttpClient.autoload :ExternalAccountWithVerificationVerification, 'clerk-http-client/models/external_account_with_verification_verification'
 ClerkHttpClient.autoload :FeatureResponse, 'clerk-http-client/models/feature_response'
+ClerkHttpClient.autoload :GetM2MTokens200Response, 'clerk-http-client/models/get_m2_m_tokens200_response'
+ClerkHttpClient.autoload :GetM2MTokens200ResponseM2mTokensInner, 'clerk-http-client/models/get_m2_m_tokens200_response_m2m_tokens_inner'
+ClerkHttpClient.autoload :GetM2MTokens400Response, 'clerk-http-client/models/get_m2_m_tokens400_response'
+ClerkHttpClient.autoload :GetM2MTokens400ResponseErrorsInner, 'clerk-http-client/models/get_m2_m_tokens400_response_errors_inner'
+ClerkHttpClient.autoload :GetM2MTokens403Response, 'clerk-http-client/models/get_m2_m_tokens403_response'
+ClerkHttpClient.autoload :GetM2MTokens403ResponseErrorsInner, 'clerk-http-client/models/get_m2_m_tokens403_response_errors_inner'
 ClerkHttpClient.autoload :GetMachineSecretKey200Response, 'clerk-http-client/models/get_machine_secret_key200_response'
 ClerkHttpClient.autoload :IdentificationLink, 'clerk-http-client/models/identification_link'
 ClerkHttpClient.autoload :Instance, 'clerk-http-client/models/instance'
@@ -121,6 +129,7 @@ ClerkHttpClient.autoload :ProxyCheck, 'clerk-http-client/models/proxy_check'
 ClerkHttpClient.autoload :RedirectURL, 'clerk-http-client/models/redirect_url'
 ClerkHttpClient.autoload :RefreshSessionRequest, 'clerk-http-client/models/refresh_session_request'
 ClerkHttpClient.autoload :RevokeInvitation200Response, 'clerk-http-client/models/revoke_invitation200_response'
+ClerkHttpClient.autoload :RevokeM2MTokenRequest, 'clerk-http-client/models/revoke_m2_m_token_request'
 ClerkHttpClient.autoload :RevokeOrganizationInvitationRequest, 'clerk-http-client/models/revoke_organization_invitation_request'
 ClerkHttpClient.autoload :SAMLAccount, 'clerk-http-client/models/saml_account'
 ClerkHttpClient.autoload :SAMLAccountSamlConnection, 'clerk-http-client/models/saml_account_saml_connection'
@@ -179,11 +188,8 @@ ClerkHttpClient.autoload :VerificationTicket, 'clerk-http-client/models/verifica
 ClerkHttpClient.autoload :VerificationWeb3, 'clerk-http-client/models/verification_web3'
 ClerkHttpClient.autoload :VerifyClientRequest, 'clerk-http-client/models/verify_client_request'
 ClerkHttpClient.autoload :VerifyDomainProxyRequest, 'clerk-http-client/models/verify_domain_proxy_request'
+ClerkHttpClient.autoload :VerifyM2MTokenRequest, 'clerk-http-client/models/verify_m2_m_token_request'
 ClerkHttpClient.autoload :VerifyOAuthAccessToken200Response, 'clerk-http-client/models/verify_oauth_access_token200_response'
-ClerkHttpClient.autoload :VerifyOAuthAccessToken400Response, 'clerk-http-client/models/verify_oauth_access_token400_response'
-ClerkHttpClient.autoload :VerifyOAuthAccessToken400ResponseErrorsInner, 'clerk-http-client/models/verify_oauth_access_token400_response_errors_inner'
-ClerkHttpClient.autoload :VerifyOAuthAccessToken404Response, 'clerk-http-client/models/verify_oauth_access_token404_response'
-ClerkHttpClient.autoload :VerifyOAuthAccessToken404ResponseErrorsInner, 'clerk-http-client/models/verify_oauth_access_token404_response_errors_inner'
 ClerkHttpClient.autoload :VerifyOAuthAccessTokenRequest, 'clerk-http-client/models/verify_oauth_access_token_request'
 ClerkHttpClient.autoload :VerifyPassword200Response, 'clerk-http-client/models/verify_password200_response'
 ClerkHttpClient.autoload :VerifyPasswordRequest, 'clerk-http-client/models/verify_password_request'
@@ -209,6 +215,7 @@ ClerkHttpClient.autoload :InstanceSettingsApi, 'clerk-http-client/api/instance_s
 ClerkHttpClient.autoload :InvitationsApi, 'clerk-http-client/api/invitations_api'
 ClerkHttpClient.autoload :JWKSApi, 'clerk-http-client/api/jwks_api'
 ClerkHttpClient.autoload :JWTTemplatesApi, 'clerk-http-client/api/jwt_templates_api'
+ClerkHttpClient.autoload :M2MTokensApi, 'clerk-http-client/api/m2_m_tokens_api'
 ClerkHttpClient.autoload :MachinesApi, 'clerk-http-client/api/machines_api'
 ClerkHttpClient.autoload :MiscellaneousApi, 'clerk-http-client/api/miscellaneous_api'
 ClerkHttpClient.autoload :OAuthAccessTokensApi, 'clerk-http-client/api/oauth_access_tokens_api'
@@ -302,6 +309,10 @@ module ClerkHttpClient
 
     def jwt_templates
       ClerkHttpClient::JWTTemplatesApi.new
+    end
+
+    def m2m_tokens
+      ClerkHttpClient::M2MTokensApi.new
     end
 
     def machines

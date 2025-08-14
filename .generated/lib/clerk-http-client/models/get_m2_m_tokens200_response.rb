@@ -14,51 +14,16 @@ require 'date'
 require 'time'
 
 module ClerkHttpClient
-  class InstanceRestrictions
-    # String representing the object's type. Objects of the same type share the same value.
-    attr_accessor :object
+  class GetM2MTokens200Response
+    attr_accessor :m2m_tokens
 
-    attr_accessor :allowlist
-
-    attr_accessor :blocklist
-
-    attr_accessor :allowlist_blocklist_disabled_on_sign_in
-
-    attr_accessor :block_email_subaddresses
-
-    attr_accessor :block_disposable_email_domains
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+    attr_accessor :total_count
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'object' => :'object',
-        :'allowlist' => :'allowlist',
-        :'blocklist' => :'blocklist',
-        :'allowlist_blocklist_disabled_on_sign_in' => :'allowlist_blocklist_disabled_on_sign_in',
-        :'block_email_subaddresses' => :'block_email_subaddresses',
-        :'block_disposable_email_domains' => :'block_disposable_email_domains'
+        :'m2m_tokens' => :'m2m_tokens',
+        :'total_count' => :'total_count'
       }
     end
 
@@ -70,12 +35,8 @@ module ClerkHttpClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'object' => :'String',
-        :'allowlist' => :'Boolean',
-        :'blocklist' => :'Boolean',
-        :'allowlist_blocklist_disabled_on_sign_in' => :'Boolean',
-        :'block_email_subaddresses' => :'Boolean',
-        :'block_disposable_email_domains' => :'Boolean'
+        :'m2m_tokens' => :'Array<GetM2MTokens200ResponseM2mTokensInner>',
+        :'total_count' => :'Float'
       }
     end
 
@@ -89,51 +50,29 @@ module ClerkHttpClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `ClerkHttpClient::InstanceRestrictions` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `ClerkHttpClient::GetM2MTokens200Response` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `ClerkHttpClient::InstanceRestrictions`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `ClerkHttpClient::GetM2MTokens200Response`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'object')
-        self.object = attributes[:'object']
+      if attributes.key?(:'m2m_tokens')
+        if (value = attributes[:'m2m_tokens']).is_a?(Array)
+          self.m2m_tokens = value
+        end
       else
-        self.object = nil
+        self.m2m_tokens = nil
       end
 
-      if attributes.key?(:'allowlist')
-        self.allowlist = attributes[:'allowlist']
+      if attributes.key?(:'total_count')
+        self.total_count = attributes[:'total_count']
       else
-        self.allowlist = nil
-      end
-
-      if attributes.key?(:'blocklist')
-        self.blocklist = attributes[:'blocklist']
-      else
-        self.blocklist = nil
-      end
-
-      if attributes.key?(:'allowlist_blocklist_disabled_on_sign_in')
-        self.allowlist_blocklist_disabled_on_sign_in = attributes[:'allowlist_blocklist_disabled_on_sign_in']
-      else
-        self.allowlist_blocklist_disabled_on_sign_in = nil
-      end
-
-      if attributes.key?(:'block_email_subaddresses')
-        self.block_email_subaddresses = attributes[:'block_email_subaddresses']
-      else
-        self.block_email_subaddresses = nil
-      end
-
-      if attributes.key?(:'block_disposable_email_domains')
-        self.block_disposable_email_domains = attributes[:'block_disposable_email_domains']
-      else
-        self.block_disposable_email_domains = nil
+        self.total_count = nil
       end
     end
 
@@ -142,28 +81,12 @@ module ClerkHttpClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @object.nil?
-        invalid_properties.push('invalid value for "object", object cannot be nil.')
+      if @m2m_tokens.nil?
+        invalid_properties.push('invalid value for "m2m_tokens", m2m_tokens cannot be nil.')
       end
 
-      if @allowlist.nil?
-        invalid_properties.push('invalid value for "allowlist", allowlist cannot be nil.')
-      end
-
-      if @blocklist.nil?
-        invalid_properties.push('invalid value for "blocklist", blocklist cannot be nil.')
-      end
-
-      if @allowlist_blocklist_disabled_on_sign_in.nil?
-        invalid_properties.push('invalid value for "allowlist_blocklist_disabled_on_sign_in", allowlist_blocklist_disabled_on_sign_in cannot be nil.')
-      end
-
-      if @block_email_subaddresses.nil?
-        invalid_properties.push('invalid value for "block_email_subaddresses", block_email_subaddresses cannot be nil.')
-      end
-
-      if @block_disposable_email_domains.nil?
-        invalid_properties.push('invalid value for "block_disposable_email_domains", block_disposable_email_domains cannot be nil.')
+      if @total_count.nil?
+        invalid_properties.push('invalid value for "total_count", total_count cannot be nil.')
       end
 
       invalid_properties
@@ -173,25 +96,9 @@ module ClerkHttpClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      return false if @object.nil?
-      object_validator = EnumAttributeValidator.new('String', ["instance_restrictions"])
-      return false unless object_validator.valid?(@object)
-      return false if @allowlist.nil?
-      return false if @blocklist.nil?
-      return false if @allowlist_blocklist_disabled_on_sign_in.nil?
-      return false if @block_email_subaddresses.nil?
-      return false if @block_disposable_email_domains.nil?
+      return false if @m2m_tokens.nil?
+      return false if @total_count.nil?
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] object Object to be assigned
-    def object=(object)
-      validator = EnumAttributeValidator.new('String', ["instance_restrictions"])
-      unless validator.valid?(object)
-        fail ArgumentError, "invalid value for \"object\", must be one of #{validator.allowable_values}."
-      end
-      @object = object
     end
 
     # Checks equality by comparing each attribute.
@@ -199,12 +106,8 @@ module ClerkHttpClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          object == o.object &&
-          allowlist == o.allowlist &&
-          blocklist == o.blocklist &&
-          allowlist_blocklist_disabled_on_sign_in == o.allowlist_blocklist_disabled_on_sign_in &&
-          block_email_subaddresses == o.block_email_subaddresses &&
-          block_disposable_email_domains == o.block_disposable_email_domains
+          m2m_tokens == o.m2m_tokens &&
+          total_count == o.total_count
     end
 
     # @see the `==` method
@@ -216,7 +119,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, allowlist, blocklist, allowlist_blocklist_disabled_on_sign_in, block_email_subaddresses, block_disposable_email_domains].hash
+      [m2m_tokens, total_count].hash
     end
 
     # Builds the object from hash

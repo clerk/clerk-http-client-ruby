@@ -93,6 +93,12 @@ module ClerkHttpClient
     # The features included in this plan.
     attr_accessor :features
 
+    # Whether free trial is enabled for this plan.
+    attr_accessor :free_trial_enabled
+
+    # Number of free trial days for this plan.
+    attr_accessor :free_trial_days
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -144,7 +150,9 @@ module ClerkHttpClient
         :'avatar_url' => :'avatar_url',
         :'period' => :'period',
         :'interval' => :'interval',
-        :'features' => :'features'
+        :'features' => :'features',
+        :'free_trial_enabled' => :'free_trial_enabled',
+        :'free_trial_days' => :'free_trial_days'
       }
     end
 
@@ -182,13 +190,16 @@ module ClerkHttpClient
         :'avatar_url' => :'String',
         :'period' => :'String',
         :'interval' => :'Integer',
-        :'features' => :'Array<FeatureResponse>'
+        :'features' => :'Array<FeatureResponse>',
+        :'free_trial_enabled' => :'Boolean',
+        :'free_trial_days' => :'Integer'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'free_trial_days'
       ])
     end
 
@@ -367,6 +378,14 @@ module ClerkHttpClient
         end
       else
         self.features = nil
+      end
+
+      if attributes.key?(:'free_trial_enabled')
+        self.free_trial_enabled = attributes[:'free_trial_enabled']
+      end
+
+      if attributes.key?(:'free_trial_days')
+        self.free_trial_days = attributes[:'free_trial_days']
       end
     end
 
@@ -553,7 +572,9 @@ module ClerkHttpClient
           avatar_url == o.avatar_url &&
           period == o.period &&
           interval == o.interval &&
-          features == o.features
+          features == o.features &&
+          free_trial_enabled == o.free_trial_enabled &&
+          free_trial_days == o.free_trial_days
     end
 
     # @see the `==` method
@@ -565,7 +586,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, name, fee, annual_monthly_fee, annual_fee, amount, amount_formatted, annual_monthly_amount, annual_monthly_amount_formatted, annual_amount, annual_amount_formatted, currency_symbol, currency, description, product_id, is_default, is_recurring, publicly_visible, has_base_fee, payer_type, for_payer_type, slug, avatar_url, period, interval, features].hash
+      [object, id, name, fee, annual_monthly_fee, annual_fee, amount, amount_formatted, annual_monthly_amount, annual_monthly_amount_formatted, annual_amount, annual_amount_formatted, currency_symbol, currency, description, product_id, is_default, is_recurring, publicly_visible, has_base_fee, payer_type, for_payer_type, slug, avatar_url, period, interval, features, free_trial_enabled, free_trial_days].hash
     end
 
     # Builds the object from hash

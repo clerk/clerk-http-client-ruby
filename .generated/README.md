@@ -63,6 +63,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.clients* | [**get_client_list**](docs/ClientsApi.md#get_client_list) | **GET** /clients | List all clients
 *Clerk::SDK.clients* | [**verify_client**](docs/ClientsApi.md#verify_client) | **POST** /clients/verify | Verify a client
 *Clerk::SDK.commerce* | [**get_commerce_plan_list**](docs/CommerceApi.md#get_commerce_plan_list) | **GET** /commerce/plans | List all commerce plans
+*Clerk::SDK.commerce* | [**get_commerce_subscription_item_list**](docs/CommerceApi.md#get_commerce_subscription_item_list) | **GET** /commerce/subscription_items | List all subscription items
 *Clerk::SDK.domains* | [**add_domain**](docs/DomainsApi.md#add_domain) | **POST** /domains | Add a domain
 *Clerk::SDK.domains* | [**delete_domain**](docs/DomainsApi.md#delete_domain) | **DELETE** /domains/{domain_id} | Delete a satellite domain
 *Clerk::SDK.domains* | [**list_domains**](docs/DomainsApi.md#list_domains) | **GET** /domains | List all instance domains
@@ -212,7 +213,12 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::ClerkErrors](docs/ClerkErrors.md)
  - [ClerkHttpClient::Client](docs/Client.md)
  - [ClerkHttpClient::CommerceMoneyResponse](docs/CommerceMoneyResponse.md)
+ - [ClerkHttpClient::CommercePayerResponse](docs/CommercePayerResponse.md)
+ - [ClerkHttpClient::CommercePaymentSourceResponse](docs/CommercePaymentSourceResponse.md)
  - [ClerkHttpClient::CommercePlan](docs/CommercePlan.md)
+ - [ClerkHttpClient::CommerceSubscriptionCreditResponse](docs/CommerceSubscriptionCreditResponse.md)
+ - [ClerkHttpClient::CommerceSubscriptionItem](docs/CommerceSubscriptionItem.md)
+ - [ClerkHttpClient::CommerceSubscriptionItemNextPaymentResponse](docs/CommerceSubscriptionItemNextPaymentResponse.md)
  - [ClerkHttpClient::Cookies](docs/Cookies.md)
  - [ClerkHttpClient::CreateActorTokenRequest](docs/CreateActorTokenRequest.md)
  - [ClerkHttpClient::CreateActorTokenRequestActor](docs/CreateActorTokenRequestActor.md)
@@ -302,6 +308,7 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::OrganizationWithLogo](docs/OrganizationWithLogo.md)
  - [ClerkHttpClient::Organizations](docs/Organizations.md)
  - [ClerkHttpClient::PaginatedCommercePlanResponse](docs/PaginatedCommercePlanResponse.md)
+ - [ClerkHttpClient::PaginatedCommerceSubscriptionItemResponse](docs/PaginatedCommerceSubscriptionItemResponse.md)
  - [ClerkHttpClient::Passkey](docs/Passkey.md)
  - [ClerkHttpClient::PasskeyVerification](docs/PasskeyVerification.md)
  - [ClerkHttpClient::PhoneNumber](docs/PhoneNumber.md)
@@ -359,6 +366,7 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::UsersBanRequest](docs/UsersBanRequest.md)
  - [ClerkHttpClient::UsersUnbanRequest](docs/UsersUnbanRequest.md)
  - [ClerkHttpClient::VerificationAdmin](docs/VerificationAdmin.md)
+ - [ClerkHttpClient::VerificationEmailLink](docs/VerificationEmailLink.md)
  - [ClerkHttpClient::VerificationFromOauth](docs/VerificationFromOauth.md)
  - [ClerkHttpClient::VerificationFromOauthError](docs/VerificationFromOauthError.md)
  - [ClerkHttpClient::VerificationGoogleOneTap](docs/VerificationGoogleOneTap.md)

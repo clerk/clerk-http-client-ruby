@@ -31,6 +31,8 @@
 | **period** | **String** | The billing period for the plan. | [optional] |
 | **interval** | **Integer** | The billing interval. | [optional] |
 | **features** | [**Array&lt;FeatureResponse&gt;**](FeatureResponse.md) | The features included in this plan. |  |
+| **free_trial_enabled** | **Boolean** | Whether free trial is enabled for this plan. | [optional] |
+| **free_trial_days** | **Integer** | Number of free trial days for this plan. | [optional] |
 
 ## Example
 
@@ -64,7 +66,9 @@ instance = ClerkHttpClient::CommercePlan.new(
   avatar_url: null,
   period: null,
   interval: null,
-  features: null
+  features: null,
+  free_trial_enabled: null,
+  free_trial_days: null
 )
 ```
 

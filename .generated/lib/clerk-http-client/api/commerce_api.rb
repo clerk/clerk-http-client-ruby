@@ -105,5 +105,108 @@ module ClerkHttpClient
       end
       return data, status_code, headers
     end
+
+    # List all subscription items
+    # Returns a list of all subscription items for the instance. The subscription items are returned sorted by creation date, with the newest appearing first. This includes subscriptions for both users and organizations. Pagination is supported.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :paginated Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
+    # @option opts [Integer] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
+    # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
+    # @option opts [String] :status Filter subscription items by status
+    # @option opts [String] :payer_type Filter subscription items by payer type
+    # @option opts [String] :plan_id Filter subscription items by plan ID
+    # @option opts [Boolean] :include_free Whether to include free plan subscription items (default to false)
+    # @option opts [String] :query Search query to filter subscription items
+    # @return [PaginatedCommerceSubscriptionItemResponse]
+
+    def get_commerce_subscription_item_list(opts = {})
+      data, _status_code, _headers = get_commerce_subscription_item_list_with_http_info(opts)
+      data
+    end
+
+    # List all subscription items
+    # Returns a list of all subscription items for the instance. The subscription items are returned sorted by creation date, with the newest appearing first. This includes subscriptions for both users and organizations. Pagination is supported.
+    # @param [Hash] opts the optional parameters
+    # @option opts [Boolean] :paginated Whether to paginate the results. If true, the results will be paginated. If false, the results will not be paginated.
+    # @option opts [Integer] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
+    # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
+    # @option opts [String] :status Filter subscription items by status
+    # @option opts [String] :payer_type Filter subscription items by payer type
+    # @option opts [String] :plan_id Filter subscription items by plan ID
+    # @option opts [Boolean] :include_free Whether to include free plan subscription items (default to false)
+    # @option opts [String] :query Search query to filter subscription items
+    # @return [Array<(PaginatedCommerceSubscriptionItemResponse, Integer, Hash)>] PaginatedCommerceSubscriptionItemResponse data, response status code and response headers
+    # GET 
+    def get_commerce_subscription_item_list_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CommerceApi.get_commerce_subscription_item_list ...'
+      end
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] > 500
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CommerceApi.get_commerce_subscription_item_list, must be smaller than or equal to 500.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'limit'].nil? && opts[:'limit'] < 1
+        fail ArgumentError, 'invalid value for "opts[:"limit"]" when calling CommerceApi.get_commerce_subscription_item_list, must be greater than or equal to 1.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'offset'].nil? && opts[:'offset'] < 0
+        fail ArgumentError, 'invalid value for "opts[:"offset"]" when calling CommerceApi.get_commerce_subscription_item_list, must be greater than or equal to 0.'
+      end
+
+      allowable_values = ["active", "ended", "past_due", "upcoming", "free_trial"]
+      if @api_client.config.client_side_validation && opts[:'status'] && !allowable_values.include?(opts[:'status'])
+        fail ArgumentError, "invalid value for \"status\", must be one of #{allowable_values}"
+      end
+      allowable_values = ["user", "org"]
+      if @api_client.config.client_side_validation && opts[:'payer_type'] && !allowable_values.include?(opts[:'payer_type'])
+        fail ArgumentError, "invalid value for \"payer_type\", must be one of #{allowable_values}"
+      end
+      # resource path
+      local_var_path = '/commerce/subscription_items'
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+      query_params[:'paginated'] = opts[:'paginated'] if !opts[:'paginated'].nil?
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
+      query_params[:'status'] = opts[:'status'] if !opts[:'status'].nil?
+      query_params[:'payer_type'] = opts[:'payer_type'] if !opts[:'payer_type'].nil?
+      query_params[:'plan_id'] = opts[:'plan_id'] if !opts[:'plan_id'].nil?
+      query_params[:'include_free'] = opts[:'include_free'] if !opts[:'include_free'].nil?
+      query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'PaginatedCommerceSubscriptionItemResponse'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"CommerceApi.get_commerce_subscription_item_list",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CommerceApi#get_commerce_subscription_item_list\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
   end
 end

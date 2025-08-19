@@ -20,8 +20,10 @@ module ClerkHttpClient
       def openapi_one_of
         [
           :'VerificationAdmin',
+          :'VerificationEmailLink',
           :'VerificationFromOauth',
           :'VerificationOtp',
+          :'VerificationSaml',
           :'VerificationTicket'
         ]
       end

@@ -59,9 +59,11 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.beta_features* | [**change_production_instance_domain**](docs/BetaFeaturesApi.md#change_production_instance_domain) | **POST** /instance/change_domain | Update production instance domain
 *Clerk::SDK.beta_features* | [**update_instance_auth_config**](docs/BetaFeaturesApi.md#update_instance_auth_config) | **PATCH** /beta_features/instance_settings | Update instance settings
 *Clerk::SDK.beta_features* | [**update_production_instance_domain**](docs/BetaFeaturesApi.md#update_production_instance_domain) | **PUT** /beta_features/domain | Update production instance domain
+*Clerk::SDK.billing* | [**get_organization_billing_subscription_0**](docs/BillingApi.md#get_organization_billing_subscription_0) | **GET** /organizations/{organization_id}/billing/subscription | Retrieve an organization's billing subscription
 *Clerk::SDK.clients* | [**get_client**](docs/ClientsApi.md#get_client) | **GET** /clients/{client_id} | Get a client
 *Clerk::SDK.clients* | [**get_client_list**](docs/ClientsApi.md#get_client_list) | **GET** /clients | List all clients
 *Clerk::SDK.clients* | [**verify_client**](docs/ClientsApi.md#verify_client) | **POST** /clients/verify | Verify a client
+*Clerk::SDK.commerce* | [**cancel_commerce_subscription_item**](docs/CommerceApi.md#cancel_commerce_subscription_item) | **DELETE** /commerce/subscription_items/{subscription_item_id} | Cancel a subscription item
 *Clerk::SDK.commerce* | [**get_commerce_plan_list**](docs/CommerceApi.md#get_commerce_plan_list) | **GET** /commerce/plans | List all commerce plans
 *Clerk::SDK.commerce* | [**get_commerce_subscription_item_list**](docs/CommerceApi.md#get_commerce_subscription_item_list) | **GET** /commerce/subscription_items | List all subscription items
 *Clerk::SDK.domains* | [**add_domain**](docs/DomainsApi.md#add_domain) | **POST** /domains | Add a domain
@@ -134,6 +136,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.organizations* | [**delete_organization**](docs/OrganizationsApi.md#delete_organization) | **DELETE** /organizations/{organization_id} | Delete an organization
 *Clerk::SDK.organizations* | [**delete_organization_logo**](docs/OrganizationsApi.md#delete_organization_logo) | **DELETE** /organizations/{organization_id}/logo | Delete the organization's logo.
 *Clerk::SDK.organizations* | [**get_organization**](docs/OrganizationsApi.md#get_organization) | **GET** /organizations/{organization_id} | Retrieve an organization by ID or slug
+*Clerk::SDK.organizations* | [**get_organization_billing_subscription**](docs/OrganizationsApi.md#get_organization_billing_subscription) | **GET** /organizations/{organization_id}/billing/subscription | Retrieve an organization's billing subscription
 *Clerk::SDK.organizations* | [**list_organizations**](docs/OrganizationsApi.md#list_organizations) | **GET** /organizations | Get a list of organizations for an instance
 *Clerk::SDK.organizations* | [**merge_organization_metadata**](docs/OrganizationsApi.md#merge_organization_metadata) | **PATCH** /organizations/{organization_id}/metadata | Merge and update metadata for an organization
 *Clerk::SDK.organizations* | [**update_organization**](docs/OrganizationsApi.md#update_organization) | **PATCH** /organizations/{organization_id} | Update an organization
@@ -216,9 +219,11 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::CommercePayerResponse](docs/CommercePayerResponse.md)
  - [ClerkHttpClient::CommercePaymentSourceResponse](docs/CommercePaymentSourceResponse.md)
  - [ClerkHttpClient::CommercePlan](docs/CommercePlan.md)
+ - [ClerkHttpClient::CommerceSubscription](docs/CommerceSubscription.md)
  - [ClerkHttpClient::CommerceSubscriptionCreditResponse](docs/CommerceSubscriptionCreditResponse.md)
  - [ClerkHttpClient::CommerceSubscriptionItem](docs/CommerceSubscriptionItem.md)
  - [ClerkHttpClient::CommerceSubscriptionItemNextPaymentResponse](docs/CommerceSubscriptionItemNextPaymentResponse.md)
+ - [ClerkHttpClient::CommerceSubscriptionNextPayment](docs/CommerceSubscriptionNextPayment.md)
  - [ClerkHttpClient::Cookies](docs/Cookies.md)
  - [ClerkHttpClient::CreateActorTokenRequest](docs/CreateActorTokenRequest.md)
  - [ClerkHttpClient::CreateActorTokenRequestActor](docs/CreateActorTokenRequestActor.md)

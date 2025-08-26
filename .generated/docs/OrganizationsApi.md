@@ -8,6 +8,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | [**delete_organization**](OrganizationsApi.md#delete_organization) | **DELETE** /organizations/{organization_id} | Delete an organization |
 | [**delete_organization_logo**](OrganizationsApi.md#delete_organization_logo) | **DELETE** /organizations/{organization_id}/logo | Delete the organization&#39;s logo. |
 | [**get_organization**](OrganizationsApi.md#get_organization) | **GET** /organizations/{organization_id} | Retrieve an organization by ID or slug |
+| [**get_organization_billing_subscription**](OrganizationsApi.md#get_organization_billing_subscription) | **GET** /organizations/{organization_id}/billing/subscription | Retrieve an organization&#39;s billing subscription |
 | [**list_organizations**](OrganizationsApi.md#list_organizations) | **GET** /organizations | Get a list of organizations for an instance |
 | [**merge_organization_metadata**](OrganizationsApi.md#merge_organization_metadata) | **PATCH** /organizations/{organization_id}/metadata | Merge and update metadata for an organization |
 | [**update_organization**](OrganizationsApi.md#update_organization) | **PATCH** /organizations/{organization_id} | Update an organization |
@@ -283,6 +284,74 @@ end
 ### Return type
 
 [**Organization**](Organization.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## get_organization_billing_subscription
+
+> <CommerceSubscription> get_organization_billing_subscription(organization_id)
+
+Retrieve an organization's billing subscription
+
+Retrieves the billing subscription for the specified organization. This includes subscription details, active plans, billing information, and payment status. The subscription contains subscription items which represent the individual plans the organization is subscribed to.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+organization_id = 'organization_id_example' # String | The ID of the organization whose subscription to retrieve
+
+begin
+  # Retrieve an organization's billing subscription
+  result = Clerk::SDK.organizations.get_organization_billing_subscription(organization_id)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.organizations->get_organization_billing_subscription: #{e}"
+end
+```
+
+#### Using the `get_organization_billing_subscription_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CommerceSubscription>, Integer, Hash)> get_organization_billing_subscription_with_http_info(organization_id)
+
+```ruby
+begin
+  # Retrieve an organization's billing subscription
+  data, status_code, headers = Clerk::SDK.organizations.get_organization_billing_subscription_with_http_info(organization_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CommerceSubscription>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.organizations->get_organization_billing_subscription_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **organization_id** | **String** | The ID of the organization whose subscription to retrieve |  |
+
+### Return type
+
+[**CommerceSubscription**](CommerceSubscription.md)
 
 ### Authorization
 

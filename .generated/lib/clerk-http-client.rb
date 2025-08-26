@@ -33,9 +33,11 @@ ClerkHttpClient.autoload :CommerceMoneyResponse, 'clerk-http-client/models/comme
 ClerkHttpClient.autoload :CommercePayerResponse, 'clerk-http-client/models/commerce_payer_response'
 ClerkHttpClient.autoload :CommercePaymentSourceResponse, 'clerk-http-client/models/commerce_payment_source_response'
 ClerkHttpClient.autoload :CommercePlan, 'clerk-http-client/models/commerce_plan'
+ClerkHttpClient.autoload :CommerceSubscription, 'clerk-http-client/models/commerce_subscription'
 ClerkHttpClient.autoload :CommerceSubscriptionCreditResponse, 'clerk-http-client/models/commerce_subscription_credit_response'
 ClerkHttpClient.autoload :CommerceSubscriptionItem, 'clerk-http-client/models/commerce_subscription_item'
 ClerkHttpClient.autoload :CommerceSubscriptionItemNextPaymentResponse, 'clerk-http-client/models/commerce_subscription_item_next_payment_response'
+ClerkHttpClient.autoload :CommerceSubscriptionNextPayment, 'clerk-http-client/models/commerce_subscription_next_payment'
 ClerkHttpClient.autoload :Cookies, 'clerk-http-client/models/cookies'
 ClerkHttpClient.autoload :CreateActorTokenRequest, 'clerk-http-client/models/create_actor_token_request'
 ClerkHttpClient.autoload :CreateActorTokenRequestActor, 'clerk-http-client/models/create_actor_token_request_actor'
@@ -213,6 +215,7 @@ ClerkHttpClient.autoload :AccountlessApplicationsApi, 'clerk-http-client/api/acc
 ClerkHttpClient.autoload :ActorTokensApi, 'clerk-http-client/api/actor_tokens_api'
 ClerkHttpClient.autoload :AllowListBlockListApi, 'clerk-http-client/api/allow_list_block_list_api'
 ClerkHttpClient.autoload :BetaFeaturesApi, 'clerk-http-client/api/beta_features_api'
+ClerkHttpClient.autoload :BillingApi, 'clerk-http-client/api/billing_api'
 ClerkHttpClient.autoload :ClientsApi, 'clerk-http-client/api/clients_api'
 ClerkHttpClient.autoload :CommerceApi, 'clerk-http-client/api/commerce_api'
 ClerkHttpClient.autoload :DomainsApi, 'clerk-http-client/api/domains_api'
@@ -280,6 +283,10 @@ module ClerkHttpClient
 
     def beta_features
       ClerkHttpClient::BetaFeaturesApi.new
+    end
+
+    def billing
+      ClerkHttpClient::BillingApi.new
     end
 
     def clients

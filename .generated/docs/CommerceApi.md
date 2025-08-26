@@ -4,8 +4,81 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
+| [**cancel_commerce_subscription_item**](CommerceApi.md#cancel_commerce_subscription_item) | **DELETE** /commerce/subscription_items/{subscription_item_id} | Cancel a subscription item |
 | [**get_commerce_plan_list**](CommerceApi.md#get_commerce_plan_list) | **GET** /commerce/plans | List all commerce plans |
 | [**get_commerce_subscription_item_list**](CommerceApi.md#get_commerce_subscription_item_list) | **GET** /commerce/subscription_items | List all subscription items |
+
+
+## cancel_commerce_subscription_item
+
+> <CommerceSubscriptionItem> cancel_commerce_subscription_item(subscription_item_id, opts)
+
+Cancel a subscription item
+
+Cancel a specific subscription item. The subscription item can be canceled immediately or at the end of the current billing period.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+subscription_item_id = 'subscription_item_id_example' # String | The ID of the subscription item to cancel
+opts = {
+  end_now: true # Boolean | Whether to cancel the subscription immediately (true) or at the end of the current billing period (false, default)
+}
+
+begin
+  # Cancel a subscription item
+  result = Clerk::SDK.commerce.cancel_commerce_subscription_item(subscription_item_id, opts)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.commerce->cancel_commerce_subscription_item: #{e}"
+end
+```
+
+#### Using the `cancel_commerce_subscription_item_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CommerceSubscriptionItem>, Integer, Hash)> cancel_commerce_subscription_item_with_http_info(subscription_item_id, opts)
+
+```ruby
+begin
+  # Cancel a subscription item
+  data, status_code, headers = Clerk::SDK.commerce.cancel_commerce_subscription_item_with_http_info(subscription_item_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CommerceSubscriptionItem>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.commerce->cancel_commerce_subscription_item_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **subscription_item_id** | **String** | The ID of the subscription item to cancel |  |
+| **end_now** | **Boolean** | Whether to cancel the subscription immediately (true) or at the end of the current billing period (false, default) | [optional][default to false] |
+
+### Return type
+
+[**CommerceSubscriptionItem**](CommerceSubscriptionItem.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## get_commerce_plan_list

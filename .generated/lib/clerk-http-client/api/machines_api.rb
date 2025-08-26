@@ -429,6 +429,7 @@ module ClerkHttpClient
     # @option opts [Integer] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
     # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
     # @option opts [String] :query Returns machines with ID or name that match the given query. Uses exact match for machine ID and partial match for name.
+    # @option opts [String] :order_by Allows to return machines in a particular order. You can order the returned machines by their &#x60;name&#x60; or &#x60;created_at&#x60;. To specify the direction, use the &#x60;+&#x60; or &#x60;-&#x60; symbols prepended to the property to order by. For example, to return machines in descending order by &#x60;created_at&#x60;, use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. (default to '-created_at')
     # @return [ListMachines200Response]
 
     def list_machines(opts = {})
@@ -442,6 +443,7 @@ module ClerkHttpClient
     # @option opts [Integer] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
     # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
     # @option opts [String] :query Returns machines with ID or name that match the given query. Uses exact match for machine ID and partial match for name.
+    # @option opts [String] :order_by Allows to return machines in a particular order. You can order the returned machines by their &#x60;name&#x60; or &#x60;created_at&#x60;. To specify the direction, use the &#x60;+&#x60; or &#x60;-&#x60; symbols prepended to the property to order by. For example, to return machines in descending order by &#x60;created_at&#x60;, use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. (default to '-created_at')
     # @return [Array<(ListMachines200Response, Integer, Hash)>] ListMachines200Response data, response status code and response headers
     # GET 
     def list_machines_with_http_info(opts = {})
@@ -468,6 +470,7 @@ module ClerkHttpClient
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'offset'] = opts[:'offset'] if !opts[:'offset'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'order_by'] = opts[:'order_by'] if !opts[:'order_by'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

@@ -452,7 +452,8 @@ end
 opts = {
   limit: 56, # Integer | Applies a limit to the number of results returned. Can be used for paginating the results together with `offset`.
   offset: 56, # Integer | Skip the first `offset` results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with `limit`.
-  query: 'query_example' # String | Returns machines with ID or name that match the given query. Uses exact match for machine ID and partial match for name.
+  query: 'query_example', # String | Returns machines with ID or name that match the given query. Uses exact match for machine ID and partial match for name.
+  order_by: 'order_by_example' # String | Allows to return machines in a particular order. You can order the returned machines by their `name` or `created_at`. To specify the direction, use the `+` or `-` symbols prepended to the property to order by. For example, to return machines in descending order by `created_at`, use `-created_at`. If you don't use `+` or `-`, then `+` is implied. Defaults to `-created_at`.
 }
 
 begin
@@ -489,6 +490,7 @@ end
 | **limit** | **Integer** | Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. | [optional][default to 10] |
 | **offset** | **Integer** | Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. | [optional][default to 0] |
 | **query** | **String** | Returns machines with ID or name that match the given query. Uses exact match for machine ID and partial match for name. | [optional] |
+| **order_by** | **String** | Allows to return machines in a particular order. You can order the returned machines by their &#x60;name&#x60; or &#x60;created_at&#x60;. To specify the direction, use the &#x60;+&#x60; or &#x60;-&#x60; symbols prepended to the property to order by. For example, to return machines in descending order by &#x60;created_at&#x60;, use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. | [optional][default to &#39;-created_at&#39;] |
 
 ### Return type
 

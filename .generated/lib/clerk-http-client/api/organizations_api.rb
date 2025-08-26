@@ -286,6 +286,71 @@ module ClerkHttpClient
       return data, status_code, headers
     end
 
+    # Retrieve an organization's billing subscription
+    # Retrieves the billing subscription for the specified organization. This includes subscription details, active plans, billing information, and payment status. The subscription contains subscription items which represent the individual plans the organization is subscribed to.
+    # @param organization_id [String] The ID of the organization whose subscription to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [CommerceSubscription]
+
+    def get_organization_billing_subscription(organization_id, opts = {})
+      data, _status_code, _headers = get_organization_billing_subscription_with_http_info(organization_id, opts)
+      data
+    end
+
+    # Retrieve an organization&#39;s billing subscription
+    # Retrieves the billing subscription for the specified organization. This includes subscription details, active plans, billing information, and payment status. The subscription contains subscription items which represent the individual plans the organization is subscribed to.
+    # @param organization_id [String] The ID of the organization whose subscription to retrieve
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CommerceSubscription, Integer, Hash)>] CommerceSubscription data, response status code and response headers
+    # GET 
+    def get_organization_billing_subscription_with_http_info(organization_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: OrganizationsApi.get_organization_billing_subscription ...'
+      end
+      # verify the required parameter 'organization_id' is set
+      if @api_client.config.client_side_validation && organization_id.nil?
+        fail ArgumentError, "Missing the required parameter 'organization_id' when calling OrganizationsApi.get_organization_billing_subscription"
+      end
+      # resource path
+      local_var_path = '/organizations/{organization_id}/billing/subscription'.sub('{' + 'organization_id' + '}', CGI.escape(organization_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommerceSubscription'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"OrganizationsApi.get_organization_billing_subscription",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: OrganizationsApi#get_organization_billing_subscription\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Get a list of organizations for an instance
     # This request returns the list of organizations for an instance. Results can be paginated using the optional `limit` and `offset` query parameters. The organizations are ordered by descending creation date. Most recent organizations will be returned first.
     # @param [Hash] opts the optional parameters

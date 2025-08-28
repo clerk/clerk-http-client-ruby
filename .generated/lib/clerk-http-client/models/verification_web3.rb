@@ -179,7 +179,7 @@ module ClerkHttpClient
       status_validator = EnumAttributeValidator.new('String', ["unverified", "verified", "failed", "expired"])
       return false unless status_validator.valid?(@status)
       return false if @strategy.nil?
-      strategy_validator = EnumAttributeValidator.new('String', ["web3_metamask_signature", "web3_coinbase_wallet_signature", "web3_okx_wallet_signature"])
+      strategy_validator = EnumAttributeValidator.new('String', ["web3_metamask_signature", "web3_base_signature", "web3_coinbase_wallet_signature", "web3_okx_wallet_signature"])
       return false unless strategy_validator.valid?(@strategy)
       true
     end
@@ -207,7 +207,7 @@ module ClerkHttpClient
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] strategy Object to be assigned
     def strategy=(strategy)
-      validator = EnumAttributeValidator.new('String', ["web3_metamask_signature", "web3_coinbase_wallet_signature", "web3_okx_wallet_signature"])
+      validator = EnumAttributeValidator.new('String', ["web3_metamask_signature", "web3_base_signature", "web3_coinbase_wallet_signature", "web3_okx_wallet_signature"])
       unless validator.valid?(strategy)
         fail ArgumentError, "invalid value for \"strategy\", must be one of #{validator.allowable_values}."
       end

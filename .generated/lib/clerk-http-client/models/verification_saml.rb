@@ -91,6 +91,7 @@ module ClerkHttpClient
       Set.new([
         :'external_verification_redirect_url',
         :'error',
+        :'expire_at',
         :'attempts',
         :'verified_at_client'
       ])
@@ -129,8 +130,6 @@ module ClerkHttpClient
 
       if attributes.key?(:'external_verification_redirect_url')
         self.external_verification_redirect_url = attributes[:'external_verification_redirect_url']
-      else
-        self.external_verification_redirect_url = nil
       end
 
       if attributes.key?(:'error')
@@ -139,8 +138,6 @@ module ClerkHttpClient
 
       if attributes.key?(:'expire_at')
         self.expire_at = attributes[:'expire_at']
-      else
-        self.expire_at = nil
       end
 
       if attributes.key?(:'attempts')
@@ -167,10 +164,6 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "strategy", strategy cannot be nil.')
       end
 
-      if @expire_at.nil?
-        invalid_properties.push('invalid value for "expire_at", expire_at cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -186,7 +179,6 @@ module ClerkHttpClient
       return false if @strategy.nil?
       strategy_validator = EnumAttributeValidator.new('String', ["saml"])
       return false unless strategy_validator.valid?(@strategy)
-      return false if @expire_at.nil?
       true
     end
 

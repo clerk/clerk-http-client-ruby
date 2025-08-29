@@ -14,56 +14,14 @@ require 'date'
 require 'time'
 
 module ClerkHttpClient
-  class VerificationWeb3
-    attr_accessor :object
-
-    attr_accessor :status
-
-    attr_accessor :strategy
-
-    attr_accessor :nonce
-
-    attr_accessor :message
-
-    attr_accessor :attempts
-
-    attr_accessor :expire_at
-
-    attr_accessor :verified_at_client
-
-    class EnumAttributeValidator
-      attr_reader :datatype
-      attr_reader :allowable_values
-
-      def initialize(datatype, allowable_values)
-        @allowable_values = allowable_values.map do |value|
-          case datatype.to_s
-          when /Integer/i
-            value.to_i
-          when /Float/i
-            value.to_f
-          else
-            value
-          end
-        end
-      end
-
-      def valid?(value)
-        !value || allowable_values.include?(value)
-      end
-    end
+  class InviteWaitlistEntryRequest
+    # Whether an invitation should be created if there is already an existing invitation for this email address, or it's claimed by another user.
+    attr_accessor :ignore_existing
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'object' => :'object',
-        :'status' => :'status',
-        :'strategy' => :'strategy',
-        :'nonce' => :'nonce',
-        :'message' => :'message',
-        :'attempts' => :'attempts',
-        :'expire_at' => :'expire_at',
-        :'verified_at_client' => :'verified_at_client'
+        :'ignore_existing' => :'ignore_existing'
       }
     end
 
@@ -75,25 +33,14 @@ module ClerkHttpClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'object' => :'String',
-        :'status' => :'String',
-        :'strategy' => :'String',
-        :'nonce' => :'String',
-        :'message' => :'String',
-        :'attempts' => :'Integer',
-        :'expire_at' => :'Integer',
-        :'verified_at_client' => :'String'
+        :'ignore_existing' => :'Boolean'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
-        :'nonce',
-        :'message',
-        :'attempts',
-        :'expire_at',
-        :'verified_at_client'
+        :'ignore_existing'
       ])
     end
 
@@ -101,55 +48,21 @@ module ClerkHttpClient
     # @param [Hash] attributes Model attributes in the form of hash
     def initialize(attributes = {})
       if (!attributes.is_a?(Hash))
-        fail ArgumentError, "The input argument (attributes) must be a hash in `ClerkHttpClient::VerificationWeb3` initialize method"
+        fail ArgumentError, "The input argument (attributes) must be a hash in `ClerkHttpClient::InviteWaitlistEntryRequest` initialize method"
       end
 
       # check to see if the attribute exists and convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h|
         if (!self.class.attribute_map.key?(k.to_sym))
-          fail ArgumentError, "`#{k}` is not a valid attribute in `ClerkHttpClient::VerificationWeb3`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
+          fail ArgumentError, "`#{k}` is not a valid attribute in `ClerkHttpClient::InviteWaitlistEntryRequest`. Please check the name to make sure it's valid. List of attributes: " + self.class.attribute_map.keys.inspect
         end
         h[k.to_sym] = v
       }
 
-      if attributes.key?(:'object')
-        self.object = attributes[:'object']
-      end
-
-      if attributes.key?(:'status')
-        self.status = attributes[:'status']
+      if attributes.key?(:'ignore_existing')
+        self.ignore_existing = attributes[:'ignore_existing']
       else
-        self.status = nil
-      end
-
-      if attributes.key?(:'strategy')
-        self.strategy = attributes[:'strategy']
-      else
-        self.strategy = nil
-      end
-
-      if attributes.key?(:'nonce')
-        self.nonce = attributes[:'nonce']
-      end
-
-      if attributes.key?(:'message')
-        self.message = attributes[:'message']
-      end
-
-      if attributes.key?(:'attempts')
-        self.attempts = attributes[:'attempts']
-      else
-        self.attempts = nil
-      end
-
-      if attributes.key?(:'expire_at')
-        self.expire_at = attributes[:'expire_at']
-      else
-        self.expire_at = nil
-      end
-
-      if attributes.key?(:'verified_at_client')
-        self.verified_at_client = attributes[:'verified_at_client']
+        self.ignore_existing = false
       end
     end
 
@@ -158,14 +71,6 @@ module ClerkHttpClient
     def list_invalid_properties
       warn '[DEPRECATED] the `list_invalid_properties` method is obsolete'
       invalid_properties = Array.new
-      if @status.nil?
-        invalid_properties.push('invalid value for "status", status cannot be nil.')
-      end
-
-      if @strategy.nil?
-        invalid_properties.push('invalid value for "strategy", strategy cannot be nil.')
-      end
-
       invalid_properties
     end
 
@@ -173,45 +78,7 @@ module ClerkHttpClient
     # @return true if the model is valid
     def valid?
       warn '[DEPRECATED] the `valid?` method is obsolete'
-      object_validator = EnumAttributeValidator.new('String', ["verification_web3"])
-      return false unless object_validator.valid?(@object)
-      return false if @status.nil?
-      status_validator = EnumAttributeValidator.new('String', ["unverified", "verified", "failed", "expired"])
-      return false unless status_validator.valid?(@status)
-      return false if @strategy.nil?
-      strategy_validator = EnumAttributeValidator.new('String', ["web3_metamask_signature", "web3_base_signature", "web3_coinbase_wallet_signature", "web3_okx_wallet_signature"])
-      return false unless strategy_validator.valid?(@strategy)
       true
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] object Object to be assigned
-    def object=(object)
-      validator = EnumAttributeValidator.new('String', ["verification_web3"])
-      unless validator.valid?(object)
-        fail ArgumentError, "invalid value for \"object\", must be one of #{validator.allowable_values}."
-      end
-      @object = object
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] status Object to be assigned
-    def status=(status)
-      validator = EnumAttributeValidator.new('String', ["unverified", "verified", "failed", "expired"])
-      unless validator.valid?(status)
-        fail ArgumentError, "invalid value for \"status\", must be one of #{validator.allowable_values}."
-      end
-      @status = status
-    end
-
-    # Custom attribute writer method checking allowed values (enum).
-    # @param [Object] strategy Object to be assigned
-    def strategy=(strategy)
-      validator = EnumAttributeValidator.new('String', ["web3_metamask_signature", "web3_base_signature", "web3_coinbase_wallet_signature", "web3_okx_wallet_signature"])
-      unless validator.valid?(strategy)
-        fail ArgumentError, "invalid value for \"strategy\", must be one of #{validator.allowable_values}."
-      end
-      @strategy = strategy
     end
 
     # Checks equality by comparing each attribute.
@@ -219,14 +86,7 @@ module ClerkHttpClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          object == o.object &&
-          status == o.status &&
-          strategy == o.strategy &&
-          nonce == o.nonce &&
-          message == o.message &&
-          attempts == o.attempts &&
-          expire_at == o.expire_at &&
-          verified_at_client == o.verified_at_client
+          ignore_existing == o.ignore_existing
     end
 
     # @see the `==` method
@@ -238,7 +98,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, status, strategy, nonce, message, attempts, expire_at, verified_at_client].hash
+      [ignore_existing].hash
     end
 
     # Builds the object from hash

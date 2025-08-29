@@ -7,9 +7,9 @@
 | **object** | **String** |  | [optional] |
 | **status** | **String** |  |  |
 | **strategy** | **String** |  |  |
-| **external_verification_redirect_url** | **String** |  |  |
+| **external_verification_redirect_url** | **String** |  | [optional] |
 | **error** | [**VerificationFromOauthError**](VerificationFromOauthError.md) |  | [optional] |
-| **expire_at** | **Integer** |  |  |
+| **expire_at** | **Integer** |  | [optional] |
 | **attempts** | **Integer** |  |  |
 | **verified_at_client** | **String** |  | [optional] |
 

@@ -90,6 +90,7 @@ ClerkHttpClient.autoload :IdentificationLink, 'clerk-http-client/models/identifi
 ClerkHttpClient.autoload :Instance, 'clerk-http-client/models/instance'
 ClerkHttpClient.autoload :InstanceRestrictions, 'clerk-http-client/models/instance_restrictions'
 ClerkHttpClient.autoload :Invitation, 'clerk-http-client/models/invitation'
+ClerkHttpClient.autoload :InviteWaitlistEntryRequest, 'clerk-http-client/models/invite_waitlist_entry_request'
 ClerkHttpClient.autoload :JWKS, 'clerk-http-client/models/jwks'
 ClerkHttpClient.autoload :JWKSEcdsaPrivateKey, 'clerk-http-client/models/jwks_ecdsa_private_key'
 ClerkHttpClient.autoload :JWKSEcdsaPublicKey, 'clerk-http-client/models/jwks_ecdsa_public_key'

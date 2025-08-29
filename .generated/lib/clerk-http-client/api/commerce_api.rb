@@ -184,7 +184,7 @@ module ClerkHttpClient
     # @option opts [String] :payer_type Filter subscription items by payer type
     # @option opts [String] :plan_id Filter subscription items by plan ID
     # @option opts [Boolean] :include_free Whether to include free plan subscription items (default to false)
-    # @option opts [String] :query Search query to filter subscription items
+    # @option opts [String] :query Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching.
     # @return [PaginatedCommerceSubscriptionItemResponse]
 
     def get_commerce_subscription_item_list(opts = {})
@@ -202,7 +202,7 @@ module ClerkHttpClient
     # @option opts [String] :payer_type Filter subscription items by payer type
     # @option opts [String] :plan_id Filter subscription items by plan ID
     # @option opts [Boolean] :include_free Whether to include free plan subscription items (default to false)
-    # @option opts [String] :query Search query to filter subscription items
+    # @option opts [String] :query Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching.
     # @return [Array<(PaginatedCommerceSubscriptionItemResponse, Integer, Hash)>] PaginatedCommerceSubscriptionItemResponse data, response status code and response headers
     # GET 
     def get_commerce_subscription_item_list_with_http_info(opts = {})

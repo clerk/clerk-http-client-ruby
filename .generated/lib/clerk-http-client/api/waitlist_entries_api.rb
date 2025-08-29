@@ -85,6 +85,78 @@ module ClerkHttpClient
       return data, status_code, headers
     end
 
+    # Invite a waitlist entry
+    # Send an invite to the email address in a waitlist entry.
+    # @param waitlist_entry_id [String] The ID of the waitlist entry to invite
+    # @param [Hash] opts the optional parameters
+    # @option opts [InviteWaitlistEntryRequest] :invite_waitlist_entry_request 
+    # @return [WaitlistEntry]
+
+    def invite_waitlist_entry(waitlist_entry_id, opts = {})
+      data, _status_code, _headers = invite_waitlist_entry_with_http_info(waitlist_entry_id, opts)
+      data
+    end
+
+    # Invite a waitlist entry
+    # Send an invite to the email address in a waitlist entry.
+    # @param waitlist_entry_id [String] The ID of the waitlist entry to invite
+    # @param [Hash] opts the optional parameters
+    # @option opts [InviteWaitlistEntryRequest] :invite_waitlist_entry_request 
+    # @return [Array<(WaitlistEntry, Integer, Hash)>] WaitlistEntry data, response status code and response headers
+    # POST 
+    def invite_waitlist_entry_with_http_info(waitlist_entry_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WaitlistEntriesApi.invite_waitlist_entry ...'
+      end
+      # verify the required parameter 'waitlist_entry_id' is set
+      if @api_client.config.client_side_validation && waitlist_entry_id.nil?
+        fail ArgumentError, "Missing the required parameter 'waitlist_entry_id' when calling WaitlistEntriesApi.invite_waitlist_entry"
+      end
+      # resource path
+      local_var_path = '/waitlist_entries/{waitlist_entry_id}/invite'.sub('{' + 'waitlist_entry_id' + '}', CGI.escape(waitlist_entry_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(opts[:'invite_waitlist_entry_request'])
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WaitlistEntry'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WaitlistEntriesApi.invite_waitlist_entry",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WaitlistEntriesApi#invite_waitlist_entry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List all waitlist entries
     # Retrieve a list of waitlist entries for the instance. Entries are ordered by creation date in descending order by default. Supports filtering by email address or status and pagination with limit and offset parameters.
     # @param [Hash] opts the optional parameters
@@ -171,6 +243,71 @@ module ClerkHttpClient
       data, status_code, headers = @api_client.call_api(:GET, local_var_path, new_options)
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: WaitlistEntriesApi#list_waitlist_entries\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # Reject a waitlist entry
+    # Reject a waitlist entry.
+    # @param waitlist_entry_id [String] The ID of the waitlist entry to reject
+    # @param [Hash] opts the optional parameters
+    # @return [WaitlistEntry]
+
+    def reject_waitlist_entry(waitlist_entry_id, opts = {})
+      data, _status_code, _headers = reject_waitlist_entry_with_http_info(waitlist_entry_id, opts)
+      data
+    end
+
+    # Reject a waitlist entry
+    # Reject a waitlist entry.
+    # @param waitlist_entry_id [String] The ID of the waitlist entry to reject
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(WaitlistEntry, Integer, Hash)>] WaitlistEntry data, response status code and response headers
+    # POST 
+    def reject_waitlist_entry_with_http_info(waitlist_entry_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WaitlistEntriesApi.reject_waitlist_entry ...'
+      end
+      # verify the required parameter 'waitlist_entry_id' is set
+      if @api_client.config.client_side_validation && waitlist_entry_id.nil?
+        fail ArgumentError, "Missing the required parameter 'waitlist_entry_id' when calling WaitlistEntriesApi.reject_waitlist_entry"
+      end
+      # resource path
+      local_var_path = '/waitlist_entries/{waitlist_entry_id}/reject'.sub('{' + 'waitlist_entry_id' + '}', CGI.escape(waitlist_entry_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'WaitlistEntry'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WaitlistEntriesApi.reject_waitlist_entry",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WaitlistEntriesApi#reject_waitlist_entry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

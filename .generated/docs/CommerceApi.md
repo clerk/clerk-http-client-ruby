@@ -184,7 +184,7 @@ opts = {
   payer_type: 'user', # String | Filter subscription items by payer type
   plan_id: 'plan_id_example', # String | Filter subscription items by plan ID
   include_free: true, # Boolean | Whether to include free plan subscription items
-  query: 'query_example' # String | Search query to filter subscription items
+  query: 'query_example' # String | Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching.
 }
 
 begin
@@ -225,7 +225,7 @@ end
 | **payer_type** | **String** | Filter subscription items by payer type | [optional] |
 | **plan_id** | **String** | Filter subscription items by plan ID | [optional] |
 | **include_free** | **Boolean** | Whether to include free plan subscription items | [optional][default to false] |
-| **query** | **String** | Search query to filter subscription items | [optional] |
+| **query** | **String** | Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching. | [optional] |
 
 ### Return type
 

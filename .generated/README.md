@@ -195,7 +195,9 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.users* | [**verify_password**](docs/UsersApi.md#verify_password) | **POST** /users/{user_id}/verify_password | Verify the password of a user
 *Clerk::SDK.users* | [**verify_totp**](docs/UsersApi.md#verify_totp) | **POST** /users/{user_id}/verify_totp | Verify a TOTP or backup code for a user
 *Clerk::SDK.waitlist_entries* | [**create_waitlist_entry**](docs/WaitlistEntriesApi.md#create_waitlist_entry) | **POST** /waitlist_entries | Create a waitlist entry
+*Clerk::SDK.waitlist_entries* | [**invite_waitlist_entry**](docs/WaitlistEntriesApi.md#invite_waitlist_entry) | **POST** /waitlist_entries/{waitlist_entry_id}/invite | Invite a waitlist entry
 *Clerk::SDK.waitlist_entries* | [**list_waitlist_entries**](docs/WaitlistEntriesApi.md#list_waitlist_entries) | **GET** /waitlist_entries | List all waitlist entries
+*Clerk::SDK.waitlist_entries* | [**reject_waitlist_entry**](docs/WaitlistEntriesApi.md#reject_waitlist_entry) | **POST** /waitlist_entries/{waitlist_entry_id}/reject | Reject a waitlist entry
 *Clerk::SDK.webhooks* | [**create_svix_app**](docs/WebhooksApi.md#create_svix_app) | **POST** /webhooks/svix | Create a Svix app
 *Clerk::SDK.webhooks* | [**delete_svix_app**](docs/WebhooksApi.md#delete_svix_app) | **DELETE** /webhooks/svix | Delete a Svix app
 *Clerk::SDK.webhooks* | [**generate_svix_auth_url**](docs/WebhooksApi.md#generate_svix_auth_url) | **POST** /webhooks/svix_url | Create a Svix Dashboard URL
@@ -276,6 +278,7 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::Instance](docs/Instance.md)
  - [ClerkHttpClient::InstanceRestrictions](docs/InstanceRestrictions.md)
  - [ClerkHttpClient::Invitation](docs/Invitation.md)
+ - [ClerkHttpClient::InviteWaitlistEntryRequest](docs/InviteWaitlistEntryRequest.md)
  - [ClerkHttpClient::JWKS](docs/JWKS.md)
  - [ClerkHttpClient::JWKSEcdsaPrivateKey](docs/JWKSEcdsaPrivateKey.md)
  - [ClerkHttpClient::JWKSEcdsaPublicKey](docs/JWKSEcdsaPublicKey.md)

@@ -5,7 +5,9 @@ All URIs are relative to *https://api.clerk.com/v1*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_waitlist_entry**](WaitlistEntriesApi.md#create_waitlist_entry) | **POST** /waitlist_entries | Create a waitlist entry |
+| [**invite_waitlist_entry**](WaitlistEntriesApi.md#invite_waitlist_entry) | **POST** /waitlist_entries/{waitlist_entry_id}/invite | Invite a waitlist entry |
 | [**list_waitlist_entries**](WaitlistEntriesApi.md#list_waitlist_entries) | **GET** /waitlist_entries | List all waitlist entries |
+| [**reject_waitlist_entry**](WaitlistEntriesApi.md#reject_waitlist_entry) | **POST** /waitlist_entries/{waitlist_entry_id}/reject | Reject a waitlist entry |
 
 
 ## create_waitlist_entry
@@ -63,6 +65,78 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **create_waitlist_entry_request** | [**CreateWaitlistEntryRequest**](CreateWaitlistEntryRequest.md) |  | [optional] |
+
+### Return type
+
+[**WaitlistEntry**](WaitlistEntry.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## invite_waitlist_entry
+
+> <WaitlistEntry> invite_waitlist_entry(waitlist_entry_id, opts)
+
+Invite a waitlist entry
+
+Send an invite to the email address in a waitlist entry.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+waitlist_entry_id = 'waitlist_entry_id_example' # String | The ID of the waitlist entry to invite
+opts = {
+  invite_waitlist_entry_request: ClerkHttpClient::InviteWaitlistEntryRequest.new # InviteWaitlistEntryRequest | 
+}
+
+begin
+  # Invite a waitlist entry
+  result = Clerk::SDK.waitlist_entries.invite_waitlist_entry(waitlist_entry_id, opts)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.waitlist_entries->invite_waitlist_entry: #{e}"
+end
+```
+
+#### Using the `invite_waitlist_entry_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<WaitlistEntry>, Integer, Hash)> invite_waitlist_entry_with_http_info(waitlist_entry_id, opts)
+
+```ruby
+begin
+  # Invite a waitlist entry
+  data, status_code, headers = Clerk::SDK.waitlist_entries.invite_waitlist_entry_with_http_info(waitlist_entry_id, opts)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <WaitlistEntry>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.waitlist_entries->invite_waitlist_entry_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **waitlist_entry_id** | **String** | The ID of the waitlist entry to invite |  |
+| **invite_waitlist_entry_request** | [**InviteWaitlistEntryRequest**](InviteWaitlistEntryRequest.md) |  | [optional] |
 
 ### Return type
 
@@ -145,6 +219,74 @@ end
 ### Return type
 
 [**ListWaitlistEntries200Response**](ListWaitlistEntries200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## reject_waitlist_entry
+
+> <WaitlistEntry> reject_waitlist_entry(waitlist_entry_id)
+
+Reject a waitlist entry
+
+Reject a waitlist entry.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+waitlist_entry_id = 'waitlist_entry_id_example' # String | The ID of the waitlist entry to reject
+
+begin
+  # Reject a waitlist entry
+  result = Clerk::SDK.waitlist_entries.reject_waitlist_entry(waitlist_entry_id)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.waitlist_entries->reject_waitlist_entry: #{e}"
+end
+```
+
+#### Using the `reject_waitlist_entry_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<WaitlistEntry>, Integer, Hash)> reject_waitlist_entry_with_http_info(waitlist_entry_id)
+
+```ruby
+begin
+  # Reject a waitlist entry
+  data, status_code, headers = Clerk::SDK.waitlist_entries.reject_waitlist_entry_with_http_info(waitlist_entry_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <WaitlistEntry>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.waitlist_entries->reject_waitlist_entry_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **waitlist_entry_id** | **String** | The ID of the waitlist entry to reject |  |
+
+### Return type
+
+[**WaitlistEntry**](WaitlistEntry.md)
 
 ### Authorization
 

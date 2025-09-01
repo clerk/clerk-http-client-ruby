@@ -5,6 +5,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**cancel_commerce_subscription_item**](CommerceApi.md#cancel_commerce_subscription_item) | **DELETE** /commerce/subscription_items/{subscription_item_id} | Cancel a subscription item |
+| [**extend_commerce_subscription_item_free_trial**](CommerceApi.md#extend_commerce_subscription_item_free_trial) | **POST** /billing/subscription_items/{subscription_item_id}/extend_free_trial | Extend free trial for a subscription item |
 | [**get_commerce_plan_list**](CommerceApi.md#get_commerce_plan_list) | **GET** /commerce/plans | List all commerce plans |
 | [**get_commerce_subscription_item_list**](CommerceApi.md#get_commerce_subscription_item_list) | **GET** /commerce/subscription_items | List all subscription items |
 
@@ -78,6 +79,76 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## extend_commerce_subscription_item_free_trial
+
+> <CommerceSubscriptionItem> extend_commerce_subscription_item_free_trial(subscription_item_id, extend_free_trial_request)
+
+Extend free trial for a subscription item
+
+Extends the free trial period for a specific subscription item to the specified timestamp. The subscription item must be currently in a free trial period, and the plan must support free trials. The timestamp must be in the future and not more than 365 days from the end of the current trial period This operation is idempotent - repeated requests with the same timestamp will not change the trial period.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+subscription_item_id = 'subscription_item_id_example' # String | The ID of the subscription item to extend the free trial for
+extend_free_trial_request = ClerkHttpClient::ExtendFreeTrialRequest.new({extend_to: Time.parse('2026-01-08T00:00Z')}) # ExtendFreeTrialRequest | Parameters for extending the free trial
+
+begin
+  # Extend free trial for a subscription item
+  result = Clerk::SDK.commerce.extend_commerce_subscription_item_free_trial(subscription_item_id, extend_free_trial_request)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.commerce->extend_commerce_subscription_item_free_trial: #{e}"
+end
+```
+
+#### Using the `extend_commerce_subscription_item_free_trial_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<CommerceSubscriptionItem>, Integer, Hash)> extend_commerce_subscription_item_free_trial_with_http_info(subscription_item_id, extend_free_trial_request)
+
+```ruby
+begin
+  # Extend free trial for a subscription item
+  data, status_code, headers = Clerk::SDK.commerce.extend_commerce_subscription_item_free_trial_with_http_info(subscription_item_id, extend_free_trial_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <CommerceSubscriptionItem>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.commerce->extend_commerce_subscription_item_free_trial_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **subscription_item_id** | **String** | The ID of the subscription item to extend the free trial for |  |
+| **extend_free_trial_request** | [**ExtendFreeTrialRequest**](ExtendFreeTrialRequest.md) | Parameters for extending the free trial |  |
+
+### Return type
+
+[**CommerceSubscriptionItem**](CommerceSubscriptionItem.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 
@@ -184,7 +255,9 @@ opts = {
   payer_type: 'user', # String | Filter subscription items by payer type
   plan_id: 'plan_id_example', # String | Filter subscription items by plan ID
   include_free: true, # Boolean | Whether to include free plan subscription items
-  query: 'query_example' # String | Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching.
+  query: 'query_example', # String | Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching.
+  user_id: 'user_id_example', # String | Filter subscription items by user ID
+  organization_id: 'organization_id_example' # String | Filter subscription items by organization ID
 }
 
 begin
@@ -226,6 +299,8 @@ end
 | **plan_id** | **String** | Filter subscription items by plan ID | [optional] |
 | **include_free** | **Boolean** | Whether to include free plan subscription items | [optional][default to false] |
 | **query** | **String** | Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching. | [optional] |
+| **user_id** | **String** | Filter subscription items by user ID | [optional] |
+| **organization_id** | **String** | Filter subscription items by organization ID | [optional] |
 
 ### Return type
 

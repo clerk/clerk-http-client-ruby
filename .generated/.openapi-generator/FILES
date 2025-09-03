@@ -75,6 +75,7 @@ docs/EmailAddress.md
 docs/EmailAddressVerification.md
 docs/EmailAddressesApi.md
 docs/EmailSMSTemplatesApi.md
+docs/ExtendFreeTrialRequest.md
 docs/ExternalAccountWithVerification.md
 docs/ExternalAccountWithVerificationVerification.md
 docs/FeatureResponse.md
@@ -155,6 +156,7 @@ docs/RefreshSessionRequest.md
 docs/RevokeInvitation200Response.md
 docs/RevokeM2MTokenRequest.md
 docs/RevokeOrganizationInvitationRequest.md
+docs/RotateMachineSecretKeyRequest.md
 docs/SAMLAccount.md
 docs/SAMLAccountSamlConnection.md
 docs/SAMLAccountVerification.md
@@ -331,6 +333,7 @@ lib/clerk-http-client/models/domain.rb
 lib/clerk-http-client/models/domains.rb
 lib/clerk-http-client/models/email_address.rb
 lib/clerk-http-client/models/email_address_verification.rb
+lib/clerk-http-client/models/extend_free_trial_request.rb
 lib/clerk-http-client/models/external_account_with_verification.rb
 lib/clerk-http-client/models/external_account_with_verification_verification.rb
 lib/clerk-http-client/models/feature_response.rb
@@ -395,6 +398,7 @@ lib/clerk-http-client/models/refresh_session_request.rb
 lib/clerk-http-client/models/revoke_invitation200_response.rb
 lib/clerk-http-client/models/revoke_m2_m_token_request.rb
 lib/clerk-http-client/models/revoke_organization_invitation_request.rb
+lib/clerk-http-client/models/rotate_machine_secret_key_request.rb
 lib/clerk-http-client/models/saml_account.rb
 lib/clerk-http-client/models/saml_account_saml_connection.rb
 lib/clerk-http-client/models/saml_account_verification.rb
@@ -464,5 +468,6 @@ lib/clerk-http-client/models/verify_totp_request.rb
 lib/clerk-http-client/models/waitlist_entry.rb
 lib/clerk-http-client/models/web3_wallet.rb
 lib/clerk-http-client/models/web3_wallet_verification.rb
-spec/models/invite_waitlist_entry_request_spec.rb
+spec/models/extend_free_trial_request_spec.rb
+spec/models/rotate_machine_secret_key_request_spec.rb
 spec/spec_helper.rb

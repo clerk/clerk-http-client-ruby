@@ -11,6 +11,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | [**get_machine**](MachinesApi.md#get_machine) | **GET** /machines/{machine_id} | Retrieve a machine |
 | [**get_machine_secret_key**](MachinesApi.md#get_machine_secret_key) | **GET** /machines/{machine_id}/secret_key | Retrieve a machine secret key |
 | [**list_machines**](MachinesApi.md#list_machines) | **GET** /machines | Get a list of machines for an instance |
+| [**rotate_machine_secret_key**](MachinesApi.md#rotate_machine_secret_key) | **POST** /machines/{machine_id}/secret_key/rotate | Rotate a machine&#39;s secret key |
 | [**update_machine**](MachinesApi.md#update_machine) | **PATCH** /machines/{machine_id} | Update a machine |
 
 
@@ -503,6 +504,76 @@ end
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## rotate_machine_secret_key
+
+> <GetMachineSecretKey200Response> rotate_machine_secret_key(machine_id, rotate_machine_secret_key_request)
+
+Rotate a machine's secret key
+
+Rotates the machine's secret key. When the secret key is rotated, make sure to update it in your machine/application. The previous secret key will remain valid for the duration specified by the previous_token_ttl parameter.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+machine_id = 'machine_id_example' # String | The ID of the machine to rotate the secret key for
+rotate_machine_secret_key_request = ClerkHttpClient::RotateMachineSecretKeyRequest.new({previous_token_ttl: 37}) # RotateMachineSecretKeyRequest | 
+
+begin
+  # Rotate a machine's secret key
+  result = Clerk::SDK.machines.rotate_machine_secret_key(machine_id, rotate_machine_secret_key_request)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.machines->rotate_machine_secret_key: #{e}"
+end
+```
+
+#### Using the `rotate_machine_secret_key_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<GetMachineSecretKey200Response>, Integer, Hash)> rotate_machine_secret_key_with_http_info(machine_id, rotate_machine_secret_key_request)
+
+```ruby
+begin
+  # Rotate a machine's secret key
+  data, status_code, headers = Clerk::SDK.machines.rotate_machine_secret_key_with_http_info(machine_id, rotate_machine_secret_key_request)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <GetMachineSecretKey200Response>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.machines->rotate_machine_secret_key_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **machine_id** | **String** | The ID of the machine to rotate the secret key for |  |
+| **rotate_machine_secret_key_request** | [**RotateMachineSecretKeyRequest**](RotateMachineSecretKeyRequest.md) |  |  |
+
+### Return type
+
+[**GetMachineSecretKey200Response**](GetMachineSecretKey200Response.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

@@ -5,6 +5,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | Method | HTTP request | Description |
 | ------ | ------------ | ----------- |
 | [**create_waitlist_entry**](WaitlistEntriesApi.md#create_waitlist_entry) | **POST** /waitlist_entries | Create a waitlist entry |
+| [**delete_waitlist_entry**](WaitlistEntriesApi.md#delete_waitlist_entry) | **DELETE** /waitlist_entries/{waitlist_entry_id} | Delete a pending waitlist entry |
 | [**invite_waitlist_entry**](WaitlistEntriesApi.md#invite_waitlist_entry) | **POST** /waitlist_entries/{waitlist_entry_id}/invite | Invite a waitlist entry |
 | [**list_waitlist_entries**](WaitlistEntriesApi.md#list_waitlist_entries) | **GET** /waitlist_entries | List all waitlist entries |
 | [**reject_waitlist_entry**](WaitlistEntriesApi.md#reject_waitlist_entry) | **POST** /waitlist_entries/{waitlist_entry_id}/reject | Reject a waitlist entry |
@@ -77,6 +78,74 @@ end
 ### HTTP request headers
 
 - **Content-Type**: application/json
+- **Accept**: application/json
+
+
+## delete_waitlist_entry
+
+> <DeletedObject> delete_waitlist_entry(waitlist_entry_id)
+
+Delete a pending waitlist entry
+
+Delete a pending waitlist entry.
+
+### Examples
+
+```ruby
+require 'time'
+require 'clerk'
+
+## Setup
+Clerk.configure do |config|
+  config.secret_key = 'sk_test_xxxxxxxxx'
+end
+
+waitlist_entry_id = 'waitlist_entry_id_example' # String | The ID of the waitlist entry to delete
+
+begin
+  # Delete a pending waitlist entry
+  result = Clerk::SDK.waitlist_entries.delete_waitlist_entry(waitlist_entry_id)
+  p result
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.waitlist_entries->delete_waitlist_entry: #{e}"
+end
+```
+
+#### Using the `delete_waitlist_entry_with_http_info variant
+
+This returns an Array which contains the response data, status code and headers.
+
+> <Array(<DeletedObject>, Integer, Hash)> delete_waitlist_entry_with_http_info(waitlist_entry_id)
+
+```ruby
+begin
+  # Delete a pending waitlist entry
+  data, status_code, headers = Clerk::SDK.waitlist_entries.delete_waitlist_entry_with_http_info(waitlist_entry_id)
+  p status_code # => 2xx
+  p headers # => { ... }
+  p data # => <DeletedObject>
+rescue ClerkHttpClient::ApiError => e
+  puts "Error when calling Clerk::SDK.waitlist_entries->delete_waitlist_entry_with_http_info: #{e}"
+end
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+| ---- | ---- | ----------- | ----- |
+| **waitlist_entry_id** | **String** | The ID of the waitlist entry to delete |  |
+
+### Return type
+
+[**DeletedObject**](DeletedObject.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json
 
 

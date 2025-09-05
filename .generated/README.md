@@ -64,6 +64,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.clients* | [**get_client_list**](docs/ClientsApi.md#get_client_list) | **GET** /clients | List all clients
 *Clerk::SDK.clients* | [**verify_client**](docs/ClientsApi.md#verify_client) | **POST** /clients/verify | Verify a client
 *Clerk::SDK.commerce* | [**cancel_commerce_subscription_item**](docs/CommerceApi.md#cancel_commerce_subscription_item) | **DELETE** /commerce/subscription_items/{subscription_item_id} | Cancel a subscription item
+*Clerk::SDK.commerce* | [**extend_commerce_subscription_item_free_trial**](docs/CommerceApi.md#extend_commerce_subscription_item_free_trial) | **POST** /billing/subscription_items/{subscription_item_id}/extend_free_trial | Extend free trial for a subscription item
 *Clerk::SDK.commerce* | [**get_commerce_plan_list**](docs/CommerceApi.md#get_commerce_plan_list) | **GET** /commerce/plans | List all commerce plans
 *Clerk::SDK.commerce* | [**get_commerce_subscription_item_list**](docs/CommerceApi.md#get_commerce_subscription_item_list) | **GET** /commerce/subscription_items | List all subscription items
 *Clerk::SDK.domains* | [**add_domain**](docs/DomainsApi.md#add_domain) | **POST** /domains | Add a domain
@@ -105,6 +106,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.machines* | [**get_machine**](docs/MachinesApi.md#get_machine) | **GET** /machines/{machine_id} | Retrieve a machine
 *Clerk::SDK.machines* | [**get_machine_secret_key**](docs/MachinesApi.md#get_machine_secret_key) | **GET** /machines/{machine_id}/secret_key | Retrieve a machine secret key
 *Clerk::SDK.machines* | [**list_machines**](docs/MachinesApi.md#list_machines) | **GET** /machines | Get a list of machines for an instance
+*Clerk::SDK.machines* | [**rotate_machine_secret_key**](docs/MachinesApi.md#rotate_machine_secret_key) | **POST** /machines/{machine_id}/secret_key/rotate | Rotate a machine's secret key
 *Clerk::SDK.machines* | [**update_machine**](docs/MachinesApi.md#update_machine) | **PATCH** /machines/{machine_id} | Update a machine
 *Clerk::SDK.miscellaneous* | [**get_public_interstitial**](docs/MiscellaneousApi.md#get_public_interstitial) | **GET** /public/interstitial | Returns the markup for the interstitial page
 *Clerk::SDK.oauth_access_tokens* | [**verify_oauth_access_token**](docs/OAuthAccessTokensApi.md#verify_oauth_access_token) | **POST** /oauth_applications/access_tokens/verify | Verify an OAuth Access Token
@@ -195,6 +197,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.users* | [**verify_password**](docs/UsersApi.md#verify_password) | **POST** /users/{user_id}/verify_password | Verify the password of a user
 *Clerk::SDK.users* | [**verify_totp**](docs/UsersApi.md#verify_totp) | **POST** /users/{user_id}/verify_totp | Verify a TOTP or backup code for a user
 *Clerk::SDK.waitlist_entries* | [**create_waitlist_entry**](docs/WaitlistEntriesApi.md#create_waitlist_entry) | **POST** /waitlist_entries | Create a waitlist entry
+*Clerk::SDK.waitlist_entries* | [**delete_waitlist_entry**](docs/WaitlistEntriesApi.md#delete_waitlist_entry) | **DELETE** /waitlist_entries/{waitlist_entry_id} | Delete a pending waitlist entry
 *Clerk::SDK.waitlist_entries* | [**invite_waitlist_entry**](docs/WaitlistEntriesApi.md#invite_waitlist_entry) | **POST** /waitlist_entries/{waitlist_entry_id}/invite | Invite a waitlist entry
 *Clerk::SDK.waitlist_entries* | [**list_waitlist_entries**](docs/WaitlistEntriesApi.md#list_waitlist_entries) | **GET** /waitlist_entries | List all waitlist entries
 *Clerk::SDK.waitlist_entries* | [**reject_waitlist_entry**](docs/WaitlistEntriesApi.md#reject_waitlist_entry) | **POST** /waitlist_entries/{waitlist_entry_id}/reject | Reject a waitlist entry
@@ -264,6 +267,7 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::Domains](docs/Domains.md)
  - [ClerkHttpClient::EmailAddress](docs/EmailAddress.md)
  - [ClerkHttpClient::EmailAddressVerification](docs/EmailAddressVerification.md)
+ - [ClerkHttpClient::ExtendFreeTrialRequest](docs/ExtendFreeTrialRequest.md)
  - [ClerkHttpClient::ExternalAccountWithVerification](docs/ExternalAccountWithVerification.md)
  - [ClerkHttpClient::ExternalAccountWithVerificationVerification](docs/ExternalAccountWithVerificationVerification.md)
  - [ClerkHttpClient::FeatureResponse](docs/FeatureResponse.md)
@@ -328,6 +332,7 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::RevokeInvitation200Response](docs/RevokeInvitation200Response.md)
  - [ClerkHttpClient::RevokeM2MTokenRequest](docs/RevokeM2MTokenRequest.md)
  - [ClerkHttpClient::RevokeOrganizationInvitationRequest](docs/RevokeOrganizationInvitationRequest.md)
+ - [ClerkHttpClient::RotateMachineSecretKeyRequest](docs/RotateMachineSecretKeyRequest.md)
  - [ClerkHttpClient::SAMLAccount](docs/SAMLAccount.md)
  - [ClerkHttpClient::SAMLAccountSamlConnection](docs/SAMLAccountSamlConnection.md)
  - [ClerkHttpClient::SAMLAccountVerification](docs/SAMLAccountVerification.md)

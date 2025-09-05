@@ -85,6 +85,71 @@ module ClerkHttpClient
       return data, status_code, headers
     end
 
+    # Delete a pending waitlist entry
+    # Delete a pending waitlist entry.
+    # @param waitlist_entry_id [String] The ID of the waitlist entry to delete
+    # @param [Hash] opts the optional parameters
+    # @return [DeletedObject]
+
+    def delete_waitlist_entry(waitlist_entry_id, opts = {})
+      data, _status_code, _headers = delete_waitlist_entry_with_http_info(waitlist_entry_id, opts)
+      data
+    end
+
+    # Delete a pending waitlist entry
+    # Delete a pending waitlist entry.
+    # @param waitlist_entry_id [String] The ID of the waitlist entry to delete
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(DeletedObject, Integer, Hash)>] DeletedObject data, response status code and response headers
+    # DELETE 
+    def delete_waitlist_entry_with_http_info(waitlist_entry_id, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: WaitlistEntriesApi.delete_waitlist_entry ...'
+      end
+      # verify the required parameter 'waitlist_entry_id' is set
+      if @api_client.config.client_side_validation && waitlist_entry_id.nil?
+        fail ArgumentError, "Missing the required parameter 'waitlist_entry_id' when calling WaitlistEntriesApi.delete_waitlist_entry"
+      end
+      # resource path
+      local_var_path = '/waitlist_entries/{waitlist_entry_id}'.sub('{' + 'waitlist_entry_id' + '}', CGI.escape(waitlist_entry_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body]
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'DeletedObject'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"WaitlistEntriesApi.delete_waitlist_entry",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:DELETE, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: WaitlistEntriesApi#delete_waitlist_entry\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Invite a waitlist entry
     # Send an invite to the email address in a waitlist entry.
     # @param waitlist_entry_id [String] The ID of the waitlist entry to invite

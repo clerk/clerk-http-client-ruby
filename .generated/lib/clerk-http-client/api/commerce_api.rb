@@ -87,6 +87,82 @@ module ClerkHttpClient
       return data, status_code, headers
     end
 
+    # Extend free trial for a subscription item
+    # Extends the free trial period for a specific subscription item to the specified timestamp. The subscription item must be currently in a free trial period, and the plan must support free trials. The timestamp must be in the future and not more than 365 days from the end of the current trial period This operation is idempotent - repeated requests with the same timestamp will not change the trial period.
+    # @param subscription_item_id [String] The ID of the subscription item to extend the free trial for
+    # @param extend_free_trial_request [ExtendFreeTrialRequest] Parameters for extending the free trial
+    # @param [Hash] opts the optional parameters
+    # @return [CommerceSubscriptionItem]
+
+    def extend_commerce_subscription_item_free_trial(subscription_item_id, extend_free_trial_request, opts = {})
+      data, _status_code, _headers = extend_commerce_subscription_item_free_trial_with_http_info(subscription_item_id, extend_free_trial_request, opts)
+      data
+    end
+
+    # Extend free trial for a subscription item
+    # Extends the free trial period for a specific subscription item to the specified timestamp. The subscription item must be currently in a free trial period, and the plan must support free trials. The timestamp must be in the future and not more than 365 days from the end of the current trial period This operation is idempotent - repeated requests with the same timestamp will not change the trial period.
+    # @param subscription_item_id [String] The ID of the subscription item to extend the free trial for
+    # @param extend_free_trial_request [ExtendFreeTrialRequest] Parameters for extending the free trial
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(CommerceSubscriptionItem, Integer, Hash)>] CommerceSubscriptionItem data, response status code and response headers
+    # POST 
+    def extend_commerce_subscription_item_free_trial_with_http_info(subscription_item_id, extend_free_trial_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: CommerceApi.extend_commerce_subscription_item_free_trial ...'
+      end
+      # verify the required parameter 'subscription_item_id' is set
+      if @api_client.config.client_side_validation && subscription_item_id.nil?
+        fail ArgumentError, "Missing the required parameter 'subscription_item_id' when calling CommerceApi.extend_commerce_subscription_item_free_trial"
+      end
+      # verify the required parameter 'extend_free_trial_request' is set
+      if @api_client.config.client_side_validation && extend_free_trial_request.nil?
+        fail ArgumentError, "Missing the required parameter 'extend_free_trial_request' when calling CommerceApi.extend_commerce_subscription_item_free_trial"
+      end
+      # resource path
+      local_var_path = '/billing/subscription_items/{subscription_item_id}/extend_free_trial'.sub('{' + 'subscription_item_id' + '}', CGI.escape(subscription_item_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(extend_free_trial_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'CommerceSubscriptionItem'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"CommerceApi.extend_commerce_subscription_item_free_trial",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: CommerceApi#extend_commerce_subscription_item_free_trial\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # List all commerce plans
     # Returns a list of all commerce plans for the instance. The plans are returned sorted by creation date, with the newest plans appearing first. This includes both free and paid plans. Pagination is supported.
     # @param [Hash] opts the optional parameters
@@ -185,6 +261,8 @@ module ClerkHttpClient
     # @option opts [String] :plan_id Filter subscription items by plan ID
     # @option opts [Boolean] :include_free Whether to include free plan subscription items (default to false)
     # @option opts [String] :query Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching.
+    # @option opts [String] :user_id Filter subscription items by user ID
+    # @option opts [String] :organization_id Filter subscription items by organization ID
     # @return [PaginatedCommerceSubscriptionItemResponse]
 
     def get_commerce_subscription_item_list(opts = {})
@@ -203,6 +281,8 @@ module ClerkHttpClient
     # @option opts [String] :plan_id Filter subscription items by plan ID
     # @option opts [Boolean] :include_free Whether to include free plan subscription items (default to false)
     # @option opts [String] :query Search query to filter subscription items by email, user first name, user last name, or organization name. Supports partial matching.
+    # @option opts [String] :user_id Filter subscription items by user ID
+    # @option opts [String] :organization_id Filter subscription items by organization ID
     # @return [Array<(PaginatedCommerceSubscriptionItemResponse, Integer, Hash)>] PaginatedCommerceSubscriptionItemResponse data, response status code and response headers
     # GET 
     def get_commerce_subscription_item_list_with_http_info(opts = {})
@@ -242,6 +322,8 @@ module ClerkHttpClient
       query_params[:'plan_id'] = opts[:'plan_id'] if !opts[:'plan_id'].nil?
       query_params[:'include_free'] = opts[:'include_free'] if !opts[:'include_free'].nil?
       query_params[:'query'] = opts[:'query'] if !opts[:'query'].nil?
+      query_params[:'user_id'] = opts[:'user_id'] if !opts[:'user_id'].nil?
+      query_params[:'organization_id'] = opts[:'organization_id'] if !opts[:'organization_id'].nil?
 
       # header parameters
       header_params = opts[:header_params] || {}

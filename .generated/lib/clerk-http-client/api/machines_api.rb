@@ -506,6 +506,82 @@ module ClerkHttpClient
       return data, status_code, headers
     end
 
+    # Rotate a machine's secret key
+    # Rotates the machine's secret key. When the secret key is rotated, make sure to update it in your machine/application. The previous secret key will remain valid for the duration specified by the previous_token_ttl parameter.
+    # @param machine_id [String] The ID of the machine to rotate the secret key for
+    # @param rotate_machine_secret_key_request [RotateMachineSecretKeyRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [GetMachineSecretKey200Response]
+
+    def rotate_machine_secret_key(machine_id, rotate_machine_secret_key_request, opts = {})
+      data, _status_code, _headers = rotate_machine_secret_key_with_http_info(machine_id, rotate_machine_secret_key_request, opts)
+      data
+    end
+
+    # Rotate a machine&#39;s secret key
+    # Rotates the machine&#39;s secret key. When the secret key is rotated, make sure to update it in your machine/application. The previous secret key will remain valid for the duration specified by the previous_token_ttl parameter.
+    # @param machine_id [String] The ID of the machine to rotate the secret key for
+    # @param rotate_machine_secret_key_request [RotateMachineSecretKeyRequest] 
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(GetMachineSecretKey200Response, Integer, Hash)>] GetMachineSecretKey200Response data, response status code and response headers
+    # POST 
+    def rotate_machine_secret_key_with_http_info(machine_id, rotate_machine_secret_key_request, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: MachinesApi.rotate_machine_secret_key ...'
+      end
+      # verify the required parameter 'machine_id' is set
+      if @api_client.config.client_side_validation && machine_id.nil?
+        fail ArgumentError, "Missing the required parameter 'machine_id' when calling MachinesApi.rotate_machine_secret_key"
+      end
+      # verify the required parameter 'rotate_machine_secret_key_request' is set
+      if @api_client.config.client_side_validation && rotate_machine_secret_key_request.nil?
+        fail ArgumentError, "Missing the required parameter 'rotate_machine_secret_key_request' when calling MachinesApi.rotate_machine_secret_key"
+      end
+      # resource path
+      local_var_path = '/machines/{machine_id}/secret_key/rotate'.sub('{' + 'machine_id' + '}', CGI.escape(machine_id.to_s))
+
+      # query parameters
+      query_params = opts[:query_params] || {}
+
+      # header parameters
+      header_params = opts[:header_params] || {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json']) unless header_params['Accept']
+      # HTTP header 'Content-Type'
+      content_type = @api_client.select_header_content_type(['application/json'])
+      if !content_type.nil?
+          header_params['Content-Type'] = content_type
+      end
+
+      # form parameters
+      form_params = opts[:form_params] || {}
+
+      # http body (model)
+      post_body = opts[:debug_body] || @api_client.object_to_http_body(rotate_machine_secret_key_request)
+
+      # return_type
+      return_type = opts[:debug_return_type] || 'GetMachineSecretKey200Response'
+
+      # auth_names
+      auth_names = opts[:debug_auth_names] || ['bearerAuth']
+
+      new_options = opts.merge(
+        :operation => :"MachinesApi.rotate_machine_secret_key",
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => return_type
+      )
+
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path, new_options)
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MachinesApi#rotate_machine_secret_key\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
     # Update a machine
     # Updates an existing machine. Only the provided fields will be updated.
     # @param machine_id [String] The ID of the machine to update

@@ -59,6 +59,9 @@ module ClerkHttpClient
 
     attr_accessor :disable_additional_identifications
 
+    # Enable or deactivate ForceAuthn
+    attr_accessor :force_authn
+
     # Unix timestamp of creation. 
     attr_accessor :created_at
 
@@ -90,6 +93,7 @@ module ClerkHttpClient
         :'allow_subdomains' => :'allow_subdomains',
         :'allow_idp_initiated' => :'allow_idp_initiated',
         :'disable_additional_identifications' => :'disable_additional_identifications',
+        :'force_authn' => :'force_authn',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
       }
@@ -125,6 +129,7 @@ module ClerkHttpClient
         :'allow_subdomains' => :'Boolean',
         :'allow_idp_initiated' => :'Boolean',
         :'disable_additional_identifications' => :'Boolean',
+        :'force_authn' => :'Boolean',
         :'created_at' => :'Integer',
         :'updated_at' => :'Integer'
       }
@@ -263,14 +268,26 @@ module ClerkHttpClient
 
       if attributes.key?(:'allow_subdomains')
         self.allow_subdomains = attributes[:'allow_subdomains']
+      else
+        self.allow_subdomains = nil
       end
 
       if attributes.key?(:'allow_idp_initiated')
         self.allow_idp_initiated = attributes[:'allow_idp_initiated']
+      else
+        self.allow_idp_initiated = nil
       end
 
       if attributes.key?(:'disable_additional_identifications')
         self.disable_additional_identifications = attributes[:'disable_additional_identifications']
+      else
+        self.disable_additional_identifications = nil
+      end
+
+      if attributes.key?(:'force_authn')
+        self.force_authn = attributes[:'force_authn']
+      else
+        self.force_authn = nil
       end
 
       if attributes.key?(:'created_at')
@@ -331,6 +348,22 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "sync_user_attributes", sync_user_attributes cannot be nil.')
       end
 
+      if @allow_subdomains.nil?
+        invalid_properties.push('invalid value for "allow_subdomains", allow_subdomains cannot be nil.')
+      end
+
+      if @allow_idp_initiated.nil?
+        invalid_properties.push('invalid value for "allow_idp_initiated", allow_idp_initiated cannot be nil.')
+      end
+
+      if @disable_additional_identifications.nil?
+        invalid_properties.push('invalid value for "disable_additional_identifications", disable_additional_identifications cannot be nil.')
+      end
+
+      if @force_authn.nil?
+        invalid_properties.push('invalid value for "force_authn", force_authn cannot be nil.')
+      end
+
       if @created_at.nil?
         invalid_properties.push('invalid value for "created_at", created_at cannot be nil.')
       end
@@ -358,6 +391,10 @@ module ClerkHttpClient
       return false if @provider.nil?
       return false if @user_count.nil?
       return false if @sync_user_attributes.nil?
+      return false if @allow_subdomains.nil?
+      return false if @allow_idp_initiated.nil?
+      return false if @disable_additional_identifications.nil?
+      return false if @force_authn.nil?
       return false if @created_at.nil?
       return false if @updated_at.nil?
       true
@@ -400,6 +437,7 @@ module ClerkHttpClient
           allow_subdomains == o.allow_subdomains &&
           allow_idp_initiated == o.allow_idp_initiated &&
           disable_additional_identifications == o.disable_additional_identifications &&
+          force_authn == o.force_authn &&
           created_at == o.created_at &&
           updated_at == o.updated_at
     end
@@ -413,7 +451,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, name, domain, domains, idp_entity_id, idp_sso_url, idp_certificate, idp_metadata_url, idp_metadata, acs_url, sp_entity_id, sp_metadata_url, organization_id, attribute_mapping, active, provider, user_count, sync_user_attributes, allow_subdomains, allow_idp_initiated, disable_additional_identifications, created_at, updated_at].hash
+      [object, id, name, domain, domains, idp_entity_id, idp_sso_url, idp_certificate, idp_metadata_url, idp_metadata, acs_url, sp_entity_id, sp_metadata_url, organization_id, attribute_mapping, active, provider, user_count, sync_user_attributes, allow_subdomains, allow_idp_initiated, disable_additional_identifications, force_authn, created_at, updated_at].hash
     end
 
     # Builds the object from hash

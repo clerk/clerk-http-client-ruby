@@ -23,13 +23,16 @@ module ClerkHttpClient
 
     attr_accessor :deleted
 
+    attr_accessor :external_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'object' => :'object',
         :'id' => :'id',
         :'slug' => :'slug',
-        :'deleted' => :'deleted'
+        :'deleted' => :'deleted',
+        :'external_id' => :'external_id'
       }
     end
 
@@ -44,7 +47,8 @@ module ClerkHttpClient
         :'object' => :'String',
         :'id' => :'String',
         :'slug' => :'String',
-        :'deleted' => :'Boolean'
+        :'deleted' => :'Boolean',
+        :'external_id' => :'String'
       }
     end
 
@@ -88,6 +92,10 @@ module ClerkHttpClient
       else
         self.deleted = nil
       end
+
+      if attributes.key?(:'external_id')
+        self.external_id = attributes[:'external_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -123,7 +131,8 @@ module ClerkHttpClient
           object == o.object &&
           id == o.id &&
           slug == o.slug &&
-          deleted == o.deleted
+          deleted == o.deleted &&
+          external_id == o.external_id
     end
 
     # @see the `==` method
@@ -135,7 +144,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, slug, deleted].hash
+      [object, id, slug, deleted, external_id].hash
     end
 
     # Builds the object from hash

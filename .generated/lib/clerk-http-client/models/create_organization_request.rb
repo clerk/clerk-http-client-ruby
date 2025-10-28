@@ -27,7 +27,7 @@ module ClerkHttpClient
     # Metadata saved on the organization, read-only from the Frontend API and fully accessible (read/write) from the Backend API
     attr_accessor :public_metadata
 
-    # A slug for the new organization. Can contain only lowercase alphanumeric characters and the dash \"-\". Must be unique for the instance.
+    # A slug for the new organization. Can contain only lowercase alphanumeric characters and the dash \"-\". Must be unique for the instance. This field should only be included when slugs are enabled in the organization settings, refer to our [documentation](https://clerk.com/docs/guides/organizations/overview#organization-slugs).
     attr_accessor :slug
 
     # The maximum number of memberships allowed for this organization

@@ -34,6 +34,8 @@ module ClerkHttpClient
 
     attr_accessor :last_name
 
+    attr_accessor :locale
+
     attr_accessor :profile_image_url
 
     attr_accessor :image_url
@@ -142,6 +144,7 @@ module ClerkHttpClient
         :'username' => :'username',
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
+        :'locale' => :'locale',
         :'profile_image_url' => :'profile_image_url',
         :'image_url' => :'image_url',
         :'has_image' => :'has_image',
@@ -192,6 +195,7 @@ module ClerkHttpClient
         :'username' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'locale' => :'String',
         :'profile_image_url' => :'String',
         :'image_url' => :'String',
         :'has_image' => :'Boolean',
@@ -235,6 +239,7 @@ module ClerkHttpClient
         :'username',
         :'first_name',
         :'last_name',
+        :'locale',
         :'private_metadata',
         :'mfa_enabled_at',
         :'mfa_disabled_at',
@@ -314,6 +319,10 @@ module ClerkHttpClient
         self.last_name = attributes[:'last_name']
       else
         self.last_name = nil
+      end
+
+      if attributes.key?(:'locale')
+        self.locale = attributes[:'locale']
       end
 
       if attributes.key?(:'profile_image_url')
@@ -646,6 +655,7 @@ module ClerkHttpClient
           username == o.username &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          locale == o.locale &&
           profile_image_url == o.profile_image_url &&
           image_url == o.image_url &&
           has_image == o.has_image &&
@@ -687,7 +697,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, object, external_id, primary_email_address_id, primary_phone_number_id, primary_web3_wallet_id, username, first_name, last_name, profile_image_url, image_url, has_image, public_metadata, private_metadata, unsafe_metadata, email_addresses, phone_numbers, web3_wallets, passkeys, password_enabled, two_factor_enabled, totp_enabled, backup_code_enabled, mfa_enabled_at, mfa_disabled_at, external_accounts, saml_accounts, last_sign_in_at, banned, locked, lockout_expires_in_seconds, verification_attempts_remaining, updated_at, created_at, delete_self_enabled, create_organization_enabled, create_organizations_limit, last_active_at, legal_accepted_at].hash
+      [id, object, external_id, primary_email_address_id, primary_phone_number_id, primary_web3_wallet_id, username, first_name, last_name, locale, profile_image_url, image_url, has_image, public_metadata, private_metadata, unsafe_metadata, email_addresses, phone_numbers, web3_wallets, passkeys, password_enabled, two_factor_enabled, totp_enabled, backup_code_enabled, mfa_enabled_at, mfa_disabled_at, external_accounts, saml_accounts, last_sign_in_at, banned, locked, lockout_expires_in_seconds, verification_attempts_remaining, updated_at, created_at, delete_self_enabled, create_organization_enabled, create_organizations_limit, last_active_at, legal_accepted_at].hash
     end
 
     # Builds the object from hash

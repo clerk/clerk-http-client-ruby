@@ -23,16 +23,13 @@ module ClerkHttpClient
 
     attr_accessor :meta
 
-    attr_accessor :clerk_trace_id
-
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'message' => :'message',
         :'long_message' => :'long_message',
         :'code' => :'code',
-        :'meta' => :'meta',
-        :'clerk_trace_id' => :'clerk_trace_id'
+        :'meta' => :'meta'
       }
     end
 
@@ -47,8 +44,7 @@ module ClerkHttpClient
         :'message' => :'String',
         :'long_message' => :'String',
         :'code' => :'String',
-        :'meta' => :'Object',
-        :'clerk_trace_id' => :'String'
+        :'meta' => :'Object'
       }
     end
 
@@ -94,10 +90,6 @@ module ClerkHttpClient
       if attributes.key?(:'meta')
         self.meta = attributes[:'meta']
       end
-
-      if attributes.key?(:'clerk_trace_id')
-        self.clerk_trace_id = attributes[:'clerk_trace_id']
-      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -138,8 +130,7 @@ module ClerkHttpClient
           message == o.message &&
           long_message == o.long_message &&
           code == o.code &&
-          meta == o.meta &&
-          clerk_trace_id == o.clerk_trace_id
+          meta == o.meta
     end
 
     # @see the `==` method
@@ -151,7 +142,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [message, long_message, code, meta, clerk_trace_id].hash
+      [message, long_message, code, meta].hash
     end
 
     # Builds the object from hash

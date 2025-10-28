@@ -18,7 +18,7 @@ module ClerkHttpClient
     # String representing the object's type. Objects of the same type share the same value. 
     attr_accessor :object
 
-    # String representing the encoded jwt value. 
+    # String representing the encoded JSON Web Token (JWT) value. 
     attr_accessor :jwt
 
     class EnumAttributeValidator

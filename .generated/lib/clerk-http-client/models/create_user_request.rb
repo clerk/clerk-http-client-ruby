@@ -24,6 +24,9 @@ module ClerkHttpClient
     # The last name to assign to the user
     attr_accessor :last_name
 
+    # The locale to assign to the user (e.g., \"en-US\", \"fr-FR\")
+    attr_accessor :locale
+
     # Email addresses to add to the user. Must be unique across your instance. The first email address will be set as the user's primary email address.
     attr_accessor :email_address
 
@@ -90,6 +93,7 @@ module ClerkHttpClient
         :'external_id' => :'external_id',
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
+        :'locale' => :'locale',
         :'email_address' => :'email_address',
         :'phone_number' => :'phone_number',
         :'web3_wallet' => :'web3_wallet',
@@ -124,6 +128,7 @@ module ClerkHttpClient
         :'external_id' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'locale' => :'String',
         :'email_address' => :'Array<String>',
         :'phone_number' => :'Array<String>',
         :'web3_wallet' => :'Array<String>',
@@ -153,6 +158,7 @@ module ClerkHttpClient
         :'external_id',
         :'first_name',
         :'last_name',
+        :'locale',
         :'username',
         :'password',
         :'password_digest',
@@ -193,6 +199,10 @@ module ClerkHttpClient
 
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
+      end
+
+      if attributes.key?(:'locale')
+        self.locale = attributes[:'locale']
       end
 
       if attributes.key?(:'email_address')
@@ -313,6 +323,7 @@ module ClerkHttpClient
           external_id == o.external_id &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          locale == o.locale &&
           email_address == o.email_address &&
           phone_number == o.phone_number &&
           web3_wallet == o.web3_wallet &&
@@ -344,7 +355,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [external_id, first_name, last_name, email_address, phone_number, web3_wallet, username, password, password_digest, password_hasher, skip_password_checks, skip_password_requirement, totp_secret, backup_codes, public_metadata, private_metadata, unsafe_metadata, delete_self_enabled, legal_accepted_at, skip_legal_checks, create_organization_enabled, create_organizations_limit, created_at].hash
+      [external_id, first_name, last_name, locale, email_address, phone_number, web3_wallet, username, password, password_digest, password_hasher, skip_password_checks, skip_password_requirement, totp_secret, backup_codes, public_metadata, private_metadata, unsafe_metadata, delete_self_enabled, legal_accepted_at, skip_legal_checks, create_organization_enabled, create_organizations_limit, created_at].hash
     end
 
     # Builds the object from hash

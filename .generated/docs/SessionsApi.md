@@ -6,7 +6,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 | ------ | ------------ | ----------- |
 | [**create_session**](SessionsApi.md#create_session) | **POST** /sessions | Create a new active session |
 | [**create_session_token**](SessionsApi.md#create_session_token) | **POST** /sessions/{session_id}/tokens | Create a session token |
-| [**create_session_token_from_template**](SessionsApi.md#create_session_token_from_template) | **POST** /sessions/{session_id}/tokens/{template_name} | Create a session token from a jwt template |
+| [**create_session_token_from_template**](SessionsApi.md#create_session_token_from_template) | **POST** /sessions/{session_id}/tokens/{template_name} | Create a session token from a JWT template |
 | [**get_session**](SessionsApi.md#get_session) | **GET** /sessions/{session_id} | Retrieve a session |
 | [**get_session_list**](SessionsApi.md#get_session_list) | **GET** /sessions | List all sessions |
 | [**refresh_session**](SessionsApi.md#refresh_session) | **POST** /sessions/{session_id}/refresh | Refresh a session |
@@ -160,9 +160,9 @@ end
 
 > <CreateSessionToken200Response> create_session_token_from_template(session_id, template_name, opts)
 
-Create a session token from a jwt template
+Create a session token from a JWT template
 
-Creates a JSON Web Token(JWT) based on a session and a JWT Template name defined for your instance
+Creates a JSON Web Token (JWT) based on a session and a JWT Template name defined for your instance
 
 ### Examples
 
@@ -176,13 +176,13 @@ Clerk.configure do |config|
 end
 
 session_id = 'session_id_example' # String | The ID of the session
-template_name = 'template_name_example' # String | The name of the JWT Template defined in your instance (e.g. `custom_hasura`).
+template_name = 'template_name_example' # String | The name of the JWT template defined in your instance (e.g. `custom_hasura`).
 opts = {
   create_session_token_from_template_request: ClerkHttpClient::CreateSessionTokenFromTemplateRequest.new # CreateSessionTokenFromTemplateRequest | 
 }
 
 begin
-  # Create a session token from a jwt template
+  # Create a session token from a JWT template
   result = Clerk::SDK.sessions.create_session_token_from_template(session_id, template_name, opts)
   p result
 rescue ClerkHttpClient::ApiError => e
@@ -198,7 +198,7 @@ This returns an Array which contains the response data, status code and headers.
 
 ```ruby
 begin
-  # Create a session token from a jwt template
+  # Create a session token from a JWT template
   data, status_code, headers = Clerk::SDK.sessions.create_session_token_from_template_with_http_info(session_id, template_name, opts)
   p status_code # => 2xx
   p headers # => { ... }
@@ -213,7 +213,7 @@ end
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
 | **session_id** | **String** | The ID of the session |  |
-| **template_name** | **String** | The name of the JWT Template defined in your instance (e.g. &#x60;custom_hasura&#x60;). |  |
+| **template_name** | **String** | The name of the JWT template defined in your instance (e.g. &#x60;custom_hasura&#x60;). |  |
 | **create_session_token_from_template_request** | [**CreateSessionTokenFromTemplateRequest**](CreateSessionTokenFromTemplateRequest.md) |  | [optional] |
 
 ### Return type

@@ -35,6 +35,26 @@ require 'clerk-http-client'
 ClerkHttpClient::EmailAddressVerification.openapi_discriminator_name
 # => :'object'
 ```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's mapping.
+
+#### Example
+
+```ruby
+require 'clerk-http-client'
+
+ClerkHttpClient::EmailAddressVerification.openapi_discriminator_mapping
+# =>
+# {
+#   :'verification_admin' => :'VerificationAdmin',
+#   :'verification_email_link' => :'VerificationEmailLink',
+#   :'verification_from_oauth' => :'VerificationFromOauth',
+#   :'verification_otp' => :'VerificationOtp',
+#   :'verification_saml' => :'VerificationSaml',
+#   :'verification_ticket' => :'VerificationTicket'
+# }
 ```
 
 ### build

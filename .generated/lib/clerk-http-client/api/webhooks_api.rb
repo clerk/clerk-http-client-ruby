@@ -138,7 +138,7 @@ module ClerkHttpClient
     end
 
     # Create a Svix Dashboard URL
-    # Generate a new url for accessing the Svix's management dashboard for that particular instance
+    # Generate a new URL for accessing the Svix's management dashboard for that particular instance
     # @param [Hash] opts the optional parameters
     # @return [SvixURL]
 
@@ -148,7 +148,7 @@ module ClerkHttpClient
     end
 
     # Create a Svix Dashboard URL
-    # Generate a new url for accessing the Svix&#39;s management dashboard for that particular instance
+    # Generate a new URL for accessing the Svix&#39;s management dashboard for that particular instance
     # @param [Hash] opts the optional parameters
     # @return [Array<(SvixURL, Integer, Hash)>] SvixURL data, response status code and response headers
     # POST 

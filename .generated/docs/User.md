@@ -13,6 +13,7 @@
 | **username** | **String** |  |  |
 | **first_name** | **String** |  |  |
 | **last_name** | **String** |  |  |
+| **locale** | **String** |  | [optional] |
 | **profile_image_url** | **String** |  | [optional] |
 | **image_url** | **String** |  | [optional] |
 | **has_image** | **Boolean** |  |  |
@@ -59,6 +60,7 @@ instance = ClerkHttpClient::User.new(
   username: null,
   first_name: null,
   last_name: null,
+  locale: null,
   profile_image_url: null,
   image_url: null,
   has_image: null,

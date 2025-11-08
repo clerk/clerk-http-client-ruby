@@ -7,6 +7,7 @@
 | **external_id** | **String** | The ID of the user as used in your external systems or your previous authentication solution. Must be unique across your instance. | [optional] |
 | **first_name** | **String** | The first name to assign to the user | [optional] |
 | **last_name** | **String** | The last name to assign to the user | [optional] |
+| **locale** | **String** | The locale to assign to the user (e.g., \&quot;en-US\&quot;, \&quot;fr-FR\&quot;) | [optional] |
 | **email_address** | **Array&lt;String&gt;** | Email addresses to add to the user. Must be unique across your instance. The first email address will be set as the user&#39;s primary email address. | [optional] |
 | **phone_number** | **Array&lt;String&gt;** | Phone numbers to add to the user. Must be unique across your instance. The first phone number will be set as the user&#39;s primary phone number. | [optional] |
 | **web3_wallet** | **Array&lt;String&gt;** | Web3 wallets to add to the user. Must be unique across your instance. The first wallet will be set as the user&#39;s primary wallet. | [optional] |
@@ -37,6 +38,7 @@ instance = ClerkHttpClient::CreateUserRequest.new(
   external_id: null,
   first_name: null,
   last_name: null,
+  locale: null,
   email_address: null,
   phone_number: null,
   web3_wallet: null,

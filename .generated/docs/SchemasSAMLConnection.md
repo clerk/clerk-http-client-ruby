@@ -23,9 +23,10 @@
 | **provider** | **String** |  |  |
 | **user_count** | **Integer** |  |  |
 | **sync_user_attributes** | **Boolean** |  |  |
-| **allow_subdomains** | **Boolean** |  | [optional] |
-| **allow_idp_initiated** | **Boolean** |  | [optional] |
-| **disable_additional_identifications** | **Boolean** |  | [optional] |
+| **allow_subdomains** | **Boolean** |  |  |
+| **allow_idp_initiated** | **Boolean** |  |  |
+| **disable_additional_identifications** | **Boolean** |  |  |
+| **force_authn** | **Boolean** | Enable or deactivate ForceAuthn |  |
 | **created_at** | **Integer** | Unix timestamp of creation.  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
 
@@ -57,6 +58,7 @@ instance = ClerkHttpClient::SchemasSAMLConnection.new(
   allow_subdomains: null,
   allow_idp_initiated: null,
   disable_additional_identifications: null,
+  force_authn: null,
   created_at: null,
   updated_at: null
 )

@@ -8,6 +8,7 @@
 | **id** | **String** |  | [optional] |
 | **slug** | **String** |  | [optional] |
 | **deleted** | **Boolean** |  |  |
+| **external_id** | **String** |  | [optional] |
 
 ## Example
 
@@ -18,7 +19,8 @@ instance = ClerkHttpClient::DeletedObject.new(
   object: null,
   id: null,
   slug: null,
-  deleted: null
+  deleted: null,
+  external_id: null
 )
 ```
 

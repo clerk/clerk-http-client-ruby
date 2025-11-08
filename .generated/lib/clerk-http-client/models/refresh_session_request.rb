@@ -18,7 +18,7 @@ module ClerkHttpClient
     # The JWT that is sent via the `__session` cookie from your frontend. Note: this JWT must be associated with the supplied session ID.
     attr_accessor :expired_token
 
-    # The JWT that is sent via the `__session` cookie from your frontend.
+    # The refresh token from the `__refresh` cookie set via FAPI's handshake flow.
     attr_accessor :refresh_token
 
     # The origin of the request.

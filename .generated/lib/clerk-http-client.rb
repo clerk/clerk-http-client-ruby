@@ -17,8 +17,6 @@ require 'clerk-http-client/version'
 require 'clerk-http-client/configuration'
 
 # Models
-ClerkHttpClient.autoload :AWSCredential, 'clerk-http-client/models/aws_credential'
-ClerkHttpClient.autoload :AccountlessApplication, 'clerk-http-client/models/accountless_application'
 ClerkHttpClient.autoload :ActorToken, 'clerk-http-client/models/actor_token'
 ClerkHttpClient.autoload :AddDomainRequest, 'clerk-http-client/models/add_domain_request'
 ClerkHttpClient.autoload :AllowlistIdentifier, 'clerk-http-client/models/allowlist_identifier'
@@ -162,7 +160,6 @@ ClerkHttpClient.autoload :TestingToken, 'clerk-http-client/models/testing_token'
 ClerkHttpClient.autoload :ToggleTemplateDeliveryRequest, 'clerk-http-client/models/toggle_template_delivery_request'
 ClerkHttpClient.autoload :Token, 'clerk-http-client/models/token'
 ClerkHttpClient.autoload :TotalCount, 'clerk-http-client/models/total_count'
-ClerkHttpClient.autoload :UpdateAWSCredentialRequest, 'clerk-http-client/models/update_aws_credential_request'
 ClerkHttpClient.autoload :UpdateDomainRequest, 'clerk-http-client/models/update_domain_request'
 ClerkHttpClient.autoload :UpdateEmailAddressRequest, 'clerk-http-client/models/update_email_address_request'
 ClerkHttpClient.autoload :UpdateInstanceAuthConfig200Response, 'clerk-http-client/models/update_instance_auth_config200_response'
@@ -179,7 +176,6 @@ ClerkHttpClient.autoload :UpdateOrganizationRequest, 'clerk-http-client/models/u
 ClerkHttpClient.autoload :UpdatePhoneNumberRequest, 'clerk-http-client/models/update_phone_number_request'
 ClerkHttpClient.autoload :UpdateProductionInstanceDomainRequest, 'clerk-http-client/models/update_production_instance_domain_request'
 ClerkHttpClient.autoload :UpdateSAMLConnectionRequest, 'clerk-http-client/models/update_saml_connection_request'
-ClerkHttpClient.autoload :UpdateSAMLConnectionRequestAttributeMapping, 'clerk-http-client/models/update_saml_connection_request_attribute_mapping'
 ClerkHttpClient.autoload :UpdateSignUpRequest, 'clerk-http-client/models/update_sign_up_request'
 ClerkHttpClient.autoload :UpdateUserMetadataRequest, 'clerk-http-client/models/update_user_metadata_request'
 ClerkHttpClient.autoload :UpdateUserRequest, 'clerk-http-client/models/update_user_request'
@@ -213,8 +209,6 @@ ClerkHttpClient.autoload :Web3Wallet, 'clerk-http-client/models/web3_wallet'
 ClerkHttpClient.autoload :Web3WalletVerification, 'clerk-http-client/models/web3_wallet_verification'
 
 # APIs
-ClerkHttpClient.autoload :AWSCredentialsApi, 'clerk-http-client/api/aws_credentials_api'
-ClerkHttpClient.autoload :AccountlessApplicationsApi, 'clerk-http-client/api/accountless_applications_api'
 ClerkHttpClient.autoload :ActorTokensApi, 'clerk-http-client/api/actor_tokens_api'
 ClerkHttpClient.autoload :AllowListBlockListApi, 'clerk-http-client/api/allow_list_block_list_api'
 ClerkHttpClient.autoload :BetaFeaturesApi, 'clerk-http-client/api/beta_features_api'
@@ -266,14 +260,6 @@ module ClerkHttpClient
 
     def initialize(config = Configuration.default)
       @config = config
-    end
-
-    def aws_credentials
-      ClerkHttpClient::AWSCredentialsApi.new
-    end
-
-    def accountless_applications
-      ClerkHttpClient::AccountlessApplicationsApi.new
     end
 
     def actor_tokens

@@ -21,10 +21,10 @@ module ClerkHttpClient
     # JWT template claims in JSON format
     attr_accessor :claims
 
-    # JWT token lifetime
+    # JWT lifetime
     attr_accessor :lifetime
 
-    # JWT token allowed clock skew
+    # JWT allowed clock skew
     attr_accessor :allowed_clock_skew
 
     # Whether a custom signing key/algorithm is also provided for this template

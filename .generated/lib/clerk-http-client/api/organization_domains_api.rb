@@ -97,7 +97,7 @@ module ClerkHttpClient
 
     # Remove a domain from an organization.
     # Removes the given domain from the organization.
-    # @param organization_id [String] The ID of the organization the domain belongs to
+    # @param organization_id [String] The ID of the organization to which the domain belongs
     # @param domain_id [String] The ID of the domain
     # @param [Hash] opts the optional parameters
     # @return [DeletedObject]
@@ -109,7 +109,7 @@ module ClerkHttpClient
 
     # Remove a domain from an organization.
     # Removes the given domain from the organization.
-    # @param organization_id [String] The ID of the organization the domain belongs to
+    # @param organization_id [String] The ID of the organization to which the domain belongs
     # @param domain_id [String] The ID of the domain
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeletedObject, Integer, Hash)>] DeletedObject data, response status code and response headers
@@ -357,7 +357,7 @@ module ClerkHttpClient
 
     # Update an organization domain.
     # Updates the properties of an existing organization domain.
-    # @param organization_id [String] The ID of the organization the domain belongs to
+    # @param organization_id [String] The ID of the organization to which the domain belongs
     # @param domain_id [String] The ID of the domain
     # @param update_organization_domain_request [UpdateOrganizationDomainRequest] 
     # @param [Hash] opts the optional parameters
@@ -370,7 +370,7 @@ module ClerkHttpClient
 
     # Update an organization domain.
     # Updates the properties of an existing organization domain.
-    # @param organization_id [String] The ID of the organization the domain belongs to
+    # @param organization_id [String] The ID of the organization to which the domain belongs
     # @param domain_id [String] The ID of the domain
     # @param update_organization_domain_request [UpdateOrganizationDomainRequest] 
     # @param [Hash] opts the optional parameters

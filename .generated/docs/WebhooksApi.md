@@ -144,7 +144,7 @@ nil (empty response body)
 
 Create a Svix Dashboard URL
 
-Generate a new url for accessing the Svix's management dashboard for that particular instance
+Generate a new URL for accessing the Svix's management dashboard for that particular instance
 
 ### Examples
 

@@ -63,6 +63,9 @@ module ClerkHttpClient
     # Unix timestamp at which the user accepted the legal requirements. 
     attr_accessor :legal_accepted_at
 
+    # The user locale preference for the sign-up specified as a BCP-47 language tag.
+    attr_accessor :locale
+
     attr_accessor :external_account
 
     class EnumAttributeValidator
@@ -113,6 +116,7 @@ module ClerkHttpClient
         :'created_user_id' => :'created_user_id',
         :'abandon_at' => :'abandon_at',
         :'legal_accepted_at' => :'legal_accepted_at',
+        :'locale' => :'locale',
         :'external_account' => :'external_account'
       }
     end
@@ -148,6 +152,7 @@ module ClerkHttpClient
         :'created_user_id' => :'String',
         :'abandon_at' => :'Integer',
         :'legal_accepted_at' => :'Integer',
+        :'locale' => :'String',
         :'external_account' => :'Object'
       }
     end
@@ -165,6 +170,7 @@ module ClerkHttpClient
         :'created_session_id',
         :'created_user_id',
         :'legal_accepted_at',
+        :'locale',
       ])
     end
 
@@ -329,6 +335,10 @@ module ClerkHttpClient
         self.legal_accepted_at = nil
       end
 
+      if attributes.key?(:'locale')
+        self.locale = attributes[:'locale']
+      end
+
       if attributes.key?(:'external_account')
         self.external_account = attributes[:'external_account']
       end
@@ -456,6 +466,7 @@ module ClerkHttpClient
           created_user_id == o.created_user_id &&
           abandon_at == o.abandon_at &&
           legal_accepted_at == o.legal_accepted_at &&
+          locale == o.locale &&
           external_account == o.external_account
     end
 
@@ -468,7 +479,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, status, required_fields, optional_fields, missing_fields, unverified_fields, verifications, username, email_address, phone_number, web3_wallet, password_enabled, first_name, last_name, unsafe_metadata, public_metadata, custom_action, external_id, created_session_id, created_user_id, abandon_at, legal_accepted_at, external_account].hash
+      [object, id, status, required_fields, optional_fields, missing_fields, unverified_fields, verifications, username, email_address, phone_number, web3_wallet, password_enabled, first_name, last_name, unsafe_metadata, public_metadata, custom_action, external_id, created_session_id, created_user_id, abandon_at, legal_accepted_at, locale, external_account].hash
     end
 
     # Builds the object from hash

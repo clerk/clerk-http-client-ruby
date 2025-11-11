@@ -11,6 +11,7 @@
 | **image_url** | **String** |  |  |
 | **has_image** | **Boolean** |  |  |
 | **identifier** | **String** |  | [optional] |
+| **username** | **String** |  | [optional] |
 
 ## Example
 
@@ -24,7 +25,8 @@ instance = ClerkHttpClient::OrganizationMembershipPublicUserData.new(
   profile_image_url: null,
   image_url: null,
   has_image: null,
-  identifier: null
+  identifier: null,
+  username: null
 )
 ```
 

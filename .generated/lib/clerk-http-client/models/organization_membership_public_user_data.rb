@@ -30,6 +30,8 @@ module ClerkHttpClient
 
     attr_accessor :identifier
 
+    attr_accessor :username
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -39,7 +41,8 @@ module ClerkHttpClient
         :'profile_image_url' => :'profile_image_url',
         :'image_url' => :'image_url',
         :'has_image' => :'has_image',
-        :'identifier' => :'identifier'
+        :'identifier' => :'identifier',
+        :'username' => :'username'
       }
     end
 
@@ -57,7 +60,8 @@ module ClerkHttpClient
         :'profile_image_url' => :'String',
         :'image_url' => :'String',
         :'has_image' => :'Boolean',
-        :'identifier' => :'String'
+        :'identifier' => :'String',
+        :'username' => :'String'
       }
     end
 
@@ -67,7 +71,8 @@ module ClerkHttpClient
         :'first_name',
         :'last_name',
         :'profile_image_url',
-        :'identifier'
+        :'identifier',
+        :'username'
       ])
     end
 
@@ -125,6 +130,10 @@ module ClerkHttpClient
       if attributes.key?(:'identifier')
         self.identifier = attributes[:'identifier']
       end
+
+      if attributes.key?(:'username')
+        self.username = attributes[:'username']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -168,7 +177,8 @@ module ClerkHttpClient
           profile_image_url == o.profile_image_url &&
           image_url == o.image_url &&
           has_image == o.has_image &&
-          identifier == o.identifier
+          identifier == o.identifier &&
+          username == o.username
     end
 
     # @see the `==` method
@@ -180,7 +190,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [user_id, first_name, last_name, profile_image_url, image_url, has_image, identifier].hash
+      [user_id, first_name, last_name, profile_image_url, image_url, has_image, identifier, username].hash
     end
 
     # Builds the object from hash

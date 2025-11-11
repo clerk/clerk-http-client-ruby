@@ -5,10 +5,6 @@ Gemfile
 README.md
 Rakefile
 clerk-http-client.gemspec
-docs/AWSCredential.md
-docs/AWSCredentialsApi.md
-docs/AccountlessApplication.md
-docs/AccountlessApplicationsApi.md
 docs/ActorToken.md
 docs/ActorTokensApi.md
 docs/AddDomainRequest.md
@@ -75,6 +71,10 @@ docs/EmailAddress.md
 docs/EmailAddressVerification.md
 docs/EmailAddressesApi.md
 docs/EmailSMSTemplatesApi.md
+docs/EnterpriseAccount.md
+docs/EnterpriseAccountEnterpriseConnection.md
+docs/EnterpriseAccountVerification.md
+docs/EnterpriseConnection.md
 docs/ExtendFreeTrialRequest.md
 docs/ExternalAccountWithVerification.md
 docs/ExternalAccountWithVerificationVerification.md
@@ -182,7 +182,6 @@ docs/TestingTokensApi.md
 docs/ToggleTemplateDeliveryRequest.md
 docs/Token.md
 docs/TotalCount.md
-docs/UpdateAWSCredentialRequest.md
 docs/UpdateDomainRequest.md
 docs/UpdateEmailAddressRequest.md
 docs/UpdateInstanceAuthConfig200Response.md
@@ -199,7 +198,6 @@ docs/UpdateOrganizationRequest.md
 docs/UpdatePhoneNumberRequest.md
 docs/UpdateProductionInstanceDomainRequest.md
 docs/UpdateSAMLConnectionRequest.md
-docs/UpdateSAMLConnectionRequestAttributeMapping.md
 docs/UpdateSignUpRequest.md
 docs/UpdateUserMetadataRequest.md
 docs/UpdateUserRequest.md
@@ -236,10 +234,8 @@ docs/Web3WalletVerification.md
 docs/WebhooksApi.md
 git_push.sh
 lib/clerk-http-client.rb
-lib/clerk-http-client/api/accountless_applications_api.rb
 lib/clerk-http-client/api/actor_tokens_api.rb
 lib/clerk-http-client/api/allow_list_block_list_api.rb
-lib/clerk-http-client/api/aws_credentials_api.rb
 lib/clerk-http-client/api/beta_features_api.rb
 lib/clerk-http-client/api/billing_api.rb
 lib/clerk-http-client/api/clients_api.rb
@@ -274,11 +270,9 @@ lib/clerk-http-client/api/webhooks_api.rb
 lib/clerk-http-client/api_client.rb
 lib/clerk-http-client/api_error.rb
 lib/clerk-http-client/configuration.rb
-lib/clerk-http-client/models/accountless_application.rb
 lib/clerk-http-client/models/actor_token.rb
 lib/clerk-http-client/models/add_domain_request.rb
 lib/clerk-http-client/models/allowlist_identifier.rb
-lib/clerk-http-client/models/aws_credential.rb
 lib/clerk-http-client/models/blocklist_identifier.rb
 lib/clerk-http-client/models/blocklist_identifiers.rb
 lib/clerk-http-client/models/change_production_instance_domain_request.rb
@@ -333,6 +327,10 @@ lib/clerk-http-client/models/domain.rb
 lib/clerk-http-client/models/domains.rb
 lib/clerk-http-client/models/email_address.rb
 lib/clerk-http-client/models/email_address_verification.rb
+lib/clerk-http-client/models/enterprise_account.rb
+lib/clerk-http-client/models/enterprise_account_enterprise_connection.rb
+lib/clerk-http-client/models/enterprise_account_verification.rb
+lib/clerk-http-client/models/enterprise_connection.rb
 lib/clerk-http-client/models/extend_free_trial_request.rb
 lib/clerk-http-client/models/external_account_with_verification.rb
 lib/clerk-http-client/models/external_account_with_verification_verification.rb
@@ -419,7 +417,6 @@ lib/clerk-http-client/models/testing_token.rb
 lib/clerk-http-client/models/toggle_template_delivery_request.rb
 lib/clerk-http-client/models/token.rb
 lib/clerk-http-client/models/total_count.rb
-lib/clerk-http-client/models/update_aws_credential_request.rb
 lib/clerk-http-client/models/update_domain_request.rb
 lib/clerk-http-client/models/update_email_address_request.rb
 lib/clerk-http-client/models/update_instance_auth_config200_response.rb
@@ -436,7 +433,6 @@ lib/clerk-http-client/models/update_organization_request.rb
 lib/clerk-http-client/models/update_phone_number_request.rb
 lib/clerk-http-client/models/update_production_instance_domain_request.rb
 lib/clerk-http-client/models/update_saml_connection_request.rb
-lib/clerk-http-client/models/update_saml_connection_request_attribute_mapping.rb
 lib/clerk-http-client/models/update_sign_up_request.rb
 lib/clerk-http-client/models/update_user_metadata_request.rb
 lib/clerk-http-client/models/update_user_request.rb
@@ -468,6 +464,8 @@ lib/clerk-http-client/models/verify_totp_request.rb
 lib/clerk-http-client/models/waitlist_entry.rb
 lib/clerk-http-client/models/web3_wallet.rb
 lib/clerk-http-client/models/web3_wallet_verification.rb
-spec/models/extend_free_trial_request_spec.rb
-spec/models/rotate_machine_secret_key_request_spec.rb
+spec/models/enterprise_account_enterprise_connection_spec.rb
+spec/models/enterprise_account_spec.rb
+spec/models/enterprise_account_verification_spec.rb
+spec/models/enterprise_connection_spec.rb
 spec/spec_helper.rb

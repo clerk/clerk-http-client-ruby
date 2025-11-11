@@ -101,8 +101,8 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-organization_id = 'organization_id_example' # String | The ID of the organization to which the membership belongs
-user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
+organization_id = 'organization_id_example' # String | The ID of the organization to which this membership belongs
+user_id = 'user_id_example' # String | The ID of the user to which this membership belongs
 
 begin
   # Remove a member from an organization
@@ -135,8 +135,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** | The ID of the organization to which the membership belongs |  |
-| **user_id** | **String** | The ID of the user that this membership belongs to |  |
+| **organization_id** | **String** | The ID of the organization to which this membership belongs |  |
+| **user_id** | **String** | The ID of the user to which this membership belongs |  |
 
 ### Return type
 
@@ -248,13 +248,13 @@ end
 organization_id = 'organization_id_example' # String | The organization ID.
 opts = {
   order_by: 'order_by_example', # String | Sorts organizations memberships by phone_number, email_address, created_at, first_name, last_name or username. By prepending one of those values with + or -, we can choose to sort in ascending (ASC) or descending (DESC) order.\"
-  user_id: ['inner_example'], # Array<String> | Returns users with the user ids specified. For each user id, the `+` and `-` can be prepended to the id, which denote whether the respective user id should be included or excluded from the result set. Accepts up to 100 user ids. Any user ids not found are ignored.
+  user_id: ['inner_example'], # Array<String> | Returns users with the user IDs specified. For each user ID, the `+` and `-` can be prepended to the ID, which denote whether the respective user ID should be included or excluded from the result set. Accepts up to 100 user IDs. Any user IDs not found are ignored.
   email_address: ['inner_example'], # Array<String> | Returns users with the specified email addresses. Accepts up to 100 email addresses. Any email addresses not found are ignored.
   phone_number: ['inner_example'], # Array<String> | Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
   username: ['inner_example'], # Array<String> | Returns users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored.
-  web3_wallet: ['inner_example'], # Array<String> | Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addressed not found are ignored.
+  web3_wallet: ['inner_example'], # Array<String> | Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addresses not found are ignored.
   role: ['inner_example'], # Array<String> | Returns users with the specified roles. Accepts up to 100 roles. Any roles not found are ignored.
-  query: 'query_example', # String | Returns users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names. The query value doesn't need to match the exact value you are looking for, it is capable of partial matches as well.
+  query: 'query_example', # String | Returns users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user IDs, first and last names. The query value doesn't need to match the exact value you are looking for, it is capable of partial matches as well.
   email_address_query: 'email_address_query_example', # String | Returns users with emails that match the given query, via case-insensitive partial match. For example, `email_address_query=ello` will match a user with the email `HELLO@example.com`.
   phone_number_query: 'phone_number_query_example', # String | Returns users with phone numbers that match the given query, via case-insensitive partial match. For example, `phone_number_query=555` will match a user with the phone number `+1555xxxxxxx`.
   username_query: 'username_query_example', # String | Returns users with usernames that match the given query, via case-insensitive partial match. For example, `username_query=CoolUser` will match a user with the username `SomeCoolUser`.
@@ -300,13 +300,13 @@ end
 | ---- | ---- | ----------- | ----- |
 | **organization_id** | **String** | The organization ID. |  |
 | **order_by** | **String** | Sorts organizations memberships by phone_number, email_address, created_at, first_name, last_name or username. By prepending one of those values with + or -, we can choose to sort in ascending (ASC) or descending (DESC) order.\&quot; | [optional] |
-| **user_id** | [**Array&lt;String&gt;**](String.md) | Returns users with the user ids specified. For each user id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective user id should be included or excluded from the result set. Accepts up to 100 user ids. Any user ids not found are ignored. | [optional] |
+| **user_id** | [**Array&lt;String&gt;**](String.md) | Returns users with the user IDs specified. For each user ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective user ID should be included or excluded from the result set. Accepts up to 100 user IDs. Any user IDs not found are ignored. | [optional] |
 | **email_address** | [**Array&lt;String&gt;**](String.md) | Returns users with the specified email addresses. Accepts up to 100 email addresses. Any email addresses not found are ignored. | [optional] |
 | **phone_number** | [**Array&lt;String&gt;**](String.md) | Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored. | [optional] |
 | **username** | [**Array&lt;String&gt;**](String.md) | Returns users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored. | [optional] |
-| **web3_wallet** | [**Array&lt;String&gt;**](String.md) | Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addressed not found are ignored. | [optional] |
+| **web3_wallet** | [**Array&lt;String&gt;**](String.md) | Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addresses not found are ignored. | [optional] |
 | **role** | [**Array&lt;String&gt;**](String.md) | Returns users with the specified roles. Accepts up to 100 roles. Any roles not found are ignored. | [optional] |
-| **query** | **String** | Returns users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names. The query value doesn&#39;t need to match the exact value you are looking for, it is capable of partial matches as well. | [optional] |
+| **query** | **String** | Returns users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user IDs, first and last names. The query value doesn&#39;t need to match the exact value you are looking for, it is capable of partial matches as well. | [optional] |
 | **email_address_query** | **String** | Returns users with emails that match the given query, via case-insensitive partial match. For example, &#x60;email_address_query&#x3D;ello&#x60; will match a user with the email &#x60;HELLO@example.com&#x60;. | [optional] |
 | **phone_number_query** | **String** | Returns users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;. | [optional] |
 | **username_query** | **String** | Returns users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;. | [optional] |
@@ -351,8 +351,8 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-organization_id = 'organization_id_example' # String | The ID of the organization to which the membership belongs
-user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
+organization_id = 'organization_id_example' # String | The ID of the organization to which this membership belongs
+user_id = 'user_id_example' # String | The ID of the user to which this membership belongs
 update_organization_membership_request = ClerkHttpClient::UpdateOrganizationMembershipRequest.new({role: 'role_example'}) # UpdateOrganizationMembershipRequest | 
 
 begin
@@ -386,8 +386,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** | The ID of the organization to which the membership belongs |  |
-| **user_id** | **String** | The ID of the user that this membership belongs to |  |
+| **organization_id** | **String** | The ID of the organization to which this membership belongs |  |
+| **user_id** | **String** | The ID of the user to which this membership belongs |  |
 | **update_organization_membership_request** | [**UpdateOrganizationMembershipRequest**](UpdateOrganizationMembershipRequest.md) |  |  |
 
 ### Return type
@@ -423,8 +423,8 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-organization_id = 'organization_id_example' # String | The ID of the organization to which the membership belongs
-user_id = 'user_id_example' # String | The ID of the user that this membership belongs to
+organization_id = 'organization_id_example' # String | The ID of the organization to which this membership belongs
+user_id = 'user_id_example' # String | The ID of the user to which this membership belongs
 opts = {
   update_organization_membership_metadata_request: ClerkHttpClient::UpdateOrganizationMembershipMetadataRequest.new # UpdateOrganizationMembershipMetadataRequest | 
 }
@@ -460,8 +460,8 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** | The ID of the organization to which the membership belongs |  |
-| **user_id** | **String** | The ID of the user that this membership belongs to |  |
+| **organization_id** | **String** | The ID of the organization to which this membership belongs |  |
+| **user_id** | **String** | The ID of the user to which this membership belongs |  |
 | **update_organization_membership_metadata_request** | [**UpdateOrganizationMembershipMetadataRequest**](UpdateOrganizationMembershipMetadataRequest.md) |  | [optional] |
 
 ### Return type

@@ -33,13 +33,29 @@ module ClerkHttpClient
         :'object'
       end
 
+      # Discriminator's mapping (OpenAPI v3)
+      def openapi_discriminator_mapping
+        {
+          :'verification_admin' => :'VerificationAdmin',
+          :'verification_email_link' => :'VerificationEmailLink',
+          :'verification_from_oauth' => :'VerificationFromOauth',
+          :'verification_otp' => :'VerificationOtp',
+          :'verification_saml' => :'VerificationSaml',
+          :'verification_ticket' => :'VerificationTicket'
+        }
+      end
+
       # Builds the object
       # @param [Mixed] Data to be matched against the list of oneOf items
       # @return [Object] Returns the model or the data itself
       def build(data)
         discriminator_value = data[openapi_discriminator_name]
         return nil if discriminator_value.nil?
-        ClerkHttpClient.const_get(discriminator_value).build_from_hash(data)
+
+        klass = openapi_discriminator_mapping[discriminator_value.to_s.to_sym]
+        return nil unless klass
+
+        ClerkHttpClient.const_get(klass).build_from_hash(data)
       end
     end
   end

@@ -21,9 +21,6 @@ module ClerkHttpClient
     # Whether the instance should be using the HIBP service to check passwords for breaches
     attr_accessor :hibp
 
-    # The \"enhanced_email_deliverability\" feature will send emails from \"verifications@clerk.dev\" instead of your domain. This can be helpful if you do not have a high domain reputation.
-    attr_accessor :enhanced_email_deliverability
-
     attr_accessor :support_email
 
     attr_accessor :clerk_js_version
@@ -44,7 +41,6 @@ module ClerkHttpClient
       {
         :'test_mode' => :'test_mode',
         :'hibp' => :'hibp',
-        :'enhanced_email_deliverability' => :'enhanced_email_deliverability',
         :'support_email' => :'support_email',
         :'clerk_js_version' => :'clerk_js_version',
         :'development_origin' => :'development_origin',
@@ -64,7 +60,6 @@ module ClerkHttpClient
       {
         :'test_mode' => :'Boolean',
         :'hibp' => :'Boolean',
-        :'enhanced_email_deliverability' => :'Boolean',
         :'support_email' => :'String',
         :'clerk_js_version' => :'String',
         :'development_origin' => :'String',
@@ -79,7 +74,6 @@ module ClerkHttpClient
       Set.new([
         :'test_mode',
         :'hibp',
-        :'enhanced_email_deliverability',
         :'support_email',
         :'clerk_js_version',
         :'development_origin',
@@ -109,10 +103,6 @@ module ClerkHttpClient
 
       if attributes.key?(:'hibp')
         self.hibp = attributes[:'hibp']
-      end
-
-      if attributes.key?(:'enhanced_email_deliverability')
-        self.enhanced_email_deliverability = attributes[:'enhanced_email_deliverability']
       end
 
       if attributes.key?(:'support_email')
@@ -164,7 +154,6 @@ module ClerkHttpClient
       self.class == o.class &&
           test_mode == o.test_mode &&
           hibp == o.hibp &&
-          enhanced_email_deliverability == o.enhanced_email_deliverability &&
           support_email == o.support_email &&
           clerk_js_version == o.clerk_js_version &&
           development_origin == o.development_origin &&
@@ -182,7 +171,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [test_mode, hibp, enhanced_email_deliverability, support_email, clerk_js_version, development_origin, allowed_origins, cookieless_dev, url_based_session_syncing].hash
+      [test_mode, hibp, support_email, clerk_js_version, development_origin, allowed_origins, cookieless_dev, url_based_session_syncing].hash
     end
 
     # Builds the object from hash

@@ -12,8 +12,10 @@
 | **creator_role** | **String** | The role key that a user will be assigned after creating an organization. |  |
 | **admin_delete_enabled** | **Boolean** | The default for whether an admin can delete an organization with the Frontend API. |  |
 | **domains_enabled** | **Boolean** |  |  |
+| **slug_disabled** | **Boolean** |  | [optional] |
 | **domains_enrollment_modes** | **Array&lt;String&gt;** |  |  |
 | **domains_default_role** | **String** | The role key that it will be used in order to create an organization invitation or suggestion. |  |
+| **initial_role_set_key** | **String** | The role set key that it will be used to create new organizations. | [optional] |
 
 ## Example
 
@@ -29,8 +31,10 @@ instance = ClerkHttpClient::OrganizationSettings.new(
   creator_role: null,
   admin_delete_enabled: null,
   domains_enabled: null,
+  slug_disabled: null,
   domains_enrollment_modes: null,
-  domains_default_role: null
+  domains_default_role: null,
+  initial_role_set_key: null
 )
 ```
 

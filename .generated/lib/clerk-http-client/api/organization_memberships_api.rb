@@ -97,8 +97,8 @@ module ClerkHttpClient
 
     # Remove a member from an organization
     # Removes the given membership from the organization
-    # @param organization_id [String] The ID of the organization to which the membership belongs
-    # @param user_id [String] The ID of the user that this membership belongs to
+    # @param organization_id [String] The ID of the organization to which this membership belongs
+    # @param user_id [String] The ID of the user to which this membership belongs
     # @param [Hash] opts the optional parameters
     # @return [OrganizationMembership]
 
@@ -109,8 +109,8 @@ module ClerkHttpClient
 
     # Remove a member from an organization
     # Removes the given membership from the organization
-    # @param organization_id [String] The ID of the organization to which the membership belongs
-    # @param user_id [String] The ID of the user that this membership belongs to
+    # @param organization_id [String] The ID of the organization to which this membership belongs
+    # @param user_id [String] The ID of the user to which this membership belongs
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationMembership, Integer, Hash)>] OrganizationMembership data, response status code and response headers
     # DELETE 
@@ -251,13 +251,13 @@ module ClerkHttpClient
     # @param organization_id [String] The organization ID.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :order_by Sorts organizations memberships by phone_number, email_address, created_at, first_name, last_name or username. By prepending one of those values with + or -, we can choose to sort in ascending (ASC) or descending (DESC) order.\&quot;
-    # @option opts [Array<String>] :user_id Returns users with the user ids specified. For each user id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective user id should be included or excluded from the result set. Accepts up to 100 user ids. Any user ids not found are ignored.
+    # @option opts [Array<String>] :user_id Returns users with the user IDs specified. For each user ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective user ID should be included or excluded from the result set. Accepts up to 100 user IDs. Any user IDs not found are ignored.
     # @option opts [Array<String>] :email_address Returns users with the specified email addresses. Accepts up to 100 email addresses. Any email addresses not found are ignored.
     # @option opts [Array<String>] :phone_number Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
     # @option opts [Array<String>] :username Returns users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored.
-    # @option opts [Array<String>] :web3_wallet Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addressed not found are ignored.
+    # @option opts [Array<String>] :web3_wallet Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addresses not found are ignored.
     # @option opts [Array<String>] :role Returns users with the specified roles. Accepts up to 100 roles. Any roles not found are ignored.
-    # @option opts [String] :query Returns users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names. The query value doesn&#39;t need to match the exact value you are looking for, it is capable of partial matches as well.
+    # @option opts [String] :query Returns users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user IDs, first and last names. The query value doesn&#39;t need to match the exact value you are looking for, it is capable of partial matches as well.
     # @option opts [String] :email_address_query Returns users with emails that match the given query, via case-insensitive partial match. For example, &#x60;email_address_query&#x3D;ello&#x60; will match a user with the email &#x60;HELLO@example.com&#x60;.
     # @option opts [String] :phone_number_query Returns users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;.
     # @option opts [String] :username_query Returns users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;.
@@ -280,13 +280,13 @@ module ClerkHttpClient
     # @param organization_id [String] The organization ID.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :order_by Sorts organizations memberships by phone_number, email_address, created_at, first_name, last_name or username. By prepending one of those values with + or -, we can choose to sort in ascending (ASC) or descending (DESC) order.\&quot;
-    # @option opts [Array<String>] :user_id Returns users with the user ids specified. For each user id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective user id should be included or excluded from the result set. Accepts up to 100 user ids. Any user ids not found are ignored.
+    # @option opts [Array<String>] :user_id Returns users with the user IDs specified. For each user ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective user ID should be included or excluded from the result set. Accepts up to 100 user IDs. Any user IDs not found are ignored.
     # @option opts [Array<String>] :email_address Returns users with the specified email addresses. Accepts up to 100 email addresses. Any email addresses not found are ignored.
     # @option opts [Array<String>] :phone_number Returns users with the specified phone numbers. Accepts up to 100 phone numbers. Any phone numbers not found are ignored.
     # @option opts [Array<String>] :username Returns users with the specified usernames. Accepts up to 100 usernames. Any usernames not found are ignored.
-    # @option opts [Array<String>] :web3_wallet Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addressed not found are ignored.
+    # @option opts [Array<String>] :web3_wallet Returns users with the specified web3 wallet addresses. Accepts up to 100 web3 wallet addresses. Any web3 wallet addresses not found are ignored.
     # @option opts [Array<String>] :role Returns users with the specified roles. Accepts up to 100 roles. Any roles not found are ignored.
-    # @option opts [String] :query Returns users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user ids, first and last names. The query value doesn&#39;t need to match the exact value you are looking for, it is capable of partial matches as well.
+    # @option opts [String] :query Returns users that match the given query. For possible matches, we check the email addresses, phone numbers, usernames, web3 wallets, user IDs, first and last names. The query value doesn&#39;t need to match the exact value you are looking for, it is capable of partial matches as well.
     # @option opts [String] :email_address_query Returns users with emails that match the given query, via case-insensitive partial match. For example, &#x60;email_address_query&#x3D;ello&#x60; will match a user with the email &#x60;HELLO@example.com&#x60;.
     # @option opts [String] :phone_number_query Returns users with phone numbers that match the given query, via case-insensitive partial match. For example, &#x60;phone_number_query&#x3D;555&#x60; will match a user with the phone number &#x60;+1555xxxxxxx&#x60;.
     # @option opts [String] :username_query Returns users with usernames that match the given query, via case-insensitive partial match. For example, &#x60;username_query&#x3D;CoolUser&#x60; will match a user with the username &#x60;SomeCoolUser&#x60;.
@@ -379,8 +379,8 @@ module ClerkHttpClient
 
     # Update an organization membership
     # Updates the properties of an existing organization membership
-    # @param organization_id [String] The ID of the organization to which the membership belongs
-    # @param user_id [String] The ID of the user that this membership belongs to
+    # @param organization_id [String] The ID of the organization to which this membership belongs
+    # @param user_id [String] The ID of the user to which this membership belongs
     # @param update_organization_membership_request [UpdateOrganizationMembershipRequest] 
     # @param [Hash] opts the optional parameters
     # @return [OrganizationMembership]
@@ -392,8 +392,8 @@ module ClerkHttpClient
 
     # Update an organization membership
     # Updates the properties of an existing organization membership
-    # @param organization_id [String] The ID of the organization to which the membership belongs
-    # @param user_id [String] The ID of the user that this membership belongs to
+    # @param organization_id [String] The ID of the organization to which this membership belongs
+    # @param user_id [String] The ID of the user to which this membership belongs
     # @param update_organization_membership_request [UpdateOrganizationMembershipRequest] 
     # @param [Hash] opts the optional parameters
     # @return [Array<(OrganizationMembership, Integer, Hash)>] OrganizationMembership data, response status code and response headers
@@ -461,8 +461,8 @@ module ClerkHttpClient
 
     # Merge and update organization membership metadata
     # Update an organization membership's metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
-    # @param organization_id [String] The ID of the organization to which the membership belongs
-    # @param user_id [String] The ID of the user that this membership belongs to
+    # @param organization_id [String] The ID of the organization to which this membership belongs
+    # @param user_id [String] The ID of the user to which this membership belongs
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateOrganizationMembershipMetadataRequest] :update_organization_membership_metadata_request 
     # @return [OrganizationMembership]
@@ -474,8 +474,8 @@ module ClerkHttpClient
 
     # Merge and update organization membership metadata
     # Update an organization membership&#39;s metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to &#x60;null&#x60;.
-    # @param organization_id [String] The ID of the organization to which the membership belongs
-    # @param user_id [String] The ID of the user that this membership belongs to
+    # @param organization_id [String] The ID of the organization to which this membership belongs
+    # @param user_id [String] The ID of the user to which this membership belongs
     # @param [Hash] opts the optional parameters
     # @option opts [UpdateOrganizationMembershipMetadataRequest] :update_organization_membership_metadata_request 
     # @return [Array<(OrganizationMembership, Integer, Hash)>] OrganizationMembership data, response status code and response headers

@@ -15,7 +15,7 @@ require 'time'
 
 module ClerkHttpClient
   class CreateSessionTokenFromTemplateRequest
-    # Use this parameter to override the JWT token lifetime.
+    # Use this parameter to override the JWT lifetime.
     attr_accessor :expires_in_seconds
 
     # Attribute mapping from ruby-style variable name to JSON key.

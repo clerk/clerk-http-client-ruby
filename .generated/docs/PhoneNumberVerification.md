@@ -31,6 +31,22 @@ require 'clerk-http-client'
 ClerkHttpClient::PhoneNumberVerification.openapi_discriminator_name
 # => :'object'
 ```
+
+### `openapi_discriminator_name`
+
+Returns the discriminator's mapping.
+
+#### Example
+
+```ruby
+require 'clerk-http-client'
+
+ClerkHttpClient::PhoneNumberVerification.openapi_discriminator_mapping
+# =>
+# {
+#   :'verification_admin' => :'VerificationAdmin',
+#   :'verification_otp' => :'VerificationOtp'
+# }
 ```
 
 ### build

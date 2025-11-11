@@ -15,6 +15,7 @@
 | **idp_metadata** | **String** | The XML content of the IdP metadata file. If present, it takes priority over the corresponding individual properties | [optional] |
 | **organization_id** | **String** | The ID of the organization to which users of this SAML Connection will be added | [optional] |
 | **attribute_mapping** | [**CreateSAMLConnectionRequestAttributeMapping**](CreateSAMLConnectionRequestAttributeMapping.md) |  | [optional] |
+| **force_authn** | **Boolean** | Enable or deactivate ForceAuthn | [optional] |
 
 ## Example
 
@@ -32,7 +33,8 @@ instance = ClerkHttpClient::CreateSAMLConnectionRequest.new(
   idp_metadata_url: null,
   idp_metadata: null,
   organization_id: null,
-  attribute_mapping: null
+  attribute_mapping: null,
+  force_authn: null
 )
 ```
 

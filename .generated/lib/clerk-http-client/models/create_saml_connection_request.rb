@@ -47,6 +47,9 @@ module ClerkHttpClient
 
     attr_accessor :attribute_mapping
 
+    # Enable or deactivate ForceAuthn
+    attr_accessor :force_authn
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -60,7 +63,8 @@ module ClerkHttpClient
         :'idp_metadata_url' => :'idp_metadata_url',
         :'idp_metadata' => :'idp_metadata',
         :'organization_id' => :'organization_id',
-        :'attribute_mapping' => :'attribute_mapping'
+        :'attribute_mapping' => :'attribute_mapping',
+        :'force_authn' => :'force_authn'
       }
     end
 
@@ -82,7 +86,8 @@ module ClerkHttpClient
         :'idp_metadata_url' => :'String',
         :'idp_metadata' => :'String',
         :'organization_id' => :'String',
-        :'attribute_mapping' => :'CreateSAMLConnectionRequestAttributeMapping'
+        :'attribute_mapping' => :'CreateSAMLConnectionRequestAttributeMapping',
+        :'force_authn' => :'Boolean'
       }
     end
 
@@ -95,7 +100,7 @@ module ClerkHttpClient
         :'idp_metadata_url',
         :'idp_metadata',
         :'organization_id',
-        :'attribute_mapping'
+        :'attribute_mapping',
       ])
     end
 
@@ -163,6 +168,10 @@ module ClerkHttpClient
       if attributes.key?(:'attribute_mapping')
         self.attribute_mapping = attributes[:'attribute_mapping']
       end
+
+      if attributes.key?(:'force_authn')
+        self.force_authn = attributes[:'force_authn']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -217,7 +226,8 @@ module ClerkHttpClient
           idp_metadata_url == o.idp_metadata_url &&
           idp_metadata == o.idp_metadata &&
           organization_id == o.organization_id &&
-          attribute_mapping == o.attribute_mapping
+          attribute_mapping == o.attribute_mapping &&
+          force_authn == o.force_authn
     end
 
     # @see the `==` method
@@ -229,7 +239,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, domain, domains, provider, idp_entity_id, idp_sso_url, idp_certificate, idp_metadata_url, idp_metadata, organization_id, attribute_mapping].hash
+      [name, domain, domains, provider, idp_entity_id, idp_sso_url, idp_certificate, idp_metadata_url, idp_metadata, organization_id, attribute_mapping, force_authn].hash
     end
 
     # Builds the object from hash

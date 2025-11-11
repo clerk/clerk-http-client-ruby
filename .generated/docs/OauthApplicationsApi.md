@@ -18,7 +18,7 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 Create an OAuth application
 
-Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid url. All URL schemes are allowed such as `http://`, `https://`, `myapp://`, etc...
+Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid URL. All URL schemes are allowed such as `http://`, `https://`, `myapp://`, etc...
 
 ### Examples
 

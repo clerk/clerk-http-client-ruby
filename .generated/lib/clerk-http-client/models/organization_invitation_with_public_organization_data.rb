@@ -29,6 +29,8 @@ module ClerkHttpClient
 
     attr_accessor :organization_id
 
+    attr_accessor :inviter_id
+
     attr_accessor :status
 
     attr_accessor :public_metadata
@@ -79,6 +81,7 @@ module ClerkHttpClient
         :'role' => :'role',
         :'role_name' => :'role_name',
         :'organization_id' => :'organization_id',
+        :'inviter_id' => :'inviter_id',
         :'status' => :'status',
         :'public_metadata' => :'public_metadata',
         :'private_metadata' => :'private_metadata',
@@ -104,6 +107,7 @@ module ClerkHttpClient
         :'role' => :'String',
         :'role_name' => :'String',
         :'organization_id' => :'String',
+        :'inviter_id' => :'String',
         :'status' => :'String',
         :'public_metadata' => :'Hash<String, Object>',
         :'private_metadata' => :'Hash<String, Object>',
@@ -118,6 +122,7 @@ module ClerkHttpClient
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'inviter_id',
         :'url',
         :'expires_at',
       ])
@@ -170,6 +175,12 @@ module ClerkHttpClient
 
       if attributes.key?(:'organization_id')
         self.organization_id = attributes[:'organization_id']
+      end
+
+      if attributes.key?(:'inviter_id')
+        self.inviter_id = attributes[:'inviter_id']
+      else
+        self.inviter_id = nil
       end
 
       if attributes.key?(:'status')
@@ -297,6 +308,7 @@ module ClerkHttpClient
           role == o.role &&
           role_name == o.role_name &&
           organization_id == o.organization_id &&
+          inviter_id == o.inviter_id &&
           status == o.status &&
           public_metadata == o.public_metadata &&
           private_metadata == o.private_metadata &&
@@ -316,7 +328,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, email_address, role, role_name, organization_id, status, public_metadata, private_metadata, url, expires_at, created_at, updated_at, public_organization_data].hash
+      [object, id, email_address, role, role_name, organization_id, inviter_id, status, public_metadata, private_metadata, url, expires_at, created_at, updated_at, public_organization_data].hash
     end
 
     # Builds the object from hash

@@ -10,6 +10,7 @@
 | **role** | **String** |  |  |
 | **role_name** | **String** |  |  |
 | **organization_id** | **String** |  | [optional] |
+| **inviter_id** | **String** |  |  |
 | **status** | **String** |  | [optional] |
 | **public_metadata** | **Hash&lt;String, Object&gt;** |  |  |
 | **private_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
@@ -31,6 +32,7 @@ instance = ClerkHttpClient::OrganizationInvitationWithPublicOrganizationData.new
   role: null,
   role_name: null,
   organization_id: null,
+  inviter_id: null,
   status: null,
   public_metadata: null,
   private_metadata: null,

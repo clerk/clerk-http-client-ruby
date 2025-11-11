@@ -44,10 +44,6 @@ All URIs are relative to *https://api.clerk.com/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*Clerk::SDK.aws_credentials* | [**delete_aws_credential**](docs/AWSCredentialsApi.md#delete_aws_credential) | **DELETE** /aws_credentials/{id} | Delete an AWS Credential
-*Clerk::SDK.aws_credentials* | [**update_aws_credential**](docs/AWSCredentialsApi.md#update_aws_credential) | **PATCH** /aws_credentials/{id} | Update an AWS Credential
-*Clerk::SDK.accountless_applications* | [**complete_accountless_application**](docs/AccountlessApplicationsApi.md#complete_accountless_application) | **POST** /accountless_applications/complete | Complete an accountless application [EXPERIMENTAL]
-*Clerk::SDK.accountless_applications* | [**create_accountless_application**](docs/AccountlessApplicationsApi.md#create_accountless_application) | **POST** /accountless_applications | Create an accountless application [EXPERIMENTAL]
 *Clerk::SDK.actor_tokens* | [**create_actor_token**](docs/ActorTokensApi.md#create_actor_token) | **POST** /actor_tokens | Create actor token
 *Clerk::SDK.actor_tokens* | [**revoke_actor_token**](docs/ActorTokensApi.md#revoke_actor_token) | **POST** /actor_tokens/{actor_token_id}/revoke | Revoke actor token
 *Clerk::SDK.allow_list_block_list* | [**create_allowlist_identifier**](docs/AllowListBlockListApi.md#create_allowlist_identifier) | **POST** /allowlist_identifiers | Add identifier to the allow-list
@@ -59,12 +55,12 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.beta_features* | [**change_production_instance_domain**](docs/BetaFeaturesApi.md#change_production_instance_domain) | **POST** /instance/change_domain | Update production instance domain
 *Clerk::SDK.beta_features* | [**update_instance_auth_config**](docs/BetaFeaturesApi.md#update_instance_auth_config) | **PATCH** /beta_features/instance_settings | Update instance settings
 *Clerk::SDK.beta_features* | [**update_production_instance_domain**](docs/BetaFeaturesApi.md#update_production_instance_domain) | **PUT** /beta_features/domain | Update production instance domain
+*Clerk::SDK.billing* | [**extend_billing_subscription_item_free_trial**](docs/BillingApi.md#extend_billing_subscription_item_free_trial) | **POST** /billing/subscription_items/{subscription_item_id}/extend_free_trial | Extend free trial for a subscription item
 *Clerk::SDK.billing* | [**get_organization_billing_subscription_0**](docs/BillingApi.md#get_organization_billing_subscription_0) | **GET** /organizations/{organization_id}/billing/subscription | Retrieve an organization's billing subscription
 *Clerk::SDK.clients* | [**get_client**](docs/ClientsApi.md#get_client) | **GET** /clients/{client_id} | Get a client
 *Clerk::SDK.clients* | [**get_client_list**](docs/ClientsApi.md#get_client_list) | **GET** /clients | List all clients
 *Clerk::SDK.clients* | [**verify_client**](docs/ClientsApi.md#verify_client) | **POST** /clients/verify | Verify a client
 *Clerk::SDK.commerce* | [**cancel_commerce_subscription_item**](docs/CommerceApi.md#cancel_commerce_subscription_item) | **DELETE** /commerce/subscription_items/{subscription_item_id} | Cancel a subscription item
-*Clerk::SDK.commerce* | [**extend_commerce_subscription_item_free_trial**](docs/CommerceApi.md#extend_commerce_subscription_item_free_trial) | **POST** /billing/subscription_items/{subscription_item_id}/extend_free_trial | Extend free trial for a subscription item
 *Clerk::SDK.commerce* | [**get_commerce_plan_list**](docs/CommerceApi.md#get_commerce_plan_list) | **GET** /commerce/plans | List all commerce plans
 *Clerk::SDK.commerce* | [**get_commerce_subscription_item_list**](docs/CommerceApi.md#get_commerce_subscription_item_list) | **GET** /commerce/subscription_items | List all subscription items
 *Clerk::SDK.domains* | [**add_domain**](docs/DomainsApi.md#add_domain) | **POST** /domains | Add a domain
@@ -159,7 +155,7 @@ Class | Method | HTTP request | Description
 *Clerk::SDK.saml_connections* | [**update_saml_connection**](docs/SAMLConnectionsApi.md#update_saml_connection) | **PATCH** /saml_connections/{saml_connection_id} | Update a SAML Connection
 *Clerk::SDK.sessions* | [**create_session**](docs/SessionsApi.md#create_session) | **POST** /sessions | Create a new active session
 *Clerk::SDK.sessions* | [**create_session_token**](docs/SessionsApi.md#create_session_token) | **POST** /sessions/{session_id}/tokens | Create a session token
-*Clerk::SDK.sessions* | [**create_session_token_from_template**](docs/SessionsApi.md#create_session_token_from_template) | **POST** /sessions/{session_id}/tokens/{template_name} | Create a session token from a jwt template
+*Clerk::SDK.sessions* | [**create_session_token_from_template**](docs/SessionsApi.md#create_session_token_from_template) | **POST** /sessions/{session_id}/tokens/{template_name} | Create a session token from a JWT template
 *Clerk::SDK.sessions* | [**get_session**](docs/SessionsApi.md#get_session) | **GET** /sessions/{session_id} | Retrieve a session
 *Clerk::SDK.sessions* | [**get_session_list**](docs/SessionsApi.md#get_session_list) | **GET** /sessions | List all sessions
 *Clerk::SDK.sessions* | [**refresh_session**](docs/SessionsApi.md#refresh_session) | **POST** /sessions/{session_id}/refresh | Refresh a session
@@ -208,8 +204,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation for Models
 
- - [ClerkHttpClient::AWSCredential](docs/AWSCredential.md)
- - [ClerkHttpClient::AccountlessApplication](docs/AccountlessApplication.md)
  - [ClerkHttpClient::ActorToken](docs/ActorToken.md)
  - [ClerkHttpClient::AddDomainRequest](docs/AddDomainRequest.md)
  - [ClerkHttpClient::AllowlistIdentifier](docs/AllowlistIdentifier.md)
@@ -267,6 +261,10 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::Domains](docs/Domains.md)
  - [ClerkHttpClient::EmailAddress](docs/EmailAddress.md)
  - [ClerkHttpClient::EmailAddressVerification](docs/EmailAddressVerification.md)
+ - [ClerkHttpClient::EnterpriseAccount](docs/EnterpriseAccount.md)
+ - [ClerkHttpClient::EnterpriseAccountEnterpriseConnection](docs/EnterpriseAccountEnterpriseConnection.md)
+ - [ClerkHttpClient::EnterpriseAccountVerification](docs/EnterpriseAccountVerification.md)
+ - [ClerkHttpClient::EnterpriseConnection](docs/EnterpriseConnection.md)
  - [ClerkHttpClient::ExtendFreeTrialRequest](docs/ExtendFreeTrialRequest.md)
  - [ClerkHttpClient::ExternalAccountWithVerification](docs/ExternalAccountWithVerification.md)
  - [ClerkHttpClient::ExternalAccountWithVerificationVerification](docs/ExternalAccountWithVerificationVerification.md)
@@ -353,7 +351,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::ToggleTemplateDeliveryRequest](docs/ToggleTemplateDeliveryRequest.md)
  - [ClerkHttpClient::Token](docs/Token.md)
  - [ClerkHttpClient::TotalCount](docs/TotalCount.md)
- - [ClerkHttpClient::UpdateAWSCredentialRequest](docs/UpdateAWSCredentialRequest.md)
  - [ClerkHttpClient::UpdateDomainRequest](docs/UpdateDomainRequest.md)
  - [ClerkHttpClient::UpdateEmailAddressRequest](docs/UpdateEmailAddressRequest.md)
  - [ClerkHttpClient::UpdateInstanceAuthConfig200Response](docs/UpdateInstanceAuthConfig200Response.md)
@@ -370,7 +367,6 @@ Class | Method | HTTP request | Description
  - [ClerkHttpClient::UpdatePhoneNumberRequest](docs/UpdatePhoneNumberRequest.md)
  - [ClerkHttpClient::UpdateProductionInstanceDomainRequest](docs/UpdateProductionInstanceDomainRequest.md)
  - [ClerkHttpClient::UpdateSAMLConnectionRequest](docs/UpdateSAMLConnectionRequest.md)
- - [ClerkHttpClient::UpdateSAMLConnectionRequestAttributeMapping](docs/UpdateSAMLConnectionRequestAttributeMapping.md)
  - [ClerkHttpClient::UpdateSignUpRequest](docs/UpdateSignUpRequest.md)
  - [ClerkHttpClient::UpdateUserMetadataRequest](docs/UpdateUserMetadataRequest.md)
  - [ClerkHttpClient::UpdateUserRequest](docs/UpdateUserRequest.md)

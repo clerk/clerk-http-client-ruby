@@ -32,6 +32,9 @@ module ClerkHttpClient
     # Last active session_id. 
     attr_accessor :last_active_session_id
 
+    # The authentication strategy that was last used to authenticate the user on this client. 
+    attr_accessor :last_authentication_strategy
+
     # Unix timestamp of last update. 
     attr_accessor :updated_at
 
@@ -70,6 +73,7 @@ module ClerkHttpClient
         :'sign_in_id' => :'sign_in_id',
         :'sign_up_id' => :'sign_up_id',
         :'last_active_session_id' => :'last_active_session_id',
+        :'last_authentication_strategy' => :'last_authentication_strategy',
         :'updated_at' => :'updated_at',
         :'created_at' => :'created_at'
       }
@@ -90,6 +94,7 @@ module ClerkHttpClient
         :'sign_in_id' => :'String',
         :'sign_up_id' => :'String',
         :'last_active_session_id' => :'String',
+        :'last_authentication_strategy' => :'String',
         :'updated_at' => :'Integer',
         :'created_at' => :'Integer'
       }
@@ -101,6 +106,7 @@ module ClerkHttpClient
         :'sign_in_id',
         :'sign_up_id',
         :'last_active_session_id',
+        :'last_authentication_strategy',
       ])
     end
 
@@ -163,6 +169,12 @@ module ClerkHttpClient
         self.last_active_session_id = attributes[:'last_active_session_id']
       else
         self.last_active_session_id = nil
+      end
+
+      if attributes.key?(:'last_authentication_strategy')
+        self.last_authentication_strategy = attributes[:'last_authentication_strategy']
+      else
+        self.last_authentication_strategy = nil
       end
 
       if attributes.key?(:'updated_at')
@@ -247,6 +259,7 @@ module ClerkHttpClient
           sign_in_id == o.sign_in_id &&
           sign_up_id == o.sign_up_id &&
           last_active_session_id == o.last_active_session_id &&
+          last_authentication_strategy == o.last_authentication_strategy &&
           updated_at == o.updated_at &&
           created_at == o.created_at
     end
@@ -260,7 +273,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, session_ids, sessions, sign_in_id, sign_up_id, last_active_session_id, updated_at, created_at].hash
+      [object, id, session_ids, sessions, sign_in_id, sign_up_id, last_active_session_id, last_authentication_strategy, updated_at, created_at].hash
     end
 
     # Builds the object from hash

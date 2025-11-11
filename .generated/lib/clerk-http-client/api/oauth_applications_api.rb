@@ -20,7 +20,7 @@ module ClerkHttpClient
       @api_client = api_client
     end
     # Create an OAuth application
-    # Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid url. All URL schemes are allowed such as `http://`, `https://`, `myapp://`, etc...
+    # Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid URL. All URL schemes are allowed such as `http://`, `https://`, `myapp://`, etc...
     # @param [Hash] opts the optional parameters
     # @option opts [CreateOAuthApplicationRequest] :create_oauth_application_request 
     # @return [OAuthApplicationWithSecret]
@@ -31,7 +31,7 @@ module ClerkHttpClient
     end
 
     # Create an OAuth application
-    # Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid url. All URL schemes are allowed such as &#x60;http://&#x60;, &#x60;https://&#x60;, &#x60;myapp://&#x60;, etc...
+    # Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid URL. All URL schemes are allowed such as &#x60;http://&#x60;, &#x60;https://&#x60;, &#x60;myapp://&#x60;, etc...
     # @param [Hash] opts the optional parameters
     # @option opts [CreateOAuthApplicationRequest] :create_oauth_application_request 
     # @return [Array<(OAuthApplicationWithSecret, Integer, Hash)>] OAuthApplicationWithSecret data, response status code and response headers

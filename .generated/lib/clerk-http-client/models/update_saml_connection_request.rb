@@ -24,10 +24,10 @@ module ClerkHttpClient
     # A list of the domains on use for the SAML connection
     attr_accessor :domains
 
-    # The entity id as provided by the IdP
+    # The Entity ID as provided by the IdP
     attr_accessor :idp_entity_id
 
-    # The SSO url as provided by the IdP
+    # The SSO URL as provided by the IdP
     attr_accessor :idp_sso_url
 
     # The x509 certificated as provided by the IdP
@@ -59,6 +59,9 @@ module ClerkHttpClient
     # Enable or deactivate additional identifications
     attr_accessor :disable_additional_identifications
 
+    # Enable or deactivate ForceAuthn
+    attr_accessor :force_authn
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -76,7 +79,8 @@ module ClerkHttpClient
         :'sync_user_attributes' => :'sync_user_attributes',
         :'allow_subdomains' => :'allow_subdomains',
         :'allow_idp_initiated' => :'allow_idp_initiated',
-        :'disable_additional_identifications' => :'disable_additional_identifications'
+        :'disable_additional_identifications' => :'disable_additional_identifications',
+        :'force_authn' => :'force_authn'
       }
     end
 
@@ -97,12 +101,13 @@ module ClerkHttpClient
         :'idp_metadata_url' => :'String',
         :'idp_metadata' => :'String',
         :'organization_id' => :'String',
-        :'attribute_mapping' => :'UpdateSAMLConnectionRequestAttributeMapping',
+        :'attribute_mapping' => :'CreateSAMLConnectionRequestAttributeMapping',
         :'active' => :'Boolean',
         :'sync_user_attributes' => :'Boolean',
         :'allow_subdomains' => :'Boolean',
         :'allow_idp_initiated' => :'Boolean',
-        :'disable_additional_identifications' => :'Boolean'
+        :'disable_additional_identifications' => :'Boolean',
+        :'force_authn' => :'Boolean'
       }
     end
 
@@ -123,7 +128,7 @@ module ClerkHttpClient
         :'sync_user_attributes',
         :'allow_subdomains',
         :'allow_idp_initiated',
-        :'disable_additional_identifications'
+        :'disable_additional_identifications',
       ])
     end
 
@@ -203,6 +208,10 @@ module ClerkHttpClient
       if attributes.key?(:'disable_additional_identifications')
         self.disable_additional_identifications = attributes[:'disable_additional_identifications']
       end
+
+      if attributes.key?(:'force_authn')
+        self.force_authn = attributes[:'force_authn']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -239,7 +248,8 @@ module ClerkHttpClient
           sync_user_attributes == o.sync_user_attributes &&
           allow_subdomains == o.allow_subdomains &&
           allow_idp_initiated == o.allow_idp_initiated &&
-          disable_additional_identifications == o.disable_additional_identifications
+          disable_additional_identifications == o.disable_additional_identifications &&
+          force_authn == o.force_authn
     end
 
     # @see the `==` method
@@ -251,7 +261,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [name, domain, domains, idp_entity_id, idp_sso_url, idp_certificate, idp_metadata_url, idp_metadata, organization_id, attribute_mapping, active, sync_user_attributes, allow_subdomains, allow_idp_initiated, disable_additional_identifications].hash
+      [name, domain, domains, idp_entity_id, idp_sso_url, idp_certificate, idp_metadata_url, idp_metadata, organization_id, attribute_mapping, active, sync_user_attributes, allow_subdomains, allow_idp_initiated, disable_additional_identifications, force_authn].hash
     end
 
     # Builds the object from hash

@@ -24,6 +24,9 @@ module ClerkHttpClient
     # The last name to assign to the user
     attr_accessor :last_name
 
+    # The locale to assign to the user (e.g., \"en-US\", \"fr-FR\")
+    attr_accessor :locale
+
     # The ID of the email address to set as primary. It must be verified, and present on the current user.
     attr_accessor :primary_email_address_id
 
@@ -78,7 +81,7 @@ module ClerkHttpClient
     # If true, the user can create organizations with the Frontend API.
     attr_accessor :create_organization_enabled
 
-    # A custom timestamps denoting _when_ the user accepted legal requirements, specified in RFC3339 format (e.g. `2012-10-20T07:15:20.902Z`).
+    # A custom timestamp denoting _when_ the user accepted legal requirements, specified in RFC3339 format (e.g. `2012-10-20T07:15:20.902Z`).
     attr_accessor :legal_accepted_at
 
     # When set to `true` all legal checks are skipped. It is not recommended to skip legal checks unless you are migrating a user to Clerk.
@@ -96,6 +99,7 @@ module ClerkHttpClient
         :'external_id' => :'external_id',
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
+        :'locale' => :'locale',
         :'primary_email_address_id' => :'primary_email_address_id',
         :'notify_primary_email_address_changed' => :'notify_primary_email_address_changed',
         :'primary_phone_number_id' => :'primary_phone_number_id',
@@ -132,6 +136,7 @@ module ClerkHttpClient
         :'external_id' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'locale' => :'String',
         :'primary_email_address_id' => :'String',
         :'notify_primary_email_address_changed' => :'Boolean',
         :'primary_phone_number_id' => :'String',
@@ -163,6 +168,7 @@ module ClerkHttpClient
         :'external_id',
         :'first_name',
         :'last_name',
+        :'locale',
         :'primary_email_address_id',
         :'notify_primary_email_address_changed',
         :'primary_phone_number_id',
@@ -210,6 +216,10 @@ module ClerkHttpClient
 
       if attributes.key?(:'last_name')
         self.last_name = attributes[:'last_name']
+      end
+
+      if attributes.key?(:'locale')
+        self.locale = attributes[:'locale']
       end
 
       if attributes.key?(:'primary_email_address_id')
@@ -334,6 +344,7 @@ module ClerkHttpClient
           external_id == o.external_id &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          locale == o.locale &&
           primary_email_address_id == o.primary_email_address_id &&
           notify_primary_email_address_changed == o.notify_primary_email_address_changed &&
           primary_phone_number_id == o.primary_phone_number_id &&
@@ -367,7 +378,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [external_id, first_name, last_name, primary_email_address_id, notify_primary_email_address_changed, primary_phone_number_id, primary_web3_wallet_id, username, profile_image_id, password, password_digest, password_hasher, skip_password_checks, sign_out_of_other_sessions, totp_secret, backup_codes, public_metadata, private_metadata, unsafe_metadata, delete_self_enabled, create_organization_enabled, legal_accepted_at, skip_legal_checks, create_organizations_limit, created_at].hash
+      [external_id, first_name, last_name, locale, primary_email_address_id, notify_primary_email_address_changed, primary_phone_number_id, primary_web3_wallet_id, username, profile_image_id, password, password_digest, password_hasher, skip_password_checks, sign_out_of_other_sessions, totp_secret, backup_codes, public_metadata, private_metadata, unsafe_metadata, delete_self_enabled, create_organization_enabled, legal_accepted_at, skip_legal_checks, create_organizations_limit, created_at].hash
     end
 
     # Builds the object from hash

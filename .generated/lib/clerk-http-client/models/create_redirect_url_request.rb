@@ -15,7 +15,7 @@ require 'time'
 
 module ClerkHttpClient
   class CreateRedirectURLRequest
-    # The full url value prefixed with `https://` or a custom scheme e.g. `\"https://my-app.com/oauth-callback\"` or `\"my-app://oauth-callback\"`
+    # The full URL value prefixed with `https://` or a custom scheme e.g. `\"https://my-app.com/oauth-callback\"` or `\"my-app://oauth-callback\"`
     attr_accessor :url
 
     # Attribute mapping from ruby-style variable name to JSON key.

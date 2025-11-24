@@ -24,9 +24,6 @@ module ClerkHttpClient
     # Enable the Progressive Sign Up algorithm. Refer to the [docs](https://clerk.com/docs/upgrade-guides/progressive-sign-up) for more info.
     attr_accessor :progressive_sign_up
 
-    # The \"enhanced_email_deliverability\" feature will send emails from \"verifications@clerk.dev\" instead of your domain. This can be helpful if you do not have a high domain reputation.
-    attr_accessor :enhanced_email_deliverability
-
     # Toggles test mode for this instance, allowing the use of test email addresses and phone numbers. Defaults to true for development instances.
     attr_accessor :test_mode
 
@@ -36,7 +33,6 @@ module ClerkHttpClient
         :'restricted_to_allowlist' => :'restricted_to_allowlist',
         :'from_email_address' => :'from_email_address',
         :'progressive_sign_up' => :'progressive_sign_up',
-        :'enhanced_email_deliverability' => :'enhanced_email_deliverability',
         :'test_mode' => :'test_mode'
       }
     end
@@ -52,7 +48,6 @@ module ClerkHttpClient
         :'restricted_to_allowlist' => :'Boolean',
         :'from_email_address' => :'String',
         :'progressive_sign_up' => :'Boolean',
-        :'enhanced_email_deliverability' => :'Boolean',
         :'test_mode' => :'Boolean'
       }
     end
@@ -63,7 +58,6 @@ module ClerkHttpClient
         :'restricted_to_allowlist',
         :'from_email_address',
         :'progressive_sign_up',
-        :'enhanced_email_deliverability',
         :'test_mode'
       ])
     end
@@ -97,10 +91,6 @@ module ClerkHttpClient
         self.progressive_sign_up = attributes[:'progressive_sign_up']
       end
 
-      if attributes.key?(:'enhanced_email_deliverability')
-        self.enhanced_email_deliverability = attributes[:'enhanced_email_deliverability']
-      end
-
       if attributes.key?(:'test_mode')
         self.test_mode = attributes[:'test_mode']
       end
@@ -129,7 +119,6 @@ module ClerkHttpClient
           restricted_to_allowlist == o.restricted_to_allowlist &&
           from_email_address == o.from_email_address &&
           progressive_sign_up == o.progressive_sign_up &&
-          enhanced_email_deliverability == o.enhanced_email_deliverability &&
           test_mode == o.test_mode
     end
 
@@ -142,7 +131,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [restricted_to_allowlist, from_email_address, progressive_sign_up, enhanced_email_deliverability, test_mode].hash
+      [restricted_to_allowlist, from_email_address, progressive_sign_up, test_mode].hash
     end
 
     # Builds the object from hash

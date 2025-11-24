@@ -100,7 +100,7 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-organization_id = 'organization_id_example' # String | The ID of the organization the domain belongs to
+organization_id = 'organization_id_example' # String | The ID of the organization to which the domain belongs
 domain_id = 'domain_id_example' # String | The ID of the domain
 
 begin
@@ -134,7 +134,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** | The ID of the organization the domain belongs to |  |
+| **organization_id** | **String** | The ID of the organization to which the domain belongs |  |
 | **domain_id** | **String** | The ID of the domain |  |
 
 ### Return type
@@ -330,7 +330,7 @@ Clerk.configure do |config|
   config.secret_key = 'sk_test_xxxxxxxxx'
 end
 
-organization_id = 'organization_id_example' # String | The ID of the organization the domain belongs to
+organization_id = 'organization_id_example' # String | The ID of the organization to which the domain belongs
 domain_id = 'domain_id_example' # String | The ID of the domain
 update_organization_domain_request = ClerkHttpClient::UpdateOrganizationDomainRequest.new # UpdateOrganizationDomainRequest | 
 
@@ -365,7 +365,7 @@ end
 
 | Name | Type | Description | Notes |
 | ---- | ---- | ----------- | ----- |
-| **organization_id** | **String** | The ID of the organization the domain belongs to |  |
+| **organization_id** | **String** | The ID of the organization to which the domain belongs |  |
 | **domain_id** | **String** | The ID of the domain |  |
 | **update_organization_domain_request** | [**UpdateOrganizationDomainRequest**](UpdateOrganizationDomainRequest.md) |  |  |
 

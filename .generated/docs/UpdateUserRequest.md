@@ -7,6 +7,7 @@
 | **external_id** | **String** | The ID of the user as used in your external systems or your previous authentication solution. Must be unique across your instance. | [optional] |
 | **first_name** | **String** | The first name to assign to the user | [optional] |
 | **last_name** | **String** | The last name to assign to the user | [optional] |
+| **locale** | **String** | The locale to assign to the user (e.g., \&quot;en-US\&quot;, \&quot;fr-FR\&quot;) | [optional] |
 | **primary_email_address_id** | **String** | The ID of the email address to set as primary. It must be verified, and present on the current user. | [optional] |
 | **notify_primary_email_address_changed** | **Boolean** | If set to &#x60;true&#x60;, the user will be notified that their primary email address has changed. By default, no notification is sent. | [optional][default to false] |
 | **primary_phone_number_id** | **String** | The ID of the phone number to set as primary. It must be verified, and present on the current user. | [optional] |
@@ -25,7 +26,7 @@
 | **unsafe_metadata** | **Hash&lt;String, Object&gt;** | Metadata saved on the user, that can be updated from both the Frontend and Backend APIs. Note: Since this data can be modified from the frontend, it is not guaranteed to be safe. | [optional] |
 | **delete_self_enabled** | **Boolean** | If true, the user can delete themselves with the Frontend API. | [optional] |
 | **create_organization_enabled** | **Boolean** | If true, the user can create organizations with the Frontend API. | [optional] |
-| **legal_accepted_at** | **String** | A custom timestamps denoting _when_ the user accepted legal requirements, specified in RFC3339 format (e.g. &#x60;2012-10-20T07:15:20.902Z&#x60;). | [optional] |
+| **legal_accepted_at** | **String** | A custom timestamp denoting _when_ the user accepted legal requirements, specified in RFC3339 format (e.g. &#x60;2012-10-20T07:15:20.902Z&#x60;). | [optional] |
 | **skip_legal_checks** | **Boolean** | When set to &#x60;true&#x60; all legal checks are skipped. It is not recommended to skip legal checks unless you are migrating a user to Clerk. | [optional] |
 | **create_organizations_limit** | **Integer** | The maximum number of organizations the user can create. 0 means unlimited. | [optional] |
 | **created_at** | **String** | A custom date/time denoting _when_ the user signed up to the application, specified in RFC3339 format (e.g. &#x60;2012-10-20T07:15:20.902Z&#x60;). | [optional] |
@@ -39,6 +40,7 @@ instance = ClerkHttpClient::UpdateUserRequest.new(
   external_id: null,
   first_name: null,
   last_name: null,
+  locale: null,
   primary_email_address_id: null,
   notify_primary_email_address_changed: null,
   primary_phone_number_id: null,

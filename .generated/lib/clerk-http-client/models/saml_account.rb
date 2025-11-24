@@ -32,6 +32,9 @@ module ClerkHttpClient
 
     attr_accessor :provider_user_id
 
+    # Unix timestamp of last authentication. 
+    attr_accessor :last_authenticated_at
+
     attr_accessor :public_metadata
 
     attr_accessor :verification
@@ -71,6 +74,7 @@ module ClerkHttpClient
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
         :'provider_user_id' => :'provider_user_id',
+        :'last_authenticated_at' => :'last_authenticated_at',
         :'public_metadata' => :'public_metadata',
         :'verification' => :'verification',
         :'saml_connection' => :'saml_connection'
@@ -93,6 +97,7 @@ module ClerkHttpClient
         :'first_name' => :'String',
         :'last_name' => :'String',
         :'provider_user_id' => :'String',
+        :'last_authenticated_at' => :'Integer',
         :'public_metadata' => :'Hash<String, Object>',
         :'verification' => :'SAMLAccountVerification',
         :'saml_connection' => :'SAMLAccountSamlConnection'
@@ -105,6 +110,7 @@ module ClerkHttpClient
         :'first_name',
         :'last_name',
         :'provider_user_id',
+        :'last_authenticated_at',
         :'verification',
         :'saml_connection'
       ])
@@ -165,6 +171,10 @@ module ClerkHttpClient
 
       if attributes.key?(:'provider_user_id')
         self.provider_user_id = attributes[:'provider_user_id']
+      end
+
+      if attributes.key?(:'last_authenticated_at')
+        self.last_authenticated_at = attributes[:'last_authenticated_at']
       end
 
       if attributes.key?(:'public_metadata')
@@ -249,6 +259,7 @@ module ClerkHttpClient
           first_name == o.first_name &&
           last_name == o.last_name &&
           provider_user_id == o.provider_user_id &&
+          last_authenticated_at == o.last_authenticated_at &&
           public_metadata == o.public_metadata &&
           verification == o.verification &&
           saml_connection == o.saml_connection
@@ -263,7 +274,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, object, provider, active, email_address, first_name, last_name, provider_user_id, public_metadata, verification, saml_connection].hash
+      [id, object, provider, active, email_address, first_name, last_name, provider_user_id, last_authenticated_at, public_metadata, verification, saml_connection].hash
     end
 
     # Builds the object from hash

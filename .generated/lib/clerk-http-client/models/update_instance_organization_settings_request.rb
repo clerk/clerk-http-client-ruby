@@ -23,6 +23,8 @@ module ClerkHttpClient
 
     attr_accessor :domains_enabled
 
+    attr_accessor :slug_disabled
+
     # Specify which enrollment modes to enable for your Organization Domains. Supported modes are 'automatic_invitation' & 'automatic_suggestion'.
     attr_accessor :domains_enrollment_modes
 
@@ -39,6 +41,7 @@ module ClerkHttpClient
         :'max_allowed_memberships' => :'max_allowed_memberships',
         :'admin_delete_enabled' => :'admin_delete_enabled',
         :'domains_enabled' => :'domains_enabled',
+        :'slug_disabled' => :'slug_disabled',
         :'domains_enrollment_modes' => :'domains_enrollment_modes',
         :'creator_role_id' => :'creator_role_id',
         :'domains_default_role_id' => :'domains_default_role_id'
@@ -57,6 +60,7 @@ module ClerkHttpClient
         :'max_allowed_memberships' => :'Integer',
         :'admin_delete_enabled' => :'Boolean',
         :'domains_enabled' => :'Boolean',
+        :'slug_disabled' => :'Boolean',
         :'domains_enrollment_modes' => :'Array<String>',
         :'creator_role_id' => :'String',
         :'domains_default_role_id' => :'String'
@@ -70,6 +74,7 @@ module ClerkHttpClient
         :'max_allowed_memberships',
         :'admin_delete_enabled',
         :'domains_enabled',
+        :'slug_disabled',
         :'creator_role_id',
         :'domains_default_role_id'
       ])
@@ -104,6 +109,10 @@ module ClerkHttpClient
 
       if attributes.key?(:'domains_enabled')
         self.domains_enabled = attributes[:'domains_enabled']
+      end
+
+      if attributes.key?(:'slug_disabled')
+        self.slug_disabled = attributes[:'slug_disabled']
       end
 
       if attributes.key?(:'domains_enrollment_modes')
@@ -145,6 +154,7 @@ module ClerkHttpClient
           max_allowed_memberships == o.max_allowed_memberships &&
           admin_delete_enabled == o.admin_delete_enabled &&
           domains_enabled == o.domains_enabled &&
+          slug_disabled == o.slug_disabled &&
           domains_enrollment_modes == o.domains_enrollment_modes &&
           creator_role_id == o.creator_role_id &&
           domains_default_role_id == o.domains_default_role_id
@@ -159,7 +169,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [enabled, max_allowed_memberships, admin_delete_enabled, domains_enabled, domains_enrollment_modes, creator_role_id, domains_default_role_id].hash
+      [enabled, max_allowed_memberships, admin_delete_enabled, domains_enabled, slug_disabled, domains_enrollment_modes, creator_role_id, domains_default_role_id].hash
     end
 
     # Builds the object from hash

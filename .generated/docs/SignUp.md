@@ -27,6 +27,7 @@
 | **created_user_id** | **String** |  |  |
 | **abandon_at** | **Integer** | Unix timestamp at which the user abandoned the sign up attempt.  |  |
 | **legal_accepted_at** | **Integer** | Unix timestamp at which the user accepted the legal requirements.  |  |
+| **locale** | **String** | The user locale preference for the sign-up specified as a BCP-47 language tag. | [optional] |
 | **external_account** | **Object** |  | [optional] |
 
 ## Example
@@ -58,6 +59,7 @@ instance = ClerkHttpClient::SignUp.new(
   created_user_id: null,
   abandon_at: 1700690400000,
   legal_accepted_at: 1700690400000,
+  locale: en-US,
   external_account: null
 )
 ```

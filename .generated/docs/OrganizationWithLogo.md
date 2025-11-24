@@ -20,6 +20,7 @@
 | **created_by** | **String** |  | [optional] |
 | **created_at** | **Integer** | Unix timestamp of creation.  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
+| **last_active_at** | **Integer** | Unix timestamp of last activity.  | [optional] |
 | **logo_url** | **String** |  | [optional] |
 
 ## Example
@@ -44,6 +45,7 @@ instance = ClerkHttpClient::OrganizationWithLogo.new(
   created_by: null,
   created_at: null,
   updated_at: null,
+  last_active_at: null,
   logo_url: null
 )
 ```

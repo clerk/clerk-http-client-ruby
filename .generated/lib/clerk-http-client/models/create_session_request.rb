@@ -18,10 +18,14 @@ module ClerkHttpClient
     # The ID representing the user
     attr_accessor :user_id
 
+    # The ID of the organization to set as active for this session
+    attr_accessor :active_organization_id
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'user_id' => :'user_id'
+        :'user_id' => :'user_id',
+        :'active_organization_id' => :'active_organization_id'
       }
     end
 
@@ -33,7 +37,8 @@ module ClerkHttpClient
     # Attribute type mapping.
     def self.openapi_types
       {
-        :'user_id' => :'String'
+        :'user_id' => :'String',
+        :'active_organization_id' => :'String'
       }
     end
 
@@ -63,6 +68,10 @@ module ClerkHttpClient
       else
         self.user_id = nil
       end
+
+      if attributes.key?(:'active_organization_id')
+        self.active_organization_id = attributes[:'active_organization_id']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -90,7 +99,8 @@ module ClerkHttpClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          user_id == o.user_id
+          user_id == o.user_id &&
+          active_organization_id == o.active_organization_id
     end
 
     # @see the `==` method
@@ -102,7 +112,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [user_id].hash
+      [user_id, active_organization_id].hash
     end
 
     # Builds the object from hash

@@ -6,7 +6,6 @@
 | ---- | ---- | ----------- | ----- |
 | **test_mode** | **Boolean** | Toggles test mode for this instance, allowing the use of test email addresses and phone numbers. Defaults to true for development instances. | [optional] |
 | **hibp** | **Boolean** | Whether the instance should be using the HIBP service to check passwords for breaches | [optional] |
-| **enhanced_email_deliverability** | **Boolean** | The \&quot;enhanced_email_deliverability\&quot; feature will send emails from \&quot;verifications@clerk.dev\&quot; instead of your domain. This can be helpful if you do not have a high domain reputation. | [optional] |
 | **support_email** | **String** |  | [optional] |
 | **clerk_js_version** | **String** |  | [optional] |
 | **development_origin** | **String** |  | [optional] |
@@ -22,7 +21,6 @@ require 'clerk-http-client'
 instance = ClerkHttpClient::UpdateInstanceRequest.new(
   test_mode: null,
   hibp: null,
-  enhanced_email_deliverability: null,
   support_email: null,
   clerk_js_version: null,
   development_origin: null,

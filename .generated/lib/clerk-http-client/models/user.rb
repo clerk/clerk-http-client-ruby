@@ -34,6 +34,8 @@ module ClerkHttpClient
 
     attr_accessor :last_name
 
+    attr_accessor :locale
+
     attr_accessor :profile_image_url
 
     attr_accessor :image_url
@@ -68,9 +70,16 @@ module ClerkHttpClient
     # Unix timestamp of when MFA was last disabled for this user. It should be noted that this field is not nullified if MFA is enabled again. 
     attr_accessor :mfa_disabled_at
 
+    # Unix timestamp of when the user's password was last updated. 
+    attr_accessor :password_last_updated_at
+
     attr_accessor :external_accounts
 
     attr_accessor :saml_accounts
+
+    attr_accessor :enterprise_accounts
+
+    attr_accessor :organization_memberships
 
     # Unix timestamp of last sign-in. 
     attr_accessor :last_sign_in_at
@@ -142,6 +151,7 @@ module ClerkHttpClient
         :'username' => :'username',
         :'first_name' => :'first_name',
         :'last_name' => :'last_name',
+        :'locale' => :'locale',
         :'profile_image_url' => :'profile_image_url',
         :'image_url' => :'image_url',
         :'has_image' => :'has_image',
@@ -158,8 +168,11 @@ module ClerkHttpClient
         :'backup_code_enabled' => :'backup_code_enabled',
         :'mfa_enabled_at' => :'mfa_enabled_at',
         :'mfa_disabled_at' => :'mfa_disabled_at',
+        :'password_last_updated_at' => :'password_last_updated_at',
         :'external_accounts' => :'external_accounts',
         :'saml_accounts' => :'saml_accounts',
+        :'enterprise_accounts' => :'enterprise_accounts',
+        :'organization_memberships' => :'organization_memberships',
         :'last_sign_in_at' => :'last_sign_in_at',
         :'banned' => :'banned',
         :'locked' => :'locked',
@@ -192,6 +205,7 @@ module ClerkHttpClient
         :'username' => :'String',
         :'first_name' => :'String',
         :'last_name' => :'String',
+        :'locale' => :'String',
         :'profile_image_url' => :'String',
         :'image_url' => :'String',
         :'has_image' => :'Boolean',
@@ -208,8 +222,11 @@ module ClerkHttpClient
         :'backup_code_enabled' => :'Boolean',
         :'mfa_enabled_at' => :'Integer',
         :'mfa_disabled_at' => :'Integer',
+        :'password_last_updated_at' => :'Integer',
         :'external_accounts' => :'Array<ExternalAccountWithVerification>',
         :'saml_accounts' => :'Array<SAMLAccount>',
+        :'enterprise_accounts' => :'Array<EnterpriseAccount>',
+        :'organization_memberships' => :'Array<OrganizationMembership>',
         :'last_sign_in_at' => :'Integer',
         :'banned' => :'Boolean',
         :'locked' => :'Boolean',
@@ -235,9 +252,11 @@ module ClerkHttpClient
         :'username',
         :'first_name',
         :'last_name',
+        :'locale',
         :'private_metadata',
         :'mfa_enabled_at',
         :'mfa_disabled_at',
+        :'password_last_updated_at',
         :'last_sign_in_at',
         :'lockout_expires_in_seconds',
         :'verification_attempts_remaining',
@@ -314,6 +333,10 @@ module ClerkHttpClient
         self.last_name = attributes[:'last_name']
       else
         self.last_name = nil
+      end
+
+      if attributes.key?(:'locale')
+        self.locale = attributes[:'locale']
       end
 
       if attributes.key?(:'profile_image_url')
@@ -418,6 +441,10 @@ module ClerkHttpClient
         self.mfa_disabled_at = nil
       end
 
+      if attributes.key?(:'password_last_updated_at')
+        self.password_last_updated_at = attributes[:'password_last_updated_at']
+      end
+
       if attributes.key?(:'external_accounts')
         if (value = attributes[:'external_accounts']).is_a?(Array)
           self.external_accounts = value
@@ -432,6 +459,20 @@ module ClerkHttpClient
         end
       else
         self.saml_accounts = nil
+      end
+
+      if attributes.key?(:'enterprise_accounts')
+        if (value = attributes[:'enterprise_accounts']).is_a?(Array)
+          self.enterprise_accounts = value
+        end
+      else
+        self.enterprise_accounts = nil
+      end
+
+      if attributes.key?(:'organization_memberships')
+        if (value = attributes[:'organization_memberships']).is_a?(Array)
+          self.organization_memberships = value
+        end
       end
 
       if attributes.key?(:'last_sign_in_at')
@@ -566,6 +607,10 @@ module ClerkHttpClient
         invalid_properties.push('invalid value for "saml_accounts", saml_accounts cannot be nil.')
       end
 
+      if @enterprise_accounts.nil?
+        invalid_properties.push('invalid value for "enterprise_accounts", enterprise_accounts cannot be nil.')
+      end
+
       if @banned.nil?
         invalid_properties.push('invalid value for "banned", banned cannot be nil.')
       end
@@ -613,6 +658,7 @@ module ClerkHttpClient
       return false if @backup_code_enabled.nil?
       return false if @external_accounts.nil?
       return false if @saml_accounts.nil?
+      return false if @enterprise_accounts.nil?
       return false if @banned.nil?
       return false if @locked.nil?
       return false if @updated_at.nil?
@@ -646,6 +692,7 @@ module ClerkHttpClient
           username == o.username &&
           first_name == o.first_name &&
           last_name == o.last_name &&
+          locale == o.locale &&
           profile_image_url == o.profile_image_url &&
           image_url == o.image_url &&
           has_image == o.has_image &&
@@ -662,8 +709,11 @@ module ClerkHttpClient
           backup_code_enabled == o.backup_code_enabled &&
           mfa_enabled_at == o.mfa_enabled_at &&
           mfa_disabled_at == o.mfa_disabled_at &&
+          password_last_updated_at == o.password_last_updated_at &&
           external_accounts == o.external_accounts &&
           saml_accounts == o.saml_accounts &&
+          enterprise_accounts == o.enterprise_accounts &&
+          organization_memberships == o.organization_memberships &&
           last_sign_in_at == o.last_sign_in_at &&
           banned == o.banned &&
           locked == o.locked &&
@@ -687,7 +737,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [id, object, external_id, primary_email_address_id, primary_phone_number_id, primary_web3_wallet_id, username, first_name, last_name, profile_image_url, image_url, has_image, public_metadata, private_metadata, unsafe_metadata, email_addresses, phone_numbers, web3_wallets, passkeys, password_enabled, two_factor_enabled, totp_enabled, backup_code_enabled, mfa_enabled_at, mfa_disabled_at, external_accounts, saml_accounts, last_sign_in_at, banned, locked, lockout_expires_in_seconds, verification_attempts_remaining, updated_at, created_at, delete_self_enabled, create_organization_enabled, create_organizations_limit, last_active_at, legal_accepted_at].hash
+      [id, object, external_id, primary_email_address_id, primary_phone_number_id, primary_web3_wallet_id, username, first_name, last_name, locale, profile_image_url, image_url, has_image, public_metadata, private_metadata, unsafe_metadata, email_addresses, phone_numbers, web3_wallets, passkeys, password_enabled, two_factor_enabled, totp_enabled, backup_code_enabled, mfa_enabled_at, mfa_disabled_at, password_last_updated_at, external_accounts, saml_accounts, enterprise_accounts, organization_memberships, last_sign_in_at, banned, locked, lockout_expires_in_seconds, verification_attempts_remaining, updated_at, created_at, delete_self_enabled, create_organization_enabled, create_organizations_limit, last_active_at, legal_accepted_at].hash
     end
 
     # Builds the object from hash

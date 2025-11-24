@@ -86,7 +86,7 @@ module ClerkHttpClient
     end
 
     # Delete an organization
-    # Deletes the given organization. Please note that deleting an organization will also delete all memberships and invitations. This is not reversible.
+    # Deletes the given organization. Please note that deleting an organization will also delete all memberships and invitations. This is not reversible.  After the organization is deleted, any user's active sessions that contain the deleted organization will be cleared.
     # @param organization_id [String] The ID of the organization to delete
     # @param [Hash] opts the optional parameters
     # @return [DeletedObject]
@@ -97,7 +97,7 @@ module ClerkHttpClient
     end
 
     # Delete an organization
-    # Deletes the given organization. Please note that deleting an organization will also delete all memberships and invitations. This is not reversible.
+    # Deletes the given organization. Please note that deleting an organization will also delete all memberships and invitations. This is not reversible.  After the organization is deleted, any user&#39;s active sessions that contain the deleted organization will be cleared.
     # @param organization_id [String] The ID of the organization to delete
     # @param [Hash] opts the optional parameters
     # @return [Array<(DeletedObject, Integer, Hash)>] DeletedObject data, response status code and response headers
@@ -357,8 +357,8 @@ module ClerkHttpClient
     # @option opts [Boolean] :include_members_count Flag to denote whether the member counts of each organization should be included in the response or not.
     # @option opts [Boolean] :include_missing_member_with_elevated_permissions Flag to denote whether or not to include a member with elevated permissions who is not currently a member of the organization.
     # @option opts [String] :query Returns organizations with ID, name, or slug that match the given query. Uses exact match for organization ID and partial match for name and slug.
-    # @option opts [Array<String>] :user_id Returns organizations with the user ids specified. Any user ids not found are ignored. For each user id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set.
-    # @option opts [Array<String>] :organization_id Returns organizations with the organization ids specified. Any organization ids not found are ignored. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids. Example: ?organization_id&#x3D;+org_1&amp;organization_id&#x3D;-org_2
+    # @option opts [Array<String>] :user_id Returns organizations that include any of the specified user IDs as members. Any user IDs not found are ignored. For each user ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective organization should be included or excluded from the result set.
+    # @option opts [Array<String>] :organization_id Returns organizations with the organization IDs specified. Any organization IDs not found are ignored. For each organization ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization IDs. Example: ?organization_id&#x3D;+org_1&amp;organization_id&#x3D;-org_2
     # @option opts [String] :order_by Allows to return organizations in a particular order. At the moment, you can order the returned organizations either by their &#x60;name&#x60;, &#x60;created_at&#x60; or &#x60;members_count&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want organizations to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. (default to '-created_at')
     # @option opts [Integer] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
     # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
@@ -375,8 +375,8 @@ module ClerkHttpClient
     # @option opts [Boolean] :include_members_count Flag to denote whether the member counts of each organization should be included in the response or not.
     # @option opts [Boolean] :include_missing_member_with_elevated_permissions Flag to denote whether or not to include a member with elevated permissions who is not currently a member of the organization.
     # @option opts [String] :query Returns organizations with ID, name, or slug that match the given query. Uses exact match for organization ID and partial match for name and slug.
-    # @option opts [Array<String>] :user_id Returns organizations with the user ids specified. Any user ids not found are ignored. For each user id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set.
-    # @option opts [Array<String>] :organization_id Returns organizations with the organization ids specified. Any organization ids not found are ignored. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids. Example: ?organization_id&#x3D;+org_1&amp;organization_id&#x3D;-org_2
+    # @option opts [Array<String>] :user_id Returns organizations that include any of the specified user IDs as members. Any user IDs not found are ignored. For each user ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective organization should be included or excluded from the result set.
+    # @option opts [Array<String>] :organization_id Returns organizations with the organization IDs specified. Any organization IDs not found are ignored. For each organization ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization IDs. Example: ?organization_id&#x3D;+org_1&amp;organization_id&#x3D;-org_2
     # @option opts [String] :order_by Allows to return organizations in a particular order. At the moment, you can order the returned organizations either by their &#x60;name&#x60;, &#x60;created_at&#x60; or &#x60;members_count&#x60;. In order to specify the direction, you can use the &#x60;+/-&#x60; symbols prepended in the property to order by. For example, if you want organizations to be returned in descending order according to their &#x60;created_at&#x60; property, you can use &#x60;-created_at&#x60;. If you don&#39;t use &#x60;+&#x60; or &#x60;-&#x60;, then &#x60;+&#x60; is implied. Defaults to &#x60;-created_at&#x60;. (default to '-created_at')
     # @option opts [Integer] :limit Applies a limit to the number of results returned. Can be used for paginating the results together with &#x60;offset&#x60;. (default to 10)
     # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)

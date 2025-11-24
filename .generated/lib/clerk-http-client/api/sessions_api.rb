@@ -157,10 +157,10 @@ module ClerkHttpClient
       return data, status_code, headers
     end
 
-    # Create a session token from a jwt template
-    # Creates a JSON Web Token(JWT) based on a session and a JWT Template name defined for your instance
+    # Create a session token from a JWT template
+    # Creates a JSON Web Token (JWT) based on a session and a JWT Template name defined for your instance
     # @param session_id [String] The ID of the session
-    # @param template_name [String] The name of the JWT Template defined in your instance (e.g. &#x60;custom_hasura&#x60;).
+    # @param template_name [String] The name of the JWT template defined in your instance (e.g. &#x60;custom_hasura&#x60;).
     # @param [Hash] opts the optional parameters
     # @option opts [CreateSessionTokenFromTemplateRequest] :create_session_token_from_template_request 
     # @return [CreateSessionToken200Response]
@@ -170,10 +170,10 @@ module ClerkHttpClient
       data
     end
 
-    # Create a session token from a jwt template
-    # Creates a JSON Web Token(JWT) based on a session and a JWT Template name defined for your instance
+    # Create a session token from a JWT template
+    # Creates a JSON Web Token (JWT) based on a session and a JWT Template name defined for your instance
     # @param session_id [String] The ID of the session
-    # @param template_name [String] The name of the JWT Template defined in your instance (e.g. &#x60;custom_hasura&#x60;).
+    # @param template_name [String] The name of the JWT template defined in your instance (e.g. &#x60;custom_hasura&#x60;).
     # @param [Hash] opts the optional parameters
     # @option opts [CreateSessionTokenFromTemplateRequest] :create_session_token_from_template_request 
     # @return [Array<(CreateSessionToken200Response, Integer, Hash)>] CreateSessionToken200Response data, response status code and response headers

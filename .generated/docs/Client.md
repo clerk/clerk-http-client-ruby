@@ -11,6 +11,7 @@
 | **sign_in_id** | **String** |  |  |
 | **sign_up_id** | **String** |  |  |
 | **last_active_session_id** | **String** | Last active session_id.  |  |
+| **last_authentication_strategy** | **String** | The authentication strategy that was last used to authenticate the user on this client.  |  |
 | **updated_at** | **Integer** | Unix timestamp of last update.  |  |
 | **created_at** | **Integer** | Unix timestamp of creation.  |  |
 
@@ -27,6 +28,7 @@ instance = ClerkHttpClient::Client.new(
   sign_in_id: null,
   sign_up_id: null,
   last_active_session_id: null,
+  last_authentication_strategy: null,
   updated_at: null,
   created_at: null
 )

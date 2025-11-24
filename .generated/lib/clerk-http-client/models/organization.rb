@@ -49,6 +49,9 @@ module ClerkHttpClient
     # Unix timestamp of last update. 
     attr_accessor :updated_at
 
+    # Unix timestamp of last activity. 
+    attr_accessor :last_active_at
+
     class EnumAttributeValidator
       attr_reader :datatype
       attr_reader :allowable_values
@@ -89,7 +92,8 @@ module ClerkHttpClient
         :'private_metadata' => :'private_metadata',
         :'created_by' => :'created_by',
         :'created_at' => :'created_at',
-        :'updated_at' => :'updated_at'
+        :'updated_at' => :'updated_at',
+        :'last_active_at' => :'last_active_at'
       }
     end
 
@@ -116,7 +120,8 @@ module ClerkHttpClient
         :'private_metadata' => :'Hash<String, Object>',
         :'created_by' => :'String',
         :'created_at' => :'Integer',
-        :'updated_at' => :'Integer'
+        :'updated_at' => :'Integer',
+        :'last_active_at' => :'Integer'
       }
     end
 
@@ -228,6 +233,10 @@ module ClerkHttpClient
       else
         self.updated_at = nil
       end
+
+      if attributes.key?(:'last_active_at')
+        self.last_active_at = attributes[:'last_active_at']
+      end
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -327,7 +336,8 @@ module ClerkHttpClient
           private_metadata == o.private_metadata &&
           created_by == o.created_by &&
           created_at == o.created_at &&
-          updated_at == o.updated_at
+          updated_at == o.updated_at &&
+          last_active_at == o.last_active_at
     end
 
     # @see the `==` method
@@ -339,7 +349,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, id, name, slug, image_url, has_image, members_count, missing_member_with_elevated_permissions, pending_invitations_count, max_allowed_memberships, admin_delete_enabled, public_metadata, private_metadata, created_by, created_at, updated_at].hash
+      [object, id, name, slug, image_url, has_image, members_count, missing_member_with_elevated_permissions, pending_invitations_count, max_allowed_memberships, admin_delete_enabled, public_metadata, private_metadata, created_by, created_at, updated_at, last_active_at].hash
     end
 
     # Builds the object from hash

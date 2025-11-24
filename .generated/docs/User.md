@@ -13,6 +13,7 @@
 | **username** | **String** |  |  |
 | **first_name** | **String** |  |  |
 | **last_name** | **String** |  |  |
+| **locale** | **String** |  | [optional] |
 | **profile_image_url** | **String** |  | [optional] |
 | **image_url** | **String** |  | [optional] |
 | **has_image** | **Boolean** |  |  |
@@ -29,8 +30,11 @@
 | **backup_code_enabled** | **Boolean** |  |  |
 | **mfa_enabled_at** | **Integer** | Unix timestamp of when MFA was last enabled for this user. It should be noted that this field is not nullified if MFA is disabled.  |  |
 | **mfa_disabled_at** | **Integer** | Unix timestamp of when MFA was last disabled for this user. It should be noted that this field is not nullified if MFA is enabled again.  |  |
+| **password_last_updated_at** | **Integer** | Unix timestamp of when the user&#39;s password was last updated.  | [optional] |
 | **external_accounts** | [**Array&lt;ExternalAccountWithVerification&gt;**](ExternalAccountWithVerification.md) |  |  |
 | **saml_accounts** | [**Array&lt;SAMLAccount&gt;**](SAMLAccount.md) |  |  |
+| **enterprise_accounts** | [**Array&lt;EnterpriseAccount&gt;**](EnterpriseAccount.md) |  |  |
+| **organization_memberships** | [**Array&lt;OrganizationMembership&gt;**](OrganizationMembership.md) |  | [optional] |
 | **last_sign_in_at** | **Integer** | Unix timestamp of last sign-in.  |  |
 | **banned** | **Boolean** | Flag to denote whether user is banned or not.  |  |
 | **locked** | **Boolean** | Flag to denote whether user is currently locked, i.e. restricted from signing in or not.  |  |
@@ -59,6 +63,7 @@ instance = ClerkHttpClient::User.new(
   username: null,
   first_name: null,
   last_name: null,
+  locale: null,
   profile_image_url: null,
   image_url: null,
   has_image: null,
@@ -75,8 +80,11 @@ instance = ClerkHttpClient::User.new(
   backup_code_enabled: null,
   mfa_enabled_at: null,
   mfa_disabled_at: null,
+  password_last_updated_at: null,
   external_accounts: null,
   saml_accounts: null,
+  enterprise_accounts: null,
+  organization_memberships: null,
   last_sign_in_at: null,
   banned: null,
   locked: null,

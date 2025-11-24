@@ -20,7 +20,7 @@ module ClerkHttpClient
       @api_client = api_client
     end
     # Create multiple invitations
-    # Use this API operation to create multiple invitations for the provided email addresses. You can choose to send the invitations as emails by setting the `notify` parameter to `true`. There cannot be an existing invitation for any of the email addresses you provide unless you set `ignore_existing` to `true` for specific email addresses. Please note that there must be no existing user for any of the email addresses you provide, and this rule cannot be bypassed.
+    # Use this API operation to create multiple invitations for the provided email addresses. You can choose to send the invitations as emails by setting the `notify` parameter to `true`. There cannot be an existing invitation for any of the email addresses you provide unless you set `ignore_existing` to `true` for specific email addresses. Please note that there must be no existing user for any of the email addresses you provide, and this rule cannot be bypassed.  This endpoint is limited to a maximum of 10 invitations per API call. If you need to send more invitations, please make multiple requests.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<CreateBulkInvitationsRequestInner>] :create_bulk_invitations_request_inner Required parameters
     # @return [Array<Invitation>]
@@ -31,7 +31,7 @@ module ClerkHttpClient
     end
 
     # Create multiple invitations
-    # Use this API operation to create multiple invitations for the provided email addresses. You can choose to send the invitations as emails by setting the &#x60;notify&#x60; parameter to &#x60;true&#x60;. There cannot be an existing invitation for any of the email addresses you provide unless you set &#x60;ignore_existing&#x60; to &#x60;true&#x60; for specific email addresses. Please note that there must be no existing user for any of the email addresses you provide, and this rule cannot be bypassed.
+    # Use this API operation to create multiple invitations for the provided email addresses. You can choose to send the invitations as emails by setting the &#x60;notify&#x60; parameter to &#x60;true&#x60;. There cannot be an existing invitation for any of the email addresses you provide unless you set &#x60;ignore_existing&#x60; to &#x60;true&#x60; for specific email addresses. Please note that there must be no existing user for any of the email addresses you provide, and this rule cannot be bypassed.  This endpoint is limited to a maximum of 10 invitations per API call. If you need to send more invitations, please make multiple requests.
     # @param [Hash] opts the optional parameters
     # @option opts [Array<CreateBulkInvitationsRequestInner>] :create_bulk_invitations_request_inner Required parameters
     # @return [Array<(Array<Invitation>, Integer, Hash)>] Array<Invitation> data, response status code and response headers
@@ -40,6 +40,14 @@ module ClerkHttpClient
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: InvitationsApi.create_bulk_invitations ...'
       end
+      if @api_client.config.client_side_validation && !opts[:'create_bulk_invitations_request_inner'].nil? && opts[:'create_bulk_invitations_request_inner'].length > 10
+        fail ArgumentError, 'invalid value for "opts[:"create_bulk_invitations_request_inner"]" when calling InvitationsApi.create_bulk_invitations, number of items must be less than or equal to 10.'
+      end
+
+      if @api_client.config.client_side_validation && !opts[:'create_bulk_invitations_request_inner'].nil? && opts[:'create_bulk_invitations_request_inner'].length < 1
+        fail ArgumentError, 'invalid value for "opts[:"create_bulk_invitations_request_inner"]" when calling InvitationsApi.create_bulk_invitations, number of items must be greater than or equal to 1.'
+      end
+
       # resource path
       local_var_path = '/invitations/bulk'
 

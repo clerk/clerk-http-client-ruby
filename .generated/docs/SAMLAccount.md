@@ -12,6 +12,7 @@
 | **first_name** | **String** |  | [optional] |
 | **last_name** | **String** |  | [optional] |
 | **provider_user_id** | **String** |  | [optional] |
+| **last_authenticated_at** | **Integer** | Unix timestamp of last authentication.  | [optional] |
 | **public_metadata** | **Hash&lt;String, Object&gt;** |  | [optional] |
 | **verification** | [**SAMLAccountVerification**](SAMLAccountVerification.md) |  |  |
 | **saml_connection** | [**SAMLAccountSamlConnection**](SAMLAccountSamlConnection.md) |  | [optional] |
@@ -30,6 +31,7 @@ instance = ClerkHttpClient::SAMLAccount.new(
   first_name: null,
   last_name: null,
   provider_user_id: null,
+  last_authenticated_at: null,
   public_metadata: null,
   verification: null,
   saml_connection: null

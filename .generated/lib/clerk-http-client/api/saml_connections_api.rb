@@ -222,7 +222,7 @@ module ClerkHttpClient
     # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
     # @option opts [String] :query Returns SAML connections that have a name that matches the given query, via case-insensitive partial match.
     # @option opts [String] :order_by Sorts organizations memberships by phone_number, email_address, created_at, first_name, last_name or username. By prepending one of those values with + or -, we can choose to sort in ascending (ASC) or descending (DESC) order.
-    # @option opts [Array<String>] :organization_id Returns SAML connections that have an associated organization ID to the given organizations. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids.
+    # @option opts [Array<String>] :organization_id Returns SAML connections that have an associated organization ID to the given organizations. For each organization ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization IDs.
     # @return [SAMLConnections]
 
     def list_saml_connections(opts = {})
@@ -237,7 +237,7 @@ module ClerkHttpClient
     # @option opts [Integer] :offset Skip the first &#x60;offset&#x60; results when paginating. Needs to be an integer greater or equal to zero. To be used in conjunction with &#x60;limit&#x60;. (default to 0)
     # @option opts [String] :query Returns SAML connections that have a name that matches the given query, via case-insensitive partial match.
     # @option opts [String] :order_by Sorts organizations memberships by phone_number, email_address, created_at, first_name, last_name or username. By prepending one of those values with + or -, we can choose to sort in ascending (ASC) or descending (DESC) order.
-    # @option opts [Array<String>] :organization_id Returns SAML connections that have an associated organization ID to the given organizations. For each organization id, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the id, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization ids.
+    # @option opts [Array<String>] :organization_id Returns SAML connections that have an associated organization ID to the given organizations. For each organization ID, the &#x60;+&#x60; and &#x60;-&#x60; can be prepended to the ID, which denote whether the respective organization should be included or excluded from the result set. Accepts up to 100 organization IDs.
     # @return [Array<(SAMLConnections, Integer, Hash)>] SAMLConnections data, response status code and response headers
     # GET 
     def list_saml_connections_with_http_info(opts = {})

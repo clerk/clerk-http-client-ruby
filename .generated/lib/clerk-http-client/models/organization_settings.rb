@@ -35,10 +35,15 @@ module ClerkHttpClient
 
     attr_accessor :domains_enabled
 
+    attr_accessor :slug_disabled
+
     attr_accessor :domains_enrollment_modes
 
     # The role key that it will be used in order to create an organization invitation or suggestion.
     attr_accessor :domains_default_role
+
+    # The role set key that it will be used to create new organizations.
+    attr_accessor :initial_role_set_key
 
     class EnumAttributeValidator
       attr_reader :datatype
@@ -73,8 +78,10 @@ module ClerkHttpClient
         :'creator_role' => :'creator_role',
         :'admin_delete_enabled' => :'admin_delete_enabled',
         :'domains_enabled' => :'domains_enabled',
+        :'slug_disabled' => :'slug_disabled',
         :'domains_enrollment_modes' => :'domains_enrollment_modes',
-        :'domains_default_role' => :'domains_default_role'
+        :'domains_default_role' => :'domains_default_role',
+        :'initial_role_set_key' => :'initial_role_set_key'
       }
     end
 
@@ -94,14 +101,17 @@ module ClerkHttpClient
         :'creator_role' => :'String',
         :'admin_delete_enabled' => :'Boolean',
         :'domains_enabled' => :'Boolean',
+        :'slug_disabled' => :'Boolean',
         :'domains_enrollment_modes' => :'Array<String>',
-        :'domains_default_role' => :'String'
+        :'domains_default_role' => :'String',
+        :'initial_role_set_key' => :'String'
       }
     end
 
     # List of attributes with nullable: true
     def self.openapi_nullable
       Set.new([
+        :'initial_role_set_key'
       ])
     end
 
@@ -166,6 +176,10 @@ module ClerkHttpClient
         self.domains_enabled = nil
       end
 
+      if attributes.key?(:'slug_disabled')
+        self.slug_disabled = attributes[:'slug_disabled']
+      end
+
       if attributes.key?(:'domains_enrollment_modes')
         if (value = attributes[:'domains_enrollment_modes']).is_a?(Array)
           self.domains_enrollment_modes = value
@@ -178,6 +192,10 @@ module ClerkHttpClient
         self.domains_default_role = attributes[:'domains_default_role']
       else
         self.domains_default_role = nil
+      end
+
+      if attributes.key?(:'initial_role_set_key')
+        self.initial_role_set_key = attributes[:'initial_role_set_key']
       end
     end
 
@@ -266,8 +284,10 @@ module ClerkHttpClient
           creator_role == o.creator_role &&
           admin_delete_enabled == o.admin_delete_enabled &&
           domains_enabled == o.domains_enabled &&
+          slug_disabled == o.slug_disabled &&
           domains_enrollment_modes == o.domains_enrollment_modes &&
-          domains_default_role == o.domains_default_role
+          domains_default_role == o.domains_default_role &&
+          initial_role_set_key == o.initial_role_set_key
     end
 
     # @see the `==` method
@@ -279,7 +299,7 @@ module ClerkHttpClient
     # Calculates hash code according to all attributes.
     # @return [Integer] Hash code
     def hash
-      [object, enabled, max_allowed_memberships, max_allowed_roles, max_allowed_permissions, creator_role, admin_delete_enabled, domains_enabled, domains_enrollment_modes, domains_default_role].hash
+      [object, enabled, max_allowed_memberships, max_allowed_roles, max_allowed_permissions, creator_role, admin_delete_enabled, domains_enabled, slug_disabled, domains_enrollment_modes, domains_default_role, initial_role_set_key].hash
     end
 
     # Builds the object from hash

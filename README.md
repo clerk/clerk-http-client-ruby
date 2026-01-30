@@ -1,6 +1,12 @@
-# Custom OpenAPI Generator - Clerk Ruby
+# Custom OpenAPI Generator - Clerk Ruby (DEPRECATED)
 
 This project provides a custom OpenAPI Generator that extends the default Ruby generator to output model names in snake_case format.
+
+## Project Status
+
+`clerk-http-client-ruby` has been marked as deprecated in favor of OpenAPI-based generation directly within [clerk/clerk-sdk-ruby](http://github.com/clerk/clerk-sdk-ruby).
+
+Breaking changes can be found in the [Clerk Docs](https://clerk.com/docs/reference/ruby/v5-upgrade-guide).
 
 ## Building the Project
 
